@@ -12,6 +12,6 @@
   },
   "scripts": {
     "build": "webpack watch",
-    "dev-server": "webpack serve --open"
+    "dev": "webpack serve --open"
   }
 }
