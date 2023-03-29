@@ -1,0 +1,238 @@
+html {
+  font-family: "Roboto";
+}
+
+#pageWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#heroSectionContent {
+  height: 100%;
+  width: 100%;
+  max-width: 1920px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+/* 
+-----------------NAVBAR-----------------
+ */
+
+#navbar {
+  background-color: #150e19;
+  height: 11rem;
+  width: 75%;
+  position: fixed;
+  color: white;
+  list-style: none;
+  z-index: 10;
+  max-width: 1600px;
+}
+
+#navbarList {
+  display: flex;
+  padding: 0;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navListItem {
+  background-color: #ca2852;
+  list-style: none;
+  width: 5rem;
+  height: 5rem;
+  margin-right: 2.5rem;
+  box-shadow: 20px 20px 2px 0px rgba(132, 39, 49, 0.75);
+  -webkit-box-shadow: 20px 20px 2px 0px rgba(132, 39, 49, 0.75);
+  -moz-box-shadow: 20px 20px 2px 0px rgba(132, 39, 49, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbarLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+#logo {
+  list-style: none;
+  background-color: black;
+  width: 11rem;
+  height: 11rem;
+  margin-left: 10rem;
+  margin-right: 5rem;
+  position: relative;
+  top: 4rem;
+  border: 1rem solid white;
+}
+
+#logoSvg {
+  position: relative;
+  top: -2rem;
+}
+
+/* 
+-----------------HERO SECTION-----------------
+ */
+#heroSection {
+  background-color: pink;
+  height: 65rem;
+  width: 100%;
+  background-image: url(/public//heroSection/heroImage.png);
+  /* background-image: url(/public/backgroundTest.jpg); */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#aboutUsTextBox {
+  background-color: white;
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10rem;
+  box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 900px) {
+  #aboutUsTextBox {
+    width: 100%;
+    margin-bottom: 5rem;
+  }
+}
+
+#aboutUsText {
+  color: #17100d;
+
+  margin-left: 12rem;
+  margin-right: 12rem;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+/* 
+-----------------EB SECTION-----------------
+ */
+
+#ebSection {
+  background-color: #e6e6e6;
+  background-image: url(/public/ebSection/ebSectionBackground.png);
+  background-size: auto;
+  height: 49.5rem;
+  width: 100%;
+}
+
+.card {
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: white;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  background-color: pink;
+}
+
+.card-content {
+  line-height: 1.2;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: white;
+}
+
+#cardContainer {
+  display: flex;
+}
+
+/* 
+-----------------BANZAIMAN SECTION-----------------
+ */
+
+#banzaimanSection {
+  background-color: orange;
+  height: 50rem;
+  width: 100%;
+}
+/* 
+-----------------EMPLOYEES SECTION-----------------
+ */
+
+#employeesSection {
+  background-color: lightcoral;
+  height: 50rem;
+  width: 100%;
+}
+/*
+-----------------FOOTER-----------------
+ */
+
+#footer {
+  background-color: aquamarine;
+  height: 20rem;
+  width: 100%;
+}
+
+/* 
+xs, extra-small: 0px
+sm, small: 600px
+md, medium: 900px
+lg, large: 1200px
+xl, extra-large: 1500px
+ */
+
+/*
+css for all the section containers
+*/
+
+/* --------------1500PX-------------- */
+@media only screen and (max-width: 1500px) {
+  #aboutUsTextBox {
+    width: 70%;
+    margin-bottom: 5rem;
+  }
+}
+
+/* --------------1200PX-------------- */
+@media only screen and (max-width: 1200px) {
+  #navbar {
+    width: 95%;
+  }
+
+  #aboutUsTextBox {
+    width: 85%;
+    margin-bottom: 5rem;
+  }
+}
+
+/* --------------900PX-------------- */
+@media only screen and (max-width: 900px) {
+  #navbar {
+    width: 100%;
+  }
+}
+
+/* --------------600px-------------- */
+
+/* --------------300px-------------- */
