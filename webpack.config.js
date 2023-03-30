@@ -4,10 +4,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
   plugins: [
     new CopyPlugin({
-      patterns: [
-        { from: "public", to: "assets" },
-        // { from: "other", to: "public" },
-      ],
+      patterns: [{ from: "public", to: "assets" }],
     }),
   ],
 

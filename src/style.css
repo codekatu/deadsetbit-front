@@ -232,7 +232,6 @@ html {
   height: 65rem;
   width: 100%;
   background-image: url(/public//heroSection/heroImage.png);
-  /* background-image: url(/public/backgroundTest.jpg); */
   background-size: cover;
   background-position: center;
   display: flex;
@@ -251,13 +250,6 @@ html {
   box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
-}
-
-@media only screen and (max-width: 900px) {
-  #aboutUsTextBox {
-    width: 100%;
-    margin-bottom: 5rem;
-  }
 }
 
 #aboutUsText {
@@ -354,9 +346,78 @@ html {
  */
 
 #banzaimanSection {
-  background-color: orange;
+  background-image: url(/public//banzaimanSection/banzaimanBackground.png);
+  background-size: cover;
   height: 50rem;
   width: 100%;
+}
+
+#banzaimanSectionContentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#sectionOrder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#gameSectionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#gameSectionTextContainer {
+  background: rgb(102, 171, 52);
+  background: linear-gradient(
+    90deg,
+    rgba(102, 171, 52, 1) 0%,
+    rgba(141, 188, 113, 1) 100%
+  );
+
+  margin-left: 4rem;
+  width: 35rem;
+  height: 33rem;
+
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+#gameSectionTextBox {
+  width: 100%;
+  height: 100%;
+  background-image: url(/public/banzaimanSection/banzaimanTextboxBackground.png);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#banzaimanText {
+  background-color: white;
+  line-height: 1.8;
+  padding: 2rem;
+  width: 70%;
+}
+
+/* forces the text box container below the tab selector */
+#bottom {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+#googlePlayBadge {
+  margin: 3rem;
+  width: 30%;
 }
 /* 
 -----------------EMPLOYEES SECTION-----------------
@@ -413,6 +474,10 @@ css for all the section containers
 @media only screen and (max-width: 900px) {
   #navbar {
     width: 100%;
+  }
+  #aboutUsTextBox {
+    width: 100%;
+    margin-bottom: 5rem;
   }
 }
 
