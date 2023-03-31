@@ -140,6 +140,7 @@ a:visited {
 
 html {
   font-family: "Roboto";
+  background-image: url(/public/siteBackground.png);
 }
 
 #pageWrapper {
@@ -228,7 +229,6 @@ html {
 -----------------HERO SECTION-----------------
  */
 #heroSection {
-  background-color: pink;
   height: 65rem;
   width: 100%;
   background-image: url(/public//heroSection/heroImage.png);
@@ -424,18 +424,119 @@ html {
  */
 
 #employeesSection {
-  background-color: lightcoral;
-  height: 50rem;
+  height: 100rem;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#pauliContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #fdcf5f;
+}
+
+#employeeSectionHeader {
+  width: 30rem;
+}
+
+#pauliImage {
+  height: 110%;
+}
+
+#pauliInfoContainer {
+  width: 20rem;
+  margin: 2rem;
+}
+
+#pauliName {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+#pauliTitle {
+  margin-bottom: 0.5rem;
+
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-style: italic;
+}
+
+#pauliDescription {
+  font-weight: bold;
+}
+
+#employeeContainer {
+  margin-top: 15rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  row-gap: 9rem;
+  column-gap: 3rem;
+}
+
+.employeeCard {
+  background-color: #fcf7f7;
+  width: 16rem;
+  height: 13rem;
+  position: relative;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.employeeImage {
+  position: absolute;
+  bottom: 10.8rem;
+}
+
+.employeeNameAndTitleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.employeeName {
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-style: italic;
+}
+.employeeTitle {
+  font-size: 1.2rem;
+
+  font-style: italic;
+}
+.employeeDescription {
+  font-size: 0.8rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  margin-top: 1.3rem;
 }
 /*
 -----------------FOOTER-----------------
  */
 
 #footer {
-  background-color: aquamarine;
+  background-color: #003a46;
   height: 20rem;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #87a2ab;
+  font-size: 0.8rem;
+
+  text-align: center;
 }
 
 /* 
