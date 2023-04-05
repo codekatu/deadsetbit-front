@@ -1,2 +1,2 @@
-console.log("hi mom!");
-import css from "./style.css";
+import "./reset.css";
+import "./style.css";

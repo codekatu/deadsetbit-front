@@ -1,10 +1,16 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: "public", to: "assets" }],
+      patterns: [{ from: "public/assets", to: "assets" }],
+    }),
+    new HtmlWebpackPlugin({
+      // hash: true mikä tää on? :o
+      template: "./public/index.html",
+      filename: "index.html", //relative to root of the application
     }),
   ],
 
