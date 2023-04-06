@@ -361,7 +361,9 @@ html {
 }
 
 .employeeCard {
-  background-color: #fcf7f7;
+  /* background-color: #fcf7f7; */
+  background-color: #ffffff;
+
   width: 16rem;
   height: 13rem;
   position: relative;
@@ -389,17 +391,21 @@ html {
   margin-top: 2rem;
   font-size: 2rem;
   font-style: italic;
+  font-weight: 200;
 }
 .employeeTitle {
   font-size: 1.2rem;
 
   font-style: italic;
+  font-weight: lighter;
 }
 .employeeDescription {
   font-size: 0.8rem;
   margin-right: 2rem;
   margin-left: 2rem;
-  margin-top: 1.3rem;
+  margin-top: 0.5rem;
+  font-weight: lighter;
+  line-height: 1.1rem;
 }
 /*
 -----------------FOOTER-----------------
