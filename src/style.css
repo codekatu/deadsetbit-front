@@ -352,9 +352,10 @@ html {
 
 #employeeContainer {
   margin-top: 15rem;
+  margin-bottom: 5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fxrr 1fr;
   row-gap: 9rem;
   column-gap: 3rem;
 }
@@ -455,7 +456,7 @@ css for all the section containers
   /* EB SECTION */
 
   #ebHeaderContainer {
-    right: 0rem;
+    right: 3rem;
   }
   #cardContainer {
     display: grid;

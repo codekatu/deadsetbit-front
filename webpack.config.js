@@ -8,9 +8,9 @@ module.exports = {
       patterns: [{ from: "public/assets", to: "assets" }],
     }),
     new HtmlWebpackPlugin({
-      // hash: true mikä tää on? :o
-      template: "./public/index.html",
-      filename: "index.html", //relative to root of the application
+      // hash: true,
+      template: "./public/template.html",
+      filename: "index.html",
     }),
   ],
 
@@ -25,6 +25,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, "dist"),
     },
+    port: 3000,
   },
   module: {
     rules: [
@@ -32,6 +33,7 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
+
       {
         test: /\.js$/,
         exclude: /node_modules/,
