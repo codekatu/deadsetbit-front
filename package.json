@@ -12,7 +12,7 @@
     "webpack-dev-server": "^4.13.1"
   },
   "scripts": {
-    "build": "webpack watch",
+    "build": "webpack",
     "dev": "webpack serve --open"
   }
 }
