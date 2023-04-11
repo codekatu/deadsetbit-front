@@ -1,8 +1,12 @@
+:root {
+  --dsb-dark: #150e19;
+}
+
 html {
   font-family: "Roboto";
-  background-image: url(/public/assets/siteBackground.png);
-  background-size: cover;
-  /* background-color: yellow; */
+  /* background-image: url(/public/assets/siteBackground.png);
+  background-size: cover; */
+  background-color: yellow;
 }
 
 #pageWrapper {
@@ -23,7 +27,7 @@ html {
  */
 
 #navbar {
-  background-color: #150e19;
+  background-color: var(--dsb-dark);
   height: 11rem;
   width: 75%;
   position: fixed;

@@ -9,12 +9,12 @@ module.exports = {
       patterns: [{ from: "public/assets", to: "assets" }],
     }),
     new HtmlWebpackPlugin({
-      // hash: true,
+      hash: true,
       template: "./public/template.html",
       filename: "index.html",
     }),
     new MiniCssExtractPlugin({
-      filename: "style.css",
+      filename: "[name].[contenthash].css",
     }),
   ],
 
@@ -22,7 +22,8 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: __dirname + "/dist",
-    filename: "bundle.js",
+    // filename: "bundle.js",
+    filename: `[name].[contenthash].js`,
   },
   devtool: "eval-cheap-module-source-map",
   devServer: {
