@@ -704,11 +704,11 @@ button {
   /* navbar */
 
   #navbar {
-    height: 4.5em;
+    height: 3rem;
   }
 
   #navbar.navbarScrolled {
-    height: 4.5rem;
+    height: 3rem;
   }
 
   .listItem {
@@ -728,14 +728,14 @@ button {
 
   #logoContainer {
     width: 3rem;
-    height: 4rem;
+    height: 3rem;
     border-width: 0.25rem;
     border: none;
   }
 
   #logoContainer.logoContainerScrolled {
     top: 0;
-    height: 4rem;
+    height: 3rem;
     width: 3rem;
     border: none;
   }
@@ -862,8 +862,6 @@ button {
   .employeeCard {
     width: 17rem;
     width: 100%;
-  }
-  .employeeDescription {
   }
 }
 
