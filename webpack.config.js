@@ -24,6 +24,7 @@ module.exports = {
     path: __dirname + "/dist",
     // filename: "bundle.js",
     filename: `[name].[contenthash].js`,
+    clean: true,
   },
   devtool: "eval-cheap-module-source-map",
   devServer: {

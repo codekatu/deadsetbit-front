@@ -1,12 +1,28 @@
 :root {
+  /* colors */
   --dsb-dark: #150e19;
+  --dsb-white: #ffffff;
+  --dsb-red: #ca2852;
+  --dsb-yellow: #fbc667;
+
+  /* margins */
+  --margin-xs: 1.25rem;
+  --margin-small: 2.5rem;
+  --margin-medium: 5rem;
+  --margin-big: 10rem;
+
+  /* transition */
+  --transition-time: 0.25s;
+
+  /* font sizes */
+  --text-small: 1.1rem;
+  --text-middle: 1.5rem;
+  --text-big: 2rem;
 }
 
 html {
-  font-family: "Roboto";
-  /* background-image: url(/public/assets/siteBackground.png);
-  background-size: cover; */
-  background-color: yellow;
+  font-family: "Source Sans Pro", sans-serif;
+  /* background-color: yellow; */
 }
 
 #pageWrapper {
@@ -22,69 +38,162 @@ html {
   align-items: center;
 }
 
+button {
+  background: none;
+  border: none;
+}
+
 /* 
 -----------------NAVBAR-----------------
  */
 
 #navbar {
+  transition: width var(--transition-time), height var(--transition-time),
+    max-width var(--transition-time);
+
+  width: 80%;
   background-color: var(--dsb-dark);
-  height: 11rem;
-  width: 75%;
-  position: fixed;
-  color: white;
-  list-style: none;
+  height: 10rem;
+  max-width: 100rem;
   z-index: 10;
-  max-width: 1600px;
+  position: fixed;
+}
+
+#navbar.navbarScrolled {
+  width: 100%;
+  height: 6rem;
+  max-width: 100vw;
 }
 
 #navbarList {
+  transition: var(--transition-time);
+
   display: flex;
-  padding: 0;
   height: 100%;
   justify-content: flex-start;
   align-items: center;
 }
 
-.navListItem {
-  background-color: #ca2852;
-  list-style: none;
-  width: 5rem;
+.listItem {
+  transition: box-shadow var(--transition-time);
+
+  background-color: var(--dsb-red);
+  color: var(--dsb-white);
   height: 5rem;
-  margin-right: 2.5rem;
-  box-shadow: 20px 20px 2px 0px rgba(132, 39, 49, 0.75);
-  -webkit-box-shadow: 20px 20px 2px 0px rgba(132, 39, 49, 0.75);
-  -moz-box-shadow: 20px 20px 2px 0px rgba(132, 39, 49, 0.75);
+  width: 5rem;
+
+  margin-right: var(--margin-small);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.navbarLink {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
+
+  box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
+  -webkit-box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
+  -moz-box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
 }
 
-#logo {
-  list-style: none;
-  background-color: black;
-  width: 11rem;
-  height: 11rem;
-  margin-left: 10rem;
-  margin-right: 5rem;
+.listItemScrolled {
+  box-shadow: none;
+}
+
+#logoContainer {
+  transition: var(--transition-time);
+
+  background-color: var(--dsb-dark);
+  width: 12.5rem;
+  height: 12.5rem;
+  margin-left: var(--margin-medium);
+  margin-right: var(--margin-small);
   position: relative;
   top: 4rem;
-  border: 1rem solid white;
+  border: 1rem solid var(--dsb-white);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logoContainer.logoContainerScrolled {
+  width: 5rem;
+  height: 5rem;
+  top: 0;
+  border-width: 0.25rem;
 }
 
 #logoSvg {
+  transition: var(--transition-time);
+
+  width: 80%;
   position: relative;
-  top: -2rem;
+  top: 0rem;
+}
+
+#logoSvg.logoSvgScrolled {
+  height: 125%;
+  width: 125%;
+}
+
+.listItemLink {
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbarContainer {
+  transition: var(--transition-time);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#navbarButton {
+  transition: var(--transition-time);
+
+  display: none;
+  margin: var(--margin-xs);
+}
+
+#hamburgerMenuHidden {
+  display: none;
+}
+#hamburgerMenuVisible {
+  display: block;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+#menuBackground {
+  width: 20rem;
+  height: 100vh;
+  position: fixed;
+  z-index: 10;
+  background-color: var(--dsb-dark);
+  color: white;
 }
 
 /* 
+
 -----------------HERO SECTION-----------------
  */
+
+#heroSectionHeader {
+  height: 20rem;
+  position: absolute;
+  right: 28.5rem;
+  top: 35rem;
+  z-index: 9;
+}
+#doggo {
+  height: 20rem;
+  position: relative;
+}
 #heroSection {
   height: 65rem;
   width: 100%;
@@ -110,31 +219,66 @@ html {
 }
 
 #aboutUsTextBox {
-  background-color: white;
-  width: 65%;
+  background-color: var(--dsb-yellow);
+  border: 4rem solid var(--dsb-white);
+  width: 70rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10rem;
+  margin-bottom: var(--margin-big);
   box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
 }
 
+#aboutUsTextBox::after {
+  content: " ";
+  background-image: url(/public/assets/heroSection/doggo.png);
+  height: 15rem;
+  width: 15rem;
+  z-index: 100;
+}
+
 #aboutUsText {
+  font-size: var(--text-middle);
   color: #17100d;
   line-height: 1.3;
 
-  margin-left: 12rem;
-  margin-right: 12rem;
-  margin-top: 8rem;
-  margin-bottom: 8rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 #DeadSetBitText {
-  font-size: 1.6rem;
+  font-size: var(--text-big);
   font-weight: bolder;
   font-style: italic;
+}
+
+#underLine {
+  text-decoration: underline;
+}
+
+#quietly,
+#efficiently {
+  font-size: var(--text-middle);
+  font-style: italic;
+
+  font-weight: bold;
+}
+
+#solutions {
+  color: white;
+  /* text-shadow: -1.5px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; */
+  font-weight: bolder;
+
+  -webkit-text-stroke: 1.9px black;
+}
+
+#aboutUsTextLight {
+  font-weight: lighter;
 }
 
 /* 
@@ -171,9 +315,11 @@ html {
 }
 
 .card {
-  background-color: white;
-  width: 350px;
-  height: 550px;
+  background-color: var(--dsb-white);
+  width: 23rem;
+  height: 40rem;
+  max-width: 25rem;
+
   margin: 1rem;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
@@ -196,7 +342,7 @@ html {
 }
 
 .cardImage {
-  width: 80%;
+  width: 85%;
 }
 
 .cardTextContainer {
@@ -210,7 +356,7 @@ html {
 .cardText {
   line-height: 1.5;
   width: 85%;
-  font-size: 0.9rem;
+  font-size: var(--text-small);
 }
 
 #haltianCardTextContainer {
@@ -230,7 +376,14 @@ html {
  */
 
 #banzaimanSection {
-  background-image: url(/public/assets/banzaimanSection/banzaimanBackground.png);
+  background-image: linear-gradient(
+    to right,
+    #82b467,
+    #94bb56,
+    #acc042,
+    #c7c32a,
+    #e6c401
+  );
   background-size: cover;
   width: 100%;
 }
@@ -260,6 +413,8 @@ html {
 #banzaimanLogo {
   position: relative;
   right: 4rem;
+  height: auto;
+  width: 25rem;
 }
 
 #gameSectionTextContainer {
@@ -290,6 +445,7 @@ html {
 }
 
 #banzaimanText {
+  font-size: var(--text-small);
   background-color: white;
   line-height: 1.8;
   padding: 2rem;
@@ -314,67 +470,52 @@ html {
  */
 
 #employeesSection {
+  background-image: linear-gradient(
+    to right top,
+    #d1d1d1,
+    #dcdcdc,
+    #e8e8e8,
+    #f3f3f3,
+    #ffffff
+  );
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#pauliContainer {
+#employeeSectionHeaderContainer {
+  width: 100%;
+
+  height: 15rem;
+  background-color: var(--dsb-yellow);
+  margin-top: var(--margin-big);
+  margin-bottom: var(--margin-big);
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: #fdcf5f;
+  align-items: flex-end;
 }
 
 #employeeSectionHeader {
   width: 30rem;
-}
-
-#pauliImage {
-  height: 110%;
-}
-
-#pauliInfoContainer {
-  width: 20rem;
-  margin: 2rem;
-}
-
-#pauliName {
-  margin-bottom: 0.5rem;
-  font-size: 2rem;
-  font-style: italic;
-  font-weight: bold;
-}
-
-#pauliTitle {
-  margin-bottom: 0.5rem;
-
-  font-size: 1.2rem;
-  font-weight: bold;
-  font-style: italic;
-}
-
-#pauliDescription {
-  font-weight: bold;
+  height: 95%;
 }
 
 #employeeContainer {
-  margin-top: 15rem;
+  margin-top: var(--margin-medium);
   margin-bottom: 5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fxrr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   row-gap: 9rem;
-  column-gap: 3rem;
+  column-gap: 5rem;
 }
 
 .employeeCard {
   /* background-color: #fcf7f7; */
   background-color: #ffffff;
 
-  width: 17rem;
+  width: 20rem;
   height: 15rem;
   position: relative;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
@@ -389,6 +530,8 @@ html {
 .employeeImage {
   position: absolute;
   bottom: 12.7rem;
+  width: 100%px;
+  height: 195px;
 }
 
 .employeeNameAndTitleContainer {
@@ -400,20 +543,21 @@ html {
 .employeeName {
   margin-top: 2rem;
   font-size: 2rem;
+  font-weight: lighter;
   font-style: italic;
 }
 .employeeTitle {
-  font-size: 1.2rem;
+  font-size: var(--text-middle);
 
   font-style: italic;
-  font-weight: regular;
+  font-weight: lighter;
 }
 .employeeDescription {
-  font-size: 0.8rem;
+  font-size: var(--text-small);
   margin-right: 2rem;
   margin-left: 2rem;
   margin-top: 2rem;
-  font-weight: regular;
+  font-weight: lighter;
   line-height: 1.1rem;
 }
 /*
@@ -434,22 +578,17 @@ html {
   text-align: center;
 }
 
-/* 
-xs, extra-small: 0px
-sm, small: 600px
-md, medium: 900px
-lg, large: 1200px
-xl, extra-large: 1500px
- */
-
-/*
-css for all the section containers
-*/
+@media (prefers-reduced-motion) {
+  * {
+    transition: none;
+  }
+}
 
 /* --------------1500PX-------------- */
 @media only screen and (max-width: 1500px) {
   #aboutUsTextBox {
     width: 70%;
+    width: 65rem;
     margin-bottom: 5rem;
   }
 }
@@ -459,13 +598,14 @@ css for all the section containers
   /* NAVBAR */
 
   #navbar {
-    width: 95%;
+    width: 100%;
   }
   /* HERO SECTION */
 
   #aboutUsTextBox {
-    width: 90%;
+    width: 50rem;
     margin-bottom: 5rem;
+    border-width: 2.5rem;
   }
 
   /* EB SECTION */
@@ -493,7 +633,10 @@ css for all the section containers
   /*
   Employees Section
  */
-  #pauliContainer {
+
+  #employeeContainer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -501,14 +644,26 @@ css for all the section containers
 @media only screen and (max-width: 900px) {
   /* NAVBAR */
 
-  #navbar {
-    width: 100%;
+  #navbarList {
+    justify-content: center;
+  }
+  #logoContainer {
+    margin-left: var(--margin-small);
+    margin-right: var(--margin-xs);
+    width: 7rem;
+    height: 7rem;
+    top: 0;
+    border: 0.5rem solid var(--dsb-white);
+  }
+
+  .listItem {
+    margin-right: var(--margin-xs);
   }
 
   /* HERO SECTION */
 
   #aboutUsTextBox {
-    width: 100%;
+    width: 60%;
     margin-bottom: 5rem;
   }
 
@@ -526,30 +681,51 @@ css for all the section containers
     justify-content: center;
   }
   .card {
-    width: 26.5rem;
+    width: 25rem;
     margin-bottom: 3rem;
   }
   /* Employees Section */
-  #employeeContainer {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-  }
 }
 
-/* --------------600px-------------- */
-@media only screen and (max-width: 600px) {
-  /* HERO SECTION */
-  #aboutUsText {
-    margin-top: 8rem;
-    margin-bottom: 8rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
-
-  /* Employees Section */
+/* --------------750px-------------- */
+@media only screen and (max-width: 750px) {
   #employeeContainer {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+  }
+}
+/* --------------600px-------------- */
+@media only screen and (max-width: 600px) {
+  /* navbar */
+
+  .listItem {
+    display: none;
+  }
+  .listItemScrolled {
+    display: none;
+  }
+
+  #navbarButton {
+    display: block;
+  }
+
+  #navbarList {
+    justify-content: space-between;
+  }
+
+  /* HERO SECTION */
+  #aboutUsText {
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
+
+  /* Employees Section */
+
+  #employeeSectionHeader {
+    width: 20rem;
+    rotate: 16deg;
   }
 
   /* banzaiman Section */
@@ -604,6 +780,11 @@ css for all the section containers
 /* --------------400px-------------- */
 
 @media only screen and (max-width: 400px) {
+  /* navbar */
+  #logoContainer {
+    margin-left: var(--margin-xs);
+  }
+
   /* HERO SECTION */
   #aboutUsText {
     margin-top: 5rem;
@@ -635,6 +816,19 @@ css for all the section containers
 
   #banzaimanTabSelector {
     width: 80%;
+  }
+
+  /* employee Section */
+
+  #employeeSectionHeader {
+    width: 81%;
+  }
+
+  .employeeCard {
+    width: 17rem;
+  }
+  .employeeDescription {
+    font-size: 1rem;
   }
 }
 

@@ -14,9 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
       rel="stylesheet"
-      x
     />
     <!-- fonts -->
 
@@ -24,58 +23,108 @@
   </head>
   <body>
     <div id="pageWrapper">
+      <!-- navbar -->
       <nav id="navbar">
         <ul id="navbarList">
-          <li id="logo">
-            <img
-              id="logoSvg"
-              src="/assets/navbar/logo.svg"
-              src="../assets/navbar/logo.svg"
-              height="150%"
-              width="100%"
-            />
-          </li>
-          <li class="navListItem">
-            <a class="navbarLink" href="#heroSection"><p>ABAUT</p></a>
-          </li>
-          <li class="navListItem">
-            <a class="navbarLink" href="#ebSection"
-              ><img src="assets/navbar/navbarEB.svg" height="70%" width="70%"
-            /></a>
-          </li>
-          <li class="navListItem">
-            <a class="navbarLink" href="#banzaimanSection"
-              ><img
-                src="assets/navbar/navbarBanzaiman.svg"
-                height="70%"
-                width="70%"
-            /></a>
-          </li>
-          <li class="navListItem">
-            <a class="navbarLink" href="#employeesSection"
-              ><img
-                src="assets/navbar/navbarEmployee.svg"
-                height="70%"
-                width="70%"
-            /></a>
-          </li>
+          <div id="navbarListLeftSide" class="navbarContainer">
+            <li id="logoContainer">
+              <img id="logoSvg" src="assets/navbar/logo.svg" />
+            </li>
+          </div>
+          <div id="navbarListRightSide" class="navbarContainer">
+            <li class="listItem">
+              <a href="#heroSection" class="listItemLink">ABOUT</a>
+            </li>
+            <li class="listItem">
+              <a href="#ebSection" class="listItemLink">
+                <img src="assets/navbar/navbarEB.svg" width="85%" />
+              </a>
+            </li>
+            <li class="listItem">
+              <a href="#banzaimanSection" class="listItemLink">
+                <img src="assets/navbar/navbarBanzaiman.svg" width="85%" />
+              </a>
+            </li>
+            <li class="listItem">
+              <a href="#employeesSection" class="listItemLink">
+                <img src="assets/navbar/navbarEmployee.svg" width="80%" />
+              </a>
+            </li>
+          </div>
+          <button
+            onclick="document.getElementById(`hamburgerMenuHidden`).id = `hamburgerMenuVisible`"
+            id="navbarButton"
+          >
+            <img src="/assets/navbar/menu.svg" />
+          </button>
         </ul>
+        <div id="hamburgerMenuHidden">
+          <div id="menuBackground">
+            <button
+              id="closeMenuButton"
+              onclick="document.getElementById(`hamburgerMenuVisible`).id = `hamburgerMenuHidden`"
+            >
+              <img src="/assets/navbar/x.svg" />
+            </button>
+            <ul id="menuList">
+              <li id="menuListItem">
+                <a id="menuListLink">
+                  <img id="MenuListLinkImage" />
+                </a>
+              </li>
+              <li id="menuListItem">
+                <a id="menuListLink">
+                  <img id="MenuListLinkImage" />
+                </a>
+              </li>
+
+              <li id="menuListItem">
+                <a id="menuListLink">
+                  <img id="MenuListLinkImage" />
+                </a>
+              </li>
+
+              <li id="menuListItem">
+                <a id="menuListLink">
+                  <img id="MenuListLinkImage" />
+                </a>
+              </li>
+
+              <li id="menuListItem">
+                <a id="menuListLink">
+                  <img id="MenuListLinkImage" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
 
       <!-- Hero Section -->
       <section class="sectionContainer" id="heroSection">
         <div id="heroSectionContent">
           <div id="aboutUsTextBox">
+            <!-- <img id="heroSectionHeader" src="assets/heroSection/Header.svg" />
+            <img id="doggo" src="assets/heroSection/doggo.png" /> -->
+
             <p id="aboutUsText">
-              <span id="DeadSetBitText">Dead Set Bit</span> is a new-age tech
-              company focusing on quietly but efficiently delivering complete
-              solutions without the need for a lot of hand-waving, trendy tech
-              terms or an office with a ball pit.
+              focusing on
+              <span id="underLine"
+                ><span id="quietly">quietly</span> but
+                <span id="efficiently">efficiently</span></span
+              >
+              delivering <span id="solutions">complete solutions</span> without
+              the need for a lot of hand-waving, trendy tech terms or an office
+              with a ball pit.
               <br />
               <br />
-              We use a combination of our own staff and subcontractors to simply
-              get things done and have delivered projects from conception to
-              market for close to two decades as silent partners.
+
+              <span id="aboutUsTextLight">
+                We use a combination of our own staff and subcontractors to
+                simply get things done and have delivered projects from
+                conception to market for close to two decades as silent
+                partners.
+              </span>
             </p>
           </div>
         </div>
@@ -91,7 +140,7 @@
               <img
                 id="cardImagePerson"
                 class="cardImage"
-                src="/assets/ebSection/ebPerson.png"
+                src="/assets/ebSection/ebPerson.webp"
               />
             </div>
 
@@ -150,7 +199,7 @@
             <div id="gameSectionContainer">
               <img
                 id="banzaimanLogo"
-                src="assets/banzaimanSection/banzaimanLogoCombined.png"
+                src="assets/banzaimanSection/banzaimanLogoCombined.webp"
               />
               <img
                 id="banzaimanGameImage"
@@ -185,27 +234,34 @@
       </section>
       <!-- Employees section -->
       <section class="sectionContainer" id="employeesSection">
-        <!-- <div id="pauliContainer">
-          <img id="pauliImage" src="assets/employeesSection/pauli.png" />
-          <div id="pauliInfoContainer">
-            <h2 id="pauliName">Pauli Ervi</h2>
-            <h3 id="pauliTitle">The Original Bit</h3>
-            <p id="pauliDescription">
+        <div id="employeeSectionHeaderContainer">
+          <img
+            id="employeeSectionHeader"
+            src="assets/employeesSection/EmployeeSectionHeader.svg"
+          />
+        </div>
+
+        <div id="employeeContainer">
+          <div class="employeeCard">
+            <img
+              class="employeeImage"
+              src="assets/employeesSection/pauli.webp"
+            />
+            <div class="employeeNameAndTitleContainer">
+              <h3 class="employeeName">Pauli Ervi</h3>
+              <h4 class="employeeTitle">The Original Bit</h4>
+            </div>
+            <p class="employeeDescription">
               Delivers complete products and solutions from ideation to market.
               Full-stack means from boot loader to user interface. Translating
               the real world and its real needs into bits.
             </p>
           </div>
-          <img
-            id="employeeSectionHeader"
-            src="assets/employeesSection/EmployeeSectionHeader.svg"
-          />
-        </div> -->
-        <div id="employeeContainer">
+
           <div class="employeeCard">
             <img
               class="employeeImage"
-              src="assets/employeesSection/yacine.png"
+              src="assets/employeesSection/jasu.webp"
             />
             <div class="employeeNameAndTitleContainer">
               <h3 class="employeeName">Yacine Ouarab</h3>
@@ -218,7 +274,10 @@
             </p>
           </div>
           <div class="employeeCard">
-            <img class="employeeImage" src="assets/employeesSection/nick.png" />
+            <img
+              class="employeeImage"
+              src="assets/employeesSection/nikki.webp"
+            />
             <div class="employeeNameAndTitleContainer">
               <h3 class="employeeName">Nick Kononov</h3>
               <h4 class="employeeTitle">The Hearty Hacker</h4>
@@ -232,7 +291,7 @@
           <div class="employeeCard">
             <img
               class="employeeImage"
-              src="assets/employeesSection/jonna.png"
+              src="assets/employeesSection/jonna.webp"
             />
             <div class="employeeNameAndTitleContainer">
               <h3 class="employeeName">Jonna Salomaa</h3>
@@ -245,7 +304,10 @@
             </p>
           </div>
           <div class="employeeCard">
-            <img class="employeeImage" src="assets/employeesSection/simo.png" />
+            <img
+              class="employeeImage"
+              src="assets/employeesSection/simo.webp"
+            />
             <div class="employeeNameAndTitleContainer">
               <h3 class="employeeName">Simo Jokela</h3>
               <h4 class="employeeTitle">Activated his trap card</h4>
@@ -258,7 +320,7 @@
           <div class="employeeCard">
             <img
               class="employeeImage"
-              src="assets/employeesSection/antti.png"
+              src="assets/employeesSection/antti.webp"
             />
             <div class="employeeNameAndTitleContainer">
               <h3 class="employeeName">Antti Luukka</h3>
@@ -273,7 +335,7 @@
           <div class="employeeCard">
             <img
               class="employeeImage"
-              src="assets/employeesSection/christopher.png"
+              src="assets/employeesSection/toffe.webp"
             />
             <div class="employeeNameAndTitleContainer">
               <h3 class="employeeName">Christopher Harju</h3>
@@ -287,11 +349,11 @@
           <div class="employeeCard">
             <img
               class="employeeImage"
-              src="assets/employeesSection/yacine.png"
+              src="assets/employeesSection/alex.webp"
             />
             <div class="employeeNameAndTitleContainer">
-              <h3 class="employeeName">Nick Kononov</h3>
-              <h4 class="employeeTitle">The Hearty Hacker</h4>
+              <h3 class="employeeName">Alex Grönholmn</h3>
+              <h4 class="employeeTitle">The Python Charmer</h4>
             </div>
             <p class="employeeDescription">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
@@ -301,26 +363,25 @@
           <div class="employeeCard">
             <img
               class="employeeImage"
-              src="assets/employeesSection/yacine.png"
+              src="assets/employeesSection/hugo.webp"
             />
             <div class="employeeNameAndTitleContainer">
-              <h3 class="employeeName">Nick Kononov</h3>
-              <h4 class="employeeTitle">The Hearty Hacker</h4>
+              <h3 class="employeeName">Hugo van Kemenade</h3>
+              <h4 class="employeeTitle">Can count your bicycles</h4>
             </div>
             <p class="employeeDescription">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
               error possimus iusto porro libero, assumenda molestiae.
             </p>
           </div>
-
           <div class="employeeCard">
             <img
               class="employeeImage"
-              src="assets/employeesSection/yacine.png"
+              src="assets/employeesSection/petri.webp"
             />
             <div class="employeeNameAndTitleContainer">
-              <h3 class="employeeName">Nick Kononov</h3>
-              <h4 class="employeeTitle">The Hearty Hacker</h4>
+              <h3 class="employeeName">Petri Teittinen</h3>
+              <h4 class="employeeTitle">Has more tech than you</h4>
             </div>
             <p class="employeeDescription">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
