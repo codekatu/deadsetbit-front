@@ -4,6 +4,7 @@
   --dsb-white: #ffffff;
   --dsb-red: #ca2852;
   --dsb-yellow: #fbc667;
+  --dsb-ebWhite: #e6e6e6;
 
   /* margins */
   --margin-xs: 1.25rem;
@@ -75,7 +76,8 @@ button {
 }
 
 .listItem {
-  transition: box-shadow var(--transition-time);
+  transition: box-shadow var(--transition-time), width var(--transition-time),
+    height var(--transition-time);
 
   background-color: var(--dsb-red);
   color: var(--dsb-white);
@@ -94,6 +96,8 @@ button {
 
 .listItemScrolled {
   box-shadow: none;
+  height: 4.5rem;
+  width: 4.5rem;
 }
 
 #logoContainer {
@@ -186,13 +190,20 @@ button {
 #heroSectionHeader {
   height: 20rem;
   position: absolute;
-  right: 28.5rem;
-  top: 35rem;
   z-index: 9;
 }
 #doggo {
   height: 20rem;
-  position: relative;
+  position: absolute;
+  left: 60rem;
+  z-index: 9;
+}
+
+#whiteLine {
+  height: 5px;
+  width: 10rem;
+
+  border-bottom: 1px solid white;
 }
 #heroSection {
   height: 65rem;
@@ -219,6 +230,7 @@ button {
 }
 
 #aboutUsTextBox {
+  position: relative;
   background-color: var(--dsb-yellow);
   border: 4rem solid var(--dsb-white);
   width: 70rem;
@@ -229,14 +241,6 @@ button {
   box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
-}
-
-#aboutUsTextBox::after {
-  content: " ";
-  background-image: url(/public/assets/heroSection/doggo.png);
-  height: 15rem;
-  width: 15rem;
-  z-index: 100;
 }
 
 #aboutUsText {
@@ -273,8 +277,9 @@ button {
   /* text-shadow: -1.5px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000; */
   font-weight: bolder;
+  font-size: 1.5rem;
 
-  -webkit-text-stroke: 1.9px black;
+  -webkit-text-stroke: 1.5px black;
 }
 
 #aboutUsTextLight {
@@ -286,7 +291,7 @@ button {
  */
 
 #ebSection {
-  background-color: #e6e6e6;
+  background-color: var(--dsb-ebWhite);
   background-image: url(/public/assets/ebSection/ebSectionBackground.png);
   background-size: cover;
   width: 100%;
@@ -698,6 +703,14 @@ button {
 @media only screen and (max-width: 600px) {
   /* navbar */
 
+  #navbar {
+    height: 4.5em;
+  }
+
+  #navbar.navbarScrolled {
+    height: 4.5rem;
+  }
+
   .listItem {
     display: none;
   }
@@ -711,6 +724,28 @@ button {
 
   #navbarList {
     justify-content: space-between;
+  }
+
+  #logoContainer {
+    width: 3rem;
+    height: 4rem;
+    border-width: 0.25rem;
+    border: none;
+  }
+
+  #logoContainer.logoContainerScrolled {
+    top: 0;
+    height: 4rem;
+    width: 3rem;
+    border: none;
+  }
+  #logoSvg {
+    width: 100%;
+    height: 100%;
+  }
+  #logoSvg.logoSvgScrolled {
+    width: 100%;
+    height: 100%;
   }
 
   /* HERO SECTION */
@@ -826,9 +861,9 @@ button {
 
   .employeeCard {
     width: 17rem;
+    width: 100%;
   }
   .employeeDescription {
-    font-size: 1rem;
   }
 }
 
