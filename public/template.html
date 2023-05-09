@@ -52,51 +52,22 @@
             </li>
           </div>
           <button
-            onclick="document.getElementById(`hamburgerMenuHidden`).id = `hamburgerMenuVisible`"
             id="navbarButton"
           >
             <img src="/assets/navbar/menu.svg" />
           </button>
         </ul>
-        <div id="hamburgerMenuHidden">
-          <div id="menuBackground">
-            <button
-              id="closeMenuButton"
-              onclick="document.getElementById(`hamburgerMenuVisible`).id = `hamburgerMenuHidden`"
-            >
-              <img src="/assets/navbar/x.svg" />
-            </button>
-            <ul id="menuList">
-              <li id="menuListItem">
-                <a id="menuListLink">
-                  <img id="MenuListLinkImage" />
-                </a>
-              </li>
-              <li id="menuListItem">
-                <a id="menuListLink">
-                  <img id="MenuListLinkImage" />
-                </a>
-              </li>
 
-              <li id="menuListItem">
-                <a id="menuListLink">
-                  <img id="MenuListLinkImage" />
-                </a>
-              </li>
+        <ul id="mainMenu">
+          <img src="assets/heroSection/header.svg" width="90%"/>
+          <li class="mainMenuListItem"><a
+           class="mainMenuListLink" href="#heroSection">About</a></li>
+          <li class="mainMenuListItem"><a class="mainMenuListLink" href="#ebSection">EB</a></li>
+          <li class="mainMenuListItem"><a class="mainMenuListLink" href="#banzaimanSection">Banzai Man</a></li>
+          <li class="mainMenuListItem"><a class="mainMenuListLink" href="#employeesSection">Employees</a></li>
+        </ul>
+  
 
-              <li id="menuListItem">
-                <a id="menuListLink">
-                  <img id="MenuListLinkImage" />
-                </a>
-              </li>
-
-              <li id="menuListItem">
-                <a id="menuListLink">
-                  <img id="MenuListLinkImage" />
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
       </nav>
 
@@ -104,27 +75,51 @@
       <section class="sectionContainer" id="heroSection">
         <div id="heroSectionContent">
           <div id="aboutUsTextBox">
-            <!-- <img id="heroSectionHeader" src="assets/heroSection/Header.svg" /> -->
-            <!-- <img id="doggo" src="assets/heroSection/doggo.png" /> -->
-
-            <p id="aboutUsText">
-              focusing on
-              <span id="underLine"
-                ><span id="quietly">quietly</span> but
-                <span id="efficiently">efficiently</span></span
-              >
-              delivering <span id="solutions">complete solutions</span> without
-              the need for a lot of hand-waving, trendy tech terms or an office
-              with a ball pit.
-              <br />
-              <br />
-              <span id="aboutUsTextLight">
-                We use a combination of our own staff and subcontractors to
-                simply get things done and have delivered projects from
-                conception to market for close to two decades as silent
-                partners.
-              </span>
-            </p>
+            <img id="siteHeader" src="/assets/heroSection/header.svg" />
+            <div id="doggoContainer">
+              <img
+                id="doggo"
+                src="/assets/heroSection/doggoEyeRoll/doggoNoEyes.png"
+              />
+              <div id="eyeContainer">
+                <img
+                  id="leftEye"
+                  class="eye"
+                  src="/assets/heroSection/doggoEyeRoll/eye.png"
+                />
+                <img
+                  id="rightEye"
+                  class="eye"
+                  src="/assets/heroSection/doggoEyeRoll/eye.png"
+                />
+              </div>
+            </div>
+            <div id="aboutUsTextContainer">
+              <div id="aboutUsNormalTextContainer">
+                <p id="aboutUsText">
+                  focusing on
+                  <span class="underLine"
+                    ><span id="quietly">quietly</span> but
+                    <span id="efficiently">efficiently</span></span
+                  >
+                  delivering
+                  <span id="solutions">complete solutions</span> without the
+                  need for a lot of hand-waving, trendy tech terms or an office
+                  with a ball pit.
+                </p>
+              </div>
+              <div id="whiteLine"></div>
+              <div id="aboutUsTextLightTextContainer">
+                <p id="aboutUsText">
+                  <span id="aboutUsTextLight">
+                    We use a combination of our own staff and subcontractors to
+                    simply get things done and have delivered projects from
+                    conception to market for close to two decades as silent
+                    partners.
+                  </span>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -202,12 +197,15 @@
               />
               <img
                 id="banzaimanGameImage"
-                src="assets/banzaimanSection/banzaimanGame.png"
+                src="assets/banzaimanSection/tabSelector/banzai_1.png"
               />
-              <img
-                id="banzaimanTabSelector"
-                src="assets/banzaimanSection/banzaimanTabSelector.png"
-              />
+              <div id="banzaimanTabSelector">
+                <button id="gongButton" class="tabSelectorButton"></button>
+                <button id="mountainButton" class="tabSelectorButton"></button>
+                <button id="glyphButton" class="tabSelectorButton"></button>
+                <button id="spaceButton" class="tabSelectorButton"></button>
+                <button id="maracasButton" class="tabSelectorButton"></button>
+              </div>
             </div>
             <div id="bottom">
               <div id="gameSectionTextContainer">

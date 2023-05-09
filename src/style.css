@@ -159,52 +159,30 @@ button {
   margin: var(--margin-xs);
 }
 
-#hamburgerMenuHidden {
+#mainMenu {
   display: none;
 }
-#hamburgerMenuVisible {
-  display: block;
-  position: fixed;
-  z-index: 10;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+
+.mainMenuListItem {
+  display: none;
 }
-#menuBackground {
-  width: 20rem;
-  height: 100vh;
-  position: fixed;
-  z-index: 10;
-  background-color: var(--dsb-dark);
-  color: white;
+.mainMenuListLink {
+  display: none;
 }
 
 /* 
+
 
 -----------------HERO SECTION-----------------
  */
 
 #heroSectionHeader {
-  height: 20rem;
   position: absolute;
-  z-index: 9;
-}
-#doggo {
+
   height: 20rem;
-  position: absolute;
-  left: 60rem;
   z-index: 9;
 }
 
-#whiteLine {
-  height: 5px;
-  width: 10rem;
-
-  border-bottom: 1px solid white;
-}
 #heroSection {
   height: 65rem;
   width: 100%;
@@ -229,38 +207,86 @@ button {
   justify-content: flex-end;
 }
 
+#siteHeader {
+  position: absolute;
+  width: 25rem;
+  top: -8rem;
+  left: -5rem;
+}
+
 #aboutUsTextBox {
   position: relative;
   background-color: var(--dsb-yellow);
   border: 4rem solid var(--dsb-white);
   width: 70rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
   margin-bottom: var(--margin-big);
   box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
 }
 
-#aboutUsText {
-  font-size: var(--text-middle);
-  color: #17100d;
-  line-height: 1.3;
+#doggoContainer {
+  position: absolute;
+  left: 55rem;
+  top: 7rem;
+}
 
+#doggo {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+}
+
+#eyeContainer {
+}
+
+#leftEye {
+  position: absolute;
+  top: 68px;
+  left: 104px;
+  width: 10px;
+}
+
+#rightEye {
+  position: absolute;
+  top: 68px;
+  left: 185px;
+  width: 10px;
+}
+
+#aboutUsTextContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin-left: 10rem;
   margin-right: 10rem;
   margin-top: 5rem;
   margin-bottom: 5rem;
 }
 
-#DeadSetBitText {
-  font-size: var(--text-big);
-  font-weight: bolder;
-  font-style: italic;
+#aboutUsNormalTextContainer {
+  width: 100%;
+  margin-bottom: var(--margin-small);
+}
+#aboutUsTextLightTextContainer {
+  width: 85%;
+  margin-top: var(--margin-small);
 }
 
-#underLine {
+#whiteLine {
+  width: 65%;
+  border-bottom: solid 3px white;
+}
+
+#aboutUsText {
+  font-size: var(--text-middle);
+  color: var(--dsb-dark);
+  line-height: 1.3;
+}
+
+.underLine {
   text-decoration: underline;
 }
 
@@ -268,7 +294,6 @@ button {
 #efficiently {
   font-size: var(--text-middle);
   font-style: italic;
-
   font-weight: bold;
 }
 
@@ -278,12 +303,13 @@ button {
     1px 1px 0 #000; */
   font-weight: bolder;
   font-size: 1.5rem;
-
-  -webkit-text-stroke: 1.5px black;
+  -webkit-text-stroke: 1.1px black;
+  text-shadow: -3px 0px 0px rgba(0, 0, 0, 1);
 }
 
 #aboutUsTextLight {
   font-weight: lighter;
+  font-style: italic;
 }
 
 /* 
@@ -420,6 +446,75 @@ button {
   right: 4rem;
   height: auto;
   width: 25rem;
+}
+
+#banzaimanGameImage {
+  width: 35rem;
+}
+
+#banzaimanTabSelector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 450px;
+  height: 75px;
+}
+
+.tabSelectorButton {
+  width: 25%;
+  height: 100%;
+  background-color: #2f711e;
+  background-position: center center;
+
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+
+.tabSelectorButton:hover {
+}
+
+#gongButton {
+  background-image: url(/public/assets/banzaimanSection/tabSelector/gongWhite.svg);
+}
+#gongButton:hover {
+  background-image: url(/public/assets/banzaimanSection/tabSelector/gongWhite.svg) !important;
+}
+
+#mountainButton {
+  background-image: url(/public/assets/banzaimanSection/tabSelector/mountain.svg);
+}
+
+#mountainButton:hover {
+  background-image: url(/public/assets/banzaimanSection/tabSelector/mountainWhite.svg) !important;
+}
+
+#glyphButton {
+  background-image: url(/public/assets/banzaimanSection/tabSelector/glyph.svg);
+}
+
+#glyphButton:hover {
+  background-image: url(/public/assets/banzaimanSection/tabSelector/glyphWhite.svg) !important;
+}
+
+#spaceButton {
+  background-image: url(/public/assets/banzaimanSection/tabSelector/space.svg);
+}
+
+#spaceButton:hover {
+  background-image: url(/public/assets/banzaimanSection/tabSelector/spaceWhite.svg) !important;
+}
+
+#maracasButton {
+  background-image: url(/public/assets/banzaimanSection/tabSelector/maracas.svg);
+}
+
+#maracasButton:hover {
+  background-image: url(/public/assets/banzaimanSection/tabSelector/maracasWhite.svg) !important;
 }
 
 #gameSectionTextContainer {
@@ -592,9 +687,25 @@ button {
 /* --------------1500PX-------------- */
 @media only screen and (max-width: 1500px) {
   #aboutUsTextBox {
-    width: 70%;
     width: 65rem;
-    margin-bottom: 5rem;
+    margin-bottom: var(--margin-medium);
+  }
+
+  #doggoContainer {
+    left: 50.5rem;
+    z-index: 0;
+  }
+}
+
+/* --------------1400PX-------------- */
+@media only screen and (max-width: 1500px) {
+  #aboutUsTextBox {
+    border-width: 3rem;
+  }
+
+  #doggoContainer {
+    left: 45rem;
+    top: 10rem;
   }
 }
 
@@ -607,10 +718,38 @@ button {
   }
   /* HERO SECTION */
 
+  #heroSection {
+    height: 75rem;
+  }
+
   #aboutUsTextBox {
-    width: 50rem;
-    margin-bottom: 5rem;
-    border-width: 2.5rem;
+    width: 45rem;
+    height: 40rem;
+  }
+  #aboutUsTextContainer {
+    align-items: flex-start;
+    margin-left: var(--margin-small);
+    margin-right: var(--margin-small);
+  }
+
+  #aboutUsNormalTextContainer {
+    margin-bottom: var(--margin-small);
+    width: 90%;
+  }
+  #aboutUsTextLightTextContainer {
+    margin-top: var(--margin-small);
+    width: 65%;
+  }
+
+  #doggoContainer {
+    left: 25.5rem;
+    top: 20rem;
+  }
+
+  #whiteLine {
+    position: relative;
+    right: 2.5rem;
+    width: 112.4%;
   }
 
   /* EB SECTION */
@@ -667,17 +806,76 @@ button {
 
   /* HERO SECTION */
 
+  #heroSectionContent {
+    justify-content: center;
+  }
   #aboutUsTextBox {
-    width: 60%;
-    margin-bottom: 5rem;
+    height: 30rem;
+    width: 100%;
+    border: none;
+    box-shadow: none;
   }
 
-  #aboutUsText {
-    margin-top: 8rem;
-    margin-bottom: 8rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
+  #aboutUsTextContainer {
   }
+
+  #aboutUsTextBox {
+    align-items: center;
+    justify-content: center;
+  }
+
+  #aboutUsNormalTextContainer {
+    margin-bottom: var(--margin-small);
+    margin-top: var(--margin-small);
+    width: 90%;
+  }
+  #aboutUsTextLightTextContainer {
+    margin-top: var(--margin-small);
+    margin-bottom: var(--margin-small);
+    width: 65%;
+  }
+
+  #whiteLine {
+    position: relative;
+    right: 0rem;
+    width: 100%;
+  }
+
+  #doggoContainer {
+    display: block;
+    left: 35rem;
+    top: 16rem;
+  }
+
+  #doggo {
+    width: 200px;
+    height: 200px;
+  }
+
+  #leftEye {
+    width: 5px;
+    top: 34px;
+    left: 53px;
+  }
+
+  #rightEye {
+    width: 5px;
+    top: 34px;
+    left: 92px;
+  }
+
+  #siteHeader {
+    display: none;
+  }
+
+  /* #aboutUsNormalTextContainer {
+    margin-top: var(--margin-small);
+    width: 90%;
+  }
+  #aboutUsTextLightTextContainer {
+    margin-bottom: var(--margin-small);
+    width: 65%;
+  } */
 
   /* EB SECTION */
   #cardContainer {
@@ -691,6 +889,13 @@ button {
   }
   /* Employees Section */
 }
+/* --------------800px-------------- */
+
+@media only screen and (max-width: 800px) {
+  #doggoContainer {
+    left: 30rem;
+  }
+}
 
 /* --------------750px-------------- */
 @media only screen and (max-width: 750px) {
@@ -699,6 +904,22 @@ button {
     grid-template-rows: auto;
   }
 }
+/* --------------700px-------------- */
+
+@media only screen and (max-width: 700px) {
+  #doggoContainer {
+    left: 26rem;
+  }
+}
+
+/* --------------650px-------------- */
+
+@media only screen and (max-width: 650px) {
+  #doggoContainer {
+    left: 25rem;
+  }
+}
+
 /* --------------600px-------------- */
 @media only screen and (max-width: 600px) {
   /* navbar */
@@ -748,12 +969,50 @@ button {
     height: 100%;
   }
 
+  #mainMenu {
+    height: 100vh;
+    background-color: white;
+    position: absolute;
+    right: 0;
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+
+  .mainMenuListItem {
+    display: flex;
+
+    padding: 2rem;
+    padding-bottom: 2px;
+  }
+  .mainMenuListLink {
+    display: flex;
+    color: black;
+    text-decoration: none;
+    font-size: var(--text-middle);
+  }
+
   /* HERO SECTION */
-  #aboutUsText {
-    margin-top: 10rem;
-    margin-bottom: 10rem;
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
+
+  #aboutUsTextBox {
+    height: 40rem;
+  }
+
+  #doggoContainer {
+    display: none;
+  }
+
+  #aboutUsNormalTextContainer {
+    margin-bottom: var(--margin-small);
+    margin-top: var(--margin-small);
+    width: 100%;
+  }
+  #aboutUsTextLightTextContainer {
+    margin-top: var(--margin-small);
+    margin-bottom: var(--margin-small);
+    width: 100%;
   }
 
   /* Employees Section */
@@ -787,6 +1046,9 @@ button {
 
   #banzaimanTabSelector {
     width: 70%;
+    height: 4rem;
+  }
+  #gongButtonBackground {
   }
   /* eb section */
 
@@ -812,6 +1074,15 @@ button {
     font-size: 95%;
   }
 }
+
+/* --------------450px-------------- */
+
+@media only screen and (max-width: 450px) {
+  #banzaimanTabSelector {
+    height: 3.5rem;
+  }
+}
+
 /* --------------400px-------------- */
 
 @media only screen and (max-width: 400px) {
@@ -821,12 +1092,6 @@ button {
   }
 
   /* HERO SECTION */
-  #aboutUsText {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
   /* eb section */
   .card {
     width: 90%;
@@ -834,7 +1099,7 @@ button {
 
   /* banzaiman section */
   #banzaimanText {
-    font-size: 80%;
+    font-size: 90%;
   }
 
   #gameSectionContainer {
@@ -851,6 +1116,7 @@ button {
 
   #banzaimanTabSelector {
     width: 80%;
+    height: 3rem;
   }
 
   /* employee Section */
@@ -867,6 +1133,21 @@ button {
 
 /* --------------300px-------------- */
 @media only screen and (max-width: 300px) {
+  #aboutUsTextBox {
+    height: 45rem;
+  }
+
+  #aboutUsNormalTextContainer {
+    margin-bottom: var(--margin-xs);
+    margin-top: var(--margin-xs);
+    width: 100%;
+  }
+  #aboutUsTextLightTextContainer {
+    margin-top: var(--margin-xs);
+    margin-bottom: var(--margin-xs);
+    width: 100%;
+  }
+
   /* EB SECTION */
   .card {
     width: 100%;
@@ -874,7 +1155,11 @@ button {
 
   /* BANZAIMAN SECTION */
   #banzaimanText {
-    font-size: 80%;
+    font-size: 85%;
+  }
+
+  #banzaimanTabSelector {
+    height: 2.5rem;
   }
 
   #googlePlayBadge {
