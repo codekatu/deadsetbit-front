@@ -208,8 +208,7 @@ button {
 #heroSection {
   height: 65rem;
   width: 100%;
-  background-image: url(/public/assets/heroSection/heroImage.png);
-  /* background-image: url(/public/heroSection/heroImageTest.jpg); */
+  background-image: url(/public/assets/heroSection/heroImage.webp);
 
   background-size: cover;
   background-position: center center;
@@ -343,7 +342,7 @@ button {
 
 #ebSection {
   background-color: var(--dsb-ebWhite);
-  background-image: url(/public/assets/ebSection/ebSectionBackground.png);
+  background-image: url(/public/assets/ebSection/ebSectionBackground.webp);
   background-size: cover;
   width: 100%;
   display: flex;
@@ -614,7 +613,6 @@ button {
 }
 
 .employeeCard {
-  /* background-color: #fcf7f7; */
   background-color: #ffffff;
 
   width: 20rem;
@@ -771,6 +769,15 @@ button {
     justify-content: center;
   }
 
+  #gameSectionContainer {
+    align-items: center;
+    justify-content: center;
+  }
+
+  #banzaimanLogo {
+    right: 0rem;
+  }
+
   #gameSectionTextContainer {
     margin: 0rem;
   }
@@ -873,15 +880,6 @@ button {
   #siteHeader {
     display: none;
   }
-
-  /* #aboutUsNormalTextContainer {
-    margin-top: var(--margin-small);
-    width: 90%;
-  }
-  #aboutUsTextLightTextContainer {
-    margin-bottom: var(--margin-small);
-    width: 65%;
-  } */
 
   /* EB SECTION */
   #cardContainer {
@@ -1017,12 +1015,12 @@ button {
   }
 
   #heroSectionContent {
-    align-items: center;
+    justify-content: flex-start;
   }
-
   #aboutUsTextBox {
     height: 30rem;
     margin: 0;
+    margin-top: 3rem;
   }
 
   #aboutUsTextContainer {
@@ -1064,7 +1062,6 @@ button {
 
   #banzaimanLogo {
     width: 70%;
-    right: 0rem;
   }
 
   #banzaimanGameImage {
@@ -1074,8 +1071,6 @@ button {
   #banzaimanTabSelector {
     width: 70%;
     height: 4rem;
-  }
-  #gongButtonBackground {
   }
   /* eb section */
 

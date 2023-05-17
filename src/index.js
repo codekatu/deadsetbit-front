@@ -1,6 +1,7 @@
 // import css files
 import "./reset.css";
 import "./style.css";
+import "./fonts.css";
 
 // getting dom elements
 const pageWrapper = document.getElementById("pageWrapper");
@@ -45,6 +46,9 @@ window.onload = function () {
   for (let index = 0; index < mainMenuListLinks.length; index++) {
     const element = mainMenuListLinks[index];
   }
+
+  // page starts with the gong image selected so we make it's color white onload
+  changeButtonColor("gongButtonImage");
 };
 
 // function that changes the game picture depending on which button is clicked. Also calls the changeButtonColor function to change the color of the button
@@ -52,7 +56,7 @@ function tabButton(e) {
   if (e.target.id === "gongButton" || e.target.id === "gongButtonImage") {
     tabImage.setAttribute(
       "src",
-      "assets/banzaimanSection/tabSelector/banzai_1.png"
+      "assets/banzaimanSection/tabSelector/banzai_1.webp"
     );
     changeButtonColor("gongButtonImage");
   } else if (
@@ -61,7 +65,7 @@ function tabButton(e) {
   ) {
     tabImage.setAttribute(
       "src",
-      "assets/banzaimanSection/tabSelector/banzai_2.png"
+      "assets/banzaimanSection/tabSelector/banzai_2.webp"
     );
     changeButtonColor("mountainButtonImage");
   } else if (
@@ -70,7 +74,7 @@ function tabButton(e) {
   ) {
     tabImage.setAttribute(
       "src",
-      "assets/banzaimanSection/tabSelector/banzai_3.png"
+      "assets/banzaimanSection/tabSelector/banzai_3.webp"
     );
     changeButtonColor("glyphButtonImage");
   } else if (
@@ -79,7 +83,7 @@ function tabButton(e) {
   ) {
     tabImage.setAttribute(
       "src",
-      "assets/banzaimanSection/tabSelector/banzai_4.png"
+      "assets/banzaimanSection/tabSelector/banzai_4.webp"
     );
     changeButtonColor("spaceButtonImage");
   } else if (
@@ -88,7 +92,7 @@ function tabButton(e) {
   ) {
     tabImage.setAttribute(
       "src",
-      "assets/banzaimanSection/tabSelector/banzai_5.png"
+      "assets/banzaimanSection/tabSelector/banzai_5.webp"
     );
     changeButtonColor("maracasButtonImage");
   }
@@ -110,14 +114,36 @@ function changeButtonColor(buttonImageId) {
 // scroll event listener to call navbarScrollReponsive function which changes the navbar on scroll
 window.addEventListener("scroll", navbarScrollResponsive);
 
+const throttle = (fn, wait) => {
+  let inThrottle, lastFn, lastTime;
+  return function () {
+    const context = this,
+      args = arguments;
+    if (!inThrottle) {
+      fn.apply(context, args);
+      lastTime = Date.now();
+      inThrottle = true;
+    } else {
+      clearTimeout(lastFn);
+      lastFn = setTimeout(function () {
+        if (Date.now() - lastTime >= wait) {
+          fn.apply(context, args);
+          lastTime = Date.now();
+        }
+      }, Math.max(wait - (Date.now() - lastTime), 0));
+    }
+  };
+};
 // function that makes the dogs eyes follow the cursor
 // code that is commented out counts the angle from the middle of the dogs container so that both eyes follow the cursor with same angle, therefore not crossing when hovering between the eyes
-window.addEventListener("mousemove", (e) => {
+window.addEventListener("mousemove", throttle(dogEyeMove, 25));
+
+function dogEyeMove(e) {
   // const rekt = doggo.getBoundingClientRect();
 
   // const doggoX = rekt.left + rekt.width / 2;
   // const doggoY = rekt.top + rekt.height / 2;
-
+  console.log("hello world");
   const rektLeft = leftEye.getBoundingClientRect(); // get the dimensions and location relative to viewport for the left eye
   const rektRight = rightEye.getBoundingClientRect(); // get the dimensions and location relative to viewport for the right eye
 
@@ -142,7 +168,7 @@ window.addEventListener("mousemove", (e) => {
 
   leftEye.style.transform = `rotate(${90 + angleDegLeftEye}deg)`;
   rightEye.style.transform = `rotate(${90 + angleDegRightEye}deg)`;
-});
+}
 
 //takes mouse position and dog position as arguments to count the angle between them
 function angle(cx, cy, ex, ey) {
