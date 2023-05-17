@@ -25,69 +25,101 @@
     <div id="pageWrapper">
       <!-- navbar -->
       <nav id="navbar">
-        <ul id="navbarList">
-          <div id="navbarListLeftSide" class="navbarContainer">
+        <div id="navbarList">
+          <ul id="navbarListLeftSide" class="navbarContainer">
             <li id="logoContainer">
-              <img id="logoSvg" src="assets/navbar/logo.svg" />
+              <img
+                alt="deadSetBitLogo"
+                id="logoSvg"
+                src="assets/navbar/logo.svg"
+              />
             </li>
-          </div>
-          <div id="navbarListRightSide" class="navbarContainer">
+          </ul>
+          <ul id="navbarListRightSide" class="navbarContainer">
             <li class="listItem">
-              <a href="#heroSection" class="listItemLink">ABOUT</a>
+              <a id="listItemAbout" href="#heroSection" class="listItemLink"
+                >ABOUT</a
+              >
             </li>
             <li class="listItem">
               <a href="#ebSection" class="listItemLink">
-                <img src="assets/navbar/navbarEB.svg" width="85%" />
+                <img
+                  class="listItemLinkImage"
+                  alt="Empathic Building Logo"
+                  src="assets/navbar/navbarEB.svg"
+                />
               </a>
             </li>
             <li class="listItem">
               <a href="#banzaimanSection" class="listItemLink">
-                <img src="assets/navbar/navbarBanzaiman.svg" width="85%" />
+                <img
+                  class="listItemLinkImage"
+                  alt="Banzaiman logo"
+                  src="assets/navbar/navbarBanzaiman.svg"
+                />
               </a>
             </li>
             <li class="listItem">
               <a href="#employeesSection" class="listItemLink">
-                <img src="assets/navbar/navbarEmployee.svg" width="80%" />
+                <img
+                  class="listItemLinkImage"
+                  alt="Employee section Logo"
+                  src="assets/navbar/navbarEmployee.svg"
+                />
               </a>
             </li>
-          </div>
-          <button
-            id="navbarButton"
-          >
-            <img src="/assets/navbar/menu.svg" />
+          </ul>
+          <button aria-label="navbar menu button" id="navbarButton">
+            <img alt="menu" src="/assets/navbar/menu.svg" />
           </button>
-        </ul>
-
-        <ul id="mainMenu">
-          <img src="assets/heroSection/header.svg" width="90%"/>
-          <li class="mainMenuListItem"><a
-           class="mainMenuListLink" href="#heroSection">About</a></li>
-          <li class="mainMenuListItem"><a class="mainMenuListLink" href="#ebSection">EB</a></li>
-          <li class="mainMenuListItem"><a class="mainMenuListLink" href="#banzaimanSection">Banzai Man</a></li>
-          <li class="mainMenuListItem"><a class="mainMenuListLink" href="#employeesSection">Employees</a></li>
-        </ul>
-  
-
         </div>
+        <ul id="mainMenu">
+          <img
+            alt="deadsetbit logo"
+            id="menuHeader"
+            src="assets/heroSection/header.svg"
+          />
+          <li class="mainMenuListItem">
+            <a class="mainMenuListLink" href="#heroSection">About</a>
+          </li>
+          <li class="mainMenuListItem">
+            <a class="mainMenuListLink" href="#ebSection">EB</a>
+          </li>
+          <li class="mainMenuListItem">
+            <a class="mainMenuListLink" href="#banzaimanSection">Banzaiman</a>
+          </li>
+          <li class="mainMenuListItem">
+            <a class="mainMenuListLink" href="#employeesSection">Employees</a>
+          </li>
+        </ul>
+
+        <div></div>
       </nav>
 
       <!-- Hero Section -->
       <section class="sectionContainer" id="heroSection">
         <div id="heroSectionContent">
           <div id="aboutUsTextBox">
-            <img id="siteHeader" src="/assets/heroSection/header.svg" />
+            <img
+              alt="deadsetbit Logo"
+              id="siteHeader"
+              src="/assets/heroSection/header.svg"
+            />
             <div id="doggoContainer">
               <img
+                alt="doggo"
                 id="doggo"
                 src="/assets/heroSection/doggoEyeRoll/doggoNoEyes.png"
               />
               <div id="eyeContainer">
                 <img
+                  alt="doggo eye"
                   id="leftEye"
                   class="eye"
                   src="/assets/heroSection/doggoEyeRoll/eye.png"
                 />
                 <img
+                  alt="doggo eye"
                   id="rightEye"
                   class="eye"
                   src="/assets/heroSection/doggoEyeRoll/eye.png"
@@ -126,12 +158,17 @@
       <!-- eb Section -->
       <section class="sectionContainer" id="ebSection">
         <div id="ebHeaderContainer" wi>
-          <img id="ebHeader" src="/assets/ebSection/ebName.svg" />
+          <img
+            alt="Emphatic building text"
+            id="ebHeader"
+            src="/assets/ebSection/ebName.svg"
+          />
         </div>
         <div id="cardContainer">
           <div class="card">
             <div class="cardImageContainer">
               <img
+                alt="person sitting legs crossed"
                 id="cardImagePerson"
                 class="cardImage"
                 src="/assets/ebSection/ebPerson.webp"
@@ -150,6 +187,7 @@
           <div class="card">
             <div class="cardImageContainer">
               <img
+                alt="phone with emphatic building on the screen"
                 id="cardImagePhone"
                 class="cardImage"
                 src="/assets/ebSection/ebPhone.svg"
@@ -170,6 +208,7 @@
           <div class="card">
             <div class="cardImageContainer">
               <img
+                alt="emphatic building logo"
                 id="cardImageLogo"
                 class="cardImage"
                 src="/assets/ebSection/ebLogo.svg"
@@ -181,7 +220,13 @@
               <p id="haltianCardText" class="cardText">
                 check out more about the project at
               </p>
-              <img src="/assets/ebSection/haltianLogo.svg" width="60%" />
+              <a id="haltianLink" href="https://haltian.com/" target="_blank">
+                <img
+                  alt="Haltian logo"
+                  src="/assets/ebSection/haltianLogo.svg"
+                  width="60%"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -192,19 +237,56 @@
           <div id="sectionOrder">
             <div id="gameSectionContainer">
               <img
+                alt="banzaiman logo"
                 id="banzaimanLogo"
                 src="assets/banzaimanSection/banzaimanLogoCombined.webp"
               />
               <img
+                alt="banzaiman game image"
                 id="banzaimanGameImage"
                 src="assets/banzaimanSection/tabSelector/banzai_1.png"
               />
               <div id="banzaimanTabSelector">
-                <button id="gongButton" class="tabSelectorButton"></button>
-                <button id="mountainButton" class="tabSelectorButton"></button>
-                <button id="glyphButton" class="tabSelectorButton"></button>
-                <button id="spaceButton" class="tabSelectorButton"></button>
-                <button id="maracasButton" class="tabSelectorButton"></button>
+                <button id="gongButton" class="tabSelectorButton">
+                  <img
+                    id="gongButtonImage"
+                    class="buttonImage"
+                    alt="gong button"
+                    src="assets/banzaimanSection/tabSelector/gong.svg"
+                  />
+                </button>
+                <button id="mountainButton" class="tabSelectorButton">
+                  <img
+                    id="mountainButtonImage"
+                    class="buttonImage"
+                    alt="gong button"
+                    src="assets/banzaimanSection/tabSelector/mountain.svg"
+                  />
+                </button>
+                <button id="glyphButton" class="tabSelectorButton">
+                  <img
+                    id="glyphButtonImage"
+                    class="buttonImage"
+                    alt="gong button"
+                    src="assets/banzaimanSection/tabSelector/glyph.svg"
+                  />
+                </button>
+                <button id="spaceButton" class="tabSelectorButton">
+                  <img
+                    id="spaceButtonImage"
+                    class="buttonImage"
+                    alt="gong button"
+                    src="assets/banzaimanSection/tabSelector/space.svg"
+                  />
+                </button>
+                <button id="maracasButton" class="tabSelectorButton">
+                  <img
+                    id="maracasButtonImage"
+                    class="buttonImage"
+                    alt="gong button"
+                    src="assets/banzaimanSection/tabSelector/maracas.svg"
+                  />
+                </button>
               </div>
             </div>
             <div id="bottom">
@@ -226,13 +308,24 @@
               </div>
             </div>
           </div>
-          <img id="googlePlayBadge" src="assets/googlePlayBadge.png" />
+          <a
+            id="googlePlayLink"
+            href="https://play.google.com/store/apps/details?id=com.deadsetbit.and.banzaiman&hl=fi&gl=US"
+            target="_blank"
+          >
+            <img
+              alt="google play badge"
+              id="googlePlayBadge"
+              src="assets/googlePlayBadge.png"
+            />
+          </a>
         </div>
       </section>
       <!-- Employees section -->
       <section class="sectionContainer" id="employeesSection">
         <div id="employeeSectionHeaderContainer">
           <img
+            alt="image that says get to know the bits"
             id="employeeSectionHeader"
             src="assets/employeesSection/EmployeeSectionHeader.svg"
           />
@@ -241,6 +334,7 @@
         <div id="employeeContainer">
           <div class="employeeCard">
             <img
+              alt="drawn image of an employee"
               class="employeeImage"
               src="assets/employeesSection/pauli.webp"
             />
@@ -254,9 +348,9 @@
               the real world and its real needs into bits.
             </p>
           </div>
-
           <div class="employeeCard">
             <img
+              alt="drawn image of an employee"
               class="employeeImage"
               src="assets/employeesSection/jasu.webp"
             />
@@ -272,6 +366,7 @@
           </div>
           <div class="employeeCard">
             <img
+              alt="drawn image of an employee"
               class="employeeImage"
               src="assets/employeesSection/nikki.webp"
             />
@@ -287,6 +382,7 @@
 
           <div class="employeeCard">
             <img
+              alt="drawn image of an employee"
               class="employeeImage"
               src="assets/employeesSection/jonna.webp"
             />
@@ -302,6 +398,7 @@
           </div>
           <div class="employeeCard">
             <img
+              alt="drawn image of an employee"
               class="employeeImage"
               src="assets/employeesSection/simo.webp"
             />
@@ -316,6 +413,7 @@
           </div>
           <div class="employeeCard">
             <img
+              alt="drawn image of an employee"
               class="employeeImage"
               src="assets/employeesSection/antti.webp"
             />
@@ -331,6 +429,7 @@
 
           <div class="employeeCard">
             <img
+              alt="drawn image of an employee"
               class="employeeImage"
               src="assets/employeesSection/toffe.webp"
             />
@@ -345,6 +444,7 @@
           </div>
           <div class="employeeCard">
             <img
+              alt="drawn image of an employee"
               class="employeeImage"
               src="assets/employeesSection/alex.webp"
             />
@@ -359,6 +459,7 @@
           </div>
           <div class="employeeCard">
             <img
+              alt="drawn image of an employee"
               class="employeeImage"
               src="assets/employeesSection/hugo.webp"
             />
@@ -373,6 +474,7 @@
           </div>
           <div class="employeeCard">
             <img
+              alt="drawn image of an employee"
               class="employeeImage"
               src="assets/employeesSection/petri.webp"
             />

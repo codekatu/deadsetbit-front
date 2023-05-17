@@ -93,6 +93,12 @@ button {
   -webkit-box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
   -moz-box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
 }
+.listItem:hover .listItemLinkImage {
+  width: 85%;
+}
+.listItem:hover #listItemAbout {
+  font-size: 125%;
+}
 
 .listItemScrolled {
   box-shadow: none;
@@ -138,10 +144,21 @@ button {
 }
 
 .listItemLink {
-  color: black;
+  width: 100%;
+  height: 100%;
+  color: var(--dsb-white);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#listItemAbout {
+  transition: var(--transition-time);
+}
+
+.listItemLinkImage {
+  width: 70%;
+  transition: var(--transition-time);
 }
 
 .navbarContainer {
@@ -170,6 +187,11 @@ button {
   display: none;
 }
 
+#menuHeader {
+  display: none;
+  width: 90%;
+}
+
 /* 
 
 
@@ -190,7 +212,7 @@ button {
   /* background-image: url(/public/heroSection/heroImageTest.jpg); */
 
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -214,6 +236,10 @@ button {
   left: -5rem;
 }
 
+#siteHeaderMobile {
+  display: none;
+}
+
 #aboutUsTextBox {
   position: relative;
   background-color: var(--dsb-yellow);
@@ -235,7 +261,6 @@ button {
 #doggo {
   position: absolute;
   width: 400px;
-  height: 400px;
 }
 
 #eyeContainer {
@@ -244,7 +269,7 @@ button {
 #leftEye {
   position: absolute;
   top: 68px;
-  left: 104px;
+  left: 107px;
   width: 10px;
 }
 
@@ -402,6 +427,11 @@ button {
   width: 100%;
 }
 
+#haltianLink {
+  display: flex;
+  justify-content: center;
+}
+
 /* 
 -----------------BANZAIMAN SECTION-----------------
  */
@@ -421,7 +451,7 @@ button {
 
 #banzaimanSectionContentContainer {
   display: flex;
-  margin-top: 5rem;
+  margin-top: var(--margin-small);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -438,7 +468,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: var(--margin-small);
 }
 
 #banzaimanLogo {
@@ -449,6 +479,7 @@ button {
 }
 
 #banzaimanGameImage {
+  display: block;
   width: 35rem;
 }
 
@@ -475,46 +506,17 @@ button {
   background-repeat: no-repeat;
 }
 
-.tabSelectorButton:hover {
+.buttonImage {
+  width: 100%;
+  height: 100%;
 }
 
-#gongButton {
-  background-image: url(/public/assets/banzaimanSection/tabSelector/gongWhite.svg);
-}
-#gongButton:hover {
-  background-image: url(/public/assets/banzaimanSection/tabSelector/gongWhite.svg) !important;
+.buttonImageSelected {
+  filter: brightness(0%) contrast(100%) invert(100%);
 }
 
-#mountainButton {
-  background-image: url(/public/assets/banzaimanSection/tabSelector/mountain.svg);
-}
-
-#mountainButton:hover {
-  background-image: url(/public/assets/banzaimanSection/tabSelector/mountainWhite.svg) !important;
-}
-
-#glyphButton {
-  background-image: url(/public/assets/banzaimanSection/tabSelector/glyph.svg);
-}
-
-#glyphButton:hover {
-  background-image: url(/public/assets/banzaimanSection/tabSelector/glyphWhite.svg) !important;
-}
-
-#spaceButton {
-  background-image: url(/public/assets/banzaimanSection/tabSelector/space.svg);
-}
-
-#spaceButton:hover {
-  background-image: url(/public/assets/banzaimanSection/tabSelector/spaceWhite.svg) !important;
-}
-
-#maracasButton {
-  background-image: url(/public/assets/banzaimanSection/tabSelector/maracas.svg);
-}
-
-#maracasButton:hover {
-  background-image: url(/public/assets/banzaimanSection/tabSelector/maracasWhite.svg) !important;
+.buttonImage:hover {
+  filter: brightness(0%) contrast(100%) invert(100%);
 }
 
 #gameSectionTextContainer {
@@ -561,8 +563,8 @@ button {
 }
 
 #googlePlayBadge {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-top: var(--margin-small);
+  margin-bottom: var(--margin-small);
   width: 18.8rem;
 }
 /* 
@@ -630,7 +632,6 @@ button {
 .employeeImage {
   position: absolute;
   bottom: 12.7rem;
-  width: 100%px;
   height: 195px;
 }
 
@@ -806,8 +807,12 @@ button {
 
   /* HERO SECTION */
 
+  #heroSection {
+    height: 50rem;
+  }
+
   #heroSectionContent {
-    justify-content: center;
+    justify-content: flex-end;
   }
   #aboutUsTextBox {
     height: 30rem;
@@ -822,6 +827,8 @@ button {
   #aboutUsTextBox {
     align-items: center;
     justify-content: center;
+    border-top: 10px solid white;
+    border-bottom: 10px solid white;
   }
 
   #aboutUsNormalTextContainer {
@@ -849,7 +856,6 @@ button {
 
   #doggo {
     width: 200px;
-    height: 200px;
   }
 
   #leftEye {
@@ -971,7 +977,7 @@ button {
 
   #mainMenu {
     height: 100vh;
-    background-color: white;
+    background-color: var(--dsb-white);
     position: absolute;
     right: 0;
     width: 15rem;
@@ -979,25 +985,50 @@ button {
     flex-direction: column;
     align-items: center;
     display: none;
+    z-index: 10;
+  }
+
+  #mainMenuBackgroundColor {
+    background-color: rgb(0, 0, 0, 0.5);
   }
 
   .mainMenuListItem {
     display: flex;
-
-    padding: 2rem;
-    padding-bottom: 2px;
+    justify-content: center;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    width: 100%;
   }
   .mainMenuListLink {
     display: flex;
-    color: black;
+    color: var(--dsb-dark);
     text-decoration: none;
     font-size: var(--text-middle);
   }
 
+  #menuHeader {
+    display: block;
+  }
+
   /* HERO SECTION */
 
+  #heroSection {
+    height: 50rem;
+  }
+
+  #heroSectionContent {
+    align-items: center;
+  }
+
   #aboutUsTextBox {
-    height: 40rem;
+    height: 30rem;
+    margin: 0;
+  }
+
+  #aboutUsTextContainer {
+    align-items: flex-start;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   #doggoContainer {
@@ -1005,13 +1036,9 @@ button {
   }
 
   #aboutUsNormalTextContainer {
-    margin-bottom: var(--margin-small);
-    margin-top: var(--margin-small);
     width: 100%;
   }
   #aboutUsTextLightTextContainer {
-    margin-top: var(--margin-small);
-    margin-bottom: var(--margin-small);
     width: 100%;
   }
 
@@ -1059,12 +1086,10 @@ button {
     align-items: center;
   }
   .card {
-    width: 80%;
+    width: 100%;
   }
 
   #cardImagePerson {
-    height: 100%;
-    width: 100%;
   }
 
   #cardImagePhone {
@@ -1130,13 +1155,16 @@ button {
     width: 100%;
   }
 }
+/* --------------350px-------------- */
+
+@media only screen and (max-width: 400px) {
+  #aboutUsTextBox {
+    height: 35rem;
+  }
+}
 
 /* --------------300px-------------- */
 @media only screen and (max-width: 300px) {
-  #aboutUsTextBox {
-    height: 45rem;
-  }
-
   #aboutUsNormalTextContainer {
     margin-bottom: var(--margin-xs);
     margin-top: var(--margin-xs);
