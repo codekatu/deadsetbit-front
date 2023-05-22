@@ -96,9 +96,6 @@ button {
   -webkit-box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
   -moz-box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
 }
-.listItem:hover .listItemLinkImage {
-  width: 85%;
-}
 .listItem:hover #listItemAbout {
   font-size: 125%;
 }
@@ -137,6 +134,7 @@ button {
   transition: var(--transition-time);
 
   width: 80%;
+  height: 140%;
   position: relative;
   top: 0rem;
 }
@@ -160,8 +158,14 @@ button {
 }
 
 .listItemLinkImage {
-  width: 70%;
+  width: 56px;
+  height: 56px;
+
   transition: var(--transition-time);
+}
+.listItem:hover .listItemLinkImage {
+  width: 61px;
+  height: 61px;
 }
 
 .navbarContainer {
@@ -418,7 +422,8 @@ button {
 }
 
 #ebHeader {
-  height: 4.5rem;
+  height: 72px;
+  width: 508px;
 }
 
 #cardContainer {
@@ -458,6 +463,11 @@ button {
   width: 85%;
 }
 
+#cardImagePerson {
+  width: 312px;
+  height: 314px;
+}
+
 .cardTextContainer {
   width: 100%;
   height: 40%;
@@ -482,6 +492,11 @@ button {
 #haltianCardText {
   text-align: center;
   width: 100%;
+}
+
+#haltianLogo {
+  width: 180px;
+  height: 43.91px;
 }
 
 #haltianLink {
@@ -531,13 +546,14 @@ button {
 #banzaimanLogo {
   position: relative;
   right: 4rem;
-  height: auto;
-  width: 25rem;
+  height: 143px;
+  width: 400px;
 }
 
 #banzaimanGameImage {
   display: block;
-  width: 35rem;
+  width: 560px;
+  height: 335px;
 }
 
 #banzaimanTabSelector {
@@ -622,7 +638,8 @@ button {
 #googlePlayBadge {
   margin-top: var(--margin-small);
   margin-bottom: var(--margin-small);
-  width: 18.8rem;
+  width: 300px;
+  /* height: 116px; */
 }
 /* 
 -----------------EMPLOYEES SECTION-----------------
@@ -1122,11 +1139,13 @@ button {
   }
 
   #banzaimanLogo {
-    width: 70%;
+    width: 80%;
+    height: 25%;
   }
 
   #banzaimanGameImage {
     width: 100%;
+    height: 100%;
   }
 
   #banzaimanTabSelector {
@@ -1142,10 +1161,6 @@ button {
     align-items: center;
   }
   .card {
-    width: 100%;
-  }
-
-  #cardImagePerson {
   }
 
   #cardImagePhone {
@@ -1175,7 +1190,12 @@ button {
   /* HERO SECTION */
   /* eb section */
   .card {
-    width: 90%;
+    width: 100%;
+  }
+
+  #cardImagePerson {
+    width: 85%;
+    height: auto;
   }
 
   /* banzaiman section */
@@ -1185,10 +1205,6 @@ button {
 
   #gameSectionContainer {
     width: 100%;
-  }
-
-  #banzaimanLogo {
-    width: 80%;
   }
 
   #banzaimanGameImage {
@@ -1247,6 +1263,7 @@ button {
   }
 
   #googlePlayBadge {
-    width: 15rem;
+    width: 240px;
+    height: auto;
   }
 }
