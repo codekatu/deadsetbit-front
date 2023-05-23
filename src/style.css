@@ -27,6 +27,7 @@
 html {
   font-family: "Source Sans Pro", sans-serif;
   /* background-color: yellow; */
+  scroll-behavior: smooth;
 }
 
 #pageWrapper {
@@ -168,7 +169,7 @@ button {
   height: 61px;
 }
 
-.navbarContainer {
+.navbarListContainer {
   transition: var(--transition-time);
 
   display: flex;
@@ -270,7 +271,7 @@ button {
 #heroSection {
   height: 65rem;
   width: 100%;
-  background-image: url(/public/assets/heroSection/heroImage.webp);
+  /* background-image: url(/public/assets/heroSection/heroImage.webp); */
 
   background-size: cover;
   background-position: center center;
@@ -403,8 +404,10 @@ button {
  */
 
 #ebSection {
+  /* ON MOBILE THIS IMAGE IS THE FIRST LCP SO I USED INLINE STYLE ON THE ELEMENT TO SET THE BACKGROUND IMAGE BECAUSE WEBPACK GENERATES A HASH FOR THIS IMAGE EVERYTIME SO WE ACCESS IT DIRECTLY FROM THE DIST FOLDER WITH ITS ORIGINAL NAME */
+
+  /* background-image: url(/public/assets/ebSection/ebSectionBackground.webp); */
   background-color: var(--dsb-ebWhite);
-  background-image: url(/public/assets/ebSection/ebSectionBackground.webp);
   background-size: cover;
   width: 100%;
   display: flex;
@@ -790,7 +793,7 @@ button {
   #navbar {
     width: 100%;
   }
-  /* HERO SECTION */
+  /* hero section */
 
   #heroSection {
     height: 75rem;
@@ -887,7 +890,7 @@ button {
     margin-right: var(--margin-xs);
   }
 
-  /* HERO SECTION */
+  /* hero section */
 
   #heroSection {
     height: 50rem;
@@ -1084,7 +1087,7 @@ button {
     display: block;
   }
 
-  /* HERO SECTION */
+  /* hero section  */
 
   #heroSection {
     height: auto;
@@ -1097,7 +1100,7 @@ button {
   #aboutUsTextBox {
     height: 30rem;
     margin: 0;
-    margin-top: 3rem;
+    padding-top: 3rem;
     border: none;
   }
 
@@ -1187,7 +1190,6 @@ button {
     margin-left: var(--margin-xs);
   }
 
-  /* HERO SECTION */
   /* eb section */
   .card {
     width: 100%;

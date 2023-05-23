@@ -8,7 +8,43 @@
       name="description"
       content="Dead Set Bit is a new-age tech company focusing on quietly but efficiently delivering complete solutions without the need for a lot of hand-waving, trendy tech terms or an office with a ball pit."
     />
-    <link rel="icon" type="image/x-icon" href="assets/navbar/logo.svg" />
+    <!-- preloads -->
+    <!--  on mobile -->
+    <link
+      rel="preload"
+      as="image"
+      media="(max-width: 600px)"
+      href="/assets/ebSection/ebSectionBackground.webp"
+    />
+
+    <!--  on 600px and upwards -->
+    <link
+      rel="preload"
+      as="image"
+      media="(min-width: 600px)"
+      href="/assets/heroSection/heroImage.webp"
+    />
+    <link
+      rel="preload"
+      as="image"
+      media="(min-width: 600px)"
+      href="/assets/heroSection/doggoEyeRoll/doggoNoEyes.webp"
+    />
+    <link
+      rel="preload"
+      as="image"
+      media="(min-width: 600px)"
+      href="/assets/heroSection/doggoEyeRoll/eye.webp"
+    />
+
+    <!--  on 900px and upwards -->
+    <link
+      rel="preload"
+      as="image"
+      media="(min-width: 900px)"
+      href="/assets/heroSection/header.svg"
+    />
+
     <title>Dead Set Bit</title>
   </head>
   <body>
@@ -16,7 +52,7 @@
       <!-- navbar -->
       <nav id="navbar">
         <div id="navbarList">
-          <ul id="navbarListLeftSide" class="navbarContainer">
+          <ul id="navbarListLeftSide" class="navbarListContainer">
             <li id="logoContainer">
               <img
                 alt="deadSetBitLogo"
@@ -25,7 +61,7 @@
               />
             </li>
           </ul>
-          <ul id="navbarListRightSide" class="navbarContainer">
+          <ul id="navbarListRightSide" class="navbarListContainer">
             <li class="listItem">
               <a id="listItemAbout" href="#heroSection" class="listItemLink"
                 >ABOUT</a
@@ -92,7 +128,11 @@
       </nav>
 
       <!-- Hero Section -->
-      <section class="sectionContainer" id="heroSection">
+      <section
+        class="sectionContainer"
+        id="heroSection"
+        style="background-image: url(assets/heroSection/heroImage.webp)"
+      >
         <div id="heroSectionContent">
           <div id="aboutUsTextBox">
             <img
@@ -151,7 +191,13 @@
         </div>
       </section>
       <!-- eb Section -->
-      <section class="sectionContainer" id="ebSection">
+      <section
+        style="
+          background-image: url(/assets/ebSection/ebSectionBackground.webp);
+        "
+        class="sectionContainer"
+        id="ebSection"
+      >
         <div id="ebHeaderContainer" wi>
           <img
             alt="Emphatic building text"
