@@ -9,7 +9,12 @@
       content="Dead Set Bit is a new-age tech company focusing on quietly but efficiently delivering complete solutions without the need for a lot of hand-waving, trendy tech terms or an office with a ball pit."
     />
     <!-- preloads -->
-    <!--  on mobile -->
+
+    <!-- Always -->
+    <link rel="preload" as="image" href="/assets/navbar/logo.svg" />
+
+    <!--  600px and lower -->
+
     <link
       rel="preload"
       as="image"
@@ -17,7 +22,21 @@
       href="/assets/ebSection/ebSectionBackground.webp"
     />
 
-    <!--  on 600px and upwards -->
+    <link
+      rel="preload"
+      as="image"
+      media="(max-width: 600px)"
+      href="/assets/ebSection/ebName.svg"
+    />
+
+    <link
+      rel="preload"
+      as="image"
+      media="(max-width: 600px)"
+      href="/assets/ebSection/ebPerson.webp"
+    />
+
+    <!--   600px and upwards -->
     <link
       rel="preload"
       as="image"
