@@ -19,6 +19,13 @@
       rel="preload"
       as="image"
       media="(max-width: 600px)"
+      href="/assets/heroSection/heroImage.webp"
+    />
+
+    <link
+      rel="preload"
+      as="image"
+      media="(max-width: 600px)"
       href="/assets/ebSection/ebSectionBackground.webp"
     />
 
@@ -63,6 +70,22 @@
       media="(min-width: 900px)"
       href="/assets/heroSection/header.svg"
     />
+
+    <style>
+      #heroSection {
+        background-image: url(/assets/heroSection/heroImage.webp);
+      }
+
+      #ebSection {
+        background-image: url(/assets/ebSection/ebSectionBackground.webp);
+      }
+
+      @media only screen and (max-width: 600px) {
+        #heroSection {
+          background-image: none;
+        }
+      }
+    </style>
 
     <title>Dead Set Bit</title>
   </head>
@@ -147,11 +170,7 @@
       </nav>
 
       <!-- Hero Section -->
-      <section
-        class="sectionContainer"
-        id="heroSection"
-        style="background-image: url(assets/heroSection/heroImage.webp)"
-      >
+      <section class="sectionContainer" id="heroSection">
         <div id="heroSectionContent">
           <div id="aboutUsTextBox">
             <img
@@ -210,13 +229,7 @@
         </div>
       </section>
       <!-- eb Section -->
-      <section
-        style="
-          background-image: url(/assets/ebSection/ebSectionBackground.webp);
-        "
-        class="sectionContainer"
-        id="ebSection"
-      >
+      <section class="sectionContainer" id="ebSection">
         <div id="ebHeaderContainer" wi>
           <img
             alt="Emphatic building text"

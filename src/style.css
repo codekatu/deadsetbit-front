@@ -898,8 +898,6 @@ button {
     justify-content: flex-end;
   }
   #aboutUsTextBox {
-    align-items: center;
-    justify-content: center;
     border: none;
     border-top: 10px solid white;
     border-bottom: 10px solid white;
@@ -1089,14 +1087,12 @@ button {
 
   #heroSection {
     height: auto;
-    background-image: none;
   }
 
   #heroSectionContent {
     justify-content: flex-start;
   }
   #aboutUsTextBox {
-    height: 30rem;
     margin: 0;
     padding-top: 3rem;
     border: none;
