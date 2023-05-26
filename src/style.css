@@ -356,7 +356,6 @@ button {
 
 #aboutUsNormalTextContainer {
   width: 100%;
-  height: 50%;
   margin-bottom: var(--margin-small);
 }
 #aboutUsTextLightTextContainer {
