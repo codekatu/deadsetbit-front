@@ -14,21 +14,6 @@
     <!-- Always -->
     <link rel="preload" as="image" href="/assets/navbar/logo.svg" />
 
-    <!-- 600px and downwards -->
-    <link
-      rel="preload"
-      as="image"
-      media="(max-width: 600px)"
-      href="/assets/ebSection/ebName.svg"
-    />
-
-    <link
-      rel="preload"
-      as="image"
-      media="(max-width: 600px)"
-      href="/assets/ebSection/ebPerson.webp"
-    />
-
     <!--   600px and upwards -->
     <link
       rel="preload"
@@ -305,11 +290,13 @@
                 id="banzaimanLogo"
                 src="assets/banzaimanSection/logoTest.webp"
               />
-              <img
-                alt="banzaiman game image"
-                id="banzaimanGameImage"
-                src="assets/banzaimanSection/tabSelector/banzai_1.webp"
-              />
+              <div id="banzaimanGameImageContainer">
+                <img
+                  alt="banzaiman game image"
+                  id="banzaimanGameImage"
+                  src="assets/banzaimanSection/tabSelector/banzai_1.webp"
+                />
+              </div>
               <div id="banzaimanTabSelector">
                 <button id="gongButton" class="tabSelectorButton">
                   <img

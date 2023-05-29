@@ -556,10 +556,14 @@ button {
   width: 400px;
 }
 
-#banzaimanGameImage {
-  display: block;
+#banzaimanGameImageContainer {
   width: 560px;
   height: 335px;
+}
+
+.banzaimanGameImage {
+  width: 100%;
+  height: 100%;
 }
 
 #banzaimanTabSelector {
@@ -710,7 +714,7 @@ button {
 
 .employeeImage {
   position: absolute;
-  bottom: 12.7rem;
+  bottom: 13rem;
   height: 195px;
 }
 
@@ -1145,6 +1149,11 @@ button {
     height: 25%;
   }
 
+  #banzaimanGameImageContainer {
+    width: 100%;
+    height: 100%;
+  }
+
   #banzaimanGameImage {
     width: 100%;
     height: 100%;
@@ -1162,6 +1171,7 @@ button {
   #cardContainer {
     align-items: center;
     width: 100%;
+    padding-bottom: 1.5rem;
   }
   .card {
   }
@@ -1190,6 +1200,7 @@ button {
   /* eb section */
   .card {
     width: 100%;
+    box-shadow: none;
   }
 
   #cardImagePerson {
@@ -1207,10 +1218,6 @@ button {
   }
 
   #gameSectionContainer {
-    width: 100%;
-  }
-
-  #banzaimanGameImage {
     width: 100%;
   }
 
