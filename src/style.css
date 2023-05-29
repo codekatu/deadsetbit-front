@@ -25,7 +25,7 @@
 }
 
 html {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Source Sans Pro", fallback-font;
   /* background-color: yellow; */
   scroll-behavior: smooth;
 }
@@ -468,6 +468,10 @@ button {
 #cardImagePerson {
   width: 312px;
   height: 314px;
+}
+
+#cardImagePhone {
+  height: 120%;
 }
 
 .cardTextContainer {
@@ -1162,9 +1166,6 @@ button {
   .card {
   }
 
-  #cardImagePhone {
-    height: 120%;
-  }
   #banzaimanText {
     font-size: 95%;
   }
@@ -1193,6 +1194,10 @@ button {
 
   #cardImagePerson {
     width: 85%;
+    height: auto;
+  }
+
+  #cardImagePhone {
     height: auto;
   }
 
