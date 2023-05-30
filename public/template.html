@@ -13,6 +13,28 @@
 
     <!-- Always -->
     <link rel="preload" as="image" href="/assets/navbar/logo.svg" />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/banzaimanSection/tabSelector/banzai_2.webp"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/banzaimanSection/tabSelector/banzai_3.webp"
+    />
+
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/banzaimanSection/tabSelector/banzai_4.webp"
+    />
+
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/banzaimanSection/tabSelector/banzai_5.webp"
+    />
 
     <!--   600px and upwards -->
     <link
@@ -72,13 +94,15 @@
       <nav id="navbar">
         <div id="navbarList">
           <ul id="navbarListLeftSide" class="navbarListContainer">
-            <li id="logoContainer">
-              <img
-                alt="deadSetBitLogo"
-                id="logoSvg"
-                src="assets/navbar/logo.svg"
-              />
-            </li>
+            <a id="logoLink" href="#top">
+              <li id="logoContainer">
+                <img
+                  alt="deadSetBitLogo"
+                  id="logoSvg"
+                  src="assets/navbar/logo.svg"
+                />
+              </li>
+            </a>
           </ul>
           <ul id="navbarListRightSide" class="navbarListContainer">
             <li class="listItem">
@@ -180,7 +204,7 @@
               <div id="aboutUsNormalTextContainer">
                 <p id="aboutUsText">
                   focusing on
-                  <span class="underLine"
+                  <span id="underLine"
                     ><span id="quietly">quietly</span> but
                     <span id="efficiently">efficiently</span></span
                   >

@@ -1,6 +1,6 @@
 /* source-sans-pro-200 - latin */
 @font-face {
-  font-display: fallback; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 200;
@@ -8,7 +8,7 @@
 }
 /* source-sans-pro-200italic - latin */
 @font-face {
-  font-display: fallback; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: "Source Sans Pro";
   font-style: italic;
   font-weight: 200;
@@ -16,7 +16,7 @@
 }
 /* source-sans-pro-regular - latin */
 @font-face {
-  font-display: fallback; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 400;
@@ -25,7 +25,7 @@
 }
 /* source-sans-pro-italic - latin */
 @font-face {
-  font-display: fallback; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: "Source Sans Pro";
   font-style: italic;
   font-weight: 400;
@@ -35,7 +35,7 @@
 }
 /* source-sans-pro-700 - latin */
 @font-face {
-  font-display: fallback; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 700;
@@ -44,7 +44,7 @@
 }
 /* source-sans-pro-700italic - latin */
 @font-face {
-  font-display: fallback; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: "Source Sans Pro";
   font-style: italic;
   font-weight: 700;
@@ -53,10 +53,18 @@
 }
 
 @font-face {
-  font-family: fallback-font;
-  src: local(sans-serif); /* required! */
-  advance-override: 2200;
+  font-family: fallback-font1;
+  src: local(Times);
   ascent-override: 984;
   descent-override: -273;
+  line-gap-override: 0;
+}
+
+@font-face {
+  font-family: fallback-font2;
+  src: local();
+  advance-override: 0;
+  ascent-override: 0;
+  descent-override: 0;
   line-gap-override: 0;
 }

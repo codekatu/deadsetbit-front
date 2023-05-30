@@ -1,7 +1,7 @@
 // import css files
+import "./fonts.css";
 import "./reset.css";
 import "./style.css";
-import "./fonts.css";
 
 // getting dom elements
 // const pageWrapper = document.getElementById("pageWrapper");
