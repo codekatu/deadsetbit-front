@@ -51,20 +51,3 @@
 
   src: url("./fonts/source-sans-pro-v21-latin-700italic.woff2") format("woff2");
 }
-
-@font-face {
-  font-family: fallback-font1;
-  src: local(Times);
-  ascent-override: 984;
-  descent-override: -273;
-  line-gap-override: 0;
-}
-
-@font-face {
-  font-family: fallback-font2;
-  src: local();
-  advance-override: 0;
-  ascent-override: 0;
-  descent-override: 0;
-  line-gap-override: 0;
-}

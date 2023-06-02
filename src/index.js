@@ -1,18 +1,15 @@
 // import css files
-import "./fonts.css";
 import "./reset.css";
+import "./fonts.css";
 import "./style.css";
 
 // getting dom elements
-// const pageWrapper = document.getElementById("pageWrapper");
 const navbar = document.getElementById("navbar");
 const listItems = document.getElementsByClassName("listItem");
 const logoContainer = document.getElementById("logoContainer");
 const logo = document.getElementById("logoSvg");
 const leftEye = document.getElementById("leftEye");
 const rightEye = document.getElementById("rightEye");
-const eyes = document.querySelectorAll(".eye"); // needed if using the other variant of the dogEyeMove
-const doggo = document.getElementById("doggo"); // needed if using the other variant of the dogEyeMove
 const tabImage = document.getElementById("banzaimanGameImage");
 const navbarButton = document.getElementById("navbarButton");
 const tabButtons = document.getElementsByClassName("tabSelectorButton");
@@ -126,12 +123,7 @@ function changeButtonColor(buttonImageId) {
 }
 
 // function that makes the dogs eyes follow the cursor
-// code that is commented out counts the angle from the middle of the dogs container so that both eyes follow the cursor with same angle, therefore not crossing when hovering between the eyes
 function dogEyeMove(e) {
-  // const rekt = doggo.getBoundingClientRect();
-
-  // const doggoX = rekt.left + rekt.width / 2;
-  // const doggoY = rekt.top + rekt.height / 2;
   const rektLeft = leftEye.getBoundingClientRect(); // get the dimensions and location relative to viewport for the left eye
   const rektRight = rightEye.getBoundingClientRect(); // get the dimensions and location relative to viewport for the right eye
 
@@ -144,12 +136,6 @@ function dogEyeMove(e) {
   // position of the cursor
   const mouseX = e.clientX;
   const mouseY = e.clientY;
-
-  // const angleDeg = angle(mouseX, mouseY, doggoX, doggoY);
-
-  // eyes.forEach((eye) => {
-  //   eye.style.transform = `rotate(${90 + angleDeg}deg)`;
-  // });
 
   const angleDegLeftEye = angle(mouseX, mouseY, leftEyeX, leftEyeY); // get the degree of the angle between mouse and the eye
   const angleDegRightEye = angle(mouseX, mouseY, rightEyeX, rightEyeY); // get the degree of the angle between mouse and the eye
