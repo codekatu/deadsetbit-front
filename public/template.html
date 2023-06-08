@@ -9,36 +9,45 @@
       content="Dead Set Bit is a new-age tech company focusing on quietly but efficiently delivering complete solutions"
     />
     <!-- fav icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicons/favicon-32x32.png"
+    />
 
     <link
       rel="icon"
       type="image/png"
-      sizes="48x48"
-      href="assets/favicons/favicon-48x48.png"
+      sizes="32x32"
+      href="favicons/favicon-32x32.png"
     />
 
     <link
       rel="icon"
       type="image/png"
       sizes="48x48"
-      href="assets/favicons/favicon-48x48.png"
+      href="favicons/favicon-48x48.png"
     />
 
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="assets/favicons/favicon-16x16.png"
+      href="favicons/favicon-16x16.png"
     />
-    <link rel="manifest" href="assets/favicons/site.webmanifest" />
+    <link rel="manifest" href="favicons/site.webmanifest" />
     <link
       rel="mask-icon"
-      href="assets/favicons/safari-pinned-tab.svg"
+      href="favicons/safari-pinned-tab.svg"
       color="#5bbad5"
     />
-    <link rel="shortcut icon" href="assets/favicons/favicon.ico" />
+    <link rel="shortcut icon" href="favicons/favicon.ico" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="msapplication-config" content="/browserconfig.xml" />
     <meta name="theme-color" content="#ffffff" />
@@ -47,28 +56,6 @@
 
     <!-- Always -->
     <link rel="preload" as="image" href="assets/navbar/logo.svg" />
-    <link
-      rel="preload"
-      as="image"
-      href="assets/banzaimanSection/tabSelector/banzai_2.webp"
-    />
-    <link
-      rel="preload"
-      as="image"
-      href="assets/banzaimanSection/tabSelector/banzai_3.webp"
-    />
-
-    <link
-      rel="preload"
-      as="image"
-      href="assets/banzaimanSection/tabSelector/banzai_4.webp"
-    />
-
-    <link
-      rel="preload"
-      as="image"
-      href="assets/banzaimanSection/tabSelector/banzai_5.webp"
-    />
 
     <!--   600px and upwards -->
     <link
@@ -99,23 +86,15 @@
       href="assets/heroSection/header.svg"
     />
 
+    <!-- using style tag to set the hero section background here to preload the image in the HTML Head because it lowers the first largest contentful paint time -->
     <style>
       #heroSection {
         background-image: url(assets/heroSection/heroImage.webp);
       }
 
-      #ebSection {
-        background-image: url(assets/ebSection/ebSectionBackground.webp);
-      }
-
       @media only screen and (max-width: 600px) {
         #heroSection {
           background-image: none;
-        }
-
-        #ebSection {
-          background-image: none;
-          background-color: white;
         }
       }
     </style>
@@ -349,13 +328,11 @@
                 id="banzaimanLogo"
                 src="assets/banzaimanSection/logoTest.webp"
               />
-              <div id="banzaimanGameImageContainer">
-                <img
-                  alt="banzaiman game image"
-                  id="banzaimanGameImage"
-                  src="assets/banzaimanSection/tabSelector/banzai_1.webp"
-                />
-              </div>
+              <img
+                alt="banzaiman game image"
+                id="banzaimanGameImage"
+                src="assets/banzaimanSection/tabSelector/banzai_1.webp"
+              />
               <div id="banzaimanTabSelector">
                 <button id="gongButton" class="tabSelectorButton">
                   <img
@@ -437,7 +414,7 @@
           <img
             alt="image that says get to know the bits"
             id="employeeSectionHeader"
-            src="assets/employeesSection/EmployeeSectionHeader.svg"
+            src="assets/employeesSection/employeeHeaderOutlined.svg"
           />
         </div>
 
@@ -535,13 +512,18 @@
             />
             <div class="employeeNameAndTitleContainer">
               <h3 class="employeeName">Antti Luukka</h3>
-              <h4 class="employeeTitle">Very Antti</h4>
+              <h4 class="employeeTitle">The Impostor</h4>
             </div>
             <p class="employeeDescription">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-              error possimus iusto porro libero, assumenda molestiae.
+              Getting hands-on with code is my thing. I like to develop anything
+              end user can interact with, from UI’s to games. Somehow made
+              clients happy for over a decade.
             </p>
           </div>
+
+          <!-- "Antti Luukka
+The Impostor
+Getting hands-on with code is my thing. I like to develop anything end user can interact with, from UI’s to games. Somehow made clients happy for over a decade." -->
 
           <div class="employeeCard">
             <img

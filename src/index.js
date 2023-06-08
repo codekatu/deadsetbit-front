@@ -5,6 +5,7 @@ import "./style.css";
 
 // getting dom elements
 const navbar = document.getElementById("navbar");
+const navbarList = document.getElementById("navbarList");
 const listItems = document.getElementsByClassName("listItem");
 const logoContainer = document.getElementById("logoContainer");
 const logo = document.getElementById("logoSvg");
@@ -38,6 +39,8 @@ window.onload = function () {
 
   // page starts with the gong image selected so we make it's color white onload
   changeButtonColor("gongButtonImage");
+
+  navbarScrollResponsive();
 };
 
 // throttle function to limit the amount of times a function is called
@@ -116,8 +119,10 @@ function changeButtonColor(buttonImageId) {
 
     if (buttonImageId === element.id) {
       element.classList.add("buttonImageSelected");
+      element.parentElement.classList.add("tabSelectorButtonSelected");
     } else if (buttonImageId !== element.id) {
       element.classList.remove("buttonImageSelected");
+      element.parentElement.classList.remove("tabSelectorButtonSelected");
     }
   }
 }
@@ -158,6 +163,7 @@ function navbarScrollResponsive() {
   // when scroll goes over 150 add scrolled class to these elements
   if (window.scrollY > 100) {
     navbar.classList.add("navbarScrolled");
+    navbarList.classList.add("navbarListScrolled");
     logoContainer.classList.add("logoContainerScrolled");
     logo.classList.add("logoSvgScrolled");
 
@@ -171,6 +177,8 @@ function navbarScrollResponsive() {
   // when scroll is under 150 change these classes to their default state
   else {
     navbar.classList.remove("navbarScrolled");
+    navbarList.classList.remove("navbarListScrolled");
+
     logoContainer.classList.remove("logoContainerScrolled");
     logo.classList.remove("logoSvgScrolled");
 
@@ -197,3 +205,10 @@ function menuOpenClose() {
 window.addEventListener("scroll", navbarScrollResponsive);
 // adds event listener to mouse move that calls throttle function with dogEyeMove function and a timeout that limits the amount of times the function is called
 window.addEventListener("mousemove", throttle(dogEyeMove, 25));
+
+// const navHeight = document.getElementById("navbar").offsetHeight;
+
+// document.documentElement.style.setProperty(
+//   `--scroll-padding`,
+//   navHeight + "px"
+// );

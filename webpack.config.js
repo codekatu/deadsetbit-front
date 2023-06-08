@@ -6,8 +6,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: "public/assets", to: "assets" }],
+      patterns: [
+        { from: "public/assets", to: "assets" },
+        { from: "public/robots.txt", to: "robots.txt" },
+        { from: "public/favicons", to: "favicons" },
+      ],
     }),
+
     new HtmlWebpackPlugin({
       hash: true,
       template: "./public/template.html",
