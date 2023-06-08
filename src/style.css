@@ -706,7 +706,8 @@ button {
 }
 
 #employeeSectionHeader {
-  height: 80%;
+  height: 192px;
+  width: 352;
 }
 
 #employeeContainer {
