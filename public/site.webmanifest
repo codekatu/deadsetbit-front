@@ -1,7 +1,7 @@
 {
   "name": "Dead Set Bit",
   "short_name": "Dead Set Bit",
-  "start_url": "http://localhost:3000/",
+  "start_url": "https://deadsetbit.com/",
   "orientation": "portrait-primary",
   "icons": [
     {
