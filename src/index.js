@@ -39,8 +39,6 @@ window.onload = function () {
 
   // page starts with the gong image selected so we make it's color white onload
   changeButtonColor("gongButtonImage");
-
-  navbarScrollResponsive();
 };
 
 // throttle function to limit the amount of times a function is called
@@ -153,7 +151,7 @@ function dogEyeMove(e) {
 function angle(cx, cy, ex, ey) {
   const dy = ey - cy;
   const dx = ex - cx;
-  const rad = Math.atan2(dy, dx); // gives us the angle between two points in radian
+  const rad = Math.atan2(dy, dx); // gives us the angle in radian
   const deg = (rad * 180) / Math.PI; // converts the radian into degrees
   return deg;
 }
@@ -205,10 +203,3 @@ function menuOpenClose() {
 window.addEventListener("scroll", navbarScrollResponsive);
 // adds event listener to mouse move that calls throttle function with dogEyeMove function and a timeout that limits the amount of times the function is called
 window.addEventListener("mousemove", throttle(dogEyeMove, 25));
-
-// const navHeight = document.getElementById("navbar").offsetHeight;
-
-// document.documentElement.style.setProperty(
-//   `--scroll-padding`,
-//   navHeight + "px"
-// );

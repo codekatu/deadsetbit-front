@@ -7,9 +7,17 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: "public/assets", to: "assets" },
-        { from: "public/robots.txt", to: "robots.txt" },
-        { from: "public/favicons", to: "favicons" },
+        // { from: "public/assets", to: "assets" },
+        // { from: "public/robots.txt", to: "robots.txt" },
+        // { from: "public/favicons", to: "favicons" },
+        {
+          from: "public",
+          globOptions: {
+            ignore: ["**/template.html"],
+          },
+
+          to: "",
+        },
       ],
     }),
 
