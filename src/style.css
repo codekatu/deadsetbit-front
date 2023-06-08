@@ -1,8 +1,35 @@
+:root {
+  /* colors */
+  --dsb-dark: #150e19;
+  --dsb-fullWhite: #ffffff;
+  --dsb-red: #ca2852;
+  --dsb-yellow: #fbc667;
+  --dsb-ebWhite: #e6e6e6;
+  --dsb-grey: #87a2ab;
+
+  /* margins */
+  --margin-xs: 1.25rem;
+  --margin-small: 2.5rem;
+  --margin-medium: 5rem;
+  --margin-big: 10rem;
+
+  /* transition */
+  --transition-time: 0.25s;
+
+  /* font sizes */
+  --text-small: 1.1rem;
+  --text-middle: 1.5rem;
+  --text-big: 2rem;
+
+  /* scroll padding */
+  --scroll-padding: 0;
+}
+
 html {
-  font-family: "Roboto";
-  /* background-image: url(/public/siteBackground.png); */
-  background-size: cover;
-  background-color: yellow;
+  /* font-family: "Source Sans Pro", "Times New Roman", Times, serif; */
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 #pageWrapper {
@@ -18,77 +45,241 @@ html {
   align-items: center;
 }
 
+button {
+  background: none;
+  border: none;
+}
+
 /* 
 -----------------NAVBAR-----------------
  */
 
 #navbar {
-  background-color: #150e19;
-  height: 11rem;
-  width: 75%;
-  position: fixed;
-  color: white;
-  list-style: none;
+  transition: width var(--transition-time), height var(--transition-time),
+    max-width var(--transition-time);
+  width: 80%;
+  background-color: var(--dsb-dark);
+  height: 10rem;
+  max-width: 100rem;
   z-index: 10;
-  max-width: 1600px;
+  position: fixed;
+}
+
+#navbar.navbarScrolled {
+  width: 100%;
+  height: 6rem;
+  max-width: 100vw;
 }
 
 #navbarList {
+  transition: var(--transition-time);
+
   display: flex;
-  padding: 0;
   height: 100%;
   justify-content: flex-start;
   align-items: center;
 }
+#navbarListScrolled {
+}
 
-.navListItem {
-  background-color: #ca2852;
-  list-style: none;
-  width: 5rem;
+.listItem {
+  transition: box-shadow var(--transition-time), width var(--transition-time),
+    height var(--transition-time);
+
+  background-color: var(--dsb-red);
+  color: var(--dsb-fullWhite);
   height: 5rem;
-  margin-right: 2.5rem;
-  box-shadow: 20px 20px 2px 0px rgba(132, 39, 49, 0.75);
-  -webkit-box-shadow: 20px 20px 2px 0px rgba(132, 39, 49, 0.75);
-  -moz-box-shadow: 20px 20px 2px 0px rgba(132, 39, 49, 0.75);
+  width: 5rem;
+
+  margin-right: var(--margin-small);
   display: flex;
   justify-content: center;
   align-items: center;
+
+  box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
+  -webkit-box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
+  -moz-box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
 }
-.navbarLink {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
+.listItem:hover #listItemAbout {
+  /* font-size: 125%; */
+  transform: scale(1.25);
+  text-decoration: none;
 }
 
-#logo {
-  list-style: none;
-  background-color: black;
-  width: 11rem;
-  height: 11rem;
-  margin-left: 10rem;
-  margin-right: 5rem;
+.listItemScrolled {
+  box-shadow: none;
+  height: 4.5rem;
+  width: 4.5rem;
+}
+
+#logoContainer {
+  transition: var(--transition-time);
+
+  background-color: var(--dsb-dark);
+  width: 12.5rem;
+  height: 12.5rem;
+  margin-left: var(--margin-medium);
+  margin-right: var(--margin-small);
   position: relative;
   top: 4rem;
-  border: 1rem solid white;
+  border: 1rem solid var(--dsb-fullWhite);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logoContainer.logoContainerScrolled {
+  /* 4.25rem so that with 0.25 rem it matches the size of the navbar links */
+  width: 4.25rem;
+  height: 4.25rem;
+  top: 0;
+  border-width: 0.25rem;
 }
 
 #logoSvg {
+  transition: var(--transition-time);
+
+  width: 80%;
+  height: 140%;
   position: relative;
-  top: -2rem;
+  top: 0rem;
+}
+
+#logoSvg.logoSvgScrolled {
+  height: 125%;
+  width: 125%;
+}
+
+.listItemLink {
+  width: 100%;
+  height: 100%;
+  color: var(--dsb-fullWhite);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#listItemAbout {
+  transition: var(--transition-time);
+}
+
+.listItemLinkImage {
+  width: 56px;
+  height: 56px;
+
+  transition: var(--transition-time);
+}
+.listItem:hover .listItemLinkImage {
+  transform: scale(1.25);
+}
+
+.navbarListContainer {
+  transition: var(--transition-time);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#navbarButton {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 92%;
+  transform: translate(-50%, -50%);
+  height: 57%;
+  width: 2.5rem;
+}
+
+#navbarButton:hover {
+  cursor: pointer;
+}
+
+#navbarButton span {
+  background: white;
+  transform: translateY(-50%) rotate(0deg);
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  right: 0%;
+  transition: top 0.1s ease 0.3s, transform 0.3s ease, background 0.1s ease 0.3s;
+}
+
+#navbarButton.clicked span {
+  transition: top 0.1s ease, transform 0.3s ease 0.1s, background 0.1s ease;
+}
+
+#navbarButton span:nth-child(1) {
+  top: 12%;
+}
+
+#navbarButton span:nth-child(2) {
+  top: 50%;
+}
+
+#navbarButton span:nth-child(3) {
+  top: 90%;
+}
+
+#navbarButton.clicked span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(315deg);
+}
+
+#navbarButton.clicked span:nth-child(2) {
+  transform: translateY(-50%) rotate(405deg);
+}
+
+#navbarButton.clicked span:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%) rotate(405deg);
+}
+
+#mainMenuContainer {
+  display: none;
+}
+
+#mainMenu {
+  display: none;
+}
+
+.mainMenuListItem {
+  display: none;
+}
+.mainMenuListLink {
+  display: none;
+}
+
+#mainMenuOpacityLayer {
+  display: none;
+}
+
+#menuHeader {
+  display: none;
+  width: 90%;
 }
 
 /* 
+
+
 -----------------HERO SECTION-----------------
  */
+
+#heroSectionHeader {
+  position: absolute;
+
+  height: 20rem;
+  z-index: 9;
+}
+
 #heroSection {
   height: 65rem;
   width: 100%;
-  background-image: url(/public/assets/heroSection/heroImage.png);
-  /* background-image: url(/public/heroSection/heroImageTest.jpg); */
+  /* background-image: url(/public/assets/heroSection/heroImage.webp); */
 
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -105,31 +296,112 @@ html {
   justify-content: flex-end;
 }
 
+#siteHeader {
+  position: absolute;
+  width: 25rem;
+  top: -10rem;
+  left: -5rem;
+}
+
+#siteHeaderMobile {
+  display: none;
+}
+
 #aboutUsTextBox {
-  background-color: white;
-  width: 65%;
+  position: relative;
+  background-color: var(--dsb-yellow);
+  border: 4rem solid var(--dsb-fullWhite);
+  width: 70rem;
+  height: 25rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10rem;
+  margin-bottom: var(--margin-big);
   box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 13px 13px 3px 1px rgba(0, 0, 0, 0.2);
 }
 
-#aboutUsText {
-  color: #17100d;
-  line-height: 1.3;
-
-  margin-left: 12rem;
-  margin-right: 12rem;
-  margin-top: 8rem;
-  margin-bottom: 8rem;
+#doggoContainer {
+  position: absolute;
+  left: 55rem;
+  top: 7rem;
 }
 
-#DeadSetBitText {
-  font-size: 1.6rem;
+#doggo {
+  position: absolute;
+  width: 400px;
+}
+#leftEye {
+  position: absolute;
+  top: 68px;
+  left: 107px;
+  width: 10px;
+}
+
+#rightEye {
+  position: absolute;
+  top: 68px;
+  left: 185px;
+  width: 10px;
+}
+
+#aboutUsTextContainer {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+#aboutUsNormalTextContainer {
+  width: 100%;
+  margin-bottom: var(--margin-small);
+}
+#aboutUsTextLightTextContainer {
+  width: 85%;
+  margin-top: var(--margin-small);
+}
+
+#whiteLine {
+  width: 65%;
+  width: 500px;
+  border-bottom: solid 3px white;
+}
+
+#aboutUsText {
+  font-size: 1.35rem;
+  color: var(--dsb-dark);
+  line-height: 1.3;
+  font-family: sans-serif;
+  /* using different font here to prevent the unstyled font flash and layout shifter caused by the webfont loadtime */
+}
+
+#underLine {
+  text-decoration: underline;
+}
+
+#quietly,
+#efficiently {
+  font-size: var(--text-middle);
+  font-style: italic;
+  font-weight: bold;
+}
+
+#solutions {
+  color: black;
   font-weight: bolder;
+  font-size: 1.5rem;
+  /* -webkit-text-stroke: 1px black;
+  text-shadow: -3px 0px 0px rgba(0, 0, 0, 1); */
+  /* text-shadow: -3px -3px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; */
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+}
+
+#aboutUsTextLight {
+  font-weight: lighter;
   font-style: italic;
 }
 
@@ -138,8 +410,11 @@ html {
  */
 
 #ebSection {
-  background-color: #e6e6e6;
-  background-image: url(/public/assets/ebSection/ebSectionBackground.png);
+  /* ON MOBILE THIS IMAGE IS THE FIRST LCP SO I USED INLINE STYLE ON THE ELEMENT TO SET THE BACKGROUND IMAGE BECAUSE WEBPACK GENERATES A HASH FOR THIS IMAGE EVERYTIME SO WE ACCESS IT DIRECTLY FROM THE DIST FOLDER WITH ITS ORIGINAL NAME */
+
+  background-color: var(--dsb-ebWhite);
+  background-image: url(/public/assets/ebSection/ebSectionBackground.webp);
+
   background-size: cover;
   width: 100%;
   display: flex;
@@ -157,7 +432,8 @@ html {
 }
 
 #ebHeader {
-  height: 4.5rem;
+  height: 72px;
+  width: 508px;
 }
 
 #cardContainer {
@@ -167,9 +443,11 @@ html {
 }
 
 .card {
-  background-color: white;
-  width: 350px;
-  height: 550px;
+  background-color: var(--dsb-fullWhite);
+  width: 23rem;
+  height: 40rem;
+  max-width: 25rem;
+
   margin: 1rem;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
@@ -186,13 +464,28 @@ html {
     rgba(8, 115, 199, 1) 30%,
     rgba(56, 221, 207, 1) 100%
   );
+  background: linear-gradient(
+    to top right,
+    rgba(8, 115, 199, 1) 30%,
+    rgba(56, 221, 207, 1) 100%
+  );
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .cardImage {
-  width: 80%;
+  width: 85%;
+}
+
+#cardImagePerson {
+  width: 312px;
+  height: 314px;
+}
+
+#cardImagePhone {
+  height: 120%;
 }
 
 .cardTextContainer {
@@ -204,8 +497,9 @@ html {
 }
 
 .cardText {
-  line-height: 1.3;
+  line-height: 1.5;
   width: 85%;
+  font-size: var(--text-small);
 }
 
 #haltianCardTextContainer {
@@ -220,19 +514,36 @@ html {
   width: 100%;
 }
 
+#haltianLogo {
+  width: 180px;
+  height: 43.91px;
+}
+
+#haltianLink {
+  display: flex;
+  justify-content: center;
+}
+
 /* 
 -----------------BANZAIMAN SECTION-----------------
  */
 
 #banzaimanSection {
-  background-image: url(/public/assets/banzaimanSection/banzaimanBackground.png);
+  background-image: linear-gradient(
+    to right,
+    #82b467,
+    #94bb56,
+    #acc042,
+    #c7c32a,
+    #e6c401
+  );
   background-size: cover;
   width: 100%;
 }
 
 #banzaimanSectionContentContainer {
   display: flex;
-  margin-top: 5rem;
+  margin-top: var(--margin-small);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -249,7 +560,69 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: var(--margin-small);
+}
+
+#banzaimanLogo {
+  position: relative;
+  right: 4rem;
+  height: 143px;
+  width: 400px;
+}
+
+/* #banzaimanGameImageContainer {
+  width: 560px;
+  height: 335px;
+  border: 5px solid white;
+  border-radius: 10px;
+} */
+
+#banzaimanGameImage {
+  width: 560px;
+  height: 335px;
+  border: 5px solid white;
+  border-radius: 10px;
+}
+
+#banzaimanTabSelector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  height: 75px;
+  border-radius: 0px 0px 10px 10px;
+  overflow: hidden;
+}
+
+.tabSelectorButton {
+  width: 25%;
+  height: 100%;
+  background-color: #2f711e;
+  background-position: center center;
+
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+
+.tabSelectorButtonSelected {
+  background: #48aa2f;
+}
+
+.buttonImage {
+  width: 80%;
+  height: 80%;
+}
+
+.buttonImageSelected {
+  filter: brightness(0%) contrast(100%) invert(100%);
+}
+
+.buttonImage:hover {
+  filter: brightness(0%) contrast(100%) invert(100%);
 }
 
 #gameSectionTextContainer {
@@ -272,7 +645,7 @@ html {
 #gameSectionTextBox {
   width: 100%;
   height: 100%;
-  background-image: url(/public/assets/banzaimanSection/banzaimanTextboxBackground.png);
+  background-image: url(/public/assets/banzaimanSection/banzaimanTextboxBackground.webp);
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -280,7 +653,8 @@ html {
 }
 
 #banzaimanText {
-  background-color: white;
+  font-size: var(--text-small);
+  background-color: var(--dsb-fullWhite);
   line-height: 1.8;
   padding: 2rem;
   width: 70%;
@@ -295,75 +669,61 @@ html {
 }
 
 #googlePlayBadge {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  width: 18.8rem;
+  margin-top: var(--margin-small);
+  margin-bottom: var(--margin-small);
+  width: 200px;
+  /* height: 116px; */
 }
 /* 
 -----------------EMPLOYEES SECTION-----------------
  */
 
 #employeesSection {
+  background-image: linear-gradient(
+    to right top,
+    #d1d1d1,
+    #dcdcdc,
+    #e8e8e8,
+    #f3f3f3,
+    #ffffff
+  );
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#pauliContainer {
+#employeeSectionHeaderContainer {
+  width: 100%;
+
+  height: 15rem;
+  background-color: var(--dsb-yellow);
+  margin-top: var(--margin-big);
+  margin-bottom: var(--margin-big);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  background-color: #fdcf5f;
 }
 
 #employeeSectionHeader {
-  width: 30rem;
-}
-
-#pauliImage {
-  height: 110%;
-}
-
-#pauliInfoContainer {
-  width: 20rem;
-  margin: 2rem;
-}
-
-#pauliName {
-  margin-bottom: 0.5rem;
-  font-size: 2rem;
-  font-style: italic;
-  font-weight: bold;
-}
-
-#pauliTitle {
-  margin-bottom: 0.5rem;
-
-  font-size: 1.2rem;
-  font-weight: bold;
-  font-style: italic;
-}
-
-#pauliDescription {
-  font-weight: bold;
+  height: 80%;
 }
 
 #employeeContainer {
-  margin-top: 15rem;
+  margin-top: var(--margin-medium);
   margin-bottom: 5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fxrr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   row-gap: 9rem;
-  column-gap: 3rem;
+  column-gap: 5rem;
 }
 
 .employeeCard {
-  background-color: #fcf7f7;
-  width: 16rem;
-  height: 13rem;
+  background-color: var(--dsb-fullWhite);
+
+  width: 21rem;
+  height: 16rem;
   position: relative;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
@@ -376,7 +736,8 @@ html {
 
 .employeeImage {
   position: absolute;
-  bottom: 10.8rem;
+  bottom: 14rem;
+  height: 195px;
 }
 
 .employeeNameAndTitleContainer {
@@ -388,18 +749,22 @@ html {
 .employeeName {
   margin-top: 2rem;
   font-size: 2rem;
+  font-weight: 300;
   font-style: italic;
 }
 .employeeTitle {
-  font-size: 1.2rem;
+  font-size: var(--text-middle);
 
   font-style: italic;
+  font-weight: 300;
 }
 .employeeDescription {
-  font-size: 0.8rem;
+  font-size: var(--text-xs);
   margin-right: 2rem;
   margin-left: 2rem;
-  margin-top: 1.3rem;
+  margin-top: 2rem;
+  line-height: 1.1rem;
+  font-weight: 300;
 }
 /*
 -----------------FOOTER-----------------
@@ -413,29 +778,49 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #87a2ab;
+  color: var(--dsb-grey);
   font-size: 0.8rem;
 
   text-align: center;
 }
 
-/* 
-xs, extra-small: 0px
-sm, small: 600px
-md, medium: 900px
-lg, large: 1200px
-xl, extra-large: 1500px
- */
+#codekatuLink {
+  color: var(--dsb-grey);
+}
 
-/*
-css for all the section containers
-*/
+#codekatuStyle {
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion) {
+  * {
+    transition: none;
+    scroll-behavior: none;
+  }
+}
 
 /* --------------1500PX-------------- */
 @media only screen and (max-width: 1500px) {
   #aboutUsTextBox {
-    width: 70%;
-    margin-bottom: 5rem;
+    width: 65rem;
+    margin-bottom: var(--margin-medium);
+  }
+
+  #doggoContainer {
+    left: 50.5rem;
+    z-index: 0;
+  }
+}
+
+/* --------------1400PX-------------- */
+@media only screen and (max-width: 1500px) {
+  #aboutUsTextBox {
+    border-width: 3rem;
+  }
+
+  #doggoContainer {
+    left: 45rem;
+    top: 10rem;
   }
 }
 
@@ -444,19 +829,52 @@ css for all the section containers
   /* NAVBAR */
 
   #navbar {
-    width: 95%;
+    width: 100%;
   }
-  /* HERO SECTION */
+  /* hero section */
+
+  #heroSection {
+    height: 75rem;
+  }
+
+  #siteHeader {
+    top: -8rem;
+  }
 
   #aboutUsTextBox {
+    width: 45rem;
+    height: 40rem;
+  }
+  #aboutUsTextContainer {
+    align-items: flex-start;
+    margin-left: var(--margin-small);
+    margin-right: var(--margin-small);
+  }
+
+  #aboutUsNormalTextContainer {
+    margin-bottom: var(--margin-small);
     width: 90%;
-    margin-bottom: 5rem;
+  }
+  #aboutUsTextLightTextContainer {
+    margin-top: var(--margin-small);
+    width: 65%;
+  }
+
+  #doggoContainer {
+    left: 25.5rem;
+    top: 20rem;
+  }
+
+  #whiteLine {
+    position: relative;
+    right: 2.5rem;
+    width: 112.4%;
   }
 
   /* EB SECTION */
 
   #ebHeaderContainer {
-    right: 3rem;
+    right: 0rem;
   }
   #cardContainer {
     display: grid;
@@ -471,6 +889,15 @@ css for all the section containers
     justify-content: center;
   }
 
+  #gameSectionContainer {
+    align-items: center;
+    justify-content: center;
+  }
+
+  #banzaimanLogo {
+    right: 0rem;
+  }
+
   #gameSectionTextContainer {
     margin: 0rem;
   }
@@ -478,7 +905,10 @@ css for all the section containers
   /*
   Employees Section
  */
-  #pauliContainer {
+
+  #employeeContainer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -486,22 +916,82 @@ css for all the section containers
 @media only screen and (max-width: 900px) {
   /* NAVBAR */
 
-  #navbar {
-    width: 100%;
+  #navbarList {
+    justify-content: center;
+  }
+  #logoContainer {
+    margin-left: var(--margin-small);
+    margin-right: var(--margin-xs);
+    margin-left: 0;
+    width: 7rem;
+    height: 7rem;
+    top: 0;
+    border: 0.5rem solid var(--dsb-fullWhite);
   }
 
-  /* HERO SECTION */
+  .listItem {
+    margin-right: var(--margin-xs);
+  }
 
+  /* hero section */
+
+  #heroSection {
+    height: 50rem;
+  }
+
+  #heroSectionContent {
+    justify-content: flex-end;
+  }
   #aboutUsTextBox {
+    border: none;
+    border-top: 10px solid white;
+    border-bottom: 10px solid white;
+    height: 30rem;
     width: 100%;
-    margin-bottom: 5rem;
+    box-shadow: none;
   }
 
-  #aboutUsText {
-    margin-top: 8rem;
-    margin-bottom: 8rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
+  #aboutUsNormalTextContainer {
+    margin-bottom: var(--margin-small);
+    margin-top: var(--margin-small);
+    width: 90%;
+  }
+  #aboutUsTextLightTextContainer {
+    margin-top: var(--margin-small);
+    margin-bottom: var(--margin-small);
+    width: 65%;
+  }
+
+  #whiteLine {
+    position: relative;
+    right: 0rem;
+    width: 100%;
+  }
+
+  #doggoContainer {
+    display: block;
+    left: 35rem;
+    top: 16rem;
+  }
+
+  #doggo {
+    width: 200px;
+  }
+
+  #leftEye {
+    width: 5px;
+    top: 34px;
+    left: 53px;
+  }
+
+  #rightEye {
+    width: 5px;
+    top: 34px;
+    left: 92px;
+  }
+
+  #siteHeader {
+    display: none;
   }
 
   /* EB SECTION */
@@ -511,30 +1001,201 @@ css for all the section containers
     justify-content: center;
   }
   .card {
-    width: 26.5rem;
+    width: 25rem;
     margin-bottom: 3rem;
   }
   /* Employees Section */
+
+  #employeeSectionHeaderContainer {
+    margin-top: 0rem;
+  }
+}
+/* --------------800px-------------- */
+
+@media only screen and (max-width: 800px) {
+  #doggoContainer {
+    left: 30rem;
+  }
+}
+
+/* --------------750px-------------- */
+@media only screen and (max-width: 750px) {
   #employeeContainer {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}
+/* --------------700px-------------- */
+
+@media only screen and (max-width: 700px) {
+  #doggoContainer {
+    left: 26rem;
+  }
+}
+
+/* --------------650px-------------- */
+
+@media only screen and (max-width: 650px) {
+  #doggoContainer {
+    left: 25rem;
   }
 }
 
 /* --------------600px-------------- */
 @media only screen and (max-width: 600px) {
-  /* HERO SECTION */
+  /* navbar */
+
+  html {
+    scroll-padding-top: 3rem;
+    font-size: 90%;
+  }
+
+  #navbar {
+    height: 3rem;
+  }
+
+  #navbar.navbarScrolled {
+    height: 3rem;
+  }
+
+  .listItem {
+    display: none;
+  }
+  .listItemScrolled {
+    display: none;
+  }
+
+  #navbarButton {
+    display: block;
+  }
+
+  #navbarList {
+    justify-content: space-between;
+  }
+
+  #logoContainer {
+    top: 0;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    margin: 0.5rem;
+  }
+
+  #logoContainer.logoContainerScrolled {
+    top: 0;
+    height: 3rem;
+    width: 3rem;
+    border: none;
+  }
+  #logoSvg {
+    width: 75%;
+    height: 75%;
+    padding-top: 2px;
+  }
+  #logoSvg.logoSvgScrolled {
+    width: 75%;
+    height: 75%;
+  }
+
+  #mainMenu {
+    animation: menu-slide-in 0.25s both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--dsb-fullWhite);
+    position: absolute;
+    right: 0;
+    min-width: 15rem;
+    width: 75%;
+    z-index: 10;
+  }
+
+  @keyframes menu-slide-in {
+    0% {
+      transform: translateX(1000px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  #mainMenuOpacityLayer {
+    display: flex;
+    width: 25%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: menuOpacity-slide-in 0.5s both;
+  }
+
+  @keyframes menuOpacity-slide-in {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+
+  .mainMenuListItem {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    width: 100%;
+  }
+  .mainMenuListLink {
+    display: flex;
+    color: var(--dsb-dark);
+    text-decoration: none;
+    font-size: var(--text-middle);
+  }
+
+  #menuHeader {
+    display: block;
+  }
+
+  /* hero section  */
+
+  #heroSection {
+    height: auto;
+  }
+
+  #heroSectionContent {
+    justify-content: flex-start;
+  }
+  #aboutUsTextBox {
+    margin: 0;
+    padding-top: 3rem;
+    border: none;
+  }
+
   #aboutUsText {
-    margin-top: 8rem;
-    margin-bottom: 8rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  #aboutUsTextContainer {
+    align-items: flex-start;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  #doggoContainer {
+    display: none;
+  }
+
+  #aboutUsNormalTextContainer {
+    width: 100%;
+  }
+  #aboutUsTextLightTextContainer {
+    width: 100%;
   }
 
   /* Employees Section */
-  #employeeContainer {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+
+  #employeeSectionHeader {
+    width: 20rem;
   }
 
   /* banzaiman Section */
@@ -543,70 +1204,133 @@ css for all the section containers
     justify-content: center;
   }
   #gameSectionTextContainer {
-    width: 90%;
+    width: 100%;
   }
 
   #gameSectionContainer {
-    width: 90%;
+    width: 100%;
   }
 
   #banzaimanLogo {
-    width: 70%;
+    width: 80%;
+    height: 25%;
   }
-
   #banzaimanGameImage {
-    width: 95%;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0px;
   }
 
   #banzaimanTabSelector {
     width: 70%;
+    height: 4rem;
   }
   /* eb section */
+  #ebSection {
+    background-image: none;
+  }
 
   #ebHeader {
     width: 95%;
   }
   #cardContainer {
     align-items: center;
-  }
-  .card {
-    width: 80%;
-  }
-
-  #cardImagePerson {
-    height: 100%;
+    width: 100%;
+    padding-bottom: 1.5rem;
   }
 
-  #cardImagePhone {
-    height: 120%;
-  }
   #banzaimanText {
     font-size: 95%;
   }
 }
+
+/* --------------450px-------------- */
+
+@media only screen and (max-width: 450px) {
+  #banzaimanTabSelector {
+    height: 3.5rem;
+  }
+}
+
 /* --------------400px-------------- */
 
 @media only screen and (max-width: 400px) {
-  /* HERO SECTION */
+  /* hero section */
+
   #aboutUsText {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    min-height: 10rem;
   }
+
+  #aboutUsTextLightContainer {
+    min-height: auto;
+  }
+
+  /* navbar */
+  #logoContainer {
+    margin-left: 1%;
+  }
+
   /* eb section */
   .card {
-    width: 90%;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  #cardImagePerson {
+    width: 85%;
+    height: auto;
+  }
+
+  #cardImagePhone {
+    height: auto;
   }
 
   /* banzaiman section */
   #banzaimanText {
-    font-size: 80%;
+    font-size: 90%;
+  }
+
+  #gameSectionContainer {
+    width: 100%;
+  }
+
+  #banzaimanTabSelector {
+    width: 80%;
+    height: 3rem;
+  }
+
+  /* employee Section */
+
+  #employeeSectionHeader {
+    width: 80%;
+  }
+
+  .employeeCard {
+    width: 100%;
+  }
+}
+/* --------------350px-------------- */
+
+@media only screen and (max-width: 400px) {
+  #aboutUsTextBox {
+    height: 35rem;
   }
 }
 
 /* --------------300px-------------- */
 @media only screen and (max-width: 300px) {
+  #aboutUsNormalTextContainer {
+    margin-bottom: var(--margin-xs);
+    margin-top: var(--margin-xs);
+    width: 100%;
+  }
+  #aboutUsTextLightTextContainer {
+    margin-top: var(--margin-xs);
+    margin-bottom: var(--margin-xs);
+    width: 100%;
+  }
+
   /* EB SECTION */
   .card {
     width: 100%;
@@ -614,10 +1338,15 @@ css for all the section containers
 
   /* BANZAIMAN SECTION */
   #banzaimanText {
-    font-size: 70%;
+    font-size: 85%;
+  }
+
+  #banzaimanTabSelector {
+    height: 2.5rem;
   }
 
   #googlePlayBadge {
-    width: 15rem;
+    width: 240px;
+    height: auto;
   }
 }

@@ -1,16 +1,33 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: "public/assets", to: "assets" }],
+      patterns: [
+        // { from: "public/assets", to: "assets" },
+        // { from: "public/robots.txt", to: "robots.txt" },
+        // { from: "public/favicons", to: "favicons" },
+        {
+          from: "public",
+          globOptions: {
+            ignore: ["**/template.html"],
+          },
+
+          to: "",
+        },
+      ],
     }),
+
     new HtmlWebpackPlugin({
-      // hash: true,
+      hash: true,
       template: "./public/template.html",
       filename: "index.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
     }),
   ],
 
@@ -18,7 +35,9 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: __dirname + "/dist",
-    filename: "bundle.js",
+    // filename: "bundle.js",
+    filename: `[name].[contenthash].js`,
+    clean: true,
   },
   devtool: "eval-cheap-module-source-map",
   devServer: {
@@ -31,7 +50,8 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        // use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
 
       {
