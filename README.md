@@ -8,11 +8,12 @@ This document provides an overview of the website and instructions on how to ins
 - [Installation](#installation)
 - [Website Structure](#website-structure)
 - [Webpack Configuration](#webpack-configuration)
-- [ How to do changes](#how-to-do-changes)
+- [ How To Do Changes](#how-to-do-changes)
+- [Created By](#created-by)
 
 # Getting Started
 
-Before running the website, please ensure that the following dependencies are installed on your system:
+Before running the website, please ensure that the following prerequisites are installed on your system:
 
 - Git: [Installation Guide](https://git-scm.com/downloads)
 - Node.js: [Installation Guide](https://nodejs.dev/en/learn/how-to-install-nodejs//)
@@ -52,7 +53,8 @@ Here is the structure of your website:
   - `reset.css`: CSS reset file to normalize styles across browsers
   - `fonts.css`: CSS file containing the necessary fonts for the website
   - `style.css`: Main CSS file containing all the styling for the website
-  - `index.js`: JavaScript file containing all the project's JavaScript code. It also imports the CSS files for compilation by webpack.
+  - `fonts/` : Directory containing all our fonts
+  - `index.js`: JavaScript file containing all the project's JavaScript code. It also imports the CSS files to be compiled by webpack
 
 - `public/`: Directory containing publicly accessible files
 
@@ -69,14 +71,14 @@ Here is the structure of your website:
 
 - **Plugins:**
 
-  - `CopyPlugin`: This plugin copies files from the `public` directory to the output directory, ignoring the `template.html` file.
-  - `HtmlWebpackPlugin`: This plugin generates an HTML file (`index.html`) based on a template (`template.html`) in the `public` directory.
-  - `MiniCssExtractPlugin`: This plugin combines our css files into single file. These CSS files are imported into index.js
+  - `CopyPlugin`: This plugin copies files from the `public` directory to the output directory (`dist`), ignoring the `template.html` file.
+  - `HtmlWebpackPlugin`: This plugin generates an HTML file (`index.html`) in output directory (`dist`) based on a template (`template.html`) in the `public` directory.
+  - `MiniCssExtractPlugin`: This plugin combines our css files into single file.
 
 - **Entry and Output:**
 
   - The `entry` property specifies the entry point of the application (`./src/index.js`).
-  - The `output` property defines the output directory (`dist`) and the filenames for the generated files. The filenames include a content-based hash to bust caching.
+  - The `output` property defines the output directory (`dist`) and the filenames for the generated files. The filenames include a content-based hash
   - The `clean` property is set to true. It cleans the output directory (`dist`) on each build.
 
 - **Development Settings:**
@@ -89,7 +91,7 @@ Here is the structure of your website:
     - The first rule matches `.css` files and uses `MiniCssExtractPlugin.loader` and `css-loader` to extract and process the CSS.
     - The second rule matches `.js` files, excluding the `node_modules` directory. It uses `babel-loader` with the `@babel/preset-env` preset for transpiling JavaScript using Babel.
 
-# How to do changes
+# How To Do Changes
 
 Only do changes to the files contained in (`src`) or (`public`) directory. Don't ever touch any of the files inside (`dist`) directory, since it is where our site will be built.
 
