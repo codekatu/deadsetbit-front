@@ -57,14 +57,14 @@
       href="assets/heroSection/header.svg"
     />
 
-    <!-- using style tag to set the hero section background here to preload the image in the HTML Head because it lowers the first largest contentful paint time -->
+    <!-- using style tag to set the about section background here to preload the image in the HTML Head because it lowers the first largest contentful paint time -->
     <style>
-      #heroSection {
+      #about {
         background-image: url(assets/heroSection/heroImage.webp);
       }
 
       @media only screen and (max-width: 600px) {
-        #heroSection {
+        #about {
           background-image: none;
         }
       }
@@ -80,6 +80,7 @@
           <ul id="navbarListLeftSide" class="navbarListContainer">
             <li id="logoContainer">
               <img
+
                 alt="deadSetBitLogo"
                 id="logoSvg"
                 src="assets/navbar/logo.svg"
@@ -88,12 +89,12 @@
           </ul>
           <ul id="navbarListRightSide" class="navbarListContainer">
             <li class="listItem">
-              <a id="listItemAbout" href="#heroSection" class="listItemLink"
+              <a id="listItemAbout" href="#about" class="listItemLink"
                 >ABOUT</a
               >
             </li>
             <li class="listItem">
-              <a href="#ebSection" class="listItemLink">
+              <a href="#empathic-building" class="listItemLink">
                 <img
                   class="listItemLinkImage"
                   alt="Empathic Building Logo"
@@ -102,7 +103,7 @@
               </a>
             </li>
             <li class="listItem">
-              <a href="#banzaimanSection" class="listItemLink">
+              <a href="#banzaiman" class="listItemLink">
                 <img
                   class="listItemLinkImage"
                   alt="Banzaiman logo"
@@ -111,7 +112,7 @@
               </a>
             </li>
             <li class="listItem">
-              <a href="#employeesSection" class="listItemLink">
+              <a href="#employees" class="listItemLink">
                 <img
                   class="listItemLinkImage"
                   alt="Employee section Logo"
@@ -135,25 +136,25 @@
               src="assets/heroSection/header.svg"
             />
             <li class="mainMenuListItem">
-              <a class="mainMenuListLink" href="#heroSection">About</a>
+              <a class="mainMenuListLink" href="#about">About</a>
             </li>
             <li class="mainMenuListItem">
-              <a class="mainMenuListLink" href="#ebSection"
+              <a class="mainMenuListLink" href="#empathic-building"
                 >Empathic Building</a
               >
             </li>
             <li class="mainMenuListItem">
-              <a class="mainMenuListLink" href="#banzaimanSection">Banzaiman</a>
+              <a class="mainMenuListLink" href="#banzaiman">Banzaiman</a>
             </li>
             <li class="mainMenuListItem">
-              <a class="mainMenuListLink" href="#employeesSection">Employees</a>
+              <a class="mainMenuListLink" href="#employees">Employees</a>
             </li>
           </ul>
         </div>
       </nav>
 
       <!-- Hero Section -->
-      <section class="sectionContainer" id="heroSection">
+      <section class="sectionContainer" id="about">
         <div id="heroSectionContent">
           <div id="aboutUsTextBox">
             <img
@@ -210,8 +211,8 @@
         </div>
       </section>
       <!-- eb Section -->
-      <section class="sectionContainer" id="ebSection">
-        <div id="ebHeaderContainer" wi>
+      <section class="sectionContainer" id="empathic-building">
+        <div id="ebHeaderContainer">
           <img
             alt="Emphatic building text"
             id="ebHeader"
@@ -234,7 +235,7 @@
                 Empathic Building is a product we have developed from scratch
                 originally for Tieto and now for Haltian. It is a tool to
                 transform your working environment for the digital era, with a
-                focus on employee wellbeing
+                focus on employee wellbeing.
               </p>
             </div>
           </div>
@@ -244,17 +245,17 @@
                 alt="phone with emphatic building on the screen"
                 id="cardImagePhone"
                 class="cardImage"
-                src="assets/ebSection/result.svg"
+                src="assets/ebSection/ebphone.webp"
               />
             </div>
 
             <div class="cardTextContainer">
               <p class="cardText">
-                Current main focus is on offices and employees, but we have
+                Our current main focus is on offices and employees, but we have
                 delivered a platform for running any digital twin along with
                 their real-time data. On the customer facing side it is built on
                 our own 3D engine and everything runs platform-independently in
-                your browser
+                your browser.
               </p>
             </div>
           </div>
@@ -271,7 +272,7 @@
 
             <div id="haltianCardTextContainer" class="cardTextContainer">
               <p id="haltianCardText" class="cardText">
-                check out more about the project at
+                Check out more about the project at
               </p>
               <a
                 id="haltianLink"
@@ -280,7 +281,7 @@
                 <img
                   id="haltianLogo"
                   alt="Haltian logo"
-                  src="assets/ebSection/haltianLogo.svg"
+                  src="assets/ebSection/haltianLogoBlack.svg"
                 />
               </a>
             </div>
@@ -288,7 +289,7 @@
         </div>
       </section>
       <!-- banzaiman Section -->
-      <section class="sectionContainer" id="banzaimanSection">
+      <section class="sectionContainer" id="banzaiman">
         <div id="banzaimanSectionOrder">
           <div id="tabSectionContainer">
             <img
@@ -350,7 +351,7 @@
                 An old-school platformer and a mobile game for people who
                 dislike mobile gaming and enjoy a challenge. It's free, there
                 are no ads! (You currently need to unlock the later levels as a
-                one time purchase, but even those will be made free in the next
+                one-time purchase, but even those will be made free in the next
                 update. When there is time for that next update, no one knows!)
                 <br />
                 <br />Completed as a one-man side project over the course of 5
@@ -376,7 +377,7 @@
         <div id="employeeSectionHeaderContainer">
           <img
             alt="image that says get to know the bits"
-            id="employeeSectionHeader"
+            id="employees"
             src="assets/employeesSection/employeeHeaderOutlined.svg"
           />
         </div>
@@ -447,7 +448,7 @@
             <p class="employeeDescription">
               With DSB since 2017, there to help whenever things need to be
               drawn modeled, or given pets. Likes naps, potatoes and tea with
-              cookies
+              cookies.
             </p>
           </div>
           <div class="employeeCard">
@@ -464,7 +465,7 @@
             <p class="employeeDescription">
               Uh-oh! It seems Simo forgot to submit their self-description.
               They're probably out there, slaying deadlines and conquering tasks
-              like true champion!
+              like a true champion!
             </p>
           </div>
           <div class="employeeCard">
@@ -497,7 +498,8 @@
               <h4 class="employeeTitle">The Toffe</h4>
             </div>
             <p class="employeeDescription">
-              Toffe is an always smiling and happy developer. He spends most of his time in the javascript ecosystem.
+              Toffe is an always smiling and happy developer. He spends most of
+              his time in the JavaScript ecosystem.
             </p>
           </div>
           <div class="employeeCard">
@@ -514,7 +516,7 @@
             <p class="employeeDescription">
               Uh-oh! It seems Alex forgot to submit their self-description.
               They're probably out there, slaying deadlines and conquering tasks
-              like true champion!
+              like a true champion!
             </p>
           </div>
           <div class="employeeCard">
@@ -529,9 +531,8 @@
               <h4 class="employeeTitle">Can count your bicycles</h4>
             </div>
             <p class="employeeDescription">
-              Uh-oh! It seems Hugo forgot to submit their self-description.
-              They're probably out there, slaying deadlines and conquering tasks
-              like true champion!
+              Hugo is a Python developer, Python core developer, winter cyclist,
+              tea drinker and a jolly good PSF Fellow.
             </p>
           </div>
           <div class="employeeCard">
@@ -548,7 +549,7 @@
             <p class="employeeDescription">
               Uh-oh! It seems Petri forgot to submit their self-description.
               They're probably out there, slaying deadlines and conquering tasks
-              like true champion!
+              like a true champion!
             </p>
           </div>
         </div>
@@ -559,8 +560,8 @@
           <br />
           info[at]deadsetbit[dot]com<br />
 
-          Dead Set Bit Ltd<br />
-          Helsinki, Finland
+          Dead Set Bit Ltd.<br />
+          Helsinki, Finland.
           <br />
           <br />
           <br />
@@ -568,10 +569,11 @@
           © 2023 - Dead Set Bit Ltd
           <br />
           <br />
-          <a id="codekatuLink" href="https://www.codekatu.com/">
-            this website was designed by Jonna and implemented by our subcontractors at
-            <span id="codekatuStyle">Codekatu Oy</span>
-          </a>
+          <p>
+            this website was designed by Jonna and implemented by our
+            subcontractors at
+            <a id="codekatuLink" href="https://www.codekatu.com/">Codekatu Oy</a>
+          </p>
         </p>
       </footer>
     </div>
