@@ -161,11 +161,10 @@ function navbarScrollResponsive() {
   // when scroll goes over 150 add scrolled class to these elements
   if (window.scrollY > 100) {
     navbar.classList.add("navbarScrolled");
-    navbarList.classList.add("navbarListScrolled");
     logoContainer.classList.add("logoContainerScrolled");
     logo.classList.add("logoSvgScrolled");
 
-    // loop trough the listItems HTMLcollection and change their className
+    // loop trough the listItems HTMLcollection and add scrolled class
 
     for (let index = 0; index < listItems.length; index++) {
       const element = listItems[index];
@@ -175,12 +174,11 @@ function navbarScrollResponsive() {
   // when scroll is under 150 change these classes to their default state
   else {
     navbar.classList.remove("navbarScrolled");
-    navbarList.classList.remove("navbarListScrolled");
 
     logoContainer.classList.remove("logoContainerScrolled");
     logo.classList.remove("logoSvgScrolled");
 
-    // loop trough the listItemsScrolled HTMLcollection and change their className
+    // loop trough the listItemsScrolled HTMLcollection and remove scrolled class
     for (let index = 0; index < listItems.length; index++) {
       const element = listItems[index];
       element.classList.remove("listItemScrolled");

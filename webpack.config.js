@@ -7,9 +7,6 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        // { from: "public/assets", to: "assets" },
-        // { from: "public/robots.txt", to: "robots.txt" },
-        // { from: "public/favicons", to: "favicons" },
         {
           from: "public",
           globOptions: {
@@ -35,7 +32,6 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: __dirname + "/dist",
-    // filename: "bundle.js",
     filename: `[name].[contenthash].js`,
     clean: true,
   },
@@ -50,7 +46,6 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        // use: ["style-loader", "css-loader"],
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
 
