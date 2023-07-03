@@ -1,11 +1,11 @@
 # Dead Set Bit Homepage
 
-This document provides an overview of the website and instructions on how to install and run it locally.
+This document provides an overview of the website and instructions on how to build and run it locally.
 
 # Table of Contents
 
 - [Getting Started](#getting-started)
-- [Installation](#installation)
+- [Build](#build)
 - [Website Structure](#website-structure)
 - [Webpack Configuration](#webpack-configuration)
 - [ How To Do Changes](#how-to-do-changes)
@@ -18,9 +18,9 @@ Before running the website, please ensure that the following prerequisites are i
 - Git: [Installation Guide](https://git-scm.com/downloads)
 - Node.js: [Installation Guide](https://nodejs.dev/en/learn/how-to-install-nodejs//)
 
-# Installation
+# Build
 
-To install the website locally, follow these steps:
+To build the website, follow these steps:
 
 1. Clone the repository:
 
@@ -44,9 +44,9 @@ To install the website locally, follow these steps:
 
 # Website Structure
 
-Here is the structure of your website:
+Here is the structure of the website:
 
-- `dist/`: directory created by the build process. This contains your (`index.html`) and bundled Javascript/CSS. Don't ever make changes to files inside this folder.
+- `dist/`: directory created by the build process. This contains the (`index.html`) and bundled Javascript/CSS. Don't ever make changes to files inside this folder.
 
 - `src/`: Directory containing the source code files
 
@@ -62,7 +62,6 @@ Here is the structure of your website:
   - `template.html`: HTML template file serving as the main html which will be built into index.html
   - `favicons`: all different favicon files for different devices and platforms
   - `robots.txt`: Robots.txt file for search engine crawlers
-  - `sitemap.xml`: Sitemap file for search engines to crawl and index the website
   - `browserconfig.xml`: Browser configuration file for Microsoft browsers
 
 - # Webpack Configuration
@@ -71,8 +70,8 @@ Here is the structure of your website:
 
 - **Plugins:**
 
-  - `CopyPlugin`: This plugin copies files from the `public` directory to the output directory (`dist`), ignoring the `template.html` file.
-  - `HtmlWebpackPlugin`: This plugin generates an HTML file (`index.html`) in output directory (`dist`) based on a template (`template.html`) in the `public` directory.
+  - `CopyPlugin`: This plugin copies files from the (`public`) directory to the output directory (`dist`), ignoring the `template.html` file.
+  - `HtmlWebpackPlugin`: This plugin generates an HTML file (`index.html`) in output directory (`dist`) based on a template (`template.html`) in the (`public`) directory.
   - `MiniCssExtractPlugin`: This plugin combines our css files into single file.
 
 - **Entry and Output:**

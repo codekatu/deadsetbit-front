@@ -265,12 +265,6 @@ button {
 }
 
 #heroSectionContent {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  height: 100%;
-  width: 100%; */
   max-width: 1920px;
 }
 
@@ -280,13 +274,6 @@ button {
   top: -10rem;
   left: -5rem;
 }
-
-/* #heroSectionHeader {
-  position: absolute;
-
-  height: 20rem;
-  z-index: 9;
-} */
 
 #aboutUsTextBox {
   display: flex;
@@ -384,9 +371,6 @@ button {
  */
 
 #ebSection {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   background-color: var(--dsb-ebWhite);
   background-image: url(/public/assets/ebSection/ebSectionBackground.webp);
   background-size: cover;
@@ -465,9 +449,6 @@ button {
 }
 
 #haltianCardTextContainer {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   flex-direction: column;
 }
 
@@ -480,11 +461,6 @@ button {
   width: 180px;
   height: 43.91px;
 }
-
-/* #haltianLink {
-  display: flex;
-  justify-content: center;
-} */
 
 /* 
 -----------------BANZAIMAN SECTION-----------------
@@ -508,14 +484,6 @@ button {
   background-size: cover;
   width: 100%;
 }
-
-/* #banzaimanSectionContentContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: var(--margin-small);
-} */
 
 #banzaimanSectionOrder {
   display: flex;
@@ -619,15 +587,6 @@ button {
   padding: 2rem;
   width: 70%;
 }
-
-/* forces the text box container below the tab selector */
-/* #bottom {
-  display: flex;
-  align-items: flex-end;
-
-  width: 100%;
-  height: 100%;
-} */
 
 #googlePlayBadge {
   margin-top: var(--margin-small);
@@ -900,9 +859,6 @@ button {
     height: 50rem;
   }
 
-  /* #heroSectionContent {
-    justify-content: flex-end;
-  } */
   #aboutUsTextBox {
     border: none;
     border-top: 10px solid white;
@@ -1022,12 +978,6 @@ button {
   #navbarListRightSide {
     display: none;
   }
-  /* .listItem {
-    display: none;
-  }
-  .listItemScrolled {
-    display: none;
-  } */
 
   #navbarButton {
     display: block;
