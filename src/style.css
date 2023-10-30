@@ -409,7 +409,7 @@ button {
   z-index: 2;
   padding: 0;
   margin-top: var(--margin-big);
-  margin-bottom: var(--margin-small);
+  margin-bottom: var(--margin-xs);
   width: 100%;
   overflow-x: scroll;
   display: flex;
