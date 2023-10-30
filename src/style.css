@@ -400,7 +400,6 @@ button {
   top: 6rem;
   content: "";
   background-color: var(--dsb-yellow);
-  transform: rotate(-10deg);
   /* border-radius: 30% 70% 70% 30% / 30% 89% 11% 70%; */
   /* border-radius: 30% 70% 70% 30% / 30% 21% 79% 70%; */
   border-radius: 60% 40% 15% 85% / 13% 76% 24% 87%;
@@ -426,26 +425,15 @@ button {
 #technologyCardContainer {
   max-width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 30rem);
+  grid-template-columns: repeat(3, 34rem);
   /* grid-template-rows: 45rem; */
   /* gap: var(--margin-small); */
-  column-gap: var(--margin-small);
+  /* column-gap: var(--margin-small); */
   margin-bottom: var(--margin-xs);
 }
 
-@media only screen and (max-width: 500px) {
-  #technologyCardContainer {
-    grid-template-columns: repeat(3, 80vw);
-  }
-}
-
-@media only screen and (max-width: 450px) {
-  #technologyCardContainer {
-    grid-template-columns: repeat(3, 100%);
-  }
-}
-
 .technologyCard {
+  margin: 0 var(--margin-small);
   background-color: var(--dsb-fullWhite);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
@@ -457,6 +445,7 @@ button {
   font-size: var(--text-veryBig);
   font-weight: 700;
   margin: 2rem 2rem;
+  text-align: center;
 }
 
 .technologyCardSubHeader {
@@ -493,6 +482,27 @@ button {
 
 .activeTechNavigationButton {
   background-color: var(--dsb-yellow);
+}
+
+@media only screen and (max-width: 500px) {
+  #technologyCardContainer {
+    grid-template-columns: repeat(3, 100%);
+  }
+
+  .technologyCardHeader {
+    font-size: var(--text-middle);
+  }
+  .technologyCard {
+    margin: var(--margin-xs);
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #technologyCardContainer {
+  }
+  #technologyCardHeader {
+    font-size: var(--text-big);
+  }
 }
 
 /* 
