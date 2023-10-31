@@ -40,6 +40,9 @@
   --line-height--small: 1.3;
   --line-height--medium: 1.5;
   --line-height--large: 1.8;
+
+  /* tech card amount */
+  --tech-card-amount: 3;
 }
 
 html {
@@ -390,8 +393,9 @@ button {
   width: 100%;
   background-image: linear-gradient(180deg, #f5f1f1 0%, #e6e6e6 100%);
   position: relative;
+  overflow: hidden;
 }
-#aboutOurTechnology::before {
+/* #aboutOurTechnology::before {
   max-width: 105rem;
   width: 90vw;
   height: 80%;
@@ -400,10 +404,24 @@ button {
   top: 6rem;
   content: "";
   background-color: var(--dsb-yellow);
-  /* border-radius: 30% 70% 70% 30% / 30% 89% 11% 70%; */
-  /* border-radius: 30% 70% 70% 30% / 30% 21% 79% 70%; */
   border-radius: 60% 40% 15% 85% / 13% 76% 24% 87%;
-}
+} */
+/* 
+#aboutOurTechnology:before,
+#aboutOurTechnology:after {
+  content: "";
+  width: 50vmax;
+  height: 50vmax;
+  position: absolute;
+  background: var(--dsb-yellow);
+  left: 40vmin;
+  top: 20vmin;
+  animation: morph 15s linear infinite alternate, spin 20s linear infinite;
+  z-index: 1;
+  will-change: border-radius, transform;
+  transform-origin: center center;
+  pointer-events: none;
+} */
 
 #scrollContainer {
   z-index: 2;
@@ -425,7 +443,7 @@ button {
 #technologyCardContainer {
   max-width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 34rem);
+  grid-template-columns: repeat(var(--tech-card-amount), 34rem);
   /* grid-template-rows: 45rem; */
   /* gap: var(--margin-small); */
   /* column-gap: var(--margin-small); */
@@ -434,6 +452,7 @@ button {
 
 .technologyCard {
   margin: 0 var(--margin-small);
+
   background-color: var(--dsb-fullWhite);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
@@ -465,11 +484,18 @@ button {
 }
 
 #techNavigationButtonContainer {
+  z-index: 1;
   width: 100%;
   height: 500;
   display: flex;
   justify-content: center;
   gap: 1rem;
+
+  visibility: hidden;
+  pointer-events: none; /* Disable interactions */
+  opacity: 0; /* Initially set to invisible so our transition smoothly animates it in */
+  transition: opacity var(--transition-time) ease-in-out,
+    pointer-events var(--transition-time) ease-in-out; /* Add transition */
 }
 
 .techNavigationButton {
@@ -482,11 +508,12 @@ button {
 
 .activeTechNavigationButton {
   background-color: var(--dsb-yellow);
+  transition: all var(--transition-time) ease-in-out;
 }
 
 @media only screen and (max-width: 500px) {
   #technologyCardContainer {
-    grid-template-columns: repeat(3, 100%);
+    grid-template-columns: repeat(var(--tech-card-amount), 100%);
   }
 
   .technologyCardHeader {
@@ -497,11 +524,145 @@ button {
   }
 }
 
+@media only screen and (max-width: 1600px) {
+  #techNavigationButtonContainer {
+    visibility: visible;
+    opacity: 1; /* Make it visible */
+    pointer-events: auto; /* Enable interactions */
+  }
+}
 @media only screen and (max-width: 450px) {
   #technologyCardContainer {
   }
   #technologyCardHeader {
     font-size: var(--text-big);
+  }
+}
+
+/* @keyframes morph {
+  0% {
+    border-radius: 40% 60% 60% 40%/70% 30%;
+  }
+
+  to {
+    border-radius: 30% 70% 58% 42% / 18% 56% 44% 82%;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+} */
+
+@keyframes morph {
+  0% {
+    border-radius: 40% 60% 60% 40% / 70% 30%;
+    transform: rotate(0deg);
+  }
+
+  100% {
+    border-radius: 30% 70% 58% 42% / 18% 56% 44% 82%;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.techAnimationWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #f5f1f1;
+  background: linear-gradient(180deg, #f5f1f1 0%, #e6e6e6 100%);
+  background: linear-gradient(180deg, #f5f1f1 0%, #e6e6e6 100%);
+  z-index: 1;
+}
+
+.techAnimationBox div {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: 5px solid var(--dsb-yellow);
+}
+
+.techAnimationBox div:nth-child(1) {
+  top: 12%;
+  left: 42%;
+  animation: animate 10s linear infinite;
+}
+
+.techAnimationBox div:nth-child(2) {
+  top: 70%;
+  left: 50%;
+  animation: animate 7s linear infinite;
+}
+.techAnimationBox div:nth-child(3) {
+  top: 17%;
+  left: 6%;
+  animation: animate 9s linear infinite;
+}
+
+.techAnimationBox div:nth-child(4) {
+  top: 20%;
+  left: 60%;
+  animation: animate 10s linear infinite;
+}
+
+.techAnimationBox div:nth-child(5) {
+  top: 67%;
+  left: 10%;
+  animation: animate 6s linear infinite;
+}
+
+.techAnimationBox div:nth-child(6) {
+  top: 80%;
+  left: 70%;
+  animation: animate 12s linear infinite;
+}
+
+.techAnimationBox div:nth-child(7) {
+  top: 60%;
+  left: 80%;
+  animation: animate 15s linear infinite;
+}
+
+.techAnimationBox div:nth-child(8) {
+  top: 32%;
+  left: 25%;
+  animation: animate 16s linear infinite;
+}
+
+.techAnimationBox div:nth-child(9) {
+  top: 90%;
+  left: 25%;
+  animation: animate 9s linear infinite;
+}
+
+.techAnimationBox div:nth-child(10) {
+  top: 20%;
+  left: 80%;
+  animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: scale(0) translateY(-90px) rotate(360deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.3) translateY(-90px) rotate(-180deg);
+    border-radius: 50%;
+    opacity: 0;
   }
 }
 

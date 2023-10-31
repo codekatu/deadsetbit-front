@@ -19,12 +19,28 @@ const mainMenuListLinks = document.getElementsByClassName("mainMenuListLink");
 const mainMenuOpacityLayer = document.getElementById("mainMenuOpacityLayer");
 const mainMenuContainer = document.getElementById("mainMenuContainer");
 
+const techNavButtons = document.querySelectorAll(".techNavigationButton");
+const techCardContainer = document.getElementById("technologyCardContainer");
+const scrollContainer = document.getElementById("scrollContainer");
+
+let isButtonPressed = false;
+let timeout;
+
 // adds event listeners to tab selector buttons on load
 window.onload = function () {
   for (let index = 0; index < tabButtons.length; index++) {
     const element = tabButtons[index];
     element.addEventListener("click", tabButton);
   }
+
+  // adds event listeners to tech navigation buttons on load, use the button index to scroll to the card with the same index
+  techNavButtons.forEach((button, index) => {
+    console.log(button, index);
+    button.addEventListener("click", () => {
+      scrollToTechCard(index);
+      setActiveTechButton(index);
+    });
+  });
 
   for (let index = 0; index < mainMenuListLinks.length; index++) {
     const element = mainMenuListLinks[index];
@@ -39,6 +55,21 @@ window.onload = function () {
 
   // page starts with the gong image selected so we make it's color white onload
   changeButtonColor("gongButtonImage");
+
+  const middleCardIndex = Math.floor(techCardContainer.children.length / 2);
+  setActiveTechButton(middleCardIndex);
+
+  // Calculate the position for scrollContainer to scroll to
+  const middleCard = techCardContainer.children[middleCardIndex];
+
+  const middleCardPosition =
+    //scrollContainer.offsetWidth / 2 calculates the midpoint of the scrollContainer. This is where we want to scroll to.
+    //middleCard.offsetWidth / 2 calculates the midpoint of the middle card.
+
+    middleCard.offsetLeft -
+    (scrollContainer.offsetWidth / 2 - middleCard.offsetWidth / 2);
+
+  scrollContainer.scrollLeft = middleCardPosition;
 };
 
 // throttle function to limit the amount of times a function is called
@@ -62,6 +93,34 @@ const throttle = (fn, wait) => {
     }
   };
 };
+
+// function that scrolls to the card thats navigation button is clicked, takes a index as argument, block nearest prevents from vertical scrolling, and inline center centers the card to the viewport
+function scrollToTechCard(index) {
+  // Clear existing timeout to prevent overlapping actions
+  clearTimeout(timeout);
+
+  isButtonPressed = true;
+
+  const cardToScrollTo = techCardContainer.children[index];
+
+  cardToScrollTo.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest",
+    inline: "center",
+  });
+  timeout = setTimeout(() => {
+    isButtonPressed = false;
+  }, 1000);
+}
+
+// sets the active class on the navigation buttons
+function setActiveTechButton(index) {
+  techNavButtons.forEach((button) => {
+    button.classList.remove("activeTechNavigationButton");
+  });
+
+  techNavButtons[index].classList.add("activeTechNavigationButton");
+}
 
 // function that changes the game picture depending on which button is clicked. Also calls the changeButtonColor function to change the color of the button
 function tabButton(e) {
@@ -197,7 +256,49 @@ function menuOpenClose() {
   }
 }
 
+// updates the active button based on the scroll position on scrollContainer
+function updateActiveButtonBasedOnScroll() {
+  if (isButtonPressed) return;
+
+  const containerRect = scrollContainer.getBoundingClientRect();
+  const containerCenter = containerRect.left + containerRect.width / 2;
+
+  let closestCardIndex = -1;
+  let smallestDistance = Infinity;
+
+  const scrollAsRightAsItCanBe =
+    scrollContainer.scrollLeft + containerRect.width >=
+    scrollContainer.scrollWidth;
+
+  const scrollAsLeftAsItCanBe = scrollContainer.scrollLeft === 0;
+
+  Array.from(techCardContainer.children).forEach((card, index) => {
+    const cardRect = card.getBoundingClientRect();
+    const cardCenter = cardRect.left + cardRect.width / 2;
+    const distance = Math.abs(containerCenter - cardCenter);
+
+    if (distance < smallestDistance) {
+      smallestDistance = distance;
+      closestCardIndex = index;
+    }
+  });
+
+  if (scrollAsRightAsItCanBe) {
+    console.log("as right as can be ");
+    closestCardIndex = techCardContainer.children.length - 1;
+  }
+  if (scrollAsLeftAsItCanBe) {
+    closestCardIndex = 0;
+  }
+  setActiveTechButton(closestCardIndex);
+}
+
 // scroll event listener to call navbarScrollReponsive function which changes the navbar on scroll
 window.addEventListener("scroll", navbarScrollResponsive);
 // adds event listener to mouse move that calls throttle function with dogEyeMove function and a timeout that limits the amount of times the function is called
 window.addEventListener("mousemove", throttle(dogEyeMove, 25));
+// event listener to the scrollContainer so that the navigation buttons color changes when user scrolls manually. Also add throttle function to limit the amount of times the function is called
+scrollContainer.addEventListener(
+  "scroll",
+  throttle(updateActiveButtonBasedOnScroll, 100)
+);
