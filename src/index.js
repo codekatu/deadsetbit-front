@@ -310,7 +310,6 @@ function updateActiveButtonBasedOnScroll() {
   });
 
   if (scrollAsRightAsItCanBe) {
-    console.log("as right as can be ");
     closestCardIndex = techCardContainer.children.length - 1;
   }
   if (scrollAsLeftAsItCanBe) {
