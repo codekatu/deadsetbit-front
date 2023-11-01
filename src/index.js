@@ -23,8 +23,12 @@ const techNavButtons = document.querySelectorAll(".techNavigationButton");
 const techCardContainer = document.getElementById("technologyCardContainer");
 const scrollContainer = document.getElementById("scrollContainer");
 
+// global variables for tech section, to prevent the the 2 scrolling functionalities from interfering with each other
 let isButtonPressed = false;
 let timeout;
+
+let mouseDown = false;
+let startX, scrollLeft;
 
 // adds event listeners to tab selector buttons on load
 window.onload = function () {
@@ -58,17 +62,13 @@ window.onload = function () {
 
   const middleCardIndex = Math.floor(techCardContainer.children.length / 2);
   setActiveTechButton(middleCardIndex);
-
   // Calculate the position for scrollContainer to scroll to
   const middleCard = techCardContainer.children[middleCardIndex];
-
   const middleCardPosition =
     //scrollContainer.offsetWidth / 2 calculates the midpoint of the scrollContainer. This is where we want to scroll to.
     //middleCard.offsetWidth / 2 calculates the midpoint of the middle card.
-
     middleCard.offsetLeft -
     (scrollContainer.offsetWidth / 2 - middleCard.offsetWidth / 2);
-
   scrollContainer.scrollLeft = middleCardPosition;
 };
 
@@ -94,23 +94,49 @@ const throttle = (fn, wait) => {
   };
 };
 
-// function that scrolls to the card thats navigation button is clicked, takes a index as argument, block nearest prevents from vertical scrolling, and inline center centers the card to the viewport
 function scrollToTechCard(index) {
-  // Clear existing timeout to prevent overlapping actions
-  clearTimeout(timeout);
-
   isButtonPressed = true;
 
+  // Get the specific card we want to scroll to
   const cardToScrollTo = techCardContainer.children[index];
+  // Get the card's position from the left edge of the container
+  const cardLeft = cardToScrollTo.offsetLeft;
+  // Get the card's width
+  const cardWidth = cardToScrollTo.offsetWidth;
 
-  cardToScrollTo.scrollIntoView({
-    behavior: "smooth",
-    block: "nearest",
-    inline: "center",
-  });
-  timeout = setTimeout(() => {
-    isButtonPressed = false;
-  }, 1000);
+  // Calculate the scroll position needed to center the card
+  const newScrollPosition =
+    // finds the cards left offset and adjusts it by half the containers width and half the cards width to center the card
+    cardLeft - (scrollContainer.offsetWidth / 2 - cardWidth / 2);
+
+  // Initialize variables for the animation
+  let start = null;
+  let currentScroll = scrollContainer.scrollLeft;
+
+  // Function to animate the scrolling
+  function step(timestamp) {
+    // Record the start time of the animation
+    if (!start) start = timestamp;
+
+    // Calculate elapsed time since the animation started
+    const elapsed = timestamp - start;
+
+    // Calculate the progress of the animation (0 to 1)
+    const progress = Math.min(elapsed / 250, 1); // duration of the animation
+
+    // Update the scroll position based on progress
+    scrollContainer.scrollLeft =
+      currentScroll + (newScrollPosition - currentScroll) * progress;
+    // If the animation isn't done, keep animating
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      // Reset the flag when the animation is done
+      isButtonPressed = false;
+    }
+  }
+  // Start the animation
+  requestAnimationFrame(step);
 }
 
 // sets the active class on the navigation buttons
@@ -263,7 +289,7 @@ function updateActiveButtonBasedOnScroll() {
   const containerRect = scrollContainer.getBoundingClientRect();
   const containerCenter = containerRect.left + containerRect.width / 2;
 
-  let closestCardIndex = -1;
+  let closestCardIndex;
   let smallestDistance = Infinity;
 
   const scrollAsRightAsItCanBe =
@@ -293,6 +319,31 @@ function updateActiveButtonBasedOnScroll() {
   setActiveTechButton(closestCardIndex);
 }
 
+// https://stackoverflow.com/a/66313884 Below mouse drag code is from this stackoverflow answer
+
+const startDragging = (e) => {
+  mouseDown = true;
+  startX = e.pageX - scrollContainer.offsetLeft;
+  scrollLeft = scrollContainer.scrollLeft;
+};
+
+const stopDragging = (e) => {
+  mouseDown = false;
+};
+
+const move = (e) => {
+  e.preventDefault();
+
+  if (!mouseDown) {
+    return;
+  }
+  console.log("kukkamies");
+
+  const x = e.pageX - scrollContainer.offsetLeft;
+  const scroll = x - startX;
+  scrollContainer.scrollLeft = scrollLeft - scroll;
+};
+
 // scroll event listener to call navbarScrollReponsive function which changes the navbar on scroll
 window.addEventListener("scroll", navbarScrollResponsive);
 // adds event listener to mouse move that calls throttle function with dogEyeMove function and a timeout that limits the amount of times the function is called
@@ -302,3 +353,40 @@ scrollContainer.addEventListener(
   "scroll",
   throttle(updateActiveButtonBasedOnScroll, 100)
 );
+// // scrollContainer.addEventListener("mousemove", move, false);
+// scrollContainer.addEventListener("mousemove", throttle(move, 25), false); // increase or decrease the number to change the scroll speed
+
+// // scrollContainer.addEventListener("mousedown", startDragging, false);
+// scrollContainer.addEventListener("mousedown", (e) => {
+//   if (window.innerWidth > 1600) return;
+//   startDragging(e);
+//   scrollContainer.classList.add("grabbing");
+// });
+// scrollContainer.addEventListener("mouseup", (e) => {
+//   if (window.innerWidth > 1600) return;
+//   stopDragging(e);
+//   scrollContainer.classList.remove("grabbing");
+// });
+// scrollContainer.addEventListener("mouseleave", stopDragging, false);
+
+if (
+  !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  )
+) {
+  // scrollContainer.addEventListener("mousemove", move, false);
+  scrollContainer.addEventListener("mousemove", throttle(move, 25), false); // increase or decrease the number to change the scroll speed
+
+  // scrollContainer.addEventListener("mousedown", startDragging, false);
+  scrollContainer.addEventListener("mousedown", (e) => {
+    if (window.innerWidth > 1600) return;
+    startDragging(e);
+    scrollContainer.classList.add("grabbing");
+  });
+  scrollContainer.addEventListener("mouseup", (e) => {
+    if (window.innerWidth > 1600) return;
+    stopDragging(e);
+    scrollContainer.classList.remove("grabbing");
+  });
+  scrollContainer.addEventListener("mouseleave", stopDragging, false);
+}

@@ -504,11 +504,25 @@ button {
   background-color: var(--dsb-light-grey);
   border-radius: 50%;
   cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 .activeTechNavigationButton {
   background-color: var(--dsb-yellow);
   transition: all var(--transition-time) ease-in-out;
+}
+
+@media only screen and (max-width: 1600px) {
+  #scrollContainer {
+    cursor: grab;
+  }
+
+  #techNavigationButtonContainer {
+    visibility: visible;
+    opacity: 1; /* Make it visible */
+    pointer-events: auto; /* Enable interactions */
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -524,13 +538,6 @@ button {
   }
 }
 
-@media only screen and (max-width: 1600px) {
-  #techNavigationButtonContainer {
-    visibility: visible;
-    opacity: 1; /* Make it visible */
-    pointer-events: auto; /* Enable interactions */
-  }
-}
 @media only screen and (max-width: 450px) {
   #technologyCardContainer {
   }
@@ -539,42 +546,6 @@ button {
   }
 }
 
-/* @keyframes morph {
-  0% {
-    border-radius: 40% 60% 60% 40%/70% 30%;
-  }
-
-  to {
-    border-radius: 30% 70% 58% 42% / 18% 56% 44% 82%;
-  }
-}
-@keyframes spin {
-  to {
-    transform: rotate(1turn);
-  }
-} */
-
-@keyframes morph {
-  0% {
-    border-radius: 40% 60% 60% 40% / 70% 30%;
-    transform: rotate(0deg);
-  }
-
-  100% {
-    border-radius: 30% 70% 58% 42% / 18% 56% 44% 82%;
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
 .techAnimationWrapper {
   position: absolute;
   width: 100%;
@@ -664,6 +635,15 @@ button {
     border-radius: 50%;
     opacity: 0;
   }
+}
+
+.grabbing {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
 
 /* 
@@ -1468,8 +1448,22 @@ button {
 /* --------------450px-------------- */
 
 @media only screen and (max-width: 450px) {
+  html {
+    font-size: 70%;
+  }
+
+  #cardImagePerson {
+    width: 225px;
+    height: 225px;
+  }
+
   #banzaimanTabSelector {
     height: 3.5rem;
+  }
+
+  #cardImagePhone {
+    height: 337px;
+    width: 245px;
   }
 }
 
@@ -1477,9 +1471,6 @@ button {
 
 @media only screen and (max-width: 400px) {
   /* hero section */
-  html {
-    font-size: 80%;
-  }
 
   #aboutUsText {
     min-height: 10rem;
