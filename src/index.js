@@ -18,7 +18,6 @@ const buttonImages = document.getElementsByClassName("buttonImage");
 const mainMenuListLinks = document.getElementsByClassName("mainMenuListLink");
 const mainMenuOpacityLayer = document.getElementById("mainMenuOpacityLayer");
 const mainMenuContainer = document.getElementById("mainMenuContainer");
-
 const techNavButtons = document.querySelectorAll(".techNavigationButton");
 const techCardContainer = document.getElementById("technologyCardContainer");
 const scrollContainer = document.getElementById("scrollContainer");
@@ -303,6 +302,16 @@ function updateActiveButtonBasedOnScroll() {
     const cardCenter = cardRect.left + cardRect.width / 2;
     const distance = Math.abs(containerCenter - cardCenter);
 
+    // this adds blur to the cards that are not on the screen completely. Looks stupid and needs to be implemented into button presses too if for some reason its wanted
+    // if (
+    //   cardRect.right <= containerRect.right &&
+    //   cardRect.left >= containerRect.left
+    // ) {
+    //   card.classList.remove("blur");
+    // } else {
+    //   card.classList.add("blur");
+    // }
+
     if (distance < smallestDistance) {
       smallestDistance = distance;
       closestCardIndex = index;
@@ -336,7 +345,6 @@ const move = (e) => {
   if (!mouseDown) {
     return;
   }
-  console.log("kukkamies");
 
   const x = e.pageX - scrollContainer.offsetLeft;
   const scroll = x - startX;
@@ -374,7 +382,7 @@ if (
   )
 ) {
   // scrollContainer.addEventListener("mousemove", move, false);
-  scrollContainer.addEventListener("mousemove", throttle(move, 25), false); // increase or decrease the number to change the scroll speed
+  scrollContainer.addEventListener("mousemove", throttle(move, 10), false); // increase or decrease the number to change the scroll speed
 
   // scrollContainer.addEventListener("mousedown", startDragging, false);
   scrollContainer.addEventListener("mousedown", (e) => {

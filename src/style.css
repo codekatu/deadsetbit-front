@@ -5,6 +5,8 @@
   --dsb-red: #ca2852;
   --dsb-yellow: #fbc667;
   --dsb-ebWhite: #e6e6e6;
+  --dsb-cardWhite: #f5f1f1;
+
   --dsb-grey: #87a2ab;
   --dsb-tech-grey: #424242;
   --dsb-tech-grey2: #616161;
@@ -361,7 +363,7 @@ button {
 
 #aboutUsText {
   font-size: var(--text-aboutUsSection);
-  color: var(--dsb-dark);
+  color: var(--dsb-dark-grey);
   line-height: var(--line-height--small);
   font-family: sans-serif; /* using different font here to prevent the unstyled font flash and layout shifter caused by the webfont loadtime */
 }
@@ -400,33 +402,6 @@ button {
   position: relative;
   overflow: hidden;
 }
-/* #aboutOurTechnology::before {
-  max-width: 105rem;
-  width: 90vw;
-  height: 80%;
-  position: absolute;
-  z-index: 1;
-  top: 6rem;
-  content: "";
-  background-color: var(--dsb-yellow);
-  border-radius: 60% 40% 15% 85% / 13% 76% 24% 87%;
-} */
-/* 
-#aboutOurTechnology:before,
-#aboutOurTechnology:after {
-  content: "";
-  width: 50vmax;
-  height: 50vmax;
-  position: absolute;
-  background: var(--dsb-yellow);
-  left: 40vmin;
-  top: 20vmin;
-  animation: morph 15s linear infinite alternate, spin 20s linear infinite;
-  z-index: 1;
-  will-change: border-radius, transform;
-  transform-origin: center center;
-  pointer-events: none;
-} */
 
 #scrollContainer {
   z-index: 2;
@@ -457,11 +432,11 @@ button {
 
 .technologyCard {
   margin: 0 var(--margin-small);
-
   background-color: var(--dsb-fullWhite);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   line-height: var(--line-height--small);
+  /* background: linear-gradient(180deg, #dedede 10%, #a9a7a9 100%); */
 }
 
 .technologyCardHeader {
@@ -511,6 +486,7 @@ button {
   cursor: pointer;
 
   -webkit-tap-highlight-color: transparent;
+  border: 1px solid var(--dsb-light-grey);
 }
 
 .activeTechNavigationButton {
@@ -544,8 +520,6 @@ button {
 }
 
 @media only screen and (max-width: 450px) {
-  #technologyCardContainer {
-  }
   #technologyCardHeader {
     font-size: var(--text-big);
   }
@@ -557,7 +531,6 @@ button {
   height: 100%;
   overflow: hidden;
   background: #f5f1f1;
-  background: linear-gradient(180deg, #f5f1f1 0%, #e6e6e6 100%);
   background: linear-gradient(180deg, #f5f1f1 0%, #e6e6e6 100%);
   z-index: 1;
 }
@@ -650,6 +623,10 @@ button {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
+/* 
+.blur {
+  filter: blur(1px);
+} */
 
 /* 
 
@@ -823,6 +800,7 @@ button {
   align-items: center;
   background-size: auto;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .tabSelectorButtonSelected {
@@ -1153,6 +1131,13 @@ button {
     height: 30rem;
     width: 100%;
     box-shadow: none;
+    /* here gradient */
+    background: rgb(251, 198, 103);
+    background: linear-gradient(
+      180deg,
+      rgba(251, 198, 103, 1) 75%,
+      rgb(224, 179, 113) 100%
+    );
   }
 
   #aboutUsNormalTextContainer {
@@ -1402,12 +1387,12 @@ button {
 
   #heroSectionMobileMobileContentBodyText {
     color: var(--dsb-tech-grey);
-    font-size: var(--text-big);
+    font-size: var(--text-middle);
   }
 
   #heroSectionMobileMobileContentBodyTextSmall {
     color: var(--dsb-tech-grey2);
-    font-size: var(--text-middle);
+    font-size: var(--text-small);
   }
 
   #aboutUsTextBox {
@@ -1501,6 +1486,14 @@ button {
 @media only screen and (max-width: 450px) {
   html {
     font-size: 70%;
+  }
+
+  #navbar {
+    height: 4rem;
+  }
+
+  #navbar.navbarScrolled {
+    height: 4rem;
   }
 
   #cardImagePerson {
