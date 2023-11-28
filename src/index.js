@@ -99,6 +99,7 @@ window.onload = function () {
   });
 
   Array.from(techCardContainer.children).forEach((button, index) => {
+    // Don't add the event listener for mobile devices
     if (
       !/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
