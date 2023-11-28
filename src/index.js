@@ -25,6 +25,7 @@ const scrollContainer = document.getElementById("scrollContainer");
 // global variables for tech section, to prevent the the 2 scrolling functionalities from interfering with each other
 let isButtonPressed = false;
 let timeout;
+let isDragging = false;
 
 let mouseDown = false;
 let startX, scrollLeft;
@@ -38,7 +39,22 @@ window.onload = function () {
 
   // adds event listeners to tech navigation buttons on load, use the button index to scroll to the card with the same index
   techNavButtons.forEach((button, index) => {
-    console.log(button, index);
+    button.addEventListener("click", () => {
+      scrollToTechCard(index);
+      setActiveTechButton(index);
+    });
+  });
+
+  Array.from(techCardContainer.children).forEach((button, index) => {
+    if (
+      !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      return;
+    }
+
+    // Add the event listener for scrolling to tech cards for mobile devices
     button.addEventListener("click", () => {
       scrollToTechCard(index);
       setActiveTechButton(index);
@@ -94,6 +110,8 @@ const throttle = (fn, wait) => {
 };
 
 function scrollToTechCard(index) {
+  if (isDragging) return;
+
   isButtonPressed = true;
 
   // Get the specific card we want to scroll to
@@ -302,16 +320,6 @@ function updateActiveButtonBasedOnScroll() {
     const cardCenter = cardRect.left + cardRect.width / 2;
     const distance = Math.abs(containerCenter - cardCenter);
 
-    // this adds blur to the cards that are not on the screen completely. Looks stupid and needs to be implemented into button presses too if for some reason its wanted
-    // if (
-    //   cardRect.right <= containerRect.right &&
-    //   cardRect.left >= containerRect.left
-    // ) {
-    //   card.classList.remove("blur");
-    // } else {
-    //   card.classList.add("blur");
-    // }
-
     if (distance < smallestDistance) {
       smallestDistance = distance;
       closestCardIndex = index;
@@ -360,31 +368,17 @@ scrollContainer.addEventListener(
   "scroll",
   throttle(updateActiveButtonBasedOnScroll, 100)
 );
-// // scrollContainer.addEventListener("mousemove", move, false);
-// scrollContainer.addEventListener("mousemove", throttle(move, 25), false); // increase or decrease the number to change the scroll speed
-
-// // scrollContainer.addEventListener("mousedown", startDragging, false);
-// scrollContainer.addEventListener("mousedown", (e) => {
-//   if (window.innerWidth > 1600) return;
-//   startDragging(e);
-//   scrollContainer.classList.add("grabbing");
-// });
-// scrollContainer.addEventListener("mouseup", (e) => {
-//   if (window.innerWidth > 1600) return;
-//   stopDragging(e);
-//   scrollContainer.classList.remove("grabbing");
-// });
-// scrollContainer.addEventListener("mouseleave", stopDragging, false);
+// scrollContainer.addEventListener("mousemove", move, false);
+scrollContainer.addEventListener("mousemove", throttle(move, 25), false); // increase or decrease the number to change the scroll speed
 
 if (
   !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
 ) {
-  // scrollContainer.addEventListener("mousemove", move, false);
+  scrollContainer.addEventListener("mousemove", move, false);
   scrollContainer.addEventListener("mousemove", throttle(move, 10), false); // increase or decrease the number to change the scroll speed
-
-  // scrollContainer.addEventListener("mousedown", startDragging, false);
+  scrollContainer.addEventListener("mousedown", startDragging, false);
   scrollContainer.addEventListener("mousedown", (e) => {
     if (window.innerWidth > 1600) return;
     startDragging(e);
@@ -392,6 +386,7 @@ if (
   });
   scrollContainer.addEventListener("mouseup", (e) => {
     if (window.innerWidth > 1600) return;
+    isDragging = false;
     stopDragging(e);
     scrollContainer.classList.remove("grabbing");
   });
