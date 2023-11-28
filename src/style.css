@@ -445,32 +445,42 @@ button {
   color: var(--dsb-dark-grey);
   font-size: var(--text-veryBig);
   font-weight: 700;
-  margin: 2rem 2rem;
-  text-align: center;
+  margin: 2rem 3rem;
+  text-align: left;
 }
 
 .technologyCardSubHeader {
   color: var(--dsb-tech-grey);
   font-size: var(--text-middle);
   font-weight: 400;
-  margin: 2rem 2rem;
+  margin: 2rem 3rem;
   font-size: var(--text-middle);
+  text-align: left;
 }
 
 .technologyCardBodyText {
-  margin: 2rem 2rem;
+  margin: 2rem 3rem;
   font-size: var(--text-xs);
   font-weight: 400;
   font-size: var(--text-small);
   color: var(--dsb-tech-grey);
+  text-align: justify;
 }
 
 .techCardArrowContainer {
   visibility: hidden;
   width: 100%;
   position: absolute;
-  top: 0%;
+  top: 50%;
   opacity: 0.8;
+}
+
+.arrow-left {
+  background-image: url(/public/assets/techSection/leftArrow.svg);
+}
+
+.arrow-right {
+  background-image: url(/public/assets/techSection/rightArrow.svg);
 }
 
 .arrow-left,
@@ -482,21 +492,14 @@ button {
   cursor: pointer;
   animation: breathe 3.5s infinite ease-in-out;
 }
-.arrow-left {
-  background-image: url(/public/assets/techSection/leftArrow.svg);
-}
-
-.arrow-right {
-  background-image: url(/public/assets/techSection/rightArrow.svg);
-}
 
 @keyframes breathe {
   0%,
-  100% {
-    opacity: 0.2;
-  }
-  50% {
+  30% {
     opacity: 1;
+  }
+  20% {
+    opacity: 0.2;
   }
 }
 
