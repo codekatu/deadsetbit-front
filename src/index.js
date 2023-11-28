@@ -21,6 +21,13 @@ const mainMenuContainer = document.getElementById("mainMenuContainer");
 const techNavButtons = document.querySelectorAll(".techNavigationButton");
 const techCardContainer = document.getElementById("technologyCardContainer");
 const scrollContainer = document.getElementById("scrollContainer");
+const arrowRightFirstCard = document.getElementById("arrowRightFirstCard");
+const arrowLeftSecondCard = document.getElementById("arrowLeftSecondCard");
+const arrowRightSecondCard = document.getElementById("arrowRightSecondCard");
+const arrowLeftThirdCard = document.getElementById("arrowLeftThirdCard");
+
+const leftArrowButtons = document.querySelectorAll(".arrow-left");
+const rightArrowButtons = document.querySelectorAll(".arrow-right");
 
 // global variables for tech section, to prevent the the 2 scrolling functionalities from interfering with each other
 let isButtonPressed = false;
@@ -37,6 +44,52 @@ window.onload = function () {
     element.addEventListener("click", tabButton);
   }
 
+  // adds event listeners to arrow buttons on load
+  arrowRightFirstCard.addEventListener("click", () => {
+    scrollToTechCard(1);
+    setActiveTechButton(1);
+  });
+
+  arrowLeftSecondCard.addEventListener("click", () => {
+    scrollToTechCard(0);
+    setActiveTechButton(0);
+  });
+
+  arrowRightSecondCard.addEventListener("click", () => {
+    scrollToTechCard(2);
+    setActiveTechButton(2);
+  });
+
+  arrowLeftThirdCard.addEventListener("click", () => {
+    scrollToTechCard(1);
+    setActiveTechButton(1);
+  });
+
+  // For mobile we use touchend instead of click
+  arrowRightFirstCard.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    scrollToTechCard(1);
+    setActiveTechButton(1);
+  });
+
+  arrowLeftSecondCard.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    scrollToTechCard(0);
+    setActiveTechButton(0);
+  });
+
+  arrowRightSecondCard.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    scrollToTechCard(2);
+    setActiveTechButton(2);
+  });
+
+  arrowLeftThirdCard.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    scrollToTechCard(1);
+    setActiveTechButton(1);
+  });
+
   // adds event listeners to tech navigation buttons on load, use the button index to scroll to the card with the same index
   techNavButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
@@ -47,7 +100,7 @@ window.onload = function () {
 
   Array.from(techCardContainer.children).forEach((button, index) => {
     if (
-      !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      !/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
       )
     ) {
@@ -75,16 +128,26 @@ window.onload = function () {
   // page starts with the gong image selected so we make it's color white onload
   changeButtonColor("gongButtonImage");
 
-  const middleCardIndex = Math.floor(techCardContainer.children.length / 2);
-  setActiveTechButton(middleCardIndex);
-  // Calculate the position for scrollContainer to scroll to
-  const middleCard = techCardContainer.children[middleCardIndex];
-  const middleCardPosition =
-    //scrollContainer.offsetWidth / 2 calculates the midpoint of the scrollContainer. This is where we want to scroll to.
-    //middleCard.offsetWidth / 2 calculates the midpoint of the middle card.
-    middleCard.offsetLeft -
-    (scrollContainer.offsetWidth / 2 - middleCard.offsetWidth / 2);
-  scrollContainer.scrollLeft = middleCardPosition;
+  // const middleCardIndex = Math.floor(techCardContainer.children.length / 2);
+  // setActiveTechButton(middleCardIndex);
+  // // Calculate the position for scrollContainer to scroll to
+  // const middleCard = techCardContainer.children[middleCardIndex];
+  // const middleCardPosition =
+  //   //scrollContainer.offsetWidth / 2 calculates the midpoint of the scrollContainer. This is where we want to scroll to.
+  //   //middleCard.offsetWidth / 2 calculates the midpoint of the middle card.
+  //   middleCard.offsetLeft -
+  //   (scrollContainer.offsetWidth / 2 - middleCard.offsetWidth / 2);
+  // scrollContainer.scrollLeft = middleCardPosition;
+
+  // Set the first card as the active card on load
+  setActiveTechButton(0);
+
+  // Calculate the position for scrollContainer to scroll to the first card
+  const firstCard = techCardContainer.children[0];
+  const firstCardPosition =
+    firstCard.offsetLeft -
+    (scrollContainer.offsetWidth / 2 - firstCard.offsetWidth / 2);
+  scrollContainer.scrollLeft = firstCardPosition;
 };
 
 // throttle function to limit the amount of times a function is called
