@@ -25,19 +25,29 @@ const arrowRightFirstCard = document.getElementById("arrowRightFirstCard");
 const arrowLeftSecondCard = document.getElementById("arrowLeftSecondCard");
 const arrowRightSecondCard = document.getElementById("arrowRightSecondCard");
 const arrowLeftThirdCard = document.getElementById("arrowLeftThirdCard");
-
 const leftArrowButtons = document.querySelectorAll(".arrow-left");
 const rightArrowButtons = document.querySelectorAll(".arrow-right");
+const form = document.getElementById("contactForm");
+const messageField = document.getElementById("messageField");
+// var termsCheckbox = document.getElementById("termsCheckbox");
+const emailField = document.getElementById("email");
+const phoneField = document.getElementById("phone");
+const contactPhone = document.getElementById("contactPhone");
+const contactEmail = document.getElementById("contactEmail");
+const contactFormRadioInputContainer = document.getElementById(
+  "contactFormRadioInputContainer"
+);
+const submitButton = document.getElementById("submitButton");
+const snackbarClose = document.getElementById("snackbarClose");
 
-// global variables for tech section, to prevent the the 2 scrolling functionalities from interfering with each other
+// global variables
 let isButtonPressed = false;
 let timeout;
 let isDragging = false;
-
 let mouseDown = false;
 let startX, scrollLeft;
 
-// adds event listeners to tab selector buttons on load
+// adds event listeners on load and runs functions on load to set the page up
 window.onload = function () {
   for (let index = 0; index < tabButtons.length; index++) {
     const element = tabButtons[index];
@@ -138,6 +148,9 @@ window.onload = function () {
     firstCard.offsetLeft -
     (scrollContainer.offsetWidth / 2 - firstCard.offsetWidth / 2);
   scrollContainer.scrollLeft = firstCardPosition;
+
+  submitButton.addEventListener("click", submitForm);
+  snackbarClose.addEventListener("click", closeSnackbar);
 };
 
 // throttle function to limit the amount of times a function is called
@@ -411,6 +424,62 @@ const move = (e) => {
   const scroll = x - startX;
   scrollContainer.scrollLeft = scrollLeft - scroll;
 };
+
+function submitForm() {
+  function disableSubmitButton() {
+    var submitButton = document.getElementById("submitButton");
+    submitButton.disabled = true;
+  }
+
+  function resetErrorStyles() {
+    messageField.classList.remove("error");
+    emailField.classList.remove("error");
+    phoneField.classList.remove("error");
+    contactFormRadioInputContainer.classList.remove("error");
+  }
+
+  function setErrorStyle(element) {
+    element.classList.add("error");
+  }
+
+  resetErrorStyles();
+
+  if (emailField.value.trim() === "" && phoneField.value.trim() === "") {
+    setErrorStyle(emailField);
+    setErrorStyle(phoneField);
+    return;
+  }
+
+  if (messageField.value.trim() === "") {
+    setErrorStyle(messageField);
+    return;
+  }
+
+  if (!contactPhone.checked && !contactEmail.checked) {
+    setErrorStyle(contactFormRadioInputContainer);
+    return;
+  }
+
+  showSnackbar();
+
+  form.submit();
+  console.log("form submitted");
+  disableSubmitButton();
+
+  form.reset();
+}
+
+function closeSnackbar() {
+  var snackbar = document.getElementById("snackbar");
+  snackbar.style.visibility = "hidden";
+}
+
+function showSnackbar() {
+  var snackbar = document.getElementById("snackbar");
+  snackbar.style.visibility = "visible";
+  snackbar.style.top = "10%";
+  snackbar.style.opacity = "1";
+}
 
 // scroll event listener to call navbarScrollReponsive function which changes the navbar on scroll
 window.addEventListener("scroll", navbarScrollResponsive);
