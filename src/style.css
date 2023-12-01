@@ -1021,6 +1021,197 @@ button {
 
   font-weight: 300;
 }
+
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#contact {
+  background-color: #fbc667;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#contactSectionHeader {
+  font-size: var(--text-veryBig);
+  margin: 2rem 3rem;
+}
+
+#contactSectionSubHeader {
+  font-size: var(--text-middle);
+  margin: 2rem 3rem;
+}
+
+.contactSectionContent {
+  display: flex;
+  justify-content: center;
+}
+
+.contactPersonContainer {
+  display: flex;
+  margin: 2rem 0rem;
+}
+
+.contactPersonImage {
+  max-width: 100%;
+}
+
+.contactPersonTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem 3rem;
+}
+.contactPersonName {
+  font-size: var(--text-big);
+  font-style: italic;
+}
+
+.contactPersonTitle {
+  font-size: var(--text-middle);
+  font-style: italic;
+}
+
+.contactPersonEmail {
+  font-size: var(--text-middle);
+}
+.contactPersonPhone {
+  font-size: var(--text-middle);
+}
+
+.contactFormContainer {
+  display: flex;
+  justify-content: center;
+}
+#contactForm {
+  padding: 20px;
+  width: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+#submitButtonContainer {
+  justify-content: center;
+}
+
+.formLabel {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.contactFormInput,
+#messageField {
+  height: 70px;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border: 1px solid #a4a2a2;
+  border-radius: 10px;
+  font-size: var(--text-small);
+}
+
+#messageField {
+  resize: vertical;
+  height: 300px;
+}
+.formRadioLabel {
+  font-size: var(--text-middle);
+  margin-bottom: 15px;
+}
+
+.contactFormRadioInputContainer {
+  font-size: var(--text-middle);
+  margin-bottom: 15px;
+}
+.contactFormRadioInput {
+  width: 15px;
+  height: 15px;
+}
+
+#submitButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.iAgreeToTermsAndConditionsContainer {
+  display: flex;
+}
+
+#termsCheckbox {
+  width: 15px;
+  height: 15px;
+}
+
+.iAgreeToTermsAndConditionsTextContainer {
+  font-size: var(--text-small);
+  margin-bottom: 15px;
+}
+#privacyPolicyLink {
+  text-decoration: none;
+}
+#submitButton {
+  width: 200px;
+  height: 50px;
+  background-color: rgb(80, 80, 80);
+  color: rgb(244, 244, 244);
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: var(--text-middle);
+}
+
+#submitButton:hover {
+  background-color: rgb(132, 120, 120);
+}
+
+@media only screen and (max-width: 1200px) {
+  .contactSectionContent {
+    flex-direction: column;
+  }
+  .contactSectionPeople {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .contactPersonContainer {
+    margin: 1rem 0rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #contactForm {
+    width: 100%;
+  }
+  .contactPersonImage {
+    height: 134px;
+    width: auto;
+    padding-left: 3px;
+  }
+  .contactFormContainer {
+    width: 100%;
+  }
+
+  #messageField {
+    height: 200px;
+  }
+
+  #submitButtonContainer {
+    justify-content: center;
+  }
+}
+
+.contactFormFieldError {
+  border: 1px solid red;
+  height: 0px;
+}
+
 /*
 -----------------FOOTER-----------------
  */
