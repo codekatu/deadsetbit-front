@@ -13,6 +13,9 @@
   --dsb-dark-grey: #212121;
   --dsb-light-grey: #bdbdbd;
 
+  --dsb-green: #0db55b;
+  --dsb-light-green: #13f07b;
+
   /* margins */
   --margin-xs: 1.25rem;
   --margin-small: 2.5rem;
@@ -862,7 +865,6 @@ button {
   width: 25%;
   height: 100%;
   background-color: #2f711e;
-
   padding: 5px;
   display: flex;
   justify-content: center;
@@ -1022,6 +1024,10 @@ button {
   font-weight: 300;
 }
 
+/* 
+-----------------CONTACT SECTION-----------------
+ */
+
 .sectionContainer {
   display: flex;
   flex-direction: column;
@@ -1095,10 +1101,6 @@ button {
   flex-direction: column;
 }
 
-#submitButtonContainer {
-  justify-content: center;
-}
-
 .formLabel {
   display: block;
   font-size: 20px;
@@ -1106,7 +1108,7 @@ button {
 }
 
 .contactFormInput,
-#messageField {
+.messageField {
   height: 70px;
   width: 100%;
   padding: 8px;
@@ -1117,7 +1119,7 @@ button {
   font-size: var(--text-small);
 }
 
-#messageField {
+.messageField {
   resize: vertical;
   height: 300px;
 }
@@ -1134,8 +1136,11 @@ button {
   width: 15px;
   height: 15px;
 }
-
+.radioLabel {
+  font-size: var(--text-middle);
+}
 #submitButtonContainer {
+  margin-top: 15px;
   display: flex;
   justify-content: flex-end;
 }
@@ -1159,8 +1164,8 @@ button {
 #submitButton {
   width: 200px;
   height: 50px;
-  background-color: rgb(80, 80, 80);
-  color: rgb(244, 244, 244);
+  background-color: var(--dsb-green);
+  color: var(--dsb-cardWhite);
   padding: 10px 15px;
   border-radius: 10px;
   cursor: pointer;
@@ -1168,7 +1173,58 @@ button {
 }
 
 #submitButton:hover {
-  background-color: rgb(132, 120, 120);
+  background-color: var(--dsb-light-green);
+  color: var(--dsb-dark-grey);
+}
+
+#submitButton:disabled {
+  background-color: var(--dsb-light-grey);
+  color: var(--dsb-dark-grey);
+  cursor: not-allowed;
+}
+
+.snackbar {
+  visibility: hidden;
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  width: 100%;
+  max-width: 22rem;
+  padding: 1rem;
+  background-color: var(--dsb-green);
+  color: var(--dsb-fullWhite);
+  font-size: var(--text-small);
+  border-radius: 10px;
+  text-align: left;
+  transform: translateX(-50%);
+  z-index: 3;
+  opacity: 0.3;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    top 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.snackbarContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#snackbarClose {
+  cursor: pointer;
+  outline: none;
+  color: var(--dsb-fullWhite);
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 450px) {
+  .snackbar {
+    max-width: 100%;
+    font-size: var(--text-middle);
+    text-align: center;
+  }
+  .snackbarContent {
+    justify-content: center;
+  }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -1207,9 +1263,13 @@ button {
   }
 }
 
-.contactFormFieldError {
-  border: 1px solid red;
-  height: 0px;
+.error {
+  border: 2px solid red;
+}
+
+#contactFormRadioInputContainer {
+  padding-top: 5px;
+  border-radius: 10px;
 }
 
 /*

@@ -749,7 +749,7 @@
           <div class="contactFormContainer">
             <!-- Using a hidden iFrame here to prevent redirection to the Google Forms webpage upon form submission.
    Ensure input names match those on the Google Form; inspect the form or create a prefilled one on the Google Forms website to find the correct names ("entry.") in the DOM. 
-   Note: Traditional methods like preventDefault may not be effective. -->
+   Note: The use of preventDefault() did not prevent the redirection, so a hidden iFrame as a target is added to achieve the desired behavior. -->
 
             <iframe
               id="hiddenFrame"
@@ -780,8 +780,7 @@
                 id="name"
                 name="name"
               />
-
-              <label class="formLabel" for="email">Email</label>
+              <label class="formLabel" for="email">Email*</label>
               <input
                 name="entry.532987373"
                 class="contactFormInput"
@@ -790,7 +789,7 @@
                 name="email"
               />
 
-              <label class="formLabel" for="phone">Phone Number</label>
+              <label class="formLabel" for="phone">Phone Number*</label>
               <input
                 name="entry.1785509439"
                 class="contactFormInput"
@@ -798,17 +797,18 @@
                 id="phone"
                 name="phone"
               />
-              <label class="formLabel" for="messageField">Message</label>
+              <label class="formLabel" for="messageField">Message*</label>
               <textarea
+                class="messageField"
                 name="entry.111193857"
                 id="messageField"
                 name="message"
                 rows="10"
               ></textarea>
 
-              <div class="contactFormRadioInputContainer">
+              <div id="contactFormRadioInputContainer">
                 <label class="formLabel" for="contactPreference"
-                  >How do you want us to contact you?</label
+                  >How do you want us to contact you? *</label
                 >
 
                 <input
@@ -818,7 +818,7 @@
                   name="entry.647368231"
                   value="Phone"
                 />
-                <label for="contactPhone">Phone</label>
+                <label class="radioLabel" for="contactPhone">Phone</label>
 
                 <input
                   class="contactFormRadioInput"
@@ -827,7 +827,7 @@
                   name="entry.647368231"
                   value="Email"
                 />
-                <label for="contactEmail">Email</label>
+                <label class="radioLabel" for="contactEmail">Email</label>
               </div>
 
               <!-- <div class="iAgreeToTermsAndConditionsContainer">
@@ -857,54 +857,33 @@
               </div> -->
 
               <div id="submitButtonContainer">
-                <button id="submitButton" type="button" onClick="submitForm()">
-                  Submit
-                </button>
+                <button id="submitButton" type="button">Submit</button>
               </div>
             </form>
-            <script>
-              function submitForm() {
-                var form = document.getElementById("contactForm");
-                var messageField = document.getElementById("messageField");
-                // var termsCheckbox = document.getElementById("termsCheckbox");
-                var emailField = document.getElementById("email");
-                var phoneField = document.getElementById("phone");
-                var contactPhone = document.getElementById("contactPhone");
-                var contactEmail = document.getElementById("contactEmail");
-
-                if (messageField.value.trim() === "") {
-                  alert("Please fill in the message field");
-
-                  return;
-                }
-
-                // if (!termsCheckbox.checked) {
-                //   alert("Please agree to the terms and conditions");
-                //   return;
-                // }
-
-                if (
-                  emailField.value.trim() === "" &&
-                  phoneField.value.trim() === ""
-                ) {
-                  alert("Please fill in either email or phone field");
-                  return;
-                }
-
-                if (!contactPhone.checked && !contactEmail.checked) {
-                  alert("Please choose a contact preference (Phone or Email)");
-                  return;
-                }
-
-                // If all validations pass, submit the form
-                form.submit();
-                form.reset();
-              }
-            </script>
           </div>
         </div>
       </section>
-
+      <div class="snackbar" id="snackbar">
+        <div class="snackbarContent">
+          <p class="snackbarText">Thank you for contacting us!</p>
+          <button id="snackbarClose" aria-label="Close">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
       <!-- Footer -->
       <footer class="sectionContainer" id="footer">
         <p>
