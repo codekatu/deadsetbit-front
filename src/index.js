@@ -471,7 +471,6 @@ function submitForm() {
   showSnackbar();
 
   form.submit();
-  console.log("form submitted");
   disableSubmitButton();
 
   form.reset();
