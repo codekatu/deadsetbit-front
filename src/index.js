@@ -424,24 +424,32 @@ const move = (e) => {
   const scroll = x - startX;
   scrollContainer.scrollLeft = scrollLeft - scroll;
 };
+function disableSubmitButton() {
+  var submitButton = document.getElementById("submitButton");
+  submitButton.disabled = true;
+}
+function resetErrorStyles() {
+  messageField.classList.remove("error");
+  emailField.classList.remove("error");
+  phoneField.classList.remove("error");
+  contactFormRadioInputContainer.classList.remove("error");
+}
+function setErrorStyle(element) {
+  element.classList.add("error");
+}
+function closeSnackbar() {
+  var snackbar = document.getElementById("snackbar");
+  snackbar.style.visibility = "hidden";
+}
+
+function showSnackbar() {
+  var snackbar = document.getElementById("snackbar");
+  snackbar.style.visibility = "visible";
+  snackbar.style.top = "10%";
+  snackbar.style.opacity = "1";
+}
 
 function submitForm() {
-  function disableSubmitButton() {
-    var submitButton = document.getElementById("submitButton");
-    submitButton.disabled = true;
-  }
-
-  function resetErrorStyles() {
-    messageField.classList.remove("error");
-    emailField.classList.remove("error");
-    phoneField.classList.remove("error");
-    contactFormRadioInputContainer.classList.remove("error");
-  }
-
-  function setErrorStyle(element) {
-    element.classList.add("error");
-  }
-
   resetErrorStyles();
 
   if (emailField.value.trim() === "" && phoneField.value.trim() === "") {
@@ -467,18 +475,6 @@ function submitForm() {
   disableSubmitButton();
 
   form.reset();
-}
-
-function closeSnackbar() {
-  var snackbar = document.getElementById("snackbar");
-  snackbar.style.visibility = "hidden";
-}
-
-function showSnackbar() {
-  var snackbar = document.getElementById("snackbar");
-  snackbar.style.visibility = "visible";
-  snackbar.style.top = "10%";
-  snackbar.style.opacity = "1";
 }
 
 // scroll event listener to call navbarScrollReponsive function which changes the navbar on scroll
