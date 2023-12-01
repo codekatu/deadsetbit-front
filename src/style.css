@@ -1102,6 +1102,7 @@ button {
 .formLabel {
   display: block;
   font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .contactFormInput,
@@ -1204,6 +1205,11 @@ button {
   #submitButtonContainer {
     justify-content: center;
   }
+}
+
+.contactFormFieldError {
+  border: 1px solid red;
+  height: 0px;
 }
 
 /*
