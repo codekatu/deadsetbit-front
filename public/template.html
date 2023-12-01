@@ -702,8 +702,8 @@
       <section class="sectionContainer" id="contact">
         <h3 id="contactSectionHeader">Contact us</h3>
         <h4 id="contactSectionSubHeader">
-          Complete the form or reach out via call/email, and we'll get back to
-          you as soon as possible.
+          Fill the form or reach out via telephone or email, and we'll get back
+          to you as soon as possible.
         </h4>
         <div class="contactSectionContent">
           <div class="contactSectionPeople">
@@ -717,7 +717,7 @@
                 <h5 class="contactPersonName">Pauli Ervi</h5>
                 <p class="contactPersonTitle">CEO</p>
                 <p class="contactPersonEmail">pauli@deadsetbit.com</p>
-                <p class="contactPersonPhone">+358 04 193 3949</p>
+                <!-- <p class="contactPersonPhone"></p> -->
               </div>
             </div>
             <div class="contactPersonContainer">
@@ -730,7 +730,7 @@
                 <h5 class="contactPersonName">Yacine Ouarab</h5>
                 <p class="contactPersonTitle">Title</p>
                 <p class="contactPersonEmail">jasu@deadsetbit.com</p>
-                <p class="contactPersonPhone">+358 04 193 3949</p>
+                <!-- <p class="contactPersonPhone"></p> -->
               </div>
             </div>
             <div class="contactPersonContainer">
@@ -739,17 +739,29 @@
                 src="assets/employeesSection/simo.webp"
               />
               <div class="contactPersonTextContainer">
-                <h5 class="contactPersonName">Pauli Ervi</h5>
-                <p class="contactPersonTitle">CEO</p>
-                <p class="contactPersonEmail">pauli@deadsetbit.com</p>
+                <h5 class="contactPersonName">Anne Kotiranta</h5>
+                <p class="contactPersonTitle">Title</p>
+                <p class="contactPersonEmail">anne@deadsetbit.com</p>
                 <p class="contactPersonPhone">+358 04 193 3949</p>
               </div>
             </div>
           </div>
           <div class="contactFormContainer">
+            <!-- CODEKATU FORM FOR TESTING -->
+
+            <!-- Using a hidden iFrame here to prevent redirection to the Google Forms webpage upon form submission.
+   Ensure input names match those on the Google Form; inspect the form or create a prefilled one on the Google Forms website to find the correct names ("entry.") in the DOM. 
+   Note: Traditional methods like preventDefault may not be effective. -->
+
+            <iframe
+              id="hiddenFrame"
+              name="hiddenFrame"
+              style="display: none"
+            ></iframe>
             <form
               id="contactForm"
               action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSczWPYT_nqsh0WAJJTs1eRrFgIpPlkLILAfOkaKD41lbOc42A/formResponse"
+              target="hiddenFrame"
             >
               <label class="formLabel" for="company">Company</label>
               <input
@@ -767,7 +779,6 @@
                 type="text"
                 id="name"
                 name="name"
-                required
               />
 
               <label class="formLabel" for="email">Email</label>
@@ -777,8 +788,8 @@
                 type="email"
                 id="email"
                 name="email"
-                required
               />
+              <p class="errorText" id="emailError"></p>
 
               <label class="formLabel" for="phone">Phone Number</label>
               <input
@@ -787,29 +798,8 @@
                 type="tel"
                 id="phone"
                 name="phone"
-                required
               />
-              <label class="formLabel" for="contactPreference"
-                >How do you want us to contact you?</label
-              >
-
-              <div class="contactFormRadioInput">
-                <input
-                  type="radio"
-                  id="contactPhone"
-                  name="entry.1726266597"
-                  value="Phone"
-                />
-                <label for="contactPhone">Phone</label>
-
-                <input
-                  type="radio"
-                  id="contactEmail"
-                  name="entry.1726266597"
-                  value="Email"
-                />
-                <label for="contactEmail">Email</label>
-              </div>
+              <p class="errorText" id="phoneError"></p>
 
               <label class="formLabel" for="messageField">Message</label>
               <textarea
@@ -818,10 +808,211 @@
                 name="message"
                 rows="10"
               ></textarea>
+              <p class="errorText" id="messageError"></p>
+
+              <div class="contactFormRadioInputContainer">
+                <label class="formLabel formRadioLabel" for="contactPreference"
+                  >How do you want us to contact you?</label
+                >
+
+                <input
+                  class="contactFormRadioInput"
+                  type="radio"
+                  id="contactPhone"
+                  name="entry.1726266597"
+                  value="Phone"
+                />
+                <label for="contactPhone">Phone</label>
+
+                <input
+                  class="contactFormRadioInput"
+                  type="radio"
+                  id="contactEmail"
+                  name="entry.1726266597"
+                  value="Email"
+                />
+                <label for="contactEmail">Email</label>
+              </div>
+              <p class="errorText" id="radioError"></p>
+
+              <div class="iAgreeToTermsAndConditionsContainer">
+                <label class="formLabel" for="termsCheckbox">
+                  <input
+                    class="contactTermsCheckbox"
+                    type="checkbox"
+                    id="termsCheckbox"
+                    name="termsCheckbox"
+                  />
+                </label>
+
+                <div class="iAgreeToTermsAndConditionsTextContainer">
+                  <p class="iAgreeToTermsAndConditionsText">
+                    I Agree to Terms & Conditions*
+                  </p>
+
+                  <p class="iAgreeToTermsAndConditionsText">
+                    <a
+                      id="privacyPolicyLink"
+                      href="https://www.google.com/"
+                      target="_blank"
+                      >Dead Set Bit Privacy Policy</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <p class="errorText" id="termsError"></p>
+
+              <div id="submitButtonContainer">
+                <button id="submitButton" type="button" onclick="submitForm()">
+                  Submit
+                </button>
+              </div>
+            </form>
+
+            <script>
+              function submitForm() {
+                console.log("submitting form");
+                var form = document.getElementById("contactForm");
+                var messageField = document.getElementById("messageField");
+                var termsCheckbox = document.getElementById("termsCheckbox");
+                var emailField = document.getElementById("email");
+                var phoneField = document.getElementById("phone");
+                var contactPhone = document.getElementById("contactPhone");
+                var contactEmail = document.getElementById("contactEmail");
+
+                if (messageField.value.trim() === "") {
+                  alert("Please fill in the message field");
+                  return;
+                }
+
+                if (!termsCheckbox.checked) {
+                  alert("Please agree to the terms and conditions");
+                  return;
+                }
+
+                if (
+                  emailField.value.trim() === "" &&
+                  phoneField.value.trim() === ""
+                ) {
+                  alert("Please fill in either email or phone field");
+                  return;
+                }
+
+                if (!contactPhone.checked && !contactEmail.checked) {
+                  alert("Please choose a contact preference (Phone or Email)");
+                  return;
+                }
+
+                // If all validations pass, submit the form
+                form.submit();
+              }
+            </script>
+            <!-- DEAD SET BIT CONTACT INFORMATION -->
+            <!-- <form
+              id="contactForm"
+              action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSffYthP4BF-W_rq70unI76NTexpIOVQSVFGgQM-y-jy96140g/formResponse"
+            >
+              <label class="formLabel" for="company">Company</label>
+              <input
+                name="entry.1797800906"
+                class="contactFormInput"
+                type="text"
+                id="company"
+                name="company"
+              />
+
+              <label class="formLabel" for="name">Name</label>
+              <input
+                name="entry.1081120326"
+                class="contactFormInput"
+                type="text"
+                id="name"
+                name="name"
+                required
+              />
+
+              <label class="formLabel" for="email">Email</label>
+              <input
+                name="entry.532987373"
+                class="contactFormInput"
+                type="email"
+                id="email"
+                name="email"
+                required
+              />
+
+              <label class="formLabel" for="phone">Phone Number</label>
+              <input
+                name="entry.1785509439"
+                class="contactFormInput"
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+              />
+              <label class="formLabel" for="messageField">Message</label>
+              <textarea
+                name="entry.111193857"
+                id="messageField"
+                name="message"
+                rows="10"
+              ></textarea>
+
+              <div class="contactFormRadioInputContainer">
+                <label class="formLabel" for="contactPreference"
+                  >How do you want us to contact you?</label
+                >
+
+                <input
+                  class="contactFormRadioInput"
+                  type="radio"
+                  id="contactPhone"
+                  name="entry.647368231"
+                  value="Phone"
+                />
+                <label for="contactPhone">Phone</label>
+
+                <input
+                  class="contactFormRadioInput"
+                  type="radio"
+                  id="contactEmail"
+                  name="entry.647368231"
+                  value="Email"
+                />
+                <label for="contactEmail">Email</label>
+              </div>
+
+              <div class="iAgreeToTermsAndConditionsContainer">
+                <label class="formLabel" for="termsCheckbox">
+                  <input
+                    class="contactTermsCheckbox"
+                    type="checkbox"
+                    id="termsCheckbox"
+                    name="termsCheckbox"
+                    required
+                  />
+                </label>
+
+                <div class="iAgreeToTermsAndConditionsTextContainer">
+                  <p class="iAgreeToTermsAndConditionsText">
+                    I Agree to Terms & Conditions*
+                  </p>
+
+                  <p class="iAgreeToTermsAndConditionsText">
+                    <a
+                      id="privacyPolicyLink"
+                      href="https://www.google.com/"
+                      target="_blank"
+                      >Dead Set Bit Privacy Policy</a
+                    >
+                  </p>
+                </div>
+              </div>
+
               <div id="submitButtonContainer">
                 <button id="submitButton" type="submit">Submit</button>
               </div>
-            </form>
+            </form> -->
           </div>
         </div>
       </section>

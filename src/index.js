@@ -129,17 +129,6 @@ window.onload = function () {
   // page starts with the gong image selected so we make it's color white onload
   changeButtonColor("gongButtonImage");
 
-  // const middleCardIndex = Math.floor(techCardContainer.children.length / 2);
-  // setActiveTechButton(middleCardIndex);
-  // // Calculate the position for scrollContainer to scroll to
-  // const middleCard = techCardContainer.children[middleCardIndex];
-  // const middleCardPosition =
-  //   //scrollContainer.offsetWidth / 2 calculates the midpoint of the scrollContainer. This is where we want to scroll to.
-  //   //middleCard.offsetWidth / 2 calculates the midpoint of the middle card.
-  //   middleCard.offsetLeft -
-  //   (scrollContainer.offsetWidth / 2 - middleCard.offsetWidth / 2);
-  // scrollContainer.scrollLeft = middleCardPosition;
-
   // Set the first card as the active card on load
   setActiveTechButton(0);
 
