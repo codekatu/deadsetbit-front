@@ -13,7 +13,7 @@
   --dsb-dark-grey: #212121;
   --dsb-light-grey: #bdbdbd;
 
-  --dsb-green: #0db55b;
+  --dsb-green: #00b756;
   --dsb-light-green: #13f07b;
 
   /* margins */
@@ -1165,7 +1165,7 @@ button {
   width: 200px;
   height: 50px;
   background-color: var(--dsb-green);
-  color: var(--dsb-cardWhite);
+  color: var(--dsb-dark-grey);
   padding: 10px 15px;
   border-radius: 10px;
   cursor: pointer;
