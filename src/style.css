@@ -1177,6 +1177,11 @@ button {
     width: 30rem;
   }
 
+  /* !NOTE fix this to not have the hover effect on this breakpoint */
+  .employeeCard:hover {
+    background-color: white;
+  }
+
   #employeeInfoContainer {
     margin: 0;
     width: 85%;

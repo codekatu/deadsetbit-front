@@ -127,13 +127,15 @@ function updateInfo(employeeName) {
     }
   });
 
-  Array.from(employeeCards).forEach(function (card) {
-    if (card.id === employeeName) {
-      card.classList.add("employeeCardActive");
-    } else {
-      card.classList.remove("employeeCardActive");
-    }
-  });
+  if (window.innerWidth > 900) {
+    Array.from(employeeCards).forEach(function (card) {
+      if (card.id === employeeName) {
+        card.classList.add("employeeCardActive");
+      } else {
+        card.classList.remove("employeeCardActive");
+      }
+    });
+  }
 }
 
 // global variables
@@ -215,13 +217,15 @@ window.onload = function () {
     });
   });
 
-  Array.from(employeeCards).forEach(function (card) {
-    if (card.id === "pauli") {
-      card.classList.add("employeeCardActive");
-    } else {
-      return;
-    }
-  });
+  if (window.innerWidth > 900) {
+    Array.from(employeeCards).forEach(function (card) {
+      if (card.id === "pauli") {
+        card.classList.add("employeeCardActive");
+      } else {
+        return;
+      }
+    });
+  }
 
   Array.from(techCardContainer.children).forEach((button, index) => {
     // Don't add the event listener for mobile devices
