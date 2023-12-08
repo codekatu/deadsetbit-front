@@ -2,6 +2,7 @@
 import "./reset.css";
 import "./fonts.css";
 import "./style.css";
+import employees from "./employees";
 
 // getting dom elements
 const navbar = document.getElementById("navbar");
@@ -39,6 +40,101 @@ const contactFormRadioInputContainer = document.getElementById(
 );
 const submitButton = document.getElementById("submitButton");
 const snackbarClose = document.getElementById("snackbarClose");
+const infoContainer = document.getElementById("employeeInfoContainer");
+const employeeCards = document.getElementsByClassName("employeeCard");
+const employeeInfoContainer = document.getElementById("employeeInfoContainer");
+const backdrop = document.getElementById("employeeInfoContainerModalBackdrop");
+const infoModalCloseButton = document.getElementById(
+  "employeeInfoContainerModalCloseButton"
+);
+
+function modalOpen() {
+  if (window.innerWidth > 900) return;
+
+  // employeeInfoContainer.style.display = "flex";
+  // backdrop.style.display = "block";
+  // infoModalCloseButton.style.display = "block";
+
+  employeeInfoContainer.classList.add("visible");
+  backdrop.classList.add("visible");
+  infoModalCloseButton.classList.add("visible");
+
+  // disable scrolling on the body when modal opens
+  document.body.style.overflow = "hidden";
+}
+
+function modalClose() {
+  // employeeInfoContainer.style.display = "none";
+  // backdrop.style.display = "none";
+  // infoModalCloseButton.style.display = "none";
+  employeeInfoContainer.classList.remove("visible");
+  backdrop.classList.remove("visible");
+  infoModalCloseButton.classList.remove("visible");
+
+  // make the body scrollable again when modal closes
+  document.body.style.overflow = "auto";
+}
+
+// close the modal when screen resizes to desktop
+window.addEventListener("resize", function () {
+  if (window.innerWidth > 900) {
+    modalClose();
+  }
+});
+
+infoModalCloseButton.addEventListener("click", modalClose);
+
+backdrop.addEventListener("click", modalClose);
+
+// if the user clicks on the navbar or on the menu the modal should also close
+navbar.addEventListener("click", modalClose);
+
+function updateInfo(employeeName) {
+  const employee = employees[employeeName];
+  const socialInfoContainer = document.querySelector(".socialInfoContainer");
+
+  infoContainer.querySelector(".employeeInfoImage").src = employee.img;
+  infoContainer.querySelector(".employeeInfoName").textContent = employee.name;
+  infoContainer.querySelector(".employeeInfoTitle").textContent =
+    employee.title;
+
+  const paragraphs = infoContainer.querySelectorAll(".employeeInfoText");
+  paragraphs[0].textContent = employee.description1;
+  paragraphs[1].textContent = employee.description2;
+
+  const socialInfoElements =
+    socialInfoContainer.querySelectorAll(".socialInfo");
+  socialInfoElements.forEach((socialInfo) => {
+    const socialType = socialInfo.id.replace("Container", "").toLowerCase();
+    const socialValue = employee[socialType];
+
+    if (socialValue) {
+      socialInfo.style.display = "flex";
+
+      const socialIcon = socialInfo.querySelector(".socialIcon");
+      const socialText = socialInfo.querySelector(".socialText");
+
+      socialIcon.src = `assets/employeesSection/${socialType}.svg`;
+
+      // Check if the social type is email or phone to determine if it should be a link or no
+      if (socialType === "email" || socialType === "phone") {
+        socialText.textContent = socialValue;
+      } else {
+        socialText.innerHTML = `<a class="socialLink" href="${socialValue}">${socialValue}</a>`;
+      }
+    } else {
+      socialInfo.style.display = "none";
+    }
+  });
+
+  Array.from(employeeCards).forEach(function (card) {
+    if (card.id === employeeName) {
+      card.classList.add("employeeCardActive");
+    } else {
+      card.classList.remove("employeeCardActive");
+    }
+  });
+}
 
 // global variables
 let isButtonPressed = false;
@@ -49,10 +145,21 @@ let startX, scrollLeft;
 
 // adds event listeners on load and runs functions on load to set the page up
 window.onload = function () {
+  // render first person to the employeeInfoContainer
+  updateInfo("pauli");
+
   for (let index = 0; index < tabButtons.length; index++) {
     const element = tabButtons[index];
     element.addEventListener("click", tabButton);
   }
+
+  Array.from(employeeCards).forEach(function (card) {
+    card.addEventListener("click", function () {
+      const employeeId = card.id;
+      updateInfo(employeeId);
+      modalOpen();
+    });
+  });
 
   // adds event listeners to arrow buttons on load
   arrowRightFirstCard.addEventListener("click", () => {
@@ -106,6 +213,14 @@ window.onload = function () {
       scrollToTechCard(index);
       setActiveTechButton(index);
     });
+  });
+
+  Array.from(employeeCards).forEach(function (card) {
+    if (card.id === "pauli") {
+      card.classList.add("employeeCardActive");
+    } else {
+      return;
+    }
   });
 
   Array.from(techCardContainer.children).forEach((button, index) => {
