@@ -163,6 +163,9 @@ let startX, scrollLeft;
 
 // adds event listeners on load and runs functions on load to set the page up
 window.onload = function () {
+  const defaultIcon = new Image();
+  defaultIcon.src = `assets/employeesSection/defaultIcon.png`;
+
   // render first person to the employeeInfoContainer
   updateInfo("pauli");
 
