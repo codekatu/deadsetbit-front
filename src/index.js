@@ -48,6 +48,12 @@ const infoModalCloseButton = document.getElementById(
   "employeeInfoContainerModalCloseButton"
 );
 const socialInfoContainer = document.querySelector(".socialInfoContainer");
+const paragraphsContainer = infoContainer.querySelector(
+  ".employeeInfoTextContainer"
+);
+const employeeInfoImage = infoContainer.querySelector(".employeeInfoImage");
+const employeeInfoName = document.getElementsByClassName("employeeInfoName");
+const employeeInfoTitle = document.getElementsByClassName(".employeeInfoTitle");
 
 function modalOpen() {
   if (window.innerWidth > 900) return;
@@ -61,12 +67,12 @@ function modalOpen() {
 }
 
 function modalClose() {
+  if (window.innerWidth < 900) {
+    resetInfo();
+  }
   employeeInfoContainer.classList.remove("visible");
   backdrop.classList.remove("visible");
   infoModalCloseButton.classList.remove("visible");
-
-  // reset the scroll within  the container
-  // Delay the scroll reset by a short duration
 
   // make the body scrollable again when modal closes
   document.body.style.overflow = "auto";
@@ -74,7 +80,8 @@ function modalClose() {
 
 // close the modal when screen resizes to desktop
 window.addEventListener("resize", function () {
-  if (window.innerWidth > 900) {
+  if (window.innerWidth > 900 && backdrop.classList.contains("visible")) {
+    console.log("resize");
     modalClose();
   }
 });
@@ -89,18 +96,15 @@ navbar.addEventListener("click", modalClose);
 function updateInfo(employeeName) {
   const employee = employees[employeeName];
 
-  infoContainer.querySelector(".employeeInfoImage").src = employee.img;
-  infoContainer.querySelector(".employeeInfoName").textContent = employee.name;
-  infoContainer.querySelector(".employeeInfoTitle").textContent =
-    employee.title;
+  // Update image, name, and title
+  if (employeeInfoImage && employeeInfoName && employeeInfoTitle) {
+    employeeInfoImage.src = employee.img;
+    employeeInfoName.textContent = employee.name;
+    employeeInfoTitle.textContent = employee.title;
+  }
 
-  const paragraphsContainer = infoContainer.querySelector(
-    ".employeeInfoTextContainer"
-  );
-
-  socialInfoContainer.innerHTML = "";
-  paragraphsContainer.innerHTML = "";
-
+  // Render paragraphs
+  paragraphsContainer.textContent = "";
   employee.descriptions.forEach((paragraphText, index) => {
     const paragraphElement = document.createElement("p");
     paragraphElement.classList.add("employeeInfoText");
@@ -109,6 +113,7 @@ function updateInfo(employeeName) {
   });
 
   // Render social information
+  socialInfoContainer.innerHTML = "";
   Object.entries(employee.social).forEach(([socialType, socialValue]) => {
     const socialInfo = document.createElement("div");
     socialInfo.classList.add("socialInfo");
@@ -153,6 +158,20 @@ function updateInfo(employeeName) {
       }
     });
   }
+}
+
+function resetInfo() {
+  if (employeeInfoImage && employeeInfoName && employeeInfoTitle) {
+    employeeInfoImage.src = "";
+    employeeInfoName.textContent = "";
+    employeeInfoTitle.textContent = "";
+  }
+
+  // Reset paragraphs
+  paragraphsContainer.textContent = "";
+
+  // Reset social information
+  socialInfoContainer.innerHTML = "";
 }
 
 // global variables

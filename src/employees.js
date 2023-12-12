@@ -61,7 +61,6 @@ const employees = {
       linkedin: "https://www.linkedin.com/",
       github: "https://github.com/",
       gitlab: "https://gitlab.com/",
-      twitter: "https://twitter.com/",
     },
     descriptions: [
       "Jasu ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
@@ -82,7 +81,6 @@ const employees = {
       linkedin: "https://www.linkedin.com/",
       github: "https://github.com/",
       gitlab: "https://gitlab.com/",
-      twitter: "https://twitter.com/",
     },
     descriptions: [
       "nick ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
@@ -100,7 +98,6 @@ const employees = {
       cv: "https://www.google.com/",
       linkedin: "https://www.linkedin.com/",
       devianArt: "https://www.deviantart.com/",
-      twitter: "https://twitter.com/",
     },
 
     descriptions: [
@@ -146,7 +143,6 @@ const employees = {
       linkedin: "https://www.linkedin.com/",
       github: "https://github.com/",
       gitlab: "https://gitlab.com/",
-      twitter: "https://twitter.com/",
     },
 
     descriptions: [
@@ -182,7 +178,6 @@ const employees = {
       cv: "https://www.google.com/",
       linkedin: "https://www.linkedin.com/",
       github: "https://github.com/",
-      twitter: "https://twitter.com/",
     },
     descriptions: [
       "hugo ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
@@ -199,7 +194,6 @@ const employees = {
       phone: "+358 40 123 4567",
       cv: "https://www.google.com/",
       linkedin: "https://www.linkedin.com/",
-      twitter: "https://twitter.com/",
     },
     descriptions: [
       "petri ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
@@ -216,7 +210,6 @@ const employees = {
       phone: "+358 40 123 4567",
       cv: "https://www.google.com/",
       linkedin: "https://www.linkedin.com/",
-      twitter: "https://twitter.com/",
     },
     descriptions: [
       "Anne ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
