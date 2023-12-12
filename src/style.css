@@ -1066,6 +1066,7 @@ button {
   line-height: var(--line-height--xs);
   margin-top: var(--margin-xs);
   margin-bottom: var(--margin-xs);
+  margin-right: var(--margin-small);
 }
 
 .socialInfoContainer {

@@ -16,8 +16,8 @@
  *       linkedin: "https://www.linkedin.com/",
  *     },
     descriptions: [
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit..",
-      "Phasellus semper mi quis tempor varius...",
+      "You can add text here, each string is 1 paragraph.. So this is the first paragraph.",
+      "And here is the second paragraph!",
     ],
  *   },
  *  
