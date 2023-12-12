@@ -116,6 +116,7 @@ function updateInfo(employeeName) {
 
     const socialIcon = document.createElement("img");
     socialIcon.classList.add("socialIcon");
+    socialIcon.alt = `${socialType} Icon`;
 
     socialIcon.onerror = function () {
       // Image failed to load, use default icon
@@ -163,9 +164,6 @@ let startX, scrollLeft;
 
 // adds event listeners on load and runs functions on load to set the page up
 window.onload = function () {
-  const defaultIcon = new Image();
-  defaultIcon.src = `assets/employeesSection/defaultIcon.png`;
-
   // render first person to the employeeInfoContainer
   updateInfo("pauli");
 

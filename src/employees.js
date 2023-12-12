@@ -24,7 +24,7 @@
  *  Remember case sensitivity!
  * 
  *  different social media or contact links can be added to the social object as needed. 
- *  If a social field is added and there is no icon that represents the field, it will default to a defaultIcon.
+ *  If a social field is added and there is no icon that represents the field, it will default to a defaultIcon. This will cause console error because the icon searched for is not found initially.
  *  If you want to add a new icon, you need to add it to the assets/employeesSection directory, with the same name as the field. eg github.png (!!!REMEMBER CASE SENSITIVE!!!)
  *  Make sure the icon is a .png file and is 24x24 pixels.
  * 
