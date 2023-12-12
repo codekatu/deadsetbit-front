@@ -47,29 +47,26 @@ const backdrop = document.getElementById("employeeInfoContainerModalBackdrop");
 const infoModalCloseButton = document.getElementById(
   "employeeInfoContainerModalCloseButton"
 );
+const socialInfoContainer = document.querySelector(".socialInfoContainer");
 
 function modalOpen() {
   if (window.innerWidth > 900) return;
-
-  // employeeInfoContainer.style.display = "flex";
-  // backdrop.style.display = "block";
-  // infoModalCloseButton.style.display = "block";
-
   employeeInfoContainer.classList.add("visible");
   backdrop.classList.add("visible");
   infoModalCloseButton.classList.add("visible");
+  employeeInfoContainer.scrollTop = 0;
 
   // disable scrolling on the body when modal opens
   document.body.style.overflow = "hidden";
 }
 
 function modalClose() {
-  // employeeInfoContainer.style.display = "none";
-  // backdrop.style.display = "none";
-  // infoModalCloseButton.style.display = "none";
   employeeInfoContainer.classList.remove("visible");
   backdrop.classList.remove("visible");
   infoModalCloseButton.classList.remove("visible");
+
+  // reset the scroll within  the container
+  // Delay the scroll reset by a short duration
 
   // make the body scrollable again when modal closes
   document.body.style.overflow = "auto";
@@ -91,40 +88,59 @@ navbar.addEventListener("click", modalClose);
 
 function updateInfo(employeeName) {
   const employee = employees[employeeName];
-  const socialInfoContainer = document.querySelector(".socialInfoContainer");
 
   infoContainer.querySelector(".employeeInfoImage").src = employee.img;
   infoContainer.querySelector(".employeeInfoName").textContent = employee.name;
   infoContainer.querySelector(".employeeInfoTitle").textContent =
     employee.title;
 
-  const paragraphs = infoContainer.querySelectorAll(".employeeInfoText");
-  paragraphs[0].textContent = employee.description1;
-  paragraphs[1].textContent = employee.description2;
+  const paragraphsContainer = infoContainer.querySelector(
+    ".employeeInfoTextContainer"
+  );
 
-  const socialInfoElements =
-    socialInfoContainer.querySelectorAll(".socialInfo");
-  socialInfoElements.forEach((socialInfo) => {
-    const socialType = socialInfo.id.replace("Container", "").toLowerCase();
-    const socialValue = employee[socialType];
+  socialInfoContainer.innerHTML = "";
+  paragraphsContainer.innerHTML = "";
 
-    if (socialValue) {
-      socialInfo.style.display = "flex";
+  employee.descriptions.forEach((paragraphText, index) => {
+    const paragraphElement = document.createElement("p");
+    paragraphElement.classList.add("employeeInfoText");
+    paragraphElement.textContent = paragraphText;
+    paragraphsContainer.appendChild(paragraphElement);
+  });
 
-      const socialIcon = socialInfo.querySelector(".socialIcon");
-      const socialText = socialInfo.querySelector(".socialText");
+  // Render social information
+  Object.entries(employee.social).forEach(([socialType, socialValue]) => {
+    const socialInfo = document.createElement("div");
+    socialInfo.classList.add("socialInfo");
+    socialInfo.id = `${socialType}Container`;
 
-      socialIcon.src = `assets/employeesSection/${socialType}.svg`;
+    const socialIcon = document.createElement("img");
+    socialIcon.classList.add("socialIcon");
 
-      // Check if the social type is email or phone to determine if it should be a link or no
-      if (socialType === "email" || socialType === "phone") {
-        socialText.textContent = socialValue;
-      } else {
-        socialText.innerHTML = `<a class="socialLink" href="${socialValue}">${socialValue}</a>`;
-      }
+    socialIcon.onerror = function () {
+      // Image failed to load, use default icon
+      socialIcon.src = `assets/employeesSection/defaultIcon.png`;
+    };
+
+    socialIcon.src = `assets/employeesSection/${socialType}.png`;
+
+    const socialText = document.createElement("p");
+    socialText.classList.add("socialText");
+
+    // Check if the social type is email or phone to determine if it should be a link or not
+    if (socialType === "email" || socialType === "phone") {
+      socialText.textContent = socialValue;
     } else {
-      socialInfo.style.display = "none";
+      const socialLink = document.createElement("a");
+      socialLink.classList.add("socialLink");
+      socialLink.href = socialValue;
+      socialLink.textContent = socialValue;
+      socialText.appendChild(socialLink);
     }
+
+    socialInfo.appendChild(socialIcon);
+    socialInfo.appendChild(socialText);
+    socialInfoContainer.appendChild(socialInfo);
   });
 
   if (window.innerWidth > 900) {

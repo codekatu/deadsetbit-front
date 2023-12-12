@@ -1022,11 +1022,11 @@ button {
   top: 0rem;
   z-index: 6;
   display: none;
-  overflow: hidden;
 }
 
-#employeeInfoContainerModalCLoseButtonImage {
-  width: 100%;
+#employeeInfoContainerModalCloseButtonImage {
+  width: 30px;
+  height: 30px;
 }
 
 .employeeInfoImage {
@@ -1039,6 +1039,7 @@ button {
   margin-top: 2rem;
 }
 .employeeInfoName {
+  color: var(--dsb-dark-grey);
   font-size: var(--text-big);
   font-weight: 300;
   font-style: italic;
@@ -1046,28 +1047,34 @@ button {
 }
 
 .employeeInfoTitle {
+  color: var(--dsb-dark-grey);
   font-size: var(--text-middle);
   font-style: italic;
   font-weight: 300;
   text-align: center;
 }
 
+.employeeInfoTextContainer {
+  margin-left: var(--margin-small);
+}
+
 .employeeInfoText {
-  width: 80%;
-  color: black;
+  color: var(--dsb-dark-grey);
   font-size: var(--text-middle);
   font-weight: lighter;
-  margin: var(--margin-xs) 0rem;
-
   font-size: var(--text-small);
   line-height: var(--line-height--xs);
+  margin-top: var(--margin-xs);
+  margin-bottom: var(--margin-xs);
 }
 
 .socialInfoContainer {
-  width: 90%;
+  width: 85%;
   /* margin-bottom: var(--margin-medium); */
   display: flex;
   flex-direction: column;
+  /* margin-left: var(--margin-small);
+  margin-bottom: var(--margin-xs); */
 }
 .socialInfo {
   display: flex;
@@ -1076,11 +1083,14 @@ button {
 }
 .socialText {
   margin-left: 1rem;
+  color: var(--dsb-dark-grey);
+  font-weight: lighter;
 }
 
 .socialLink {
-  text-decoration: none;
   color: var(--dsb-dark-grey);
+  font-weight: lighter;
+  text-decoration: none;
 }
 
 #employeeContainer {
@@ -1104,8 +1114,8 @@ button {
   -moz-box-shadow: var(--box-shadow);
   position: relative;
   border-radius: 10px;
-  cursor: pointer;
   transition: var(--transition-time);
+  cursor: pointer;
 }
 
 .employeeCard:hover {
@@ -1148,6 +1158,16 @@ button {
   font-weight: 300;
 }
 .clickToReadMore {
+  /* margin-right: 2rem;
+  margin-left: 2rem;
+  margin-top: var(--margin-xs); */
+  text-decoration: underline;
+  position: absolute;
+  font-size: var(--text-xs);
+  margin-top: 1rem;
+
+  top: 13rem;
+  left: 2rem;
 }
 
 @media only screen and (max-width: 1600px) {
@@ -1195,14 +1215,18 @@ button {
 
 @media only screen and (max-width: 600px) {
   #employeeInfoContainer {
-    top: 5rem;
-    max-height: calc(100vh - var(--navbar-height-600px) - 4rem);
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    /* top: 10rem; */
+    max-height: calc(100vh - var(--navbar-height-600px) - 10rem);
   }
 }
 
 @media only screen and (max-width: 450px) {
   #employeeInfoContainer {
-    max-height: calc(100vh - var(--navbar-height-450px) - 4rem);
+    max-height: calc(100vh - var(--navbar-height-450px) - 9rem);
   }
 }
 
