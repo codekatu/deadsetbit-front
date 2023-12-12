@@ -52,8 +52,8 @@ const paragraphsContainer = infoContainer.querySelector(
   ".employeeInfoTextContainer"
 );
 const employeeInfoImage = infoContainer.querySelector(".employeeInfoImage");
-const employeeInfoName = document.getElementsByClassName("employeeInfoName");
-const employeeInfoTitle = document.getElementsByClassName(".employeeInfoTitle");
+const employeeInfoName = infoContainer.querySelector(".employeeInfoName");
+const employeeInfoTitle = infoContainer.querySelector(".employeeInfoTitle");
 
 function modalOpen() {
   if (window.innerWidth > 900) return;
@@ -96,12 +96,10 @@ navbar.addEventListener("click", modalClose);
 function updateInfo(employeeName) {
   const employee = employees[employeeName];
 
-  // Update image, name, and title
-  if (employeeInfoImage && employeeInfoName && employeeInfoTitle) {
-    employeeInfoImage.src = employee.img;
-    employeeInfoName.textContent = employee.name;
-    employeeInfoTitle.textContent = employee.title;
-  }
+  // Render image, name and title
+  employeeInfoImage.src = employee.img;
+  employeeInfoName.textContent = employee.name;
+  employeeInfoTitle.textContent = employee.title;
 
   // Render paragraphs
   paragraphsContainer.textContent = "";
