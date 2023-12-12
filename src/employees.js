@@ -2,7 +2,7 @@
  * This file contains the information shown in the employeeInfoContainer.
  * This is not to be confused with the employeeCards which are statically in the HTML.
  *
- * If you want to add a employee, you also need to create them a employeeCard with their name as the id.
+ * If you want to add an employee, you also need to create them a employeeCard with their name as the id (all lowercase).
  *
  * then you can create a new object in this file with the following format:
  *
@@ -11,22 +11,27 @@
  *     name: "Your Name",
  *     title: "Your Title",
  *     social: {
- *       email: "pauli@deadsetbit.com",
+ *       email: "name@deadsetbit.com",
  *       cv: "https://www.google.com/",
  *       linkedin: "https://www.linkedin.com/",
  *     },
     descriptions: [
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
-      "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
+      "lorem ipsum dolor sit amet, consectetur adipiscing elit..",
+      "Phasellus semper mi quis tempor varius...",
     ],
  *   },
  *  
+ *  Remember case sensitivity!
+ * 
  *  different social media or contact links can be added to the social object as needed. 
- *  If a field is added and there is no icon that represents the field, it will default to a defaultIcon.
- *  If you want to add a new icon, you need to add it to the assets/employeesSection directory, with the same name as the field. eg github.png
+ *  If a social field is added and there is no icon that represents the field, it will default to a defaultIcon.
+ *  If you want to add a new icon, you need to add it to the assets/employeesSection directory, with the same name as the field. eg github.png (!!!REMEMBER CASE SENSITIVE!!!)
  *  Make sure the icon is a .png file and is 24x24 pixels.
  * 
- * in the description field you can add new paragraphs by adding a new string to the array(remember to add , att the end ). 
+ * If you don't want to add any socials for someone, just leave the social object empty. Deleting it crashes the page.
+ * 
+ * In the descriptions array you can add as many paragraphs as you want.
+ * One string in the array will be one paragraph rendered on the page
  *
  */
 const employees = {
@@ -44,6 +49,7 @@ const employees = {
       "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
     ],
   },
+
   jasu: {
     img: "assets/employeesSection/jasu.webp",
     name: "Yacine Ouarab",
@@ -64,6 +70,7 @@ const employees = {
       "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
     ],
   },
+
   nick: {
     img: "assets/employeesSection/nikki.webp",
     name: "Nick Kononov",
@@ -82,6 +89,7 @@ const employees = {
       "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
     ],
   },
+
   jonna: {
     img: "assets/employeesSection/jonna.webp",
     name: "Jonna Salomaa",
@@ -100,6 +108,7 @@ const employees = {
       "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
     ],
   },
+
   simo: {
     img: "assets/employeesSection/simo.webp",
     name: "Simo Jokela",
@@ -113,6 +122,7 @@ const employees = {
       "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
     ],
   },
+
   antti: {
     img: "assets/employeesSection/antti.webp",
     name: "Antti Luukka",
@@ -161,6 +171,7 @@ const employees = {
       "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
     ],
   },
+
   hugo: {
     img: "assets/employeesSection/hugo.webp",
     name: "Hugo van Kemenade",
@@ -178,6 +189,7 @@ const employees = {
       "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
     ],
   },
+
   petri: {
     img: "assets/employeesSection/petri.webp",
     name: "Petri Teittinen",
@@ -194,6 +206,7 @@ const employees = {
       "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
     ],
   },
+
   anne: {
     img: "assets/employeesSection/anne.webp",
     name: "Anne Kotiranta",
