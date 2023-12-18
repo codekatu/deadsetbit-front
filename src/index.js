@@ -208,6 +208,7 @@ window.onload = function () {
     const element = tabButtons[index];
     element.addEventListener("click", tabButton);
   }
+
   contactPhone.addEventListener("change", ContactMethodRequirements);
   contactEmail.addEventListener("change", ContactMethodRequirements);
 
@@ -404,6 +405,9 @@ function ContactMethodRequirements() {
     emailField.placeholder = "Please enter your email";
     phoneField.placeholder = "";
   }
+  contactFormRadioInputContainer.classList.contains("error")
+    ? contactFormRadioInputContainer.classList.remove("error")
+    : console.log("no error");
 }
 
 function scrollToTechCard(index) {
