@@ -39,7 +39,7 @@ const contactFormRadioInputContainer = document.getElementById(
   "contactFormRadioInputContainer"
 );
 const submitButton = document.getElementById("submitButton");
-const snackbarClose = document.getElementById("snackbarClose");
+// const snackbarClose = document.getElementById("snackbarClose");
 const infoContainer = document.getElementById("employeeInfoContainer");
 const employeeCards = document.getElementsByClassName("employeeCard");
 const employeeInfoContainer = document.getElementById("employeeInfoContainer");
@@ -54,6 +54,19 @@ const paragraphsContainer = infoContainer.querySelector(
 const employeeInfoImage = infoContainer.querySelector(".employeeInfoImage");
 const employeeInfoName = infoContainer.querySelector(".employeeInfoName");
 const employeeInfoTitle = infoContainer.querySelector(".employeeInfoTitle");
+const thanksForContactingUsContainer = document.getElementsByClassName(
+  "thanksForContactingUsContainer"
+);
+const emailLabel = document.getElementById("emailLabel");
+const phoneLabel = document.getElementById("phoneLabel");
+
+// global variables
+let isButtonPressed = false;
+let timeout;
+let isDragging = false;
+let mouseDown = false;
+let startX, scrollLeft;
+let wasBelow900 = window.innerWidth <= 900;
 
 function modalOpen() {
   if (window.innerWidth > 900) return;
@@ -81,8 +94,22 @@ function modalClose() {
 // close the modal when screen resizes to desktop
 window.addEventListener("resize", function () {
   if (window.innerWidth > 900 && backdrop.classList.contains("visible")) {
-    console.log("resize");
     modalClose();
+  }
+
+  const isTransitionToDesktop = wasBelow900 && window.innerWidth > 900;
+  // Update the flag for the next resize event
+  wasBelow900 = window.innerWidth <= 900;
+
+  if (isTransitionToDesktop) {
+    // Call the function only when transitioning to desktop
+    updateInfo("pauli");
+  }
+
+  if (window.innerWidth <= 900) {
+    Array.from(employeeCards).forEach(function (card) {
+      card.classList.remove("employeeCardActive");
+    });
   }
 });
 
@@ -123,10 +150,10 @@ function updateInfo(employeeName) {
 
     socialIcon.onerror = function () {
       // Image failed to load, use default icon
-      socialIcon.src = `assets/employeesSection/defaultIcon.png`;
+      socialIcon.src = `assets/employeesSection/defaultIcon.svg`;
     };
 
-    socialIcon.src = `assets/employeesSection/${socialType}.png`;
+    socialIcon.src = `assets/employeesSection/${socialType}.svg`;
 
     const socialText = document.createElement("p");
     socialText.classList.add("socialText");
@@ -172,13 +199,6 @@ function resetInfo() {
   socialInfoContainer.innerHTML = "";
 }
 
-// global variables
-let isButtonPressed = false;
-let timeout;
-let isDragging = false;
-let mouseDown = false;
-let startX, scrollLeft;
-
 // adds event listeners on load and runs functions on load to set the page up
 window.onload = function () {
   // render first person to the employeeInfoContainer
@@ -187,6 +207,40 @@ window.onload = function () {
   for (let index = 0; index < tabButtons.length; index++) {
     const element = tabButtons[index];
     element.addEventListener("click", tabButton);
+  }
+  contactPhone.addEventListener("change", ContactMethodRequirements);
+  contactEmail.addEventListener("change", ContactMethodRequirements);
+
+  emailField.addEventListener("input", requiredFieldChange);
+  phoneField.addEventListener("input", requiredFieldChange);
+
+  function requiredFieldChange() {
+    const emailValue = emailField.value.trim();
+    const phoneValue = phoneField.value.trim();
+
+    if (phoneValue !== "" && !contactEmail.checked && emailValue == "") {
+      phoneLabel.textContent = "Phone Number*";
+      phoneField.classList.remove("error");
+      emailLabel.textContent = "Email";
+      console.log("empasd");
+      removeContactFormPlaceholder();
+    } else if (emailValue !== "" && !contactPhone.checked && phoneValue == "") {
+      emailLabel.textContent = "Email*";
+      emailField.classList.remove("error");
+      phoneLabel.textContent = "Phone Number";
+      removeContactFormPlaceholder();
+    } else if (
+      emailValue == "" &&
+      phoneValue == "" &&
+      !contactPhone.checked &&
+      !contactEmail.checked
+    ) {
+      // Both fields are empty, set * to both labels only if neither radio button is checked
+      emailLabel.textContent = "Email*";
+      console.log("joojoo");
+      phoneLabel.textContent = "Phone Number*";
+      addContactFormPlaceholder();
+    }
   }
 
   Array.from(employeeCards).forEach(function (card) {
@@ -251,15 +305,15 @@ window.onload = function () {
     });
   });
 
-  if (window.innerWidth > 900) {
-    Array.from(employeeCards).forEach(function (card) {
-      if (card.id === "pauli") {
-        card.classList.add("employeeCardActive");
-      } else {
-        return;
-      }
-    });
-  }
+  // if (window.innerWidth > 900) {
+  //   Array.from(employeeCards).forEach(function (card) {
+  //     if (card.id === "pauli") {
+  //       card.classList.add("employeeCardActive");
+  //     } else {
+  //       return;
+  //     }
+  //   });
+  // }
 
   Array.from(techCardContainer.children).forEach((button, index) => {
     // Don't add the event listener for mobile devices
@@ -303,7 +357,7 @@ window.onload = function () {
   scrollContainer.scrollLeft = firstCardPosition;
 
   submitButton.addEventListener("click", submitForm);
-  snackbarClose.addEventListener("click", closeSnackbar);
+  // snackbarClose.addEventListener("click", closeSnackbar);
 };
 
 // throttle function to limit the amount of times a function is called
@@ -327,6 +381,25 @@ const throttle = (fn, wait) => {
     }
   };
 };
+function ContactMethodRequirements() {
+  if (contactPhone.checked) {
+    emailLabel.textContent = "Email";
+    phoneLabel.textContent = "Phone Number*";
+    emailField.classList.contains("error")
+      ? emailField.classList.remove("error")
+      : null;
+    phoneField.placeholder = "Please enter your phone number";
+    emailField.placeholder = "";
+  } else if (contactEmail.checked) {
+    emailLabel.textContent = "Email*";
+    phoneLabel.textContent = "Phone Number";
+    phoneField.classList.contains("error")
+      ? phoneField.classList.remove("error")
+      : null;
+    emailField.placeholder = "Please enter your email";
+    phoneField.placeholder = "";
+  }
+}
 
 function scrollToTechCard(index) {
   if (isDragging) return;
@@ -590,22 +663,38 @@ function resetErrorStyles() {
 function setErrorStyle(element) {
   element.classList.add("error");
 }
-function closeSnackbar() {
-  var snackbar = document.getElementById("snackbar");
-  snackbar.style.visibility = "hidden";
+// function closeSnackbar() {
+//   var snackbar = document.getElementById("snackbar");
+//   snackbar.style.visibility = "hidden";
+// }
+function removeContactFormPlaceholder() {
+  console.log("remove placeholder");
+  emailField.placeholder = "";
+  phoneField.placeholder = "";
 }
-
-function showSnackbar() {
-  var snackbar = document.getElementById("snackbar");
-  snackbar.style.visibility = "visible";
-  snackbar.style.top = "10%";
-  snackbar.style.opacity = "1";
+function addContactFormPlaceholder() {
+  console.log("add placeholder");
+  emailField.placeholder = "Please fill at least one: Email or Phone Number";
+  phoneField.placeholder = "Please fill at least one: Email or Phone Number";
 }
 
 function submitForm() {
   resetErrorStyles();
 
-  if (emailField.value.trim() === "" && phoneField.value.trim() === "") {
+  var emailValue = emailField.value.trim();
+  var phoneValue = phoneField.value.trim();
+
+  if (contactPhone.checked && phoneValue === "") {
+    setErrorStyle(phoneField);
+    return;
+  }
+
+  if (contactEmail.checked && emailValue === "") {
+    setErrorStyle(emailField);
+    return;
+  }
+
+  if (emailValue === "" && phoneValue === "") {
     setErrorStyle(emailField);
     setErrorStyle(phoneField);
     return;
@@ -616,17 +705,20 @@ function submitForm() {
     return;
   }
 
+  // Check if the user has selected either phone or email
   if (!contactPhone.checked && !contactEmail.checked) {
     setErrorStyle(contactFormRadioInputContainer);
     return;
   }
 
-  showSnackbar();
-
-  form.submit();
-  disableSubmitButton();
-
+  // Show snackbar and submit the form
+  // showSnackbar();
+  // form.submit();
+  // disableSubmitButton();
   form.reset();
+  form.style.display = "none";
+  thanksForContactingUsContainer[0].style.display = "flex";
+  console.log("Form submitted");
 }
 
 // scroll event listener to call navbarScrollReponsive function which changes the navbar on scroll

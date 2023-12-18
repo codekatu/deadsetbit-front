@@ -1271,14 +1271,14 @@ button {
 }
 
 .contactPersonImage {
-  max-width: 100%;
+  max-width: 140px;
 }
 
 .contactPersonTextContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 2rem 3rem;
+  margin: 2rem 10px;
 }
 .contactPersonName {
   font-size: var(--text-big);
@@ -1335,13 +1335,17 @@ button {
   margin-bottom: 15px;
 }
 
-.contactFormRadioInputContainer {
+#contactFormRadioInputContainer {
   font-size: var(--text-middle);
-  margin-bottom: 15px;
 }
 .contactFormRadioInput {
   width: 15px;
   height: 15px;
+}
+.helpText {
+  font-size: var(--text-small);
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .radioLabel {
   font-size: var(--text-middle);
@@ -1390,7 +1394,25 @@ button {
   cursor: not-allowed;
 }
 
-.snackbar {
+.thanksForContactingUsContainer {
+  display: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: var(--dsb-dark-grey);
+  margin: 3rem 0rem;
+  width: 80%;
+}
+
+.thanksForContactingUsText {
+  font-size: var(--text-middle);
+}
+.socialIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* .snackbar {
   visibility: hidden;
   position: fixed;
   top: 5%;
@@ -1432,7 +1454,7 @@ button {
   .snackbarContent {
     justify-content: center;
   }
-}
+} */
 
 @media only screen and (max-width: 1200px) {
   .contactSectionContent {
@@ -1454,7 +1476,8 @@ button {
   }
   .contactPersonImage {
     height: 134px;
-    width: auto;
+    max-width: 110px;
+
     padding-left: 3px;
   }
   .contactFormContainer {

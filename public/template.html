@@ -800,10 +800,13 @@
                 <!-- <p class="contactPersonPhone"></p> -->
               </div>
             </div>
-            <!-- <div class="contactPersonContainer">
+            <div class="contactPersonContainer">
+              <!-- Annes image was wider than the others so i made a more narrow version(anne2) of it for the contact section. The original image needed to be made smaller via css and this caused lighthouse because the image was not in the original aspect ratio. -->
+
               <img
                 class="contactPersonImage"
-                src="assets/employeesSection/simo.webp"
+                src="assets/employeesSection/anne2.webp"
+                alt="Hand drawn image of Anne Kotiranta"
               />
               <div class="contactPersonTextContainer">
                 <h5 class="contactPersonName">Anne Kotiranta</h5>
@@ -811,7 +814,7 @@
                 <p class="contactPersonEmail">anne@deadsetbit.com</p>
                 <p class="contactPersonPhone">+358 04 193 3949</p>
               </div>
-            </div> -->
+            </div>
           </div>
           <div class="contactFormContainer">
             <!-- Using a hidden iFrame here to prevent redirection to the Google Forms webpage upon form submission.
@@ -847,22 +850,28 @@
                 id="name"
                 name="name"
               />
-              <label class="formLabel" for="email">Email*</label>
+              <label class="formLabel" id="emailLabel" for="email"
+                >Email*</label
+              >
               <input
                 name="entry.532987373"
                 class="contactFormInput"
                 type="email"
                 id="email"
                 name="email"
+                placeholder="Please fill at least one: Email or Phone Number"
               />
 
-              <label class="formLabel" for="phone">Phone Number*</label>
+              <label class="formLabel" id="phoneLabel" for="phone"
+                >Phone Number*</label
+              >
               <input
                 name="entry.1785509439"
                 class="contactFormInput"
                 type="tel"
                 id="phone"
                 name="phone"
+                placeholder="Please fill at least one: Email or Phone Number"
               />
               <label class="formLabel" for="messageField">Message*</label>
               <textarea
@@ -872,10 +881,9 @@
                 name="message"
                 rows="10"
               ></textarea>
-
               <div id="contactFormRadioInputContainer">
                 <label class="formLabel" for="contactPreference"
-                  >How do you want us to contact you? *</label
+                  >How do you want us to contact you?*</label
                 >
 
                 <input
@@ -927,10 +935,16 @@
                 <button id="submitButton" type="button">Submit</button>
               </div>
             </form>
+            <div class="thanksForContactingUsContainer">
+              <p class="thanksForContactingUsText">
+                Thanks for contacting us, we'll get back to you as soon as
+                possible!
+              </p>
+            </div>
           </div>
         </div>
       </section>
-      <div class="snackbar" id="snackbar">
+      <!-- <div class="snackbar" id="snackbar">
         <div class="snackbarContent">
           <p class="snackbarText">Thank you for contacting us!</p>
           <button id="snackbarClose" aria-label="Close">
@@ -950,7 +964,7 @@
             </svg>
           </button>
         </div>
-      </div>
+      </div> -->
       <!-- Footer -->
       <footer class="sectionContainer" id="footer">
         <p>

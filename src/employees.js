@@ -4,7 +4,7 @@
  *
  * If you want to add an employee, you also need to create them a employeeCard with their name as the id (all lowercase).
  *
- * then you can create a new object in this file with the following format:
+ * then you can create a new object in this file with the following format REMEMBER TO NAME THE OBJECT THE SAME AS THE ID OF THE CARD(EMPLOYEE NAME):
  *
  *   name:{
  *     img: "assets/employeesSection/yourImage.webp",
@@ -25,8 +25,8 @@
  * 
  *  different social media or contact links can be added to the social object as needed. 
  *  If a social field is added and there is no icon that represents the field, it will default to a defaultIcon. This will cause console error because the icon searched for is not found initially.
- *  If you want to add a new icon, you need to add it to the assets/employeesSection directory, with the same name as the field. eg github.png (!!!REMEMBER CASE SENSITIVE!!!)
- *  Make sure the icon is a .png file and is 24x24 pixels.
+ *  If you want to add a new icon, you need to add it to the assets/employeesSection directory, with the same name as the field. eg github.svg (!!!REMEMBER CASE SENSITIVE!!!)
+ *  Make sure the icon is a .svg file and is 24x24 pixels.
  * 
  * If you don't want to add any socials for someone, just leave the social object empty. Deleting it crashes the page.
  * 
