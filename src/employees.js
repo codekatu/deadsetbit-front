@@ -2,9 +2,8 @@
  * This file contains the information shown in the employeeInfoContainer.
  * This is not to be confused with the employeeCards which are statically in the HTML.
  *
- * If you want to add an employee, you also need to create them a employeeCard with their name as the id (all lowercase).
- *
- * then you can create a new object in this file with the following format REMEMBER TO NAME THE OBJECT THE SAME AS THE ID OF THE CARD(EMPLOYEE NAME):
+ * To add an employee, create a new employeeCard inside employeeContainer in template.html with their name as the id (all lowercase).
+ * Then, create a new record inside the employees object following the format below. REMEMBER TO NAME IT THE SAME AS THE ID OF THE CARD (EMPLOYEE NAME):
  *
  *   name:{
  *     img: "assets/employeesSection/yourImage.webp",
@@ -23,10 +22,11 @@
  *  
  *  Remember case sensitivity!
  * 
- *  different social media or contact links can be added to the social object as needed. 
- *  If a social field is added and there is no icon that represents the field, it will default to a defaultIcon. This will cause console error because the icon searched for is not found initially.
- *  If you want to add a new icon, you need to add it to the assets/employeesSection directory, with the same name as the field. eg github.svg (!!!REMEMBER CASE SENSITIVE!!!)
- *  Make sure the icon is a .svg file and is 24x24 pixels.
+ *  Different social media or contact links can be added to the social object as needed. 
+ *  If a social field is added and there is no icon that represents the field, it will default to a defaultIcon. This will cause console error because the icon initially searched for is not found.
+ *  If you want to add a new icon, you need to add it to the assets/employeesSection directory, with the same name as the field. e.g., github.svg (!!!REMEMBER CASE SENSITIVE!!!)
+ *  Make sure the icon is a .svg file.
+ *  If for some reason you want to add a icon that is different format, you need to change all the icons to the same format and change the code in the updateInfo function in index.js to search for the new format instead of svg
  * 
  * If you don't want to add any socials for someone, just leave the social object empty. Deleting it crashes the page.
  * 
@@ -216,6 +216,7 @@ const employees = {
       "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
     ],
   },
+  //add the next employee here
 };
 
 export default employees;
