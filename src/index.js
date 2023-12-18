@@ -213,6 +213,11 @@ window.onload = function () {
 
   emailField.addEventListener("input", requiredFieldChange);
   phoneField.addEventListener("input", requiredFieldChange);
+  messageField.addEventListener("input", (e) => {
+    e.target.classList.contains("error")
+      ? e.target.classList.remove("error")
+      : null;
+  });
 
   function requiredFieldChange() {
     const emailValue = emailField.value.trim();
@@ -650,10 +655,10 @@ const move = (e) => {
   const scroll = x - startX;
   scrollContainer.scrollLeft = scrollLeft - scroll;
 };
-function disableSubmitButton() {
-  var submitButton = document.getElementById("submitButton");
-  submitButton.disabled = true;
-}
+// function disableSubmitButton() {
+//   var submitButton = document.getElementById("submitButton");
+//   submitButton.disabled = true;
+// }
 function resetErrorStyles() {
   messageField.classList.remove("error");
   emailField.classList.remove("error");
