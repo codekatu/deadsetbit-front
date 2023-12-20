@@ -214,6 +214,17 @@ window.onload = function () {
 
   emailField.addEventListener("input", requiredFieldChange);
   phoneField.addEventListener("input", requiredFieldChange);
+  emailField.addEventListener("input", () => {
+    emailField.classList.contains("error")
+      ? emailField.classList.remove("error")
+      : null;
+  });
+  phoneField.addEventListener("input", () => {
+    phoneField.classList.contains("error")
+      ? phoneField.classList.remove("error")
+      : null;
+  });
+
   messageField.addEventListener("input", (e) => {
     e.target.classList.contains("error")
       ? e.target.classList.remove("error")
@@ -230,11 +241,13 @@ window.onload = function () {
       emailLabel.textContent = "Email";
       console.log("empasd");
       removeContactFormPlaceholder();
+      resetErrorStyles();
     } else if (emailValue !== "" && !contactPhone.checked && phoneValue == "") {
       emailLabel.textContent = "Email*";
       emailField.classList.remove("error");
       phoneLabel.textContent = "Phone Number";
       removeContactFormPlaceholder();
+      resetErrorStyles();
     } else if (
       emailValue == "" &&
       phoneValue == "" &&
@@ -246,6 +259,7 @@ window.onload = function () {
       console.log("joojoo");
       phoneLabel.textContent = "Phone Number*";
       addContactFormPlaceholder();
+      resetErrorStyles();
     }
   }
 
