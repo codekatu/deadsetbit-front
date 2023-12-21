@@ -239,7 +239,6 @@ window.onload = function () {
       phoneLabel.textContent = "Phone Number*";
       phoneField.classList.remove("error");
       emailLabel.textContent = "Email";
-      console.log("empasd");
       removeContactFormPlaceholder();
       resetErrorStyles();
     } else if (emailValue !== "" && !contactPhone.checked && phoneValue == "") {
@@ -256,7 +255,6 @@ window.onload = function () {
     ) {
       // Both fields are empty, set * to both labels only if neither radio button is checked
       emailLabel.textContent = "Email*";
-      console.log("joojoo");
       phoneLabel.textContent = "Phone Number*";
       addContactFormPlaceholder();
       resetErrorStyles();
@@ -421,7 +419,7 @@ function ContactMethodRequirements() {
   }
   contactFormRadioInputContainer.classList.contains("error")
     ? contactFormRadioInputContainer.classList.remove("error")
-    : console.log("no error");
+    : null;
 }
 
 function scrollToTechCard(index) {
@@ -691,12 +689,10 @@ function setErrorStyle(element) {
 //   snackbar.style.visibility = "hidden";
 // }
 function removeContactFormPlaceholder() {
-  console.log("remove placeholder");
   emailField.placeholder = "";
   phoneField.placeholder = "";
 }
 function addContactFormPlaceholder() {
-  console.log("add placeholder");
   emailField.placeholder = "Please fill at least one: Email or Phone Number";
   phoneField.placeholder = "Please fill at least one: Email or Phone Number";
 }
@@ -741,7 +737,6 @@ function submitForm() {
   form.reset();
   form.style.display = "none";
   thanksForContactingUsContainer[0].style.display = "flex";
-  console.log("Form submitted");
 }
 
 // scroll event listener to call navbarScrollReponsive function which changes the navbar on scroll
