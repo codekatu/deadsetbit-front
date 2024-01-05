@@ -39,7 +39,6 @@ const contactFormRadioInputContainer = document.getElementById(
   "contactFormRadioInputContainer"
 );
 const submitButton = document.getElementById("submitButton");
-// const snackbarClose = document.getElementById("snackbarClose");
 const infoContainer = document.getElementById("employeeInfoContainer");
 const employeeCards = document.getElementsByClassName("employeeCard");
 const employeeInfoContainer = document.getElementById("employeeInfoContainer");
@@ -225,16 +224,6 @@ window.onload = function () {
     });
   });
 
-  // if (window.innerWidth > 900) {
-  //   Array.from(employeeCards).forEach(function (card) {
-  //     if (card.id === "pauli") {
-  //       card.classList.add("employeeCardActive");
-  //     } else {
-  //       return;
-  //     }
-  //   });
-  // }
-
   Array.from(techCardContainer.children).forEach((button, index) => {
     // Don't add the event listener for mobile devices
     if (
@@ -279,7 +268,6 @@ window.onload = function () {
   submitButton.addEventListener("click", submitForm);
   // snackbarClose.addEventListener("click", closeSnackbar);
 };
-//  !ONLOAD ENDS HERE !!!!!!!!!!!!!!
 
 function updateInfo(employeeName) {
   employeeInfoContainer.scrollTop = 0;
@@ -677,10 +665,6 @@ const move = (e) => {
   const scroll = x - startX;
   scrollContainer.scrollLeft = scrollLeft - scroll;
 };
-// function disableSubmitButton() {
-//   var submitButton = document.getElementById("submitButton");
-//   submitButton.disabled = true;
-// }
 function resetErrorStyles() {
   messageField.classList.remove("error");
   emailField.classList.remove("error");
@@ -690,10 +674,6 @@ function resetErrorStyles() {
 function setErrorStyle(element) {
   element.classList.add("error");
 }
-// function closeSnackbar() {
-//   var snackbar = document.getElementById("snackbar");
-//   snackbar.style.visibility = "hidden";
-// }
 function removeContactFormPlaceholder() {
   emailField.placeholder = "";
   phoneField.placeholder = "";
