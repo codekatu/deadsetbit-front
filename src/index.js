@@ -76,6 +76,10 @@ window.onload = function () {
   // render first person to the employeeInfoContainer
   updateInfo("pauli");
 
+  employeeInfoBoxCloseButton.addEventListener("click", employeeInfoBoxClose);
+  backdrop.addEventListener("click", employeeInfoBoxClose);
+  navbar.addEventListener("click", employeeInfoBoxClose);
+
   for (let index = 0; index < tabButtons.length; index++) {
     const element = tabButtons[index];
     element.addEventListener("click", tabButton);
