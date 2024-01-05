@@ -46,7 +46,7 @@ const employees = {
       // linkedin: "https://www.linkedin.com/",
     },
     descriptions: [
-      "Pauli is a proficient full-stack software architect boasting nearly 20 years of experience in crafting solutions across web, native, embedded, and mobile development domains. In Pauli's context, 'full-stack' encompasses a broad spectrum, starting from operating system boot loaders and extending to end-user graphical interfaces and websites. Specializing in delivering comprehensive solutions, Pauli excels in advising clients on particularly complex development projects. Currently, Pauli is overseeing the architecture of Haltian Empathic Building IoT solution. Pauli’s working languages are Finnish and English",
+      "Pauli is a proficient full-stack software architect boasting 20 years of experience in crafting solutions across web, native, embedded, and mobile development domains. In his context, 'full-stack' encompasses a broad spectrum, starting from operating system boot loaders and extending to end-user graphical interfaces and websites. Specializing in delivering comprehensive solutions, he excels in advising clients on particularly complex development projects. Currently, Pauli is overseeing the architecture of Haltian Empathic Building IoT solution. His working languages are Finnish and English.",
     ],
   },
 
