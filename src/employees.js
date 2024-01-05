@@ -32,6 +32,7 @@
  * 
  * In the descriptions array you can add as many paragraphs as you want.
  * One string in the array will be one paragraph rendered on the page
+ * Each string should be in their own row and separated by a comma.
  *
  */
 const employees = {
@@ -45,8 +46,7 @@ const employees = {
       linkedin: "https://www.linkedin.com/",
     },
     descriptions: [
-      "Pauli ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
-      "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
+      "Pauli is a proficient full-stack software architect boasting nearly 20 years of experience in crafting solutions across web, native, embedded, and mobile development domains. In Pauli's context, 'full-stack' encompasses a broad spectrum, starting from operating system boot loaders and extending to end-user graphical interfaces and websites. Specializing in delivering comprehensive solutions, Pauli excels in advising clients on particularly complex development projects. Currently, Pauli is overseeing the architecture of Haltian Empathic Building IoT solution. Pauli’s working languages are Finnish and English",
     ],
   },
 
@@ -63,10 +63,8 @@ const employees = {
       gitlab: "https://gitlab.com/",
     },
     descriptions: [
-      "Jasu ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
-      "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
-
-      "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
+      "Jasu is a senior front-end developer with a decade of commercial experience in web services development. Over the past six years, Jasu has led a technical team of 4 to 16 members, working on a prominent IoT data visualization digital twin product. Jasu excels in both hands-on technical roles and in bridging the gap between business objectives and technical requirements. While primarily focused on the JavaScript ecosystem, Jasu also brings experience in Java-based web applications to the table.",
+      "As a colleague, Jasu is known for being approachable and results-driven. Beyond the realm of technology, Jasu is pursuing a law degree at the University of Helsinki, specializing in IT law. He serves as a board member of the Finnish IT Law Association, demonstrating his dedication to advancing the intersection of technology and jurisprudence in his many roles. Jasu’s working languages are Finnish and English.",
     ],
   },
 
@@ -83,8 +81,8 @@ const employees = {
       gitlab: "https://gitlab.com/",
     },
     descriptions: [
-      "nick ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
-      "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
+      "Nick is a skilled full-stack developer with 7 years of experience in creating engaging user interfaces and ensuring seamless backend operations. Over the past 5 years, his focus has primarily been on developing Python backends along with various JavaScript and TypeScript frontends. In his work with Python, Nick has developed numerous integrations for a leading IoT platform, effectively combining sensor data from multiple sources. Additionally, he has experience with integrating to Microsoft Graph APIs.",
+      "Beyond the Python and JavaScript ecosystems, Nick is also proficient in native Android development using Kotlin. As a colleague, he is a passionate technology advocate, always eager to demonstrate and discuss the latest advancements in the tech world. Nick’s working language is English.",
     ],
   },
 
@@ -101,8 +99,8 @@ const employees = {
     },
 
     descriptions: [
-      "jonna ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
-      "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
+      "Jonna is a versatile artist with talents spanning both 2D & 3D graphics, animation, and UI design, as well as an aspiring architect. Her passion and background are rooted in the games and animation industry, but in recent years, she has expanded her expertise to user interface design and graphics for various IT consultancy projects. In these roles, she is accustomed to collaborating as part of larger development teams.",
+      "In addition to her graphical prowess, Jonna is currently furthering her education as an Architecture student at the University of Tampere. Jonna’s working languages are Finnish and English.",
     ],
   },
 
@@ -115,8 +113,8 @@ const employees = {
       phone: "+358 40 123 4567",
     },
     descriptions: [
-      "simo ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
-      "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
+      "Simo is a seasoned software architect with 14 years of commercial experience in developing scalable JavaScript applications. His expertise encompasses a range of technologies including JavaScript, TypeScript, React, Drupal, REST APIs, and GraphQL. Over the past five years, Simo has successfully led various projects, notably in eCommerce and IoT data visualization application development.",
+      "Known for his results-oriented approach, Simo excels in interpreting business needs and converting them into precise technical requirements. He has a strong passion for crafting well-functioning user interfaces, a skill he pairs with his enjoyment of a good pint of beer. Simo’s working languages are Finnish and English.",
     ],
   },
 
@@ -129,8 +127,8 @@ const employees = {
       linkedin: "https://www.linkedin.com/",
     },
     descriptions: [
-      "antti ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
-      "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
+      "Antti is a seasoned developer, boasting over 16 years of commercial experience in front-end, back-end, and desktop applications and systems. His comprehensive understanding of both front-end and back-end systems enables him to adeptly navigate and integrate various aspects of application development. This expertise is particularly valuable when planning the architecture and features of projects, especially under tight schedules and with ambiguous requirements. Antti is known for his ability to bring clarity and calmness to any project he is involved in.",
+      "In addition to his professional accomplishments, Antti is a passionate game developer. He has independently developed a Retrowave-inspired 3D multiplayer racing game, demonstrating his proficiency in Unity and Blender. Antti’s working languages are Finnish and English.",
     ],
   },
 
@@ -146,8 +144,8 @@ const employees = {
     },
 
     descriptions: [
-      "toffe ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
-      "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
+      "Christopher is a passionate full-stack software developer, currently specializing in front-end applications. His proactive, can-do attitude, combined with the ability to prioritize effectively even under tight deadlines, makes him an ideal lead developer for challenging projects.",
+      "Christopher holds a Master's degree in Psychology from Åbo Akademi University. This academic background in psychology, coupled with his computer science studies at the University of Helsinki, uniquely positions Christopher to translate customer requirements into actionable items and technical specifications. His diverse expertise bridges the gap between technical development and understanding user needs. Christopher’s working languages are Finnish, English & Swedish.",
     ],
   },
   alex: {
@@ -163,8 +161,8 @@ const employees = {
       gitlab: "https://gitlab.com/",
     },
     descriptions: [
-      "alex ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
-      "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
+      "Alex is a senior backend architect with a robust 19 years of experience in commercial development. Over the last seven years, Alex has played a pivotal role in developing a scalable, cloud vendor-agnostic, high-volume backend. This system is designed to collect measurement data from sensors and stream it efficiently. Alex is proficient in working with time-series data, MQTT, Kubernetes, REST APIs, and PostgreSQL on a daily basis.",
+      "In addition to his architectural expertise, Alex is a Python guru and the author of several popular Python open-source libraries, including anyio and apscheduler. These libraries are highly regarded in the Python community, with more than approximately 70 million downloads per month, a testament to their utility and Alex's skill as a developer. Alex’s working languages are Finnish and English.",
     ],
   },
 
@@ -180,8 +178,8 @@ const employees = {
       github: "https://github.com/",
     },
     descriptions: [
-      "hugo ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
-      "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
+      "Hugo is an exceptional developer with 23 years of commercial experience in mobile, embedded, and web services development. A Fellow of the Python Software Foundation and a Core Developer of the Python programming language, Hugo has made significant contributions to the field. He is the author of several widely-used Python open-source libraries, including the Pillow imaging library, which boasts approximately 70 million downloads monthly. Collectively, the libraries maintained or co-maintained by Hugo are downloaded over 100 million times per month by Python developers.",
+      "Hugo holds certifications as a Scrum Product Owner, ScrumMaster, and AWS Cloud Practitioner, and possesses extensive experience with large-scale Drupal projects. Hugo’s working language is English.",
     ],
   },
 
@@ -196,8 +194,8 @@ const employees = {
       linkedin: "https://www.linkedin.com/",
     },
     descriptions: [
-      "petri ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
-      "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
+      "Petri is an expert in the realm of physical technology, or hardware. His career began in tech journalism in 1986, where he produced content for several well-known technology magazines. Known for his diligence and efficiency, Petri is always prepared to take initiative when necessary. His ability to communicate complex technical concepts in a manner accessible to non-technical audiences has repeatedly proven invaluable, particularly in customer meetings.",
+      "Petri approaches problem-solving with creative, out-of-the-box thinking. As a colleague, he is known for being attentive, patient, constructive, and sympathetic, always willing to help. He firmly believes that open and honest communication is the cornerstone of success in both personal and professional interactions. Petri’s working languages are Finnish and English.",
     ],
   },
 

@@ -44,9 +44,13 @@ const infoContainer = document.getElementById("employeeInfoContainer");
 const employeeCards = document.getElementsByClassName("employeeCard");
 const employeeInfoContainer = document.getElementById("employeeInfoContainer");
 const backdrop = document.getElementById("employeeInfoContainerModalBackdrop");
-const infoModalCloseButton = document.getElementById(
+// const infoModalCloseButton = document.getElementById(
+//   "employeeInfoContainerModalCloseButton"
+// );
+const employeeInfoBoxCloseButton = document.getElementById(
   "employeeInfoContainerModalCloseButton"
 );
+
 const socialInfoContainer = document.querySelector(".socialInfoContainer");
 const paragraphsContainer = infoContainer.querySelector(
   ".employeeInfoTextContainer"
@@ -68,137 +72,6 @@ let mouseDown = false;
 let startX, scrollLeft;
 let wasBelow900 = window.innerWidth <= 900;
 
-function modalOpen() {
-  if (window.innerWidth > 900) return;
-  employeeInfoContainer.classList.add("visible");
-  backdrop.classList.add("visible");
-  infoModalCloseButton.classList.add("visible");
-  employeeInfoContainer.scrollTop = 0;
-
-  // disable scrolling on the body when modal opens
-  document.body.style.overflow = "hidden";
-}
-
-function modalClose() {
-  if (window.innerWidth < 900) {
-    resetInfo();
-  }
-  employeeInfoContainer.classList.remove("visible");
-  backdrop.classList.remove("visible");
-  infoModalCloseButton.classList.remove("visible");
-
-  // make the body scrollable again when modal closes
-  document.body.style.overflow = "auto";
-}
-
-// close the modal when screen resizes to desktop
-window.addEventListener("resize", function () {
-  if (window.innerWidth > 900 && backdrop.classList.contains("visible")) {
-    modalClose();
-  }
-
-  const isTransitionToDesktop = wasBelow900 && window.innerWidth > 900;
-  // Update the flag for the next resize event
-  wasBelow900 = window.innerWidth <= 900;
-
-  if (isTransitionToDesktop) {
-    // Call the function only when transitioning to desktop
-    updateInfo("pauli");
-  }
-
-  if (window.innerWidth <= 900) {
-    Array.from(employeeCards).forEach(function (card) {
-      card.classList.remove("employeeCardActive");
-    });
-  }
-});
-
-infoModalCloseButton.addEventListener("click", modalClose);
-
-backdrop.addEventListener("click", modalClose);
-
-// if the user clicks on the navbar or on the menu the modal should also close
-navbar.addEventListener("click", modalClose);
-
-function updateInfo(employeeName) {
-  const employee = employees[employeeName];
-
-  // Render image, name and title
-  employeeInfoImage.src = employee.img;
-  employeeInfoName.textContent = employee.name;
-  employeeInfoTitle.textContent = employee.title;
-
-  // Render paragraphs
-  paragraphsContainer.textContent = "";
-  employee.descriptions.forEach((paragraphText, index) => {
-    const paragraphElement = document.createElement("p");
-    paragraphElement.classList.add("employeeInfoText");
-    paragraphElement.textContent = paragraphText;
-    paragraphsContainer.appendChild(paragraphElement);
-  });
-
-  // Render social information
-  socialInfoContainer.innerHTML = "";
-  Object.entries(employee.social).forEach(([socialType, socialValue]) => {
-    const socialInfo = document.createElement("div");
-    socialInfo.classList.add("socialInfo");
-    socialInfo.id = `${socialType}Container`;
-
-    const socialIcon = document.createElement("img");
-    socialIcon.classList.add("socialIcon");
-    socialIcon.alt = `${socialType} Icon`;
-
-    socialIcon.onerror = function () {
-      // Image failed to load, use default icon
-      socialIcon.src = `assets/employeesSection/defaultIcon.svg`;
-    };
-
-    socialIcon.src = `assets/employeesSection/${socialType}.svg`;
-
-    const socialText = document.createElement("p");
-    socialText.classList.add("socialText");
-
-    // Check if the social type is email or phone to determine if it should be a link or not
-    if (socialType === "email" || socialType === "phone") {
-      socialText.textContent = socialValue;
-    } else {
-      const socialLink = document.createElement("a");
-      socialLink.classList.add("socialLink");
-      socialLink.href = socialValue;
-      socialLink.textContent = socialValue;
-      socialText.appendChild(socialLink);
-    }
-
-    socialInfo.appendChild(socialIcon);
-    socialInfo.appendChild(socialText);
-    socialInfoContainer.appendChild(socialInfo);
-  });
-
-  if (window.innerWidth > 900) {
-    Array.from(employeeCards).forEach(function (card) {
-      if (card.id === employeeName) {
-        card.classList.add("employeeCardActive");
-      } else {
-        card.classList.remove("employeeCardActive");
-      }
-    });
-  }
-}
-
-function resetInfo() {
-  if (employeeInfoImage && employeeInfoName && employeeInfoTitle) {
-    employeeInfoImage.src = "";
-    employeeInfoName.textContent = "";
-    employeeInfoTitle.textContent = "";
-  }
-
-  // Reset paragraphs
-  paragraphsContainer.textContent = "";
-
-  // Reset social information
-  socialInfoContainer.innerHTML = "";
-}
-
 // adds event listeners on load and runs functions on load to set the page up
 window.onload = function () {
   // render first person to the employeeInfoContainer
@@ -208,6 +81,35 @@ window.onload = function () {
     const element = tabButtons[index];
     element.addEventListener("click", tabButton);
   }
+
+  // close the modal when screen resizes to desktop
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 900 && backdrop.classList.contains("visible")) {
+      employeeInfoBoxClose();
+    }
+
+    employeeInfoBoxCloseButton.addEventListener("click", employeeInfoBoxClose);
+
+    backdrop.addEventListener("click", employeeInfoBoxClose);
+
+    // if the user clicks on the navbar or on the menu the modal should also close
+    navbar.addEventListener("click", employeeInfoBoxClose);
+
+    const isTransitionToDesktop = wasBelow900 && window.innerWidth > 900;
+    // Update the flag for the next resize event
+    wasBelow900 = window.innerWidth <= 900;
+
+    if (isTransitionToDesktop) {
+      // Call the function only when transitioning to desktop
+      updateInfo("pauli");
+    }
+
+    if (window.innerWidth <= 900) {
+      Array.from(employeeCards).forEach(function (card) {
+        card.classList.remove("employeeCardActive");
+      });
+    }
+  });
 
   contactPhone.addEventListener("change", ContactMethodRequirements);
   contactEmail.addEventListener("change", ContactMethodRequirements);
@@ -265,7 +167,7 @@ window.onload = function () {
     card.addEventListener("click", function () {
       const employeeId = card.id;
       updateInfo(employeeId);
-      modalOpen();
+      employeeInfoBoxOpen();
     });
   });
 
@@ -377,6 +279,110 @@ window.onload = function () {
   submitButton.addEventListener("click", submitForm);
   // snackbarClose.addEventListener("click", closeSnackbar);
 };
+//  !ONLOAD ENDS HERE !!!!!!!!!!!!!!
+
+function updateInfo(employeeName) {
+  employeeInfoContainer.scrollTop = 0;
+
+  const employee = employees[employeeName];
+
+  // Render image, name and title
+  employeeInfoImage.src = employee.img;
+  employeeInfoName.textContent = employee.name;
+  employeeInfoTitle.textContent = employee.title;
+
+  // Render paragraphs
+  paragraphsContainer.textContent = "";
+  employee.descriptions.forEach((paragraphText, index) => {
+    const paragraphElement = document.createElement("p");
+    paragraphElement.classList.add("employeeInfoText");
+    paragraphElement.textContent = paragraphText;
+    paragraphsContainer.appendChild(paragraphElement);
+  });
+
+  // Render social information
+  socialInfoContainer.innerHTML = "";
+  Object.entries(employee.social).forEach(([socialType, socialValue]) => {
+    const socialInfo = document.createElement("div");
+    socialInfo.classList.add("socialInfo");
+    socialInfo.id = `${socialType}Container`;
+
+    const socialIcon = document.createElement("img");
+    socialIcon.classList.add("socialIcon");
+    socialIcon.alt = `${socialType} Icon`;
+
+    socialIcon.onerror = function () {
+      // Image failed to load, use default icon
+      socialIcon.src = `assets/employeesSection/defaultIcon.svg`;
+    };
+
+    socialIcon.src = `assets/employeesSection/${socialType}.svg`;
+
+    const socialText = document.createElement("p");
+    socialText.classList.add("socialText");
+
+    // Check if the social type is email or phone to determine if it should be a link or not
+    if (socialType === "email" || socialType === "phone") {
+      socialText.textContent = socialValue;
+    } else {
+      const socialLink = document.createElement("a");
+      socialLink.classList.add("socialLink");
+      socialLink.href = socialValue;
+      socialLink.textContent = socialValue;
+      socialText.appendChild(socialLink);
+    }
+
+    socialInfo.appendChild(socialIcon);
+    socialInfo.appendChild(socialText);
+    socialInfoContainer.appendChild(socialInfo);
+  });
+
+  if (window.innerWidth > 900) {
+    Array.from(employeeCards).forEach(function (card) {
+      if (card.id === employeeName) {
+        card.classList.add("employeeCardActive");
+      } else {
+        card.classList.remove("employeeCardActive");
+      }
+    });
+  }
+}
+
+function resetInfo() {
+  if (employeeInfoImage && employeeInfoName && employeeInfoTitle) {
+    employeeInfoImage.src = "";
+    employeeInfoName.textContent = "";
+    employeeInfoTitle.textContent = "";
+  }
+
+  // Reset paragraphs
+  paragraphsContainer.textContent = "";
+
+  // Reset social information
+  socialInfoContainer.innerHTML = "";
+}
+
+function employeeInfoBoxOpen() {
+  if (window.innerWidth > 900) return;
+  employeeInfoContainer.classList.add("visible");
+  backdrop.classList.add("visible");
+  employeeInfoBoxCloseButton.classList.add("visible");
+  employeeInfoContainer.scrollTop = 0;
+
+  // disable scrolling on the body when modal opens
+  document.body.style.overflow = "hidden";
+}
+function employeeInfoBoxClose() {
+  if (window.innerWidth < 900) {
+    resetInfo();
+  }
+  employeeInfoContainer.classList.remove("visible");
+  backdrop.classList.remove("visible");
+  employeeInfoBoxCloseButton.classList.remove("visible");
+
+  // make the body scrollable again when modal closes
+  document.body.style.overflow = "auto";
+}
 
 // throttle function to limit the amount of times a function is called
 const throttle = (fn, wait) => {

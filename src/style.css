@@ -996,10 +996,35 @@ button {
   align-items: center;
   max-height: calc(100vh - var(--navbar-height-fullScrolled) - 3rem);
 
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: none;
   z-index: 5;
+  /* Scrollbar Styles */
+  scrollbar-width: thin;
+  scrollbar-color: #555;
+
+  /* WebKit (Chrome, Safari, Edge) Styles */
+  scrollbar-track-color: transparent;
+  scrollbar-face-color: transparent;
+  scrollbar-highlight-color: transparent;
+  scrollbar-shadow-color: transparent;
+  scroll-snap-type: mandatory;
 }
+
+#employeeInfoContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+#employeeInfoContainer::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to right,
+    #d3d3d3,
+    #d3d3d3
+  ); /* Light grey for the scrollbar thumb */
+  border-radius: 4px;
+  border: 1px solid #c0bebe;
+}
+
 #employeeInfoContainerModalBackdrop {
   display: none;
   width: 100vw;
@@ -1119,9 +1144,16 @@ button {
   cursor: pointer;
 }
 
-.employeeCard:hover {
+/* .employeeCard:hover {
   background-color: var(--dsb-yellow);
+} */
+
+@media (min-width: 900px) {
+  .employeeCard:hover {
+    background-color: var(--dsb-yellow);
+  }
 }
+
 .employeeCardActive {
   background-color: var(--dsb-yellow);
 }
@@ -1199,9 +1231,9 @@ button {
   }
 
   /* !NOTE fix this to not have the hover effect on this breakpoint */
-  .employeeCard:hover {
+  /* .employeeCard:hover {
     background-color: white;
-  }
+  } */
 
   #employeeInfoContainer {
     margin: 0;
