@@ -266,7 +266,6 @@ window.onload = function () {
   scrollContainer.scrollLeft = firstCardPosition;
 
   submitButton.addEventListener("click", submitForm);
-  // snackbarClose.addEventListener("click", closeSnackbar);
 };
 
 function updateInfo(employeeName) {

@@ -1299,6 +1299,7 @@ button {
 
 .contactPersonContainer {
   display: flex;
+  justify-content: space-evenly;
   margin: 2rem 0rem;
 }
 
