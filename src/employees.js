@@ -210,7 +210,8 @@ const employees = {
       // linkedin: "https://www.linkedin.com/",
     },
     descriptions: [
-      "Uh-oh! It seems Anne forgot to submit their self-description.They're probably out there, slaying deadlines and conquering tasks like a true champion!",
+      "Anne has her background in management assistance (BBA) and has worked in both private and public sectors, mostly in administrative roles. She is into things running smoothly and people running wild and loves seeing diverse teams and companies that can handle it. ",
+      "Anne took a short detour from administrative work to study agriculture and sustainability, but returned to rule over an office after completing her Bachelor's. She still keeps a keen eye on the subject matter and dreams of sheep.",
     ],
   },
   //add the next employee here
