@@ -2,6 +2,7 @@
 import "./reset.css";
 import "./fonts.css";
 import "./style.css";
+import employees from "./employees";
 
 // getting dom elements
 const navbar = document.getElementById("navbar");
@@ -38,7 +39,29 @@ const contactFormRadioInputContainer = document.getElementById(
   "contactFormRadioInputContainer"
 );
 const submitButton = document.getElementById("submitButton");
-const snackbarClose = document.getElementById("snackbarClose");
+const infoContainer = document.getElementById("employeeInfoContainer");
+const employeeCards = document.getElementsByClassName("employeeCard");
+const employeeInfoContainer = document.getElementById("employeeInfoContainer");
+const backdrop = document.getElementById("employeeInfoContainerModalBackdrop");
+// const infoModalCloseButton = document.getElementById(
+//   "employeeInfoContainerModalCloseButton"
+// );
+const employeeInfoBoxCloseButton = document.getElementById(
+  "employeeInfoContainerModalCloseButton"
+);
+
+const socialInfoContainer = document.querySelector(".socialInfoContainer");
+const paragraphsContainer = infoContainer.querySelector(
+  ".employeeInfoTextContainer"
+);
+const employeeInfoImage = infoContainer.querySelector(".employeeInfoImage");
+const employeeInfoName = infoContainer.querySelector(".employeeInfoName");
+const employeeInfoTitle = infoContainer.querySelector(".employeeInfoTitle");
+const thanksForContactingUsContainer = document.getElementsByClassName(
+  "thanksForContactingUsContainer"
+);
+const emailLabel = document.getElementById("emailLabel");
+const phoneLabel = document.getElementById("phoneLabel");
 
 // global variables
 let isButtonPressed = false;
@@ -46,13 +69,106 @@ let timeout;
 let isDragging = false;
 let mouseDown = false;
 let startX, scrollLeft;
+let wasBelow900 = window.innerWidth <= 900;
 
 // adds event listeners on load and runs functions on load to set the page up
 window.onload = function () {
+  // render first person to the employeeInfoContainer
+  updateInfo("pauli");
+
   for (let index = 0; index < tabButtons.length; index++) {
     const element = tabButtons[index];
     element.addEventListener("click", tabButton);
   }
+
+  // close the modal when screen resizes to desktop
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 900 && backdrop.classList.contains("visible")) {
+      employeeInfoBoxClose();
+    }
+
+    employeeInfoBoxCloseButton.addEventListener("click", employeeInfoBoxClose);
+
+    backdrop.addEventListener("click", employeeInfoBoxClose);
+
+    // if the user clicks on the navbar or on the menu the modal should also close
+    navbar.addEventListener("click", employeeInfoBoxClose);
+
+    const isTransitionToDesktop = wasBelow900 && window.innerWidth > 900;
+    // Update the flag for the next resize event
+    wasBelow900 = window.innerWidth <= 900;
+
+    if (isTransitionToDesktop) {
+      // Call the function only when transitioning to desktop
+      updateInfo("pauli");
+    }
+
+    if (window.innerWidth <= 900) {
+      Array.from(employeeCards).forEach(function (card) {
+        card.classList.remove("employeeCardActive");
+      });
+    }
+  });
+
+  contactPhone.addEventListener("change", ContactMethodRequirements);
+  contactEmail.addEventListener("change", ContactMethodRequirements);
+
+  emailField.addEventListener("input", requiredFieldChange);
+  phoneField.addEventListener("input", requiredFieldChange);
+  emailField.addEventListener("input", () => {
+    emailField.classList.contains("error")
+      ? emailField.classList.remove("error")
+      : null;
+  });
+  phoneField.addEventListener("input", () => {
+    phoneField.classList.contains("error")
+      ? phoneField.classList.remove("error")
+      : null;
+  });
+
+  messageField.addEventListener("input", (e) => {
+    e.target.classList.contains("error")
+      ? e.target.classList.remove("error")
+      : null;
+  });
+
+  function requiredFieldChange() {
+    const emailValue = emailField.value.trim();
+    const phoneValue = phoneField.value.trim();
+
+    if (phoneValue !== "" && !contactEmail.checked && emailValue == "") {
+      phoneLabel.textContent = "Phone Number*";
+      phoneField.classList.remove("error");
+      emailLabel.textContent = "Email";
+      removeContactFormPlaceholder();
+      resetErrorStyles();
+    } else if (emailValue !== "" && !contactPhone.checked && phoneValue == "") {
+      emailLabel.textContent = "Email*";
+      emailField.classList.remove("error");
+      phoneLabel.textContent = "Phone Number";
+      removeContactFormPlaceholder();
+      resetErrorStyles();
+    } else if (
+      emailValue == "" &&
+      phoneValue == "" &&
+      !contactPhone.checked &&
+      !contactEmail.checked
+    ) {
+      // Both fields are empty, set * to both labels only if neither radio button is checked
+      emailLabel.textContent = "Email*";
+      phoneLabel.textContent = "Phone Number*";
+      addContactFormPlaceholder();
+      resetErrorStyles();
+    }
+  }
+
+  Array.from(employeeCards).forEach(function (card) {
+    card.addEventListener("click", function () {
+      const employeeId = card.id;
+      updateInfo(employeeId);
+      employeeInfoBoxOpen();
+    });
+  });
 
   // adds event listeners to arrow buttons on load
   arrowRightFirstCard.addEventListener("click", () => {
@@ -150,8 +266,110 @@ window.onload = function () {
   scrollContainer.scrollLeft = firstCardPosition;
 
   submitButton.addEventListener("click", submitForm);
-  snackbarClose.addEventListener("click", closeSnackbar);
 };
+
+function updateInfo(employeeName) {
+  employeeInfoContainer.scrollTop = 0;
+
+  const employee = employees[employeeName];
+
+  // Render image, name and title
+  employeeInfoImage.src = employee.img;
+  employeeInfoName.textContent = employee.name;
+  employeeInfoTitle.textContent = employee.title;
+
+  // Render paragraphs
+  paragraphsContainer.textContent = "";
+  employee.descriptions.forEach((paragraphText, index) => {
+    const paragraphElement = document.createElement("p");
+    paragraphElement.classList.add("employeeInfoText");
+    paragraphElement.textContent = paragraphText;
+    paragraphsContainer.appendChild(paragraphElement);
+  });
+
+  // Render social information
+  socialInfoContainer.innerHTML = "";
+  Object.entries(employee.social).forEach(([socialType, socialValue]) => {
+    const socialInfo = document.createElement("div");
+    socialInfo.classList.add("socialInfo");
+    socialInfo.id = `${socialType}Container`;
+
+    const socialIcon = document.createElement("img");
+    socialIcon.classList.add("socialIcon");
+    socialIcon.alt = `${socialType} Icon`;
+
+    socialIcon.onerror = function () {
+      // Image failed to load, use default icon
+      socialIcon.src = `assets/employeesSection/defaultIcon.svg`;
+    };
+
+    socialIcon.src = `assets/employeesSection/${socialType}.svg`;
+
+    const socialText = document.createElement("p");
+    socialText.classList.add("socialText");
+
+    // Check if the social type is email or phone to determine if it should be a link or not
+    if (socialType === "email" || socialType === "phone") {
+      socialText.textContent = socialValue;
+    } else {
+      const socialLink = document.createElement("a");
+      socialLink.classList.add("socialLink");
+      socialLink.href = socialValue;
+      socialLink.textContent = socialValue;
+      socialText.appendChild(socialLink);
+    }
+
+    socialInfo.appendChild(socialIcon);
+    socialInfo.appendChild(socialText);
+    socialInfoContainer.appendChild(socialInfo);
+  });
+
+  if (window.innerWidth > 900) {
+    Array.from(employeeCards).forEach(function (card) {
+      if (card.id === employeeName) {
+        card.classList.add("employeeCardActive");
+      } else {
+        card.classList.remove("employeeCardActive");
+      }
+    });
+  }
+}
+
+function resetInfo() {
+  if (employeeInfoImage && employeeInfoName && employeeInfoTitle) {
+    employeeInfoImage.src = "";
+    employeeInfoName.textContent = "";
+    employeeInfoTitle.textContent = "";
+  }
+
+  // Reset paragraphs
+  paragraphsContainer.textContent = "";
+
+  // Reset social information
+  socialInfoContainer.innerHTML = "";
+}
+
+function employeeInfoBoxOpen() {
+  if (window.innerWidth > 900) return;
+  employeeInfoContainer.classList.add("visible");
+  backdrop.classList.add("visible");
+  employeeInfoBoxCloseButton.classList.add("visible");
+  employeeInfoContainer.scrollTop = 0;
+
+  // disable scrolling on the body when modal opens
+  document.body.style.overflow = "hidden";
+}
+function employeeInfoBoxClose() {
+  if (window.innerWidth < 900) {
+    resetInfo();
+  }
+  employeeInfoContainer.classList.remove("visible");
+  backdrop.classList.remove("visible");
+  employeeInfoBoxCloseButton.classList.remove("visible");
+
+  // make the body scrollable again when modal closes
+  document.body.style.overflow = "auto";
+}
 
 // throttle function to limit the amount of times a function is called
 const throttle = (fn, wait) => {
@@ -174,6 +392,28 @@ const throttle = (fn, wait) => {
     }
   };
 };
+function ContactMethodRequirements() {
+  if (contactPhone.checked) {
+    emailLabel.textContent = "Email";
+    phoneLabel.textContent = "Phone Number*";
+    emailField.classList.contains("error")
+      ? emailField.classList.remove("error")
+      : null;
+    phoneField.placeholder = "Please enter your phone number";
+    emailField.placeholder = "";
+  } else if (contactEmail.checked) {
+    emailLabel.textContent = "Email*";
+    phoneLabel.textContent = "Phone Number";
+    phoneField.classList.contains("error")
+      ? phoneField.classList.remove("error")
+      : null;
+    emailField.placeholder = "Please enter your email";
+    phoneField.placeholder = "";
+  }
+  contactFormRadioInputContainer.classList.contains("error")
+    ? contactFormRadioInputContainer.classList.remove("error")
+    : null;
+}
 
 function scrollToTechCard(index) {
   if (isDragging) return;
@@ -424,10 +664,6 @@ const move = (e) => {
   const scroll = x - startX;
   scrollContainer.scrollLeft = scrollLeft - scroll;
 };
-function disableSubmitButton() {
-  var submitButton = document.getElementById("submitButton");
-  submitButton.disabled = true;
-}
 function resetErrorStyles() {
   messageField.classList.remove("error");
   emailField.classList.remove("error");
@@ -437,22 +673,32 @@ function resetErrorStyles() {
 function setErrorStyle(element) {
   element.classList.add("error");
 }
-function closeSnackbar() {
-  var snackbar = document.getElementById("snackbar");
-  snackbar.style.visibility = "hidden";
+function removeContactFormPlaceholder() {
+  emailField.placeholder = "";
+  phoneField.placeholder = "";
 }
-
-function showSnackbar() {
-  var snackbar = document.getElementById("snackbar");
-  snackbar.style.visibility = "visible";
-  snackbar.style.top = "10%";
-  snackbar.style.opacity = "1";
+function addContactFormPlaceholder() {
+  emailField.placeholder = "Please fill at least one: Email or Phone Number";
+  phoneField.placeholder = "Please fill at least one: Email or Phone Number";
 }
 
 function submitForm() {
   resetErrorStyles();
 
-  if (emailField.value.trim() === "" && phoneField.value.trim() === "") {
+  var emailValue = emailField.value.trim();
+  var phoneValue = phoneField.value.trim();
+
+  if (contactPhone.checked && phoneValue === "") {
+    setErrorStyle(phoneField);
+    return;
+  }
+
+  if (contactEmail.checked && emailValue === "") {
+    setErrorStyle(emailField);
+    return;
+  }
+
+  if (emailValue === "" && phoneValue === "") {
     setErrorStyle(emailField);
     setErrorStyle(phoneField);
     return;
@@ -463,17 +709,19 @@ function submitForm() {
     return;
   }
 
+  // Check if the user has selected either phone or email
   if (!contactPhone.checked && !contactEmail.checked) {
     setErrorStyle(contactFormRadioInputContainer);
     return;
   }
 
-  showSnackbar();
-
+  // Show snackbar and submit the form
+  // showSnackbar();
   form.submit();
-  disableSubmitButton();
-
+  // disableSubmitButton();
   form.reset();
+  form.style.display = "none";
+  thanksForContactingUsContainer[0].style.display = "flex";
 }
 
 // scroll event listener to call navbarScrollReponsive function which changes the navbar on scroll

@@ -27,6 +27,20 @@
 
     <!-- Always -->
     <link rel="preload" as="image" href="assets/navbar/logo.svg" />
+    <link rel="preload" as="image" href="assets/employeesSection/phone.svg" />
+    <link rel="preload" as="image" href="assets/employeesSection/email.svg" />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/employeesSection/linkedin.svg"
+    />
+    <link rel="preload" as="image" href="assets/employeesSection/github.svg" />
+    <link rel="preload" as="image" href="assets/employeesSection/gitlab.svg" />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/employeesSection/defaultIcon.svg"
+    />
 
     <!--   600px and upwards -->
     <link
@@ -528,182 +542,235 @@
           />
         </div>
 
-        <div id="employeeContainer">
-          <div class="employeeCard">
-            <img
-              alt="Hand drawn image of Pauli Ervi"
-              class="employeeImage"
-              loading="lazy"
-              src="assets/employeesSection/pauli.webp"
-            />
-            <div class="employeeNameAndTitleContainer">
-              <h3 class="employeeName">Pauli Ervi</h3>
-              <h4 class="employeeTitle">The Original Bit</h4>
+        <div id="employeeSectionContentContainer">
+          <div id="employeeContainer">
+            <div class="employeeCard" id="pauli">
+              <img
+                alt="Hand drawn image of Pauli Ervi"
+                class="employeeImage"
+                loading="lazy"
+                src="assets/employeesSection/pauli.webp"
+              />
+              <div class="employeeNameAndTitleContainer">
+                <h3 class="employeeName">Pauli Ervi</h3>
+                <h4 class="employeeTitle">The Original Bit</h4>
+              </div>
+              <p class="employeeDescription">
+                Delivers complete products and solutions from ideation to
+                market. Full-stack means from boot loader to user interface.
+                Translating the real world and its real needs into bits.
+              </p>
+              <p class="clickToReadMore">Read more</p>
             </div>
-            <p class="employeeDescription">
-              Delivers complete products and solutions from ideation to market.
-              Full-stack means from boot loader to user interface. Translating
-              the real world and its real needs into bits.
-            </p>
-          </div>
-          <div class="employeeCard">
-            <img
-              alt="Hand drawn image of Yacine Ouarab"
-              class="employeeImage"
-              loading="lazy"
-              src="assets/employeesSection/jasu.webp"
-            />
-            <div class="employeeNameAndTitleContainer">
-              <h3 class="employeeName">Yacine Ouarab</h3>
-              <h4 class="employeeTitle">Trusty lieutenant</h4>
+            <div class="employeeCard" id="jasu">
+              <img
+                alt="Hand drawn image of Yacine Ouarab"
+                class="employeeImage"
+                loading="lazy"
+                src="assets/employeesSection/jasu.webp"
+              />
+              <div class="employeeNameAndTitleContainer">
+                <h3 class="employeeName">Yacine Ouarab</h3>
+                <h4 class="employeeTitle">Trusty lieutenant</h4>
+              </div>
+              <p class="employeeDescription">
+                A technical person who can think like a non-technical person. I
+                do code, admin work & management with the end-result being a
+                working solution for customer needs.
+              </p>
+              <p class="clickToReadMore">Read more</p>
             </div>
-            <p class="employeeDescription">
-              A technical person who can think like a non-technical person. I do
-              code, admin work & management with the end-result being a working
-              solution for customer needs.
-            </p>
-          </div>
-          <div class="employeeCard">
-            <img
-              alt="Hand drawn image of Nick Kononov"
-              class="employeeImage"
-              loading="lazy"
-              src="assets/employeesSection/nikki.webp"
-            />
-            <div class="employeeNameAndTitleContainer">
-              <h3 class="employeeName">Nick Kononov</h3>
-              <h4 class="employeeTitle">The Hearty Hacker</h4>
+            <div class="employeeCard" id="nick">
+              <img
+                alt="Hand drawn image of Nick Kononov"
+                class="employeeImage"
+                loading="lazy"
+                src="assets/employeesSection/nikki.webp"
+              />
+              <div class="employeeNameAndTitleContainer">
+                <h3 class="employeeName">Nick Kononov</h3>
+                <h4 class="employeeTitle">The Hearty Hacker</h4>
+              </div>
+              <p class="employeeDescription">
+                Jack of all trades but a master of none, yet still better than
+                the master of one!
+              </p>
+              <p class="clickToReadMore">Read more</p>
             </div>
-            <p class="employeeDescription">
-              Jack of all trades but a master of none, yet still better than the
-              master of one!
-            </p>
-          </div>
 
-          <div class="employeeCard">
-            <img
-              alt="Hand drawn image of Jonna Salomaa"
-              class="employeeImage"
-              loading="lazy"
-              src="assets/employeesSection/jonna.webp"
-            />
-            <div class="employeeNameAndTitleContainer">
-              <h3 class="employeeName">Jonna Salomaa</h3>
-              <h4 class="employeeTitle">The Dream Master</h4>
+            <div class="employeeCard" id="jonna">
+              <img
+                alt="Hand drawn image of Jonna Salomaa"
+                class="employeeImage"
+                loading="lazy"
+                src="assets/employeesSection/jonna.webp"
+              />
+              <div class="employeeNameAndTitleContainer">
+                <h3 class="employeeName">Jonna Salomaa</h3>
+                <h4 class="employeeTitle">The Dream Master</h4>
+              </div>
+              <p class="employeeDescription">
+                With DSB since 2017, there to help whenever things need to be
+                drawn modeled, or given pets. Likes naps, potatoes and tea with
+                cookies.
+              </p>
+              <p class="clickToReadMore">Read more</p>
             </div>
-            <p class="employeeDescription">
-              With DSB since 2017, there to help whenever things need to be
-              drawn modeled, or given pets. Likes naps, potatoes and tea with
-              cookies.
-            </p>
-          </div>
-          <div class="employeeCard">
-            <img
-              alt="Hand drawn image of Simo Jokela"
-              class="employeeImage"
-              loading="lazy"
-              src="assets/employeesSection/simo.webp"
-            />
-            <div class="employeeNameAndTitleContainer">
-              <h3 class="employeeName">Simo Jokela</h3>
-              <h4 class="employeeTitle">Activated his trap card</h4>
+            <div class="employeeCard" id="simo">
+              <img
+                alt="Hand drawn image of Simo Jokela"
+                class="employeeImage"
+                loading="lazy"
+                src="assets/employeesSection/simo.webp"
+              />
+              <div class="employeeNameAndTitleContainer">
+                <h3 class="employeeName">Simo Jokela</h3>
+                <h4 class="employeeTitle">Activated his trap card</h4>
+              </div>
+              <p class="employeeDescription">
+                Uh-oh! It seems Simo forgot to submit their self-description.
+                They're probably out there, slaying deadlines and conquering
+                tasks like a true champion!
+              </p>
+              <p class="clickToReadMore">Read more</p>
             </div>
-            <p class="employeeDescription">
-              Uh-oh! It seems Simo forgot to submit their self-description.
-              They're probably out there, slaying deadlines and conquering tasks
-              like a true champion!
-            </p>
-          </div>
-          <div class="employeeCard">
-            <img
-              alt="Hand drawn image of Antti Luukka"
-              class="employeeImage"
-              loading="lazy"
-              src="assets/employeesSection/antti.webp"
-            />
-            <div class="employeeNameAndTitleContainer">
-              <h3 class="employeeName">Antti Luukka</h3>
-              <h4 class="employeeTitle">The Impostor</h4>
+            <div class="employeeCard" id="antti">
+              <img
+                alt="Hand drawn image of Antti Luukka"
+                class="employeeImage"
+                loading="lazy"
+                src="assets/employeesSection/antti.webp"
+              />
+              <div class="employeeNameAndTitleContainer">
+                <h3 class="employeeName">Antti Luukka</h3>
+                <h4 class="employeeTitle">The Impostor</h4>
+              </div>
+              <p class="employeeDescription">
+                Getting hands-on with code is my thing. I like to develop
+                anything end user can interact with, from UI’s to games. Somehow
+                made clients happy for over a decade.
+              </p>
+              <p class="clickToReadMore">Read more</p>
             </div>
-            <p class="employeeDescription">
-              Getting hands-on with code is my thing. I like to develop anything
-              end user can interact with, from UI’s to games. Somehow made
-              clients happy for over a decade.
-            </p>
-          </div>
 
-          <div class="employeeCard">
-            <img
-              alt="Hand drawn image of Christopher Harju"
-              class="employeeImage"
-              loading="lazy"
-              src="assets/employeesSection/toffe.webp"
-            />
-            <div class="employeeNameAndTitleContainer">
-              <h3 class="employeeName">Christopher Harju</h3>
-              <h4 class="employeeTitle">The Toffe</h4>
+            <div class="employeeCard" id="christopher">
+              <img
+                alt="Hand drawn image of Christopher Harju"
+                class="employeeImage"
+                loading="lazy"
+                src="assets/employeesSection/toffe.webp"
+              />
+              <div class="employeeNameAndTitleContainer">
+                <h3 class="employeeName">Christopher Harju</h3>
+                <h4 class="employeeTitle">The Toffe</h4>
+              </div>
+              <p class="employeeDescription">
+                Toffe is an always smiling and happy developer. He spends most
+                of his time in the JavaScript ecosystem.
+              </p>
+              <p class="clickToReadMore">Read more</p>
             </div>
-            <p class="employeeDescription">
-              Toffe is an always smiling and happy developer. He spends most of
-              his time in the JavaScript ecosystem.
-            </p>
+            <div class="employeeCard" id="alex">
+              <img
+                alt="Hand drawn image of Alex Grönholm"
+                class="employeeImage"
+                loading="lazy"
+                src="assets/employeesSection/alex.webp"
+              />
+              <div class="employeeNameAndTitleContainer">
+                <h3 class="employeeName">Alex Grönholm</h3>
+                <h4 class="employeeTitle">The Python Charmer</h4>
+              </div>
+              <p class="employeeDescription">
+                Python enthusiast, prolific Open Source author and lasagne
+                zealot.
+              </p>
+              <p class="clickToReadMore">Read more</p>
+            </div>
+            <div class="employeeCard" id="hugo">
+              <img
+                alt="Hand drawn image of Hugo van Kemenade"
+                class="employeeImage"
+                loading="lazy"
+                src="assets/employeesSection/hugo.webp"
+              />
+              <div class="employeeNameAndTitleContainer">
+                <h3 class="employeeName">Hugo van Kemenade</h3>
+                <h4 class="employeeTitle">Can count your bicycles</h4>
+              </div>
+              <p class="employeeDescription">
+                Hugo is a Python developer, Python core developer, winter
+                cyclist, tea drinker and a jolly good PSF Fellow.
+              </p>
+              <p class="clickToReadMore">Read more</p>
+            </div>
+            <div class="employeeCard" id="petri">
+              <img
+                alt="Hand drawn image of Petri Teittinen"
+                class="employeeImage"
+                loading="lazy"
+                src="assets/employeesSection/petri.webp"
+              />
+              <div class="employeeNameAndTitleContainer">
+                <h3 class="employeeName">Petri Teittinen</h3>
+                <h4 class="employeeTitle">Has more tech than you</h4>
+              </div>
+              <p class="employeeDescription">
+                Petri does not feel at home unless surrounded by the comforting
+                hum of electronics. He'll chew off your ear with his
+                technobabble if you make the mistake of letting him!
+              </p>
+              <p class="clickToReadMore">Read more</p>
+            </div>
+            <div class="employeeCard" id="anne">
+              <img
+                alt="Hand drawn image of Anne Kotiranta"
+                class="employeeImage"
+                loading="lazy"
+                src="assets/employeesSection/anne.webp"
+              />
+              <div class="employeeNameAndTitleContainer">
+                <h3 class="employeeName">Anne Kotiranta</h3>
+                <h4 class="employeeTitle">Office Queen</h4>
+              </div>
+              <p class="employeeDescription">
+                Administrative addition and the black sheep of the team. A
+                non-technical person who thinks like a bureaucrat on the loose.
+              </p>
+              <p class="clickToReadMore">Read more</p>
+            </div>
           </div>
-          <div class="employeeCard">
+          <!-- if you want to change someones extended info, open employees.js and search for the person who you want to change -->
+          <div id="employeeInfoContainerModalBackdrop"></div>
+
+          <div id="employeeInfoContainer">
+            <button id="employeeInfoContainerModalCloseButton">
+              <img
+                id="employeeInfoContainerModalCloseButtonImage"
+                src="assets/employeesSection/closeModal.svg"
+              />
+            </button>
+
             <img
-              alt="Hand drawn image of Alex Grönholm"
-              class="employeeImage"
+              alt="Hand drawn image of an employee"
+              class="employeeInfoImage"
               loading="lazy"
-              src="assets/employeesSection/alex.webp"
             />
-            <div class="employeeNameAndTitleContainer">
-              <h3 class="employeeName">Alex Grönholm</h3>
-              <h4 class="employeeTitle">The Python Charmer</h4>
+            <div class="infoNameAndTitleContainer">
+              <h3 class="employeeInfoName"></h3>
+              <h4 class="employeeInfoTitle"></h4>
             </div>
-            <p class="employeeDescription">
-              Python enthusiast, prolific Open Source author and lasagne zealot.
-            </p>
-          </div>
-          <div class="employeeCard">
-            <img
-              alt="Hand drawn image of Hugo van Kemenade"
-              class="employeeImage"
-              loading="lazy"
-              src="assets/employeesSection/hugo.webp"
-            />
-            <div class="employeeNameAndTitleContainer">
-              <h3 class="employeeName">Hugo van Kemenade</h3>
-              <h4 class="employeeTitle">Can count your bicycles</h4>
-            </div>
-            <p class="employeeDescription">
-              Hugo is a Python developer, Python core developer, winter cyclist,
-              tea drinker and a jolly good PSF Fellow.
-            </p>
-          </div>
-          <div class="employeeCard">
-            <img
-              alt="Hand drawn image of Petri Teittinen"
-              class="employeeImage"
-              loading="lazy"
-              src="assets/employeesSection/petri.webp"
-            />
-            <div class="employeeNameAndTitleContainer">
-              <h3 class="employeeName">Petri Teittinen</h3>
-              <h4 class="employeeTitle">Has more tech than you</h4>
-            </div>
-            <p class="employeeDescription">
-              Petri does not feel at home unless surrounded by the comforting
-              hum of electronics. He'll chew off your ear with his technobabble
-              if you make the mistake of letting him!
-            </p>
+            <!-- Don't add content below, instead add it to the employees.js file according to instructions there. -->
+            <div class="employeeInfoTextContainer"></div>
+            <div class="socialInfoContainer"></div>
           </div>
         </div>
       </section>
-
       <section class="sectionContainer" id="contact">
         <h3 id="contactSectionHeader">Contact us</h3>
         <h4 id="contactSectionSubHeader">
-          Fill the form or reach out via telephone or email, and we'll get back
-          to you as soon as possible.
+          Fill the form or reach out via email, and we'll get back to you as
+          soon as possible.
         </h4>
         <div class="contactSectionContent">
           <div class="contactSectionPeople">
@@ -715,7 +782,7 @@
               />
               <div class="contactPersonTextContainer">
                 <h5 class="contactPersonName">Pauli Ervi</h5>
-                <p class="contactPersonTitle">CEO</p>
+                <p class="contactReason">Sales</p>
                 <p class="contactPersonEmail">pauli@deadsetbit.com</p>
                 <!-- <p class="contactPersonPhone"></p> -->
               </div>
@@ -728,23 +795,26 @@
               />
               <div class="contactPersonTextContainer">
                 <h5 class="contactPersonName">Yacine Ouarab</h5>
-                <p class="contactPersonTitle">Title</p>
+                <p class="contactReason">Sales</p>
                 <p class="contactPersonEmail">jasu@deadsetbit.com</p>
                 <!-- <p class="contactPersonPhone"></p> -->
               </div>
             </div>
-            <!-- <div class="contactPersonContainer">
+            <div class="contactPersonContainer">
+              <!-- Annes image was wider than the others so i made a more narrow version(anne2) of it for the contact section. The original image needed to be made smaller via css and this caused lighthouse errors because the image was not in the original aspect ratio. -->
+
               <img
                 class="contactPersonImage"
-                src="assets/employeesSection/simo.webp"
+                src="assets/employeesSection/anne2.webp"
+                alt="Hand drawn image of Anne Kotiranta"
               />
               <div class="contactPersonTextContainer">
                 <h5 class="contactPersonName">Anne Kotiranta</h5>
-                <p class="contactPersonTitle">Title</p>
+                <p class="contactReason">General Inquiries</p>
                 <p class="contactPersonEmail">anne@deadsetbit.com</p>
-                <p class="contactPersonPhone">+358 04 193 3949</p>
+                <!-- <p class="contactPersonPhone">+358 04 193 3949</p> -->
               </div>
-            </div> -->
+            </div>
           </div>
           <div class="contactFormContainer">
             <!-- Using a hidden iFrame here to prevent redirection to the Google Forms webpage upon form submission.
@@ -780,22 +850,28 @@
                 id="name"
                 name="name"
               />
-              <label class="formLabel" for="email">Email*</label>
+              <label class="formLabel" id="emailLabel" for="email"
+                >Email*</label
+              >
               <input
                 name="entry.532987373"
                 class="contactFormInput"
                 type="email"
                 id="email"
                 name="email"
+                placeholder="Please fill at least one: Email or Phone Number"
               />
 
-              <label class="formLabel" for="phone">Phone Number*</label>
+              <label class="formLabel" id="phoneLabel" for="phone"
+                >Phone Number*</label
+              >
               <input
                 name="entry.1785509439"
                 class="contactFormInput"
                 type="tel"
                 id="phone"
                 name="phone"
+                placeholder="Please fill at least one: Email or Phone Number"
               />
               <label class="formLabel" for="messageField">Message*</label>
               <textarea
@@ -805,10 +881,9 @@
                 name="message"
                 rows="10"
               ></textarea>
-
               <div id="contactFormRadioInputContainer">
                 <label class="formLabel" for="contactPreference"
-                  >How do you want us to contact you? *</label
+                  >How do you want us to contact you?*</label
                 >
 
                 <input
@@ -860,30 +935,15 @@
                 <button id="submitButton" type="button">Submit</button>
               </div>
             </form>
+            <div class="thanksForContactingUsContainer">
+              <p class="thanksForContactingUsText">
+                Thanks for contacting us, we'll get back to you as soon as
+                possible!
+              </p>
+            </div>
           </div>
         </div>
       </section>
-      <div class="snackbar" id="snackbar">
-        <div class="snackbarContent">
-          <p class="snackbarText">Thank you for contacting us!</p>
-          <button id="snackbarClose" aria-label="Close">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M18 6 6 18"></path>
-              <path d="m6 6 12 12"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
       <!-- Footer -->
       <footer class="sectionContainer" id="footer">
         <p>

@@ -49,6 +49,12 @@
 
   /* tech card amount */
   --tech-card-amount: 3;
+
+  /* navbar heights */
+  --navbar-height-full: 10rem;
+  --navbar-height-fullScrolled: 6rem;
+  --navbar-height-600px: 3rem;
+  --navbar-height-450px: 4rem;
 }
 
 html {
@@ -82,9 +88,10 @@ button {
 #navbar {
   width: 80%;
   max-width: 100rem;
-  height: 10rem;
+  height: var(--navbar-height-full);
   z-index: 10;
   position: fixed;
+  top: 0;
   background-color: var(--dsb-dark);
   transition: width var(--transition-time), height var(--transition-time),
     max-width var(--transition-time);
@@ -93,7 +100,7 @@ button {
 #navbar.navbarScrolled {
   width: 100%;
   max-width: 100vw;
-  height: 6rem;
+  height: var(--navbar-height-fullScrolled);
 }
 
 #navbarList {
@@ -942,8 +949,7 @@ button {
     #d1d1d1,
     #dcdcdc,
     #e8e8e8,
-    #f3f3f3,
-    #ffffff
+    #f8f8f8
   );
   width: 100%;
   display: flex;
@@ -967,14 +973,158 @@ button {
   width: 352;
 }
 
+#employeeSectionContentContainer {
+  margin: var(--margin-xs);
+  margin-bottom: var(--margin-big);
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#employeeInfoContainer {
+  /* min-height: 45rem; */
+  max-width: 600px;
+  background-color: var(--dsb-yellow);
+  border-radius: 10px;
+  border: 25px solid white;
+  margin-left: 10rem;
+  position: sticky;
+  top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: calc(100vh - var(--navbar-height-fullScrolled) - 3rem);
+
+  overflow-y: scroll;
+  overflow-x: none;
+  z-index: 5;
+  /* Scrollbar Styles */
+  scrollbar-width: thin;
+  scrollbar-color: #555;
+
+  /* WebKit (Chrome, Safari, Edge) Styles */
+  scrollbar-track-color: transparent;
+  scrollbar-face-color: transparent;
+  scrollbar-highlight-color: transparent;
+  scrollbar-shadow-color: transparent;
+  scroll-snap-type: mandatory;
+}
+
+#employeeInfoContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+#employeeInfoContainer::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to right,
+    #d3d3d3,
+    #d3d3d3
+  ); /* Light grey for the scrollbar thumb */
+  border-radius: 4px;
+  border: 1px solid #c0bebe;
+}
+
+#employeeInfoContainerModalBackdrop {
+  display: none;
+  width: 100vw;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #150e19;
+  opacity: 0.4;
+}
+
+.visible {
+  position: relative;
+  display: flex !important;
+}
+
+#employeeInfoContainerModalCloseButton {
+  position: absolute;
+  right: 0rem;
+  top: 0rem;
+  z-index: 6;
+  display: none;
+}
+
+#employeeInfoContainerModalCloseButtonImage {
+  width: 30px;
+  height: 30px;
+}
+
+.employeeInfoImage {
+  padding-top: 1rem;
+  bottom: 14rem;
+  height: 12rem;
+}
+
+.employeeName {
+  margin-top: 2rem;
+}
+.employeeInfoName {
+  color: var(--dsb-dark-grey);
+  font-size: var(--text-big);
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+}
+
+.employeeInfoTitle {
+  color: var(--dsb-dark-grey);
+  font-size: var(--text-middle);
+  font-style: italic;
+  font-weight: 300;
+  text-align: center;
+}
+
+.employeeInfoTextContainer {
+  margin-left: var(--margin-small);
+}
+
+.employeeInfoText {
+  color: var(--dsb-dark-grey);
+  font-size: var(--text-middle);
+  font-weight: lighter;
+  font-size: var(--text-small);
+  line-height: var(--line-height--xs);
+  margin-top: var(--margin-xs);
+  margin-bottom: var(--margin-xs);
+  margin-right: var(--margin-small);
+}
+
+.socialInfoContainer {
+  width: 85%;
+  /* margin-bottom: var(--margin-medium); */
+  display: flex;
+  flex-direction: column;
+  /* margin-left: var(--margin-small);
+  margin-bottom: var(--margin-xs); */
+}
+.socialInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.socialText {
+  margin-left: 1rem;
+  color: var(--dsb-dark-grey);
+  font-weight: lighter;
+}
+
+.socialLink {
+  color: var(--dsb-dark-grey);
+  font-weight: lighter;
+  text-decoration: none;
+}
+
 #employeeContainer {
-  margin-top: var(--margin-medium);
-  margin-bottom: 5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
   row-gap: 9.2rem;
-  column-gap: 5rem;
+  column-gap: 3rem;
 }
 
 .employeeCard {
@@ -989,6 +1139,23 @@ button {
   -webkit-box-shadow: var(--box-shadow);
   -moz-box-shadow: var(--box-shadow);
   position: relative;
+  border-radius: 10px;
+  transition: var(--transition-time);
+  cursor: pointer;
+}
+
+/* .employeeCard:hover {
+  background-color: var(--dsb-yellow);
+} */
+
+@media (min-width: 900px) {
+  .employeeCard:hover {
+    background-color: var(--dsb-yellow);
+  }
+}
+
+.employeeCardActive {
+  background-color: var(--dsb-yellow);
 }
 
 .employeeImage {
@@ -1022,6 +1189,78 @@ button {
   line-height: var(--line-height--xs);
 
   font-weight: 300;
+}
+.clickToReadMore {
+  /* margin-right: 2rem;
+  margin-left: 2rem;
+  margin-top: var(--margin-xs); */
+  text-decoration: underline;
+  position: absolute;
+  font-size: var(--text-xs);
+  margin-top: 1rem;
+
+  top: 13rem;
+  left: 2rem;
+}
+
+@media only screen and (max-width: 1600px) {
+  #employeeInfoContainer {
+    margin-left: 3rem;
+    border: 20px solid white;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  /* #employeeInfoContainer {
+    margin-left: 3rem;
+    border: 20px solid white;
+  } */
+
+  #employeeContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .employeeInfoText {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .employeeCard {
+    width: 30rem;
+  }
+
+  /* !NOTE fix this to not have the hover effect on this breakpoint */
+  /* .employeeCard:hover {
+    background-color: white;
+  } */
+
+  #employeeInfoContainer {
+    margin: 0;
+    width: 85%;
+    position: fixed;
+    top: 10rem;
+    display: none;
+    border: 10px solid white;
+    max-height: calc(100vh - var(--navbar-height-fullScrolled) - 6rem);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #employeeInfoContainer {
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    /* top: 10rem; */
+    max-height: calc(100vh - var(--navbar-height-600px) - 10rem);
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #employeeInfoContainer {
+    max-height: calc(100vh - var(--navbar-height-450px) - 9rem);
+  }
 }
 
 /* 
@@ -1060,27 +1299,29 @@ button {
 
 .contactPersonContainer {
   display: flex;
+  justify-content: space-evenly;
   margin: 2rem 0rem;
 }
 
 .contactPersonImage {
-  max-width: 100%;
+  max-width: 140px;
 }
 
 .contactPersonTextContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 2rem 3rem;
+  margin: 2rem 10px;
 }
 .contactPersonName {
   font-size: var(--text-big);
   font-style: italic;
 }
 
-.contactPersonTitle {
+.contactReason {
   font-size: var(--text-middle);
   font-style: italic;
+  margin: 4px 0;
 }
 
 .contactPersonEmail {
@@ -1128,13 +1369,17 @@ button {
   margin-bottom: 15px;
 }
 
-.contactFormRadioInputContainer {
+#contactFormRadioInputContainer {
   font-size: var(--text-middle);
-  margin-bottom: 15px;
 }
 .contactFormRadioInput {
   width: 15px;
   height: 15px;
+}
+.helpText {
+  font-size: var(--text-small);
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .radioLabel {
   font-size: var(--text-middle);
@@ -1183,7 +1428,25 @@ button {
   cursor: not-allowed;
 }
 
-.snackbar {
+.thanksForContactingUsContainer {
+  display: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: var(--dsb-dark-grey);
+  margin: 3rem 0rem;
+  width: 80%;
+}
+
+.thanksForContactingUsText {
+  font-size: var(--text-middle);
+}
+.socialIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* .snackbar {
   visibility: hidden;
   position: fixed;
   top: 5%;
@@ -1225,7 +1488,7 @@ button {
   .snackbarContent {
     justify-content: center;
   }
-}
+} */
 
 @media only screen and (max-width: 1200px) {
   .contactSectionContent {
@@ -1247,7 +1510,8 @@ button {
   }
   .contactPersonImage {
     height: 134px;
-    width: auto;
+    max-width: 110px;
+
     padding-left: 3px;
   }
   .contactFormContainer {
@@ -1411,10 +1675,10 @@ button {
   Employees Section
  */
 
-  #employeeContainer {
+  /* #employeeContainer {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-  }
+    grid-template-rows: auto;
+  } */
 }
 
 /* --------------900PX-------------- */
@@ -1560,11 +1824,11 @@ button {
   }
 
   #navbar {
-    height: 3rem;
+    height: var(--navbar-height-600px);
   }
 
   #navbar.navbarScrolled {
-    height: 3rem;
+    height: var(--navbar-height-600px);
   }
 
   #navbarListRightSide {
@@ -1809,11 +2073,11 @@ button {
   }
 
   #navbar {
-    height: 4rem;
+    height: var(--navbar-height-450px);
   }
 
   #navbar.navbarScrolled {
-    height: 4rem;
+    height: var(--navbar-height-450px);
   }
 
   #cardImagePerson {
@@ -1879,7 +2143,7 @@ button {
   /* employee Section */
 
   #employees {
-    width: 80%;
+    width: 70%;
   }
 
   .employeeCard {
