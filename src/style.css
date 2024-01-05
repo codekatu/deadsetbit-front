@@ -1317,9 +1317,10 @@ button {
   font-style: italic;
 }
 
-.contactPersonTitle {
+.contactReason {
   font-size: var(--text-middle);
   font-style: italic;
+  margin: 4px 0;
 }
 
 .contactPersonEmail {

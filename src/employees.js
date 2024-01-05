@@ -41,9 +41,9 @@ const employees = {
     name: "Pauli Ervi",
     title: "The Original Bit",
     social: {
-      email: "pauli@deadsetbit.com",
-      cv: "https://www.google.com/",
-      linkedin: "https://www.linkedin.com/",
+      // email: "pauli@deadsetbit.com",
+      // cv: "https://www.google.com/",
+      // linkedin: "https://www.linkedin.com/",
     },
     descriptions: [
       "Pauli is a proficient full-stack software architect boasting nearly 20 years of experience in crafting solutions across web, native, embedded, and mobile development domains. In Pauli's context, 'full-stack' encompasses a broad spectrum, starting from operating system boot loaders and extending to end-user graphical interfaces and websites. Specializing in delivering comprehensive solutions, Pauli excels in advising clients on particularly complex development projects. Currently, Pauli is overseeing the architecture of Haltian Empathic Building IoT solution. Pauli’s working languages are Finnish and English",
@@ -55,12 +55,12 @@ const employees = {
     name: "Yacine Ouarab",
     title: "Trusty lieutenant",
     social: {
-      email: "jasu@deadsetbit.com",
-      phone: "+358 40 123 4567",
-      cv: "https://www.google.com/",
-      linkedin: "https://www.linkedin.com/",
-      github: "https://github.com/",
-      gitlab: "https://gitlab.com/",
+      // email: "jasu@deadsetbit.com",
+      // phone: "+358 40 123 4567",
+      // cv: "https://www.google.com/",
+      // linkedin: "https://www.linkedin.com/",
+      // github: "https://github.com/",
+      // gitlab: "https://gitlab.com/",
     },
     descriptions: [
       "Jasu is a senior front-end developer with a decade of commercial experience in web services development. Over the past six years, Jasu has led a technical team of 4 to 16 members, working on a prominent IoT data visualization digital twin product. Jasu excels in both hands-on technical roles and in bridging the gap between business objectives and technical requirements. While primarily focused on the JavaScript ecosystem, Jasu also brings experience in Java-based web applications to the table.",
@@ -73,12 +73,12 @@ const employees = {
     name: "Nick Kononov",
     title: "The Hearty Hacker",
     social: {
-      email: "nick@deadsetbit.com",
-      phone: "+358 40 123 4567",
-      cv: "https://www.google.com/",
-      linkedin: "https://www.linkedin.com/",
-      github: "https://github.com/",
-      gitlab: "https://gitlab.com/",
+      // email: "nick@deadsetbit.com",
+      // phone: "+358 40 123 4567",
+      // cv: "https://www.google.com/",
+      // linkedin: "https://www.linkedin.com/",
+      // github: "https://github.com/",
+      // gitlab: "https://gitlab.com/",
     },
     descriptions: [
       "Nick is a skilled full-stack developer with 7 years of experience in creating engaging user interfaces and ensuring seamless backend operations. Over the past 5 years, his focus has primarily been on developing Python backends along with various JavaScript and TypeScript frontends. In his work with Python, Nick has developed numerous integrations for a leading IoT platform, effectively combining sensor data from multiple sources. Additionally, he has experience with integrating to Microsoft Graph APIs.",
@@ -91,11 +91,11 @@ const employees = {
     name: "Jonna Salomaa",
     title: "The Dream Master",
     social: {
-      email: "jonna@deadsetbit.com",
-      phone: "+358 40 123 4567",
-      cv: "https://www.google.com/",
-      linkedin: "https://www.linkedin.com/",
-      devianArt: "https://www.deviantart.com/",
+      // email: "jonna@deadsetbit.com",
+      // phone: "+358 40 123 4567",
+      // cv: "https://www.google.com/",
+      // linkedin: "https://www.linkedin.com/",
+      // devianArt: "https://www.deviantart.com/",
     },
 
     descriptions: [
@@ -109,8 +109,8 @@ const employees = {
     name: "Simo Jokela",
     title: "Activated his trap card",
     social: {
-      email: "simo@deadsetbit.com",
-      phone: "+358 40 123 4567",
+      // email: "simo@deadsetbit.com",
+      // phone: "+358 40 123 4567",
     },
     descriptions: [
       "Simo is a seasoned software architect with 14 years of commercial experience in developing scalable JavaScript applications. His expertise encompasses a range of technologies including JavaScript, TypeScript, React, Drupal, REST APIs, and GraphQL. Over the past five years, Simo has successfully led various projects, notably in eCommerce and IoT data visualization application development.",
@@ -123,8 +123,8 @@ const employees = {
     name: "Antti Luukka",
     title: "The Impostor",
     social: {
-      cv: "https://www.google.com/",
-      linkedin: "https://www.linkedin.com/",
+      // cv: "https://www.google.com/",
+      // linkedin: "https://www.linkedin.com/",
     },
     descriptions: [
       "Antti is a seasoned developer, boasting over 16 years of commercial experience in front-end, back-end, and desktop applications and systems. His comprehensive understanding of both front-end and back-end systems enables him to adeptly navigate and integrate various aspects of application development. This expertise is particularly valuable when planning the architecture and features of projects, especially under tight schedules and with ambiguous requirements. Antti is known for his ability to bring clarity and calmness to any project he is involved in.",
@@ -137,10 +137,10 @@ const employees = {
     name: "Christopher Harju",
     title: "The Toffe",
     social: {
-      cv: "https://www.google.com/",
-      linkedin: "https://www.linkedin.com/",
-      github: "https://github.com/",
-      gitlab: "https://gitlab.com/",
+      // cv: "https://www.google.com/",
+      // linkedin: "https://www.linkedin.com/",
+      // github: "https://github.com/",
+      // gitlab: "https://gitlab.com/",
     },
 
     descriptions: [
@@ -153,12 +153,12 @@ const employees = {
     name: "Alex Grönholm",
     title: "The Python Charmer",
     social: {
-      email: "alex@deadsetbit.com",
-      phone: "+358 40 123 4567",
-      cv: "https://www.google.com/",
-      linkedin: "https://www.linkedin.com/",
-      github: "https://github.com/",
-      gitlab: "https://gitlab.com/",
+      // email: "alex@deadsetbit.com",
+      // phone: "+358 40 123 4567",
+      // cv: "https://www.google.com/",
+      // linkedin: "https://www.linkedin.com/",
+      // github: "https://github.com/",
+      // gitlab: "https://gitlab.com/",
     },
     descriptions: [
       "Alex is a senior backend architect with a robust 19 years of experience in commercial development. Over the last seven years, Alex has played a pivotal role in developing a scalable, cloud vendor-agnostic, high-volume backend. This system is designed to collect measurement data from sensors and stream it efficiently. Alex is proficient in working with time-series data, MQTT, Kubernetes, REST APIs, and PostgreSQL on a daily basis.",
@@ -171,11 +171,11 @@ const employees = {
     name: "Hugo van Kemenade",
     title: "Can count your bicycles",
     social: {
-      email: "hugo@deadsetbit.com",
-      phone: "+358 40 123 4567",
-      cv: "https://www.google.com/",
-      linkedin: "https://www.linkedin.com/",
-      github: "https://github.com/",
+      // email: "hugo@deadsetbit.com",
+      // phone: "+358 40 123 4567",
+      // cv: "https://www.google.com/",
+      // linkedin: "https://www.linkedin.com/",
+      // github: "https://github.com/",
     },
     descriptions: [
       "Hugo is an exceptional developer with 23 years of commercial experience in mobile, embedded, and web services development. A Fellow of the Python Software Foundation and a Core Developer of the Python programming language, Hugo has made significant contributions to the field. He is the author of several widely-used Python open-source libraries, including the Pillow imaging library, which boasts approximately 70 million downloads monthly. Collectively, the libraries maintained or co-maintained by Hugo are downloaded over 100 million times per month by Python developers.",
@@ -188,10 +188,10 @@ const employees = {
     name: "Petri Teittinen",
     title: "Has more tech than you",
     social: {
-      email: "petri@deadsetbit.com",
-      phone: "+358 40 123 4567",
-      cv: "https://www.google.com/",
-      linkedin: "https://www.linkedin.com/",
+      // email: "petri@deadsetbit.com",
+      // phone: "+358 40 123 4567",
+      // cv: "https://www.google.com/",
+      // linkedin: "https://www.linkedin.com/",
     },
     descriptions: [
       "Petri is an expert in the realm of physical technology, or hardware. His career began in tech journalism in 1986, where he produced content for several well-known technology magazines. Known for his diligence and efficiency, Petri is always prepared to take initiative when necessary. His ability to communicate complex technical concepts in a manner accessible to non-technical audiences has repeatedly proven invaluable, particularly in customer meetings.",
@@ -202,16 +202,15 @@ const employees = {
   anne: {
     img: "assets/employeesSection/anne.webp",
     name: "Anne Kotiranta",
-    title: "Placeholder",
+    title: "Office Queen",
     social: {
-      email: "anne@deadsetbit.com",
-      phone: "+358 40 123 4567",
-      cv: "https://www.google.com/",
-      linkedin: "https://www.linkedin.com/",
+      // email: "anne@deadsetbit.com",
+      // phone: "+358 40 123 4567",
+      // cv: "https://www.google.com/",
+      // linkedin: "https://www.linkedin.com/",
     },
     descriptions: [
-      "Anne ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac gravida mi. Suspendisse nec purus varius, malesuada massa non, condimentum mi. Aenean non sagittis placerat t, consectetur adipiscing.",
-      "Phasellus semper mi quis tempor varius. Fusce.  cincidunt mi interdum eget. Duis non lcidunt mi interdum eget. Duis non leo.",
+      "Uh-oh! It seems Anne forgot to submit their self-description.They're probably out there, slaying deadlines and conquering tasks like a true champion!",
     ],
   },
   //add the next employee here
