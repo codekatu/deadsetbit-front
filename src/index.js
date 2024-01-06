@@ -76,6 +76,10 @@ window.onload = function () {
   // render first person to the employeeInfoContainer
   updateInfo("pauli");
 
+  employeeInfoBoxCloseButton.addEventListener("click", employeeInfoBoxClose);
+  backdrop.addEventListener("click", employeeInfoBoxClose);
+  navbar.addEventListener("click", employeeInfoBoxClose);
+
   for (let index = 0; index < tabButtons.length; index++) {
     const element = tabButtons[index];
     element.addEventListener("click", tabButton);
@@ -86,13 +90,6 @@ window.onload = function () {
     if (window.innerWidth > 900 && backdrop.classList.contains("visible")) {
       employeeInfoBoxClose();
     }
-
-    employeeInfoBoxCloseButton.addEventListener("click", employeeInfoBoxClose);
-
-    backdrop.addEventListener("click", employeeInfoBoxClose);
-
-    // if the user clicks on the navbar or on the menu the modal should also close
-    navbar.addEventListener("click", employeeInfoBoxClose);
 
     const isTransitionToDesktop = wasBelow900 && window.innerWidth > 900;
     // Update the flag for the next resize event
