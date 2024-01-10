@@ -434,9 +434,6 @@ button {
   max-width: 100%;
   display: grid;
   grid-template-columns: repeat(var(--tech-card-amount), 34rem);
-  /* grid-template-rows: 45rem; */
-  /* gap: var(--margin-small); */
-  /* column-gap: var(--margin-small); */
   margin-bottom: var(--margin-xs);
 }
 
@@ -447,8 +444,6 @@ button {
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   line-height: var(--line-height--small);
-
-  /* background: linear-gradient(180deg, #dedede 10%, #a9a7a9 100%); */
 }
 
 .technologyCardHeader {
