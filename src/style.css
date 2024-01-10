@@ -81,7 +81,7 @@ button {
   border: none;
 }
 
-/* 
+/*
 -----------------NAVBAR-----------------
  */
 
@@ -279,7 +279,7 @@ button {
   width: 90%;
 }
 
-/* 
+/*
 
 
 -----------------HERO SECTION-----------------
@@ -402,7 +402,7 @@ button {
   font-style: italic;
 }
 
-/* 
+/*
 -----------------Technology Section-----------------
  */
 
@@ -702,12 +702,12 @@ button {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
-/* 
+/*
 .blur {
   filter: blur(1px);
 } */
 
-/* 
+/*
 
 
 -----------------EB SECTION-----------------
@@ -807,7 +807,7 @@ button {
   height: 43.91px;
 }
 
-/* 
+/*
 -----------------BANZAIMAN SECTION-----------------
  */
 
@@ -939,7 +939,7 @@ button {
   width: 200px;
   /* height: 116px; */
 }
-/* 
+/*
 -----------------EMPLOYEES SECTION-----------------
  */
 
@@ -1230,11 +1230,6 @@ button {
     width: 30rem;
   }
 
-  /* !NOTE fix this to not have the hover effect on this breakpoint */
-  /* .employeeCard:hover {
-    background-color: white;
-  } */
-
   #employeeInfoContainer {
     margin: 0;
     width: 85%;
@@ -1263,7 +1258,7 @@ button {
   }
 }
 
-/* 
+/*
 -----------------CONTACT SECTION-----------------
  */
 
@@ -1302,9 +1297,14 @@ button {
   justify-content: space-evenly;
   margin: 2rem 0rem;
 }
-
+.contactPersonImageContainer {
+  width: 195px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .contactPersonImage {
-  max-width: 140px;
+  max-width: 170px;
 }
 
 .contactPersonTextContainer {
@@ -1446,50 +1446,6 @@ button {
   height: 24px;
 }
 
-/* .snackbar {
-  visibility: hidden;
-  position: fixed;
-  top: 5%;
-  left: 50%;
-  width: 100%;
-  max-width: 22rem;
-  padding: 1rem;
-  background-color: var(--dsb-green);
-  color: var(--dsb-fullWhite);
-  font-size: var(--text-small);
-  border-radius: 10px;
-  text-align: left;
-  transform: translateX(-50%);
-  z-index: 3;
-  opacity: 0.3;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-    top 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-}
-
-.snackbarContent {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#snackbarClose {
-  cursor: pointer;
-  outline: none;
-  color: var(--dsb-fullWhite);
-  font-size: 1rem;
-}
-
-@media only screen and (max-width: 450px) {
-  .snackbar {
-    max-width: 100%;
-    font-size: var(--text-middle);
-    text-align: center;
-  }
-  .snackbarContent {
-    justify-content: center;
-  }
-} */
-
 @media only screen and (max-width: 1200px) {
   .contactSectionContent {
     flex-direction: column;
@@ -1508,9 +1464,11 @@ button {
   #contactForm {
     width: 100%;
   }
+  .contactPersonImageContainer {
+    width: 150px;
+  }
   .contactPersonImage {
     height: 134px;
-    max-width: 110px;
 
     padding-left: 3px;
   }
@@ -1534,6 +1492,15 @@ button {
 #contactFormRadioInputContainer {
   padding-top: 5px;
   border-radius: 10px;
+}
+
+@media only screen and (max-width: 400px) {
+  .contactPersonImageContainer {
+    width: 115px;
+  }
+  .contactPersonImage {
+    height: 100px;
+  }
 }
 
 /*
