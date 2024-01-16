@@ -62,6 +62,7 @@ const thanksForContactingUsContainer = document.getElementsByClassName(
 );
 const emailLabel = document.getElementById("emailLabel");
 const phoneLabel = document.getElementById("phoneLabel");
+const listItemLinkText = document.getElementsByClassName("listItemLinkText");
 
 // global variables
 let isButtonPressed = false;
@@ -575,6 +576,11 @@ function navbarScrollResponsive() {
       const element = listItems[index];
       element.classList.add("listItemScrolled");
     }
+
+    for (let index = 0; index < listItemLinkText.length; index++) {
+      const element = listItemLinkText[index];
+      element.classList.add("listItemLinkTextScrolled");
+    }
   }
   // when scroll is under 150 change these classes to their default state
   else {
@@ -587,6 +593,11 @@ function navbarScrollResponsive() {
     for (let index = 0; index < listItems.length; index++) {
       const element = listItems[index];
       element.classList.remove("listItemScrolled");
+    }
+
+    for (let index = 0; index < listItemLinkText.length; index++) {
+      const element = listItemLinkText[index];
+      element.classList.remove("listItemLinkTextScrolled");
     }
   }
 }
