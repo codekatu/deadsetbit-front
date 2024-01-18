@@ -8,6 +8,7 @@ import employees from "./employees";
 const navbar = document.getElementById("navbar");
 const navbarList = document.getElementById("navbarList");
 const listItems = document.getElementsByClassName("listItem");
+const listItemLinkImage = document.getElementsByClassName("listItemLinkImage");
 const logoContainer = document.getElementById("logoContainer");
 const logo = document.getElementById("logoSvg");
 const leftEye = document.getElementById("leftEye");
@@ -575,6 +576,11 @@ function navbarScrollResponsive() {
       const element = listItems[index];
       element.classList.add("listItemScrolled");
     }
+
+    for (let index = 0; index < listItemLinkImage.length; index++) {
+      const element = listItemLinkImage[index];
+      element.classList.add("listItemLinkImageScrolled");
+    }
   }
   // when scroll is under 150 change these classes to their default state
   else {
@@ -587,6 +593,10 @@ function navbarScrollResponsive() {
     for (let index = 0; index < listItems.length; index++) {
       const element = listItems[index];
       element.classList.remove("listItemScrolled");
+    }
+    for (let index = 0; index < listItemLinkImage.length; index++) {
+      const element = listItemLinkImage[index];
+      element.classList.remove("listItemLinkImageScrolled");
     }
   }
 }

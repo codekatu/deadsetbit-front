@@ -120,11 +120,21 @@ button {
   height: 5rem;
   width: 5rem;
   margin-right: var(--margin-small);
-  box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
-  -webkit-box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
-  -moz-box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
   transition: box-shadow var(--transition-time), width var(--transition-time),
     height var(--transition-time);
+}
+
+.listItemContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.listItemText {
+  color: white;
+  font-size: var(--text-small);
+  margin-right: 40px;
+  margin-top: 0.25rem;
 }
 .listItem:hover #listItemAbout {
   transform: scale(1.25);
@@ -132,8 +142,8 @@ button {
 }
 
 .listItemScrolled {
-  height: 4.5rem;
-  width: 4.5rem;
+  height: 4rem;
+  width: 4rem;
   box-shadow: none;
 }
 
@@ -190,6 +200,11 @@ button {
   height: 56px;
   transition: var(--transition-time);
 }
+.listItemLinkImageScrolled {
+  width: 50px;
+  height: 50px;
+}
+
 .listItem:hover .listItemLinkImage {
   transform: scale(1.25);
 }
@@ -406,7 +421,7 @@ button {
 -----------------Technology Section-----------------
  */
 
-#aboutOurTechnology {
+#services {
   width: 100%;
   background-image: linear-gradient(180deg, #f5f1f1 0%, #e6e6e6 100%);
   position: relative;
@@ -707,6 +722,10 @@ button {
 
 -----------------EB SECTION-----------------
  */
+
+#projects {
+  width: 100%;
+}
 
 #empathic-building {
   background-color: var(--dsb-ebWhite);
