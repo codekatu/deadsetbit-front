@@ -117,8 +117,9 @@ button {
   align-items: center;
   background-color: var(--dsb-red);
   color: var(--dsb-fullWhite);
-  height: 5rem;
-  width: 5rem;
+  height: 4rem;
+  width: 4rem;
+  margin-top: 23px;
   margin-right: var(--margin-small);
   transition: box-shadow var(--transition-time), width var(--transition-time),
     height var(--transition-time);
@@ -136,14 +137,18 @@ button {
   margin-right: 40px;
   margin-top: 0.25rem;
 }
+.listItemTextScrolled {
+  font-size: var(--text-xs);
+  margin-bottom: 7px;
+}
 .listItem:hover #listItemAbout {
   transform: scale(1.25);
   text-decoration: none;
 }
 
 .listItemScrolled {
-  height: 4rem;
-  width: 4rem;
+  height: 3.5rem;
+  width: 3.5rem;
   box-shadow: none;
 }
 
@@ -201,12 +206,12 @@ button {
   transition: var(--transition-time);
 }
 .listItemLinkImageScrolled {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
 }
 
 .listItem:hover .listItemLinkImage {
-  transform: scale(1.25);
+  transform: scale(1.1);
 }
 
 .navbarListContainer {
@@ -1574,13 +1579,16 @@ button {
   }
 }
 
+@media only screen and (max-width: 1232px) {
+  #navbar {
+    width: 100%;
+  }
+}
+
 /* --------------1200PX-------------- */
 @media only screen and (max-width: 1200px) {
   /* NAVBAR */
 
-  #navbar {
-    width: 100%;
-  }
   /* hero section */
 
   #about {
@@ -1772,38 +1780,7 @@ button {
   }
 }
 
-/* --------------750px-------------- */
-@media only screen and (max-width: 750px) {
-  #employeeContainer {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-}
-/* --------------700px-------------- */
-
-@media only screen and (max-width: 700px) {
-  #doggoContainer {
-    left: 26rem;
-  }
-}
-
-/* --------------650px-------------- */
-
-@media only screen and (max-width: 650px) {
-  #doggoContainer {
-    left: 25rem;
-  }
-}
-
-/* --------------600px-------------- */
-@media only screen and (max-width: 600px) {
-  /* navbar */
-
-  html {
-    scroll-padding-top: 3rem;
-    font-size: 90%;
-  }
-
+@media only screen and (max-width: 990px) {
   #navbar {
     height: var(--navbar-height-600px);
   }
@@ -1904,6 +1881,37 @@ button {
 
   #menuHeader {
     display: block;
+  }
+}
+
+/* --------------750px-------------- */
+@media only screen and (max-width: 750px) {
+  #employeeContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}
+/* --------------700px-------------- */
+
+@media only screen and (max-width: 700px) {
+  #doggoContainer {
+    left: 26rem;
+  }
+}
+
+/* --------------650px-------------- */
+
+@media only screen and (max-width: 650px) {
+  #doggoContainer {
+    left: 25rem;
+  }
+}
+
+/* --------------600px-------------- */
+@media only screen and (max-width: 600px) {
+  html {
+    scroll-padding-top: 3rem;
+    font-size: 90%;
   }
 
   /* hero section  */

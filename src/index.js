@@ -10,6 +10,7 @@ const navbarList = document.getElementById("navbarList");
 const listItems = document.getElementsByClassName("listItem");
 const listItemLinkImage = document.getElementsByClassName("listItemLinkImage");
 const logoContainer = document.getElementById("logoContainer");
+const listItemText = document.getElementsByClassName("listItemText");
 const logo = document.getElementById("logoSvg");
 const leftEye = document.getElementById("leftEye");
 const rightEye = document.getElementById("rightEye");
@@ -581,6 +582,11 @@ function navbarScrollResponsive() {
       const element = listItemLinkImage[index];
       element.classList.add("listItemLinkImageScrolled");
     }
+
+    for (let index = 0; index < listItemText.length; index++) {
+      const element = listItemText[index];
+      element.classList.add("listItemTextScrolled");
+    }
   }
   // when scroll is under 150 change these classes to their default state
   else {
@@ -597,6 +603,10 @@ function navbarScrollResponsive() {
     for (let index = 0; index < listItemLinkImage.length; index++) {
       const element = listItemLinkImage[index];
       element.classList.remove("listItemLinkImageScrolled");
+    }
+    for (let index = 0; index < listItemText.length; index++) {
+      const element = listItemText[index];
+      element.classList.remove("listItemTextScrolled");
     }
   }
 }
