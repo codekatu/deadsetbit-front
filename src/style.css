@@ -104,17 +104,22 @@ button {
 }
 
 #navbarListRightSide {
-  margin-right: var(--margin-xs);
+  margin-left: 4rem;
 }
 
 #navbarListLeftSide {
-  margin-left: var(--margin-xs);
 }
 
 #navbarList {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  height: 100%;
+  transition: var(--transition-time);
+}
+
+#navbarList.navbarListScrolled {
+  justify-content: space-between;
   height: 100%;
   transition: var(--transition-time);
 }

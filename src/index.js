@@ -568,7 +568,7 @@ function navbarScrollResponsive() {
     navbar.classList.add("navbarScrolled");
     logoContainer.classList.add("logoContainerScrolled");
     logo.classList.add("logoSvgScrolled");
-
+    navbarList.classList.add("navbarListScrolled");
     // loop trough the listItems HTMLcollection and add scrolled class
 
     for (let index = 0; index < listItems.length; index++) {
@@ -582,7 +582,7 @@ function navbarScrollResponsive() {
 
     logoContainer.classList.remove("logoContainerScrolled");
     logo.classList.remove("logoSvgScrolled");
-
+    navbarList.classList.remove("navbarListScrolled");
     // loop trough the listItemsScrolled HTMLcollection and remove scrolled class
     for (let index = 0; index < listItems.length; index++) {
       const element = listItems[index];
