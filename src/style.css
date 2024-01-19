@@ -164,22 +164,20 @@ button {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 4rem;
-  border: 1rem solid var(--dsb-fullWhite);
-  width: 12.5rem;
-  height: 12.5rem;
+  top: 0rem;
+  border: 0.25rem solid var(--dsb-fullWhite);
+  width: 4.25rem;
+  height: 4.25rem;
   transition: var(--transition-time);
-  margin-left: 4rem;
-  display: none;
 }
 
 #logoContainer.logoContainerScrolled {
-  display: flex;
   width: 4.25rem;
   height: 4.25rem;
   top: 0;
   border-width: 0.25rem;
   opacity: 1;
+  display: none;
 }
 
 #logoSvg {
