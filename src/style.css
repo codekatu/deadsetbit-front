@@ -7,6 +7,9 @@
   --dsb-ebWhite: #e6e6e6;
   --dsb-cardWhite: #f5f1f1;
 
+  --dsb-navbarColor: #000000;
+  --dsb-navbarText: #ffffff;
+  --dsb-navbarTextScrolled: #ffffffff;
   --dsb-grey: #87a2ab;
   --dsb-tech-grey: #424242;
   --dsb-tech-grey2: #616161;
@@ -101,7 +104,7 @@ button {
   width: 100%;
   max-width: 100vw;
   height: var(--navbar-height-fullScrolled);
-  background-color: rgb(20, 19, 19);
+  background-color: var(--dsb-navbarColor);
 }
 
 #navbarListRightSide {
@@ -145,10 +148,11 @@ button {
 
 .listItemLinkText {
   font-size: var(--text-middle);
-  color: var(--dsb-fullWhite);
+  color: var(--dsb-navbarText);
 }
 
 .listItemLinkTextScrolled {
+  color: var(--dsb-navbarTextScrolled);
 }
 
 #logoContainer {
@@ -988,7 +992,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-height: calc(100vh - var(--navbar-height-fullScrolled) - 3rem);
+  max-height: calc(100dvh - var(--navbar-height-fullScrolled) - 3rem);
 
   overflow-y: scroll;
   overflow-x: none;
@@ -1249,6 +1253,11 @@ button {
 @media only screen and (max-width: 450px) {
   #employeeInfoContainer {
     max-height: calc(100vh - var(--navbar-height-450px) - 9rem);
+  }
+  @supports (height: 100dvh) {
+    #employeeInfoContainer {
+      max-height: calc(100dvh - var(--navbar-height-450px) - 9rem);
+    }
   }
 }
 
