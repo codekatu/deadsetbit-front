@@ -739,7 +739,7 @@ button {
   background-color: var(--dsb-fullWhite);
   width: 23rem;
   height: 40rem;
-  max-width: 25rem;
+  /* max-width: 25rem; */
   margin: 1rem;
   box-shadow: var(--box-shadow);
   -webkit-box-shadow: var(--box-shadow);
@@ -759,18 +759,16 @@ button {
   height: 60%;
 }
 
-.cardImage {
-  width: 85%;
+#ebLaptop {
+  width: 100%;
+  height: 60%;
 }
-
-#cardImagePerson {
-  width: 312px;
-  height: 314px;
+#ebTablet {
+  width: 90%;
 }
-
-#cardImagePhone {
-  width: 312px;
-  height: 430px;
+#ebPhone {
+  width: auto;
+  height: 90%;
 }
 
 .cardTextContainer {
@@ -2042,18 +2040,13 @@ button {
     height: var(--navbar-height-450px);
   }
 
-  #cardImagePerson {
-    width: 280px;
-    height: 280px;
+  .card {
+    width: 25rem;
+    box-shadow: var(--box-shadow);
   }
 
   #banzaimanTabSelector {
     height: 3.5rem;
-  }
-
-  #cardImagePhone {
-    height: 337px;
-    width: 245px;
   }
 }
 
@@ -2077,18 +2070,8 @@ button {
 
   /* eb section */
   .card {
-    width: 100%;
+    width: 25rem;
     box-shadow: var(--box-shadow);
-  }
-
-  #cardImagePerson {
-    width: 85%;
-    height: auto;
-  }
-
-  #cardImagePhone {
-    height: 110%;
-    width: auto;
   }
 
   /* banzaiman section */
@@ -2139,7 +2122,7 @@ button {
 
   /* EB SECTION */
   .card {
-    width: 100%;
+    width: 25rem;
   }
 
   /* BANZAIMAN SECTION */
