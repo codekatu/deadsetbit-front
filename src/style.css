@@ -469,7 +469,7 @@ button {
   font-weight: 400;
   font-size: var(--text-small);
   color: var(--dsb-tech-grey);
-  text-align: justify;
+  text-align: left;
 }
 
 .techCardArrowContainer {
@@ -739,7 +739,6 @@ button {
   background-color: var(--dsb-fullWhite);
   width: 23rem;
   height: 40rem;
-  max-width: 25rem;
   margin: 1rem;
   box-shadow: var(--box-shadow);
   -webkit-box-shadow: var(--box-shadow);
@@ -759,18 +758,16 @@ button {
   height: 60%;
 }
 
-.cardImage {
+#ebLaptop {
+  width: 98%;
+}
+
+#ebTablet {
   width: 85%;
 }
 
-#cardImagePerson {
-  width: 312px;
-  height: 314px;
-}
-
-#cardImagePhone {
-  width: 312px;
-  height: 430px;
+#ebPhone {
+  height: 80%;
 }
 
 .cardTextContainer {
@@ -932,7 +929,6 @@ button {
   margin-top: var(--margin-small);
   margin-bottom: var(--margin-small);
   width: 200px;
-  /* height: 116px; */
 }
 /*
 -----------------EMPLOYEES SECTION-----------------
@@ -978,7 +974,6 @@ button {
 }
 
 #employeeInfoContainer {
-  /* min-height: 45rem; */
   max-width: 600px;
   background-color: var(--dsb-yellow);
   border-radius: 10px;
@@ -1138,10 +1133,6 @@ button {
   transition: var(--transition-time);
   cursor: pointer;
 }
-
-/* .employeeCard:hover {
-  background-color: var(--dsb-yellow);
-} */
 
 @media (min-width: 900px) {
   .employeeCard:hover {
@@ -2042,18 +2033,13 @@ button {
     height: var(--navbar-height-450px);
   }
 
-  #cardImagePerson {
-    width: 280px;
-    height: 280px;
+  .card {
+    width: 25rem;
+    box-shadow: var(--box-shadow);
   }
 
   #banzaimanTabSelector {
     height: 3.5rem;
-  }
-
-  #cardImagePhone {
-    height: 337px;
-    width: 245px;
   }
 }
 
@@ -2077,18 +2063,8 @@ button {
 
   /* eb section */
   .card {
-    width: 100%;
+    width: 25rem;
     box-shadow: var(--box-shadow);
-  }
-
-  #cardImagePerson {
-    width: 85%;
-    height: auto;
-  }
-
-  #cardImagePhone {
-    height: 110%;
-    width: auto;
   }
 
   /* banzaiman section */
@@ -2139,7 +2115,7 @@ button {
 
   /* EB SECTION */
   .card {
-    width: 100%;
+    width: 25rem;
   }
 
   /* BANZAIMAN SECTION */
