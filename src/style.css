@@ -469,7 +469,7 @@ button {
   font-weight: 400;
   font-size: var(--text-small);
   color: var(--dsb-tech-grey);
-  text-align: justify;
+  text-align: left;
 }
 
 .techCardArrowContainer {
@@ -739,7 +739,6 @@ button {
   background-color: var(--dsb-fullWhite);
   width: 23rem;
   height: 40rem;
-  /* max-width: 25rem; */
   margin: 1rem;
   box-shadow: var(--box-shadow);
   -webkit-box-shadow: var(--box-shadow);
@@ -760,15 +759,15 @@ button {
 }
 
 #ebLaptop {
-  width: 100%;
-  height: 60%;
+  width: 98%;
 }
+
 #ebTablet {
-  width: 90%;
+  width: 85%;
 }
+
 #ebPhone {
-  width: auto;
-  height: 90%;
+  height: 80%;
 }
 
 .cardTextContainer {
