@@ -929,7 +929,6 @@ button {
   margin-top: var(--margin-small);
   margin-bottom: var(--margin-small);
   width: 200px;
-  /* height: 116px; */
 }
 /*
 -----------------EMPLOYEES SECTION-----------------
@@ -975,7 +974,6 @@ button {
 }
 
 #employeeInfoContainer {
-  /* min-height: 45rem; */
   max-width: 600px;
   background-color: var(--dsb-yellow);
   border-radius: 10px;
@@ -1135,10 +1133,6 @@ button {
   transition: var(--transition-time);
   cursor: pointer;
 }
-
-/* .employeeCard:hover {
-  background-color: var(--dsb-yellow);
-} */
 
 @media (min-width: 900px) {
   .employeeCard:hover {
