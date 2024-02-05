@@ -714,7 +714,8 @@ function submitForm() {
 
   // Show snackbar and submit the form
   // showSnackbar();
-  form.submit();
+  // form.submit();
+  console.log("form submitted!");
   // disableSubmitButton();
   form.reset();
   form.style.display = "none";

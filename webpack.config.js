@@ -10,7 +10,11 @@ module.exports = {
         {
           from: "public",
           globOptions: {
-            ignore: ["**/template.html"],
+            ignore: [
+              "**/template.html",
+              "**/empathic-building",
+              "**/privacy-policy",
+            ],
           },
 
           to: "",
@@ -22,14 +26,32 @@ module.exports = {
       hash: true,
       template: "./public/template.html",
       filename: "index.html",
+      chunks: ["index"],
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      template: "./public/empathic-building/template.html",
+      filename: "empathic-building/index.html",
+      chunks: ["empathicBuilding"],
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      template: "./public/privacy-policy/template.html",
+      filename: "privacy-policy/index.html",
+      chunks: ["privacyPolicy"],
+    }),
+
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
     }),
   ],
 
   mode: "none",
-  entry: "./src/index.js",
+  entry: {
+    index: "./src/index.js",
+    empathicBuilding: "./public/empathic-building/index.js",
+    privacyPolicy: "./public/privacy-policy/index.js",
+  },
   output: {
     path: __dirname + "/dist",
     filename: `[name].[contenthash].js`,
@@ -48,6 +70,7 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
+      { test: /\.md$/, use: "raw-loader" },
 
       {
         test: /\.js$/,
