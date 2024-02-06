@@ -16,39 +16,51 @@
   --dsb-green: #00b756;
   --dsb-light-green: #13f07b;
 
+  --background-Color: #fef6e6;
+  --link-color: #1866e2;
+
+  /* widths */
+  --width-content: 1000px;
+
+  /* heights */
+
+  --minHeight-content: 185rem;
+  /*
+  Set a minimum height for Content div to prevent a large layout shift.
+  The Content div is initially empty before JavaScript renders the markdown.
+  Without this adjustment, the footer would load at the top of the page before the markdown is rendered,
+  causing it to be pushed down and resulting in an undesirable layout shift.
+*/
+
   /* margins */
   --margin-xs: 1.25rem;
   --margin-small: 2.5rem;
   --margin-medium: 5rem;
-  --margin-big: 10rem;
+  --margin-paragraph: 1.125rem;
+  --margin-contentSides: 1rem;
+  --margin-listSmall: 2rem;
+  --margin-listBig: 3rem;
 
+  /* paddings  */
+  --padding-contentTop: 15rem;
+  --padding-contentOrderedListItemBottom: 0.625rem;
   /* transition */
   --transition-time: 0.25s;
 
   /* font sizes */
-  --text-small: 1.175rem;
-  --text-middle: 1.5rem;
-  --text-big: 2rem;
-  --text-veryBig: 2.5rem;
-  --text-aboutUsSection: 1.375rem;
+  --text-body: 1.1875rem;
+  ---text-h3: 1.5rem;
+  --text-h2: 2rem;
+  --text-h1: 2.5rem;
 
-  /* scroll padding */
-  --scroll-padding: 0;
+  /* font weights */
 
-  /* border radius */
-  --border-radius: 10px;
-
-  /* box shadow */
-  --box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
+  --weight-header: bold;
+  --weight-link: bold;
+  --weight-strong: bold;
 
   /* line height */
-  --line-height--xs: 1.1;
-  --line-height--small: 1.3;
-  --line-height--medium: 1.5;
-  --line-height--large: 1.8;
-
-  /* tech card amount */
-  --tech-card-amount: 3;
+  --line-height: 1.5;
 
   /* navbar heights */
   --navbar-height-full: 10rem;
@@ -57,8 +69,20 @@
   --navbar-height-450px: 4rem;
 }
 
+button {
+  background: none;
+  border: none;
+}
+
 html {
   font-family: roboto;
+  background-color: var(--background-Color);
+}
+
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 80%;
+  }
 }
 
 #pageWrapper {
@@ -67,82 +91,56 @@ html {
   flex-direction: column;
   align-items: center;
 }
-/* #content h1 {
-  color: #333;
-  font-size: 28px;
-}
-
-#content h2 {
-  color: #555;
-  font-size: 24px;
-}
-
-#content h3 {
-  color: #777;
-  font-size: 20px;
-}
-
-#content p {
-  color: #333;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-#content a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-#content a:hover {
-  text-decoration: underline;
-}
-
-#content ul,
-#content ol {
-  margin-left: 20px;
-}
-
-#content li {
-  color: #333;
-  font-size: 16px;
-  line-height: 1.5;
-}
 
 #content {
-  width: 80%;
-} */
-#content {
-  max-width: 1000px;
-  padding-top: 15rem;
+  max-width: var(--width-content);
+
+  /*
+  Set a minimum height to prevent a large layout shift.
+  The Content div is initially empty before JavaScript renders the markdown.
+  Without this adjustment, the footer would load at the top of the page before the markdown is rendered,
+  causing it to be pushed down and resulting in an undesirable layout shift.
+*/
+  min-height: var(--minHeight-content);
+  padding-top: var(--padding-contentTop);
+  margin: 0rem var(--margin-contentSides);
   color: var(--dsb-privacy-dark-grey);
 }
 
 #content h1 {
   color: var(--dsb-privacy-dark-grey);
-  font-size: var(--text-veryBig);
+  font-weight: var(--weight-header);
+  font-size: var(--text-h1);
+  margin-top: var(--margin-small);
   margin-bottom: var(--margin-small);
 }
 
 #content h2 {
+  font-weight: var(--weight-header);
   color: var(--dsb-privacy-dark-grey);
-  font-size: var(--text-big);
+  font-size: var(--text-h2);
   margin-bottom: var(--margin-small);
+  margin-top: var(--margin-small);
 }
 
 #content h3 {
+  font-weight: var(--weight-header);
   color: var(--dsb-privacy-dark-grey);
-  font-size: var(--text-middle);
+  font-size: var(---text-h3);
   margin-bottom: var(--margin-small);
+  margin-top: var(--margin-small);
 }
 
 #content p {
   color: var(--dsb-privacy-grey);
-  font-size: var(--text-small);
-  line-height: var(--line-height--medium);
+  font-size: var(--text-body);
+  line-height: var(--line-height);
+  margin: var(--margin-paragraph) 0;
 }
 
 #content a {
-  color: #0084ff;
+  color: var(--link-color);
+  font-weight: var(--weight-link);
   text-decoration: none;
 }
 
@@ -152,14 +150,35 @@ html {
 
 #content ul,
 #content ol {
-  margin-left: var(--margin-medium);
+  margin-left: var(--margin-listBig);
+}
+
+@media only screen and (max-width: 400px) {
+  #content ul,
+  #content ol {
+    margin-left: var(--margin-listSmall);
+  }
+}
+#content ol > li {
+  padding-bottom: var(--padding-contentOrderedListItemBottom);
+  list-style: decimal;
+}
+
+#content ul > li {
+  list-style: disc;
 }
 
 #content li {
   color: var(--dsb-privacy-grey2);
-  font-size: var(--text-small);
-  line-height: var(--line-height--medium);
+  font-size: var(--text-body);
+  line-height: var(--line-height);
 }
+
+#content strong {
+  font-weight: var(--weight-strong);
+}
+
+/*----------Navbar----------*/
 
 #navbar {
   width: 80%;
@@ -353,4 +372,180 @@ html {
 #menuHeader {
   display: none;
   width: 90%;
+}
+
+#footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  background-color: #003a46;
+  height: 20rem;
+  width: 100%;
+  align-items: center;
+  color: var(--dsb-grey);
+  font-size: 0.8rem;
+}
+
+#codekatuLink {
+  color: var(--dsb-grey);
+  text-decoration: underline;
+}
+
+/* --------------1200PX-------------- */
+@media only screen and (max-width: 1200px) {
+  /* NAVBAR */
+
+  #navbar {
+    width: 100%;
+  }
+}
+
+/* --------------900PX-------------- */
+@media only screen and (max-width: 900px) {
+  /* NAVBAR */
+
+  #navbarList {
+    justify-content: center;
+  }
+  #logoContainer {
+    margin-left: var(--margin-small);
+    margin-right: var(--margin-xs);
+    margin-left: 0;
+    width: 7rem;
+    height: 7rem;
+    top: 0;
+    border: 0.5rem solid var(--dsb-fullWhite);
+  }
+
+  .listItem {
+    margin-right: var(--margin-xs);
+  }
+}
+
+/* --------------600px-------------- */
+@media only screen and (max-width: 600px) {
+  /* navbar */
+
+  #navbar {
+    height: var(--navbar-height-600px);
+  }
+
+  #navbar.navbarScrolled {
+    height: var(--navbar-height-600px);
+  }
+
+  #navbarListRightSide {
+    display: none;
+  }
+
+  #navbarButton {
+    display: block;
+  }
+
+  #navbarList {
+    justify-content: space-between;
+  }
+
+  #logoContainer {
+    top: 0;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    margin: 0.5rem;
+  }
+
+  #logoContainer.logoContainerScrolled {
+    top: 0;
+    height: 3rem;
+    width: 3rem;
+    border: none;
+  }
+  #logoSvg {
+    width: 75%;
+    height: 75%;
+    padding-top: 2px;
+  }
+  #logoSvg.logoSvgScrolled {
+    width: 75%;
+    height: 75%;
+  }
+
+  #mainMenu {
+    animation: menu-slide-in 0.25s both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--dsb-fullWhite);
+    position: absolute;
+    right: 0;
+    min-width: 15rem;
+    width: 75%;
+    z-index: 10;
+  }
+
+  @keyframes menu-slide-in {
+    0% {
+      transform: translateX(1000px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  #mainMenuOpacityLayer {
+    display: flex;
+    width: 25%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: menuOpacity-slide-in 0.5s both;
+  }
+
+  @keyframes menuOpacity-slide-in {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+
+  .mainMenuListItem {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    width: 100%;
+  }
+  .mainMenuListLink {
+    display: flex;
+    color: var(--dsb-dark);
+    text-decoration: none;
+    font-size: var(---text-h3);
+  }
+
+  #menuHeader {
+    display: block;
+  }
+}
+
+/* --------------450px-------------- */
+
+@media only screen and (max-width: 450px) {
+  #navbar {
+    height: var(--navbar-height-450px);
+  }
+
+  #navbar.navbarScrolled {
+    height: var(--navbar-height-450px);
+  }
+}
+
+/* --------------400px-------------- */
+@media only screen and (max-width: 400px) {
+  /* navbar */
+  #logoContainer {
+    margin-left: 1%;
+  }
 }

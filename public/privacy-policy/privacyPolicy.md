@@ -2,15 +2,15 @@
 
 ## Controller's Contact Details (that's us!)
 
-- **Name:** Dead Set Bit Ltd ("DSB" or "We")
-- **Company ID:** 2612638-1
-- **Address:** Ruoholahdenkatu 21, 00180 Helsinki, Finland
-- **Email:** [info@deadsetbit.com](mailto:info@deadsetbit.com)
-- **Website:** [deadsetbit.com](https://deadsetbit.com)
-
-- **Contact Person:**
-  Yacine Ouarab
-  [jasu@deadsetbit.com](mailto:jasu@deadsetbit.com)
+Name: Dead Set Bit Ltd ("DSB" or "We")\
+Company ID: 2612638-1\
+<br>
+Address: Ruoholahdenkatu 21, 00180 Helsinki, Finland\
+<br>
+Email: [info@deadsetbit.com](mailto:info@deadsetbit.com)\
+Website: [deadsetbit.com](https://deadsetbit.com)\
+<br>
+Contact Person: Yacine Ouarab [jasu@deadsetbit.com](mailto:jasu@deadsetbit.com)
 
 ## General Information Regarding Processing Activities
 
@@ -62,7 +62,7 @@ Personal data may be processed in order to correspond with you via email and oth
 
 We store your personal data primarily within the European Economic Area. However, we have service providers in several geographical locations. As such, we and our service providers may transfer personal data to, or access it in, jurisdictions outside the European Economic Area or your domicile.
 
-If we transfer your personal data outside the European Economic Area, we provide adequate protection for such transfers through a series of agreements with our service providers based on the [Standard Contractual Clauses](https://commission.europa.eu/law/law-topic/data-protection/data-transfers-outside-eu/model-contracts-transfer-personal-data-third-countries_en) or through other appropriate safeguards, such as the [Data Privacy Framework](https://www.dataprivacyframework.gov/)
+If we transfer your personal data outside the European Economic Area, we provide adequate protection for such transfers through a series of agreements with our service providers based on the [Standard Contractual Clauses](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en) or through other appropriate safeguards, such as the [Data Privacy Framework](https://www.dataprivacyframework.gov/)
 
 ## Personal Data Recipients
 
@@ -92,13 +92,13 @@ When the storage of personal data is no longer necessary for the purpose for whi
 
 Under the General Data Protection Regulation, you have certain rights when it comes to processing your personal data. Your rights include:
 
-1. Right to access: You have the right to access your personal data processed by us and to request a copy of your personal data undergoing processing.
-2. Right to withdraw consent: In case the processing is based on a consent, you may withdraw the consent at any time. The withdrawal of consent does not affect the lawfulness of processing based on consent before its withdrawal.
-3. Right to rectify: You have the right to have incorrect or incomplete personal data we have stored about you corrected or completed.
-4. Right to erasure: You may also ask us to erase the your personal data from our systems. We will comply with such request unless we have a legitimate ground to not delete the data.
-5. Right to object: You may object to the processing of personal data on grounds relating to your particular situation if such data are processed for our legitimate interest. In case we do not have compelling legitimate grounds to continue processing such personal data, we shall no longer process the personal data after your objection.
-6. Right to restriction of processing: You may request us to restrict processing of personal data for example when your data erasure, rectification or objection requests are pending and/or when we do not have legitimate grounds to process your data.
-7. Right to data portability: You have the right to receive some of your personal data that you have provided us with in a structured and commonly used format.
+1. **Right to access**: You have the right to access your personal data processed by us and to request a copy of your personal data undergoing processing.
+2. **Right to withdraw consent**: In case the processing is based on a consent, you may withdraw the consent at any time. The withdrawal of consent does not affect the lawfulness of processing based on consent before its withdrawal.
+3. **Right to rectify**: You have the right to have incorrect or incomplete personal data we have stored about you corrected or completed.
+4. **Right to erasure**: You may also ask us to erase the your personal data from our systems. We will comply with such request unless we have a legitimate ground to not delete the data.
+5. **Right to object**: You may object to the processing of personal data on grounds relating to your particular situation if such data are processed for our legitimate interest. In case we do not have compelling legitimate grounds to continue processing such personal data, we shall no longer process the personal data after your objection.
+6. **Right to restriction of processing**: You may request us to restrict processing of personal data for example when your data erasure, rectification or objection requests are pending and/or when we do not have legitimate grounds to process your data.
+7. **Right to data portability**: You have the right to receive some of your personal data that you have provided us with in a structured and commonly used format.
 
 How to use the rights: The above mentioned rights may be used by sending a letter or an e-mail to us on the addresses set out above. We may request the provision of additional information necessary to confirm your identity. We may reject requests that are unreasonably repetitive, excessive or manifestly unfounded.
 

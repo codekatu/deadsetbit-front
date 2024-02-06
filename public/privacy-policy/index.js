@@ -1,8 +1,13 @@
+import "../../src/reset.css";
+import "../../src/fonts.css";
 import "./style.css";
-import "./fonts.css";
+
 // import marked and privacy policy markdown file. Marked is used to render the markdown to the page.
 import { marked } from "marked";
-import markdownContent from "./test.md";
+import markdownContent from "./privacyPolicy.md";
+
+// render the privacy policy markdown to the content div
+document.getElementById("content").innerHTML = marked(markdownContent);
 
 const navbar = document.getElementById("navbar");
 const navbarList = document.getElementById("navbarList");
@@ -13,9 +18,6 @@ const mainMenuOpacityLayer = document.getElementById("mainMenuOpacityLayer");
 const mainMenuContainer = document.getElementById("mainMenuContainer");
 const logoContainer = document.getElementById("logoContainer");
 const logo = document.getElementById("logoSvg");
-
-// render the privacy policy markdown to the content div
-document.getElementById("content").innerHTML = marked(markdownContent);
 
 function navbarScrollResponsive() {
   // when scroll goes over 150 add scrolled class to these elements
@@ -56,4 +58,6 @@ function menuOpenClose() {
   }
 }
 
+navbarButton.addEventListener("click", menuOpenClose);
+mainMenuOpacityLayer.addEventListener("click", menuOpenClose);
 window.addEventListener("scroll", navbarScrollResponsive);
