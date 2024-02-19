@@ -1,7 +1,6 @@
-import "../../src/reset.css";
-import "../../src/fonts.css";
+import "../../reset.css";
+import "../../fonts.css";
 import "./style.css";
-
 // import marked and privacy policy markdown file. Marked is used to render the markdown to the page.
 import { marked } from "marked";
 import markdownContent from "./privacyPolicy.md";
@@ -18,7 +17,12 @@ const mainMenuOpacityLayer = document.getElementById("mainMenuOpacityLayer");
 const mainMenuContainer = document.getElementById("mainMenuContainer");
 const logoContainer = document.getElementById("logoContainer");
 const logo = document.getElementById("logoSvg");
+const listItemLinkText = document.getElementsByClassName("listItemLinkText");
 
+window.onload = function () {
+  // calling here so that if window is on the middle of the page when reloading it will update the navbar to its scrolled state
+  navbarScrollResponsive();
+};
 function navbarScrollResponsive() {
   // when scroll goes over 150 add scrolled class to these elements
   if (window.scrollY > 100) {
@@ -32,6 +36,11 @@ function navbarScrollResponsive() {
       const element = listItems[index];
       element.classList.add("listItemScrolled");
     }
+
+    for (let index = 0; index < listItemLinkText.length; index++) {
+      const element = listItemLinkText[index];
+      element.classList.add("listItemLinkTextScrolled");
+    }
   }
   // when scroll is under 150 change these classes to their default state
   else {
@@ -44,6 +53,10 @@ function navbarScrollResponsive() {
     for (let index = 0; index < listItems.length; index++) {
       const element = listItems[index];
       element.classList.remove("listItemScrolled");
+    }
+    for (let index = 0; index < listItemLinkText.length; index++) {
+      const element = listItemLinkText[index];
+      element.classList.remove("listItemLinkTextScrolled");
     }
   }
 }

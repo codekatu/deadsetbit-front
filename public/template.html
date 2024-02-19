@@ -88,7 +88,6 @@
   </head>
   <body>
     <div id="pageWrapper">
-      <!-- navbar -->
       <nav id="navbar">
         <div id="navbarList">
           <ul id="navbarListLeftSide" class="navbarListContainer">
@@ -102,34 +101,29 @@
           </ul>
           <ul id="navbarListRightSide" class="navbarListContainer">
             <li class="listItem">
-              <a id="listItemAbout" href="#about" class="listItemLink">ABOUT</a>
+              <a class="listItemLink" href="/#about"
+                ><p class="listItemLinkText">About</p></a
+              >
             </li>
             <li class="listItem">
-              <a href="#empathic-building" class="listItemLink">
-                <img
-                  class="listItemLinkImage"
-                  alt="Empathic Building logo"
-                  src="assets/navbar/navbarEB.svg"
-                />
-              </a>
+              <a class="listItemLink" href="/#services"
+                ><p class="listItemLinkText">Services</p></a
+              >
             </li>
             <li class="listItem">
-              <a href="#banzaiman" class="listItemLink">
-                <img
-                  class="listItemLinkImage"
-                  alt="Banzaiman logo"
-                  src="assets/navbar/navbarBanzaiman.svg"
-                />
-              </a>
+              <a class="listItemLink" href="/#projects"
+                ><p class="listItemLinkText">Projects</p></a
+              >
             </li>
             <li class="listItem">
-              <a href="#employees" class="listItemLink">
-                <img
-                  class="listItemLinkImage"
-                  alt="Employees logo"
-                  src="assets/navbar/navbarEmployee.svg"
-                />
-              </a>
+              <a class="listItemLink" href="/#employees"
+                ><p class="listItemLinkText">Employees</p></a
+              >
+            </li>
+            <li class="listItem">
+              <a class="listItemLink" href="/#contact-us"
+                ><p class="listItemLinkText">Contact us</p></a
+              >
             </li>
           </ul>
           <button aria-label="navbar menu button" id="navbarButton">
@@ -141,24 +135,28 @@
         <div id="mainMenuContainer">
           <div id="mainMenuOpacityLayer"></div>
           <ul id="mainMenu">
-            <img
-              alt="Dead Set Bit Logo"
-              id="menuHeader"
-              src="assets/heroSection/header.svg"
-            />
+            <li id="menuHeaderContainer">
+              <img
+                alt="Dead Set Bit logo"
+                id="menuHeaderLogo"
+                src="assets/navbar/logo.svg"
+              />
+            </li>
+
             <li class="mainMenuListItem">
-              <a class="mainMenuListLink" href="#about">About</a>
+              <a class="mainMenuListLink" href="/#about">About</a>
             </li>
             <li class="mainMenuListItem">
-              <a class="mainMenuListLink" href="#empathic-building"
-                >Empathic Building</a
-              >
+              <a class="mainMenuListLink" href="/#services">Services</a>
             </li>
             <li class="mainMenuListItem">
-              <a class="mainMenuListLink" href="#banzaiman">Banzaiman</a>
+              <a class="mainMenuListLink" href="/#projects">Projects</a>
             </li>
             <li class="mainMenuListItem">
-              <a class="mainMenuListLink" href="#employees">Employees</a>
+              <a class="mainMenuListLink" href="/#employees">Employees</a>
+            </li>
+            <li class="mainMenuListItem">
+              <a class="mainMenuListLink" href="/#contact-us">Contact us</a>
             </li>
           </ul>
         </div>
@@ -246,7 +244,7 @@
         </div>
       </section>
       <!-- tech Section -->
-      <section class="sectionContainer" id="aboutOurTechnology">
+      <section class="sectionContainer" id="services">
         <div class="techAnimationWrapper">
           <div class="techAnimationBox">
             <div></div>
@@ -371,171 +369,171 @@
       </section>
 
       <!-- eb Section -->
-      <section class="sectionContainer" id="empathic-building">
-        <div id="ebHeaderContainer">
-          <img
-            alt="Empathic Building with blue text"
-            id="ebHeader"
-            src="assets/ebSection/ebName.svg"
-          />
-        </div>
-        <div id="cardContainer">
-          <div class="card">
-            <div class="cardImageContainer">
-              <img
-                id="ebLaptop"
-                alt="Laptop displaying a 3D model of the map outside the office on the screen"
-                class="cardImage"
-                src="assets/ebSection/ebLaptop.webp"
-              />
-            </div>
-
-            <div class="cardTextContainer">
-              <p class="cardText">
-                Empathic Building is a product we have developed from scratch
-                originally for Tieto and now for Haltian. It is a tool to
-                transform your working environment for the digital era, with a
-                focus on employee wellbeing.
-              </p>
-            </div>
+      <section class="sectionContainer" id="projects">
+        <section class="sectionContainer" id="empathic-building">
+          <div id="ebHeaderContainer">
+            <img
+              alt="Empathic Building with blue text"
+              id="ebHeader"
+              src="assets/ebSection/ebName.svg"
+            />
           </div>
-          <div class="card">
-            <div class="cardImageContainer">
-              <img
-                id="ebTablet"
-                alt="Tablet displaying a 3D model of the inside of an office on the screen"
-                class="cardImage"
-                src="assets/ebSection/ebTablet.webp
+          <div id="cardContainer">
+            <div class="card">
+              <div class="cardImageContainer">
+                <img
+                  id="ebLaptop"
+                  alt="Laptop displaying a 3D model of the map outside the office on the screen"
+                  class="cardImage"
+                  src="assets/ebSection/ebLaptop.webp"
+                />
+              </div>
+
+              <div class="cardTextContainer">
+                <p class="cardText">
+                  Empathic Building is a product we have developed from scratch
+                  originally for Tieto and now for Haltian. It is a tool to
+                  transform your working environment for the digital era, with a
+                  focus on employee wellbeing.
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="cardImageContainer">
+                <img
+                  id="ebTablet"
+                  alt="Tablet displaying a 3D model of the inside of an office on the screen"
+                  class="cardImage"
+                  src="assets/ebSection/ebTablet.webp
                 "
-              />
-            </div>
+                />
+              </div>
 
-            <div class="cardTextContainer">
-              <p class="cardText">
-                Our current main focus is on offices and employees, but we have
-                delivered a platform for running any digital twin along with
-                their real-time data. On the customer facing side it is built on
-                our own 3D engine and everything runs platform-independently in
-                your browser.
-              </p>
+              <div class="cardTextContainer">
+                <p class="cardText">
+                  Our current main focus is on offices and employees, but we
+                  have delivered a platform for running any digital twin along
+                  with their real-time data. On the customer facing side it is
+                  built on our own 3D engine and everything runs
+                  platform-independently in your browser.
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="cardImageContainer">
+                <img
+                  id="ebPhone"
+                  alt="Phone displaying an empathic building menu on the screen"
+                  class="cardImage"
+                  src="assets/ebSection/ebPhone.webp"
+                  height="60%"
+                  draggable="false"
+                />
+              </div>
+
+              <div id="haltianCardTextContainer" class="cardTextContainer">
+                <p id="haltianCardText" class="cardText">
+                  Check out more about the project at
+                </p>
+                <a
+                  id="haltianLink"
+                  href="https://haltian.com/solutions/empathic-building-for-offices/"
+                >
+                  <img
+                    id="haltianLogo"
+                    alt="Haltian logo"
+                    src="assets/ebSection/haltianLogoBlack.svg"
+                  />
+                </a>
+              </div>
             </div>
           </div>
-          <div class="card">
-            <div class="cardImageContainer">
+        </section>
+        <!-- banzaiman Section -->
+        <section class="sectionContainer" id="banzaiman">
+          <div id="banzaimanSectionOrder">
+            <div id="tabSectionContainer">
               <img
-                id="ebPhone"
-                alt="Phone displaying an empathic building menu on the screen"
-                class="cardImage"
-                src="assets/ebSection/ebPhone.webp"
-                height="60%"
-                draggable="false"
+                alt="A text that says Banzaiman and the Banzaiman character with a red scarf on it's head"
+                id="banzaimanLogo"
+                src="assets/banzaimanSection/logoTest.webp"
               />
+              <img
+                alt="Level from the game Banzaiman"
+                id="banzaimanGameImage"
+                src="assets/banzaimanSection/tabSelector/banzai_1.webp"
+              />
+              <div id="banzaimanTabSelector">
+                <button id="gongButton" class="tabSelectorButton">
+                  <img
+                    id="gongButtonImage"
+                    class="buttonImage"
+                    alt="Image of a gong "
+                    src="assets/banzaimanSection/tabSelector/gong.svg"
+                  />
+                </button>
+                <button id="mountainButton" class="tabSelectorButton">
+                  <img
+                    id="mountainButtonImage"
+                    class="buttonImage"
+                    alt="Image of a volcano"
+                    src="assets/banzaimanSection/tabSelector/mountain.svg"
+                  />
+                </button>
+                <button id="glyphButton" class="tabSelectorButton">
+                  <img
+                    id="glyphButtonImage"
+                    class="buttonImage"
+                    alt="Image of an ancient glyph"
+                    src="assets/banzaimanSection/tabSelector/glyph.svg"
+                  />
+                </button>
+                <button id="spaceButton" class="tabSelectorButton">
+                  <img
+                    id="spaceButtonImage"
+                    class="buttonImage"
+                    alt="Image of a planet with rings around it"
+                    src="assets/banzaimanSection/tabSelector/space.svg"
+                  />
+                </button>
+                <button id="maracasButton" class="tabSelectorButton">
+                  <img
+                    id="maracasButtonImage"
+                    class="buttonImage"
+                    alt="Image of a maracas"
+                    src="assets/banzaimanSection/tabSelector/maracas.svg"
+                  />
+                </button>
+              </div>
             </div>
-
-            <div id="haltianCardTextContainer" class="cardTextContainer">
-              <p id="haltianCardText" class="cardText">
-                Check out more about the project at
-              </p>
-              <a
-                id="haltianLink"
-                href="https://haltian.com/solutions/empathic-building-for-offices/"
-              >
-                <img
-                  id="haltianLogo"
-                  alt="Haltian logo"
-                  src="assets/ebSection/haltianLogoBlack.svg"
-                />
-              </a>
-              <a href="/empathic-building">
-                <p>Read more about our work with eb!</p>
-              </a>
+            <div id="gameSectionTextContainer">
+              <div id="gameSectionTextBox">
+                <p id="banzaimanText">
+                  An old-school platformer and a mobile game for people who
+                  dislike mobile gaming and enjoy a challenge. It's free, there
+                  are no ads! (You currently need to unlock the later levels as
+                  a one-time purchase, but even those will be made free in the
+                  next update. When there is time for that next update, no one
+                  knows!)
+                  <br />
+                  <br />Completed as a one-man side project over the course of 5
+                  years, everything from the multiplatform game engine to the
+                  sounds have been hand-made from scratch.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <!-- banzaiman Section -->
-      <section class="sectionContainer" id="banzaiman">
-        <div id="banzaimanSectionOrder">
-          <div id="tabSectionContainer">
+          <a
+            id="googlePlayLink"
+            href="https://play.google.com/store/apps/details?id=com.deadsetbit.and.banzaiman&hl=fi&gl=US"
+          >
             <img
-              alt="A text that says Banzaiman and the Banzaiman character with a red scarf on it's head"
-              id="banzaimanLogo"
-              src="assets/banzaimanSection/logoTest.webp"
+              alt="Google Play badge"
+              id="googlePlayBadge"
+              src="assets/googlePlayBadge.webp"
             />
-            <img
-              alt="Level from the game Banzaiman"
-              id="banzaimanGameImage"
-              src="assets/banzaimanSection/tabSelector/banzai_1.webp"
-            />
-            <div id="banzaimanTabSelector">
-              <button id="gongButton" class="tabSelectorButton">
-                <img
-                  id="gongButtonImage"
-                  class="buttonImage"
-                  alt="Image of a gong "
-                  src="assets/banzaimanSection/tabSelector/gong.svg"
-                />
-              </button>
-              <button id="mountainButton" class="tabSelectorButton">
-                <img
-                  id="mountainButtonImage"
-                  class="buttonImage"
-                  alt="Image of a volcano"
-                  src="assets/banzaimanSection/tabSelector/mountain.svg"
-                />
-              </button>
-              <button id="glyphButton" class="tabSelectorButton">
-                <img
-                  id="glyphButtonImage"
-                  class="buttonImage"
-                  alt="Image of an ancient glyph"
-                  src="assets/banzaimanSection/tabSelector/glyph.svg"
-                />
-              </button>
-              <button id="spaceButton" class="tabSelectorButton">
-                <img
-                  id="spaceButtonImage"
-                  class="buttonImage"
-                  alt="Image of a planet with rings around it"
-                  src="assets/banzaimanSection/tabSelector/space.svg"
-                />
-              </button>
-              <button id="maracasButton" class="tabSelectorButton">
-                <img
-                  id="maracasButtonImage"
-                  class="buttonImage"
-                  alt="Image of a maracas"
-                  src="assets/banzaimanSection/tabSelector/maracas.svg"
-                />
-              </button>
-            </div>
-          </div>
-          <div id="gameSectionTextContainer">
-            <div id="gameSectionTextBox">
-              <p id="banzaimanText">
-                An old-school platformer and a mobile game for people who
-                dislike mobile gaming and enjoy a challenge. It's free, there
-                are no ads! (You currently need to unlock the later levels as a
-                one-time purchase, but even those will be made free in the next
-                update. When there is time for that next update, no one knows!)
-                <br />
-                <br />Completed as a one-man side project over the course of 5
-                years, everything from the multiplatform game engine to the
-                sounds have been hand-made from scratch.
-              </p>
-            </div>
-          </div>
-        </div>
-        <a
-          id="googlePlayLink"
-          href="https://play.google.com/store/apps/details?id=com.deadsetbit.and.banzaiman&hl=fi&gl=US"
-        >
-          <img
-            alt="Google Play badge"
-            id="googlePlayBadge"
-            src="assets/googlePlayBadge.webp"
-          />
-        </a>
+          </a>
+        </section>
       </section>
       <!-- Employees section -->
       <section class="sectionContainer" id="employeesSection">
@@ -771,7 +769,7 @@
           </div>
         </div>
       </section>
-      <section class="sectionContainer" id="contact">
+      <section class="sectionContainer" id="contact-us">
         <h3 id="contactSectionHeader">Contact us</h3>
         <h4 id="contactSectionSubHeader">
           Fill the form or reach out via email, and we'll get back to you as
@@ -891,7 +889,10 @@
                 rows="10"
               ></textarea>
               <div id="contactFormRadioInputContainer">
-                <label class="formLabel" for="contactPreference"
+                <label
+                  id="contactPreferenceLabe"
+                  class="formLabel"
+                  for="contactPreference"
                   >How do you want us to contact you?*</label
                 >
 
@@ -913,37 +914,37 @@
                 />
                 <label class="radioLabel" for="contactEmail">Email</label>
               </div>
-
-              <div class="iAgreeToTermsAndConditionsContainer">
-                <label class="formLabel" for="termsCheckbox">
+              <div id="termsAndConditionsErrorBorder">
+                <div id="iAgreeToTermsAndConditionsContainer">
                   <input
                     class="contactTermsCheckbox"
                     type="checkbox"
                     id="termsCheckbox"
                     name="termsCheckbox"
                   />
-                </label>
-
-                <div class="iAgreeToTermsAndConditionsTextContainer">
-                  <p class="iAgreeToTermsAndConditionsText">
+                  <label
+                    id="iAgreeToTermsAndConditionsText"
+                    class="formLabel"
+                    for="termsCheckbox"
+                  >
                     I Agree to Terms & Conditions*
-                  </p>
-
-                  <p class="iAgreeToTermsAndConditionsText">
-                    <a
-                      id="privacyPolicyLink"
-                      href="/privacy-policy"
-                      target="_blank"
-                      >Dead Set Bit Privacy Policy</a
-                    >
-                  </p>
+                  </label>
                 </div>
-              </div>
 
+                <p class="iAgreeToTermsAndConditionsText">
+                  <a
+                    id="privacyPolicyLink"
+                    href="/privacy-policy"
+                    target="_blank"
+                    >Dead Set Bit Privacy Policy</a
+                  >
+                </p>
+              </div>
               <div id="submitButtonContainer">
                 <button id="submitButton" type="button">Submit</button>
               </div>
             </form>
+
             <div class="thanksForContactingUsContainer">
               <p class="thanksForContactingUsText">
                 Thanks for contacting us, we'll get back to you as soon as

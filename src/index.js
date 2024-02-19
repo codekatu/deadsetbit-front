@@ -6,7 +6,6 @@ import employees from "./employees";
 
 // getting dom elements
 const navbar = document.getElementById("navbar");
-const navbarList = document.getElementById("navbarList");
 const listItems = document.getElementsByClassName("listItem");
 const logoContainer = document.getElementById("logoContainer");
 const logo = document.getElementById("logoSvg");
@@ -26,11 +25,16 @@ const arrowRightFirstCard = document.getElementById("arrowRightFirstCard");
 const arrowLeftSecondCard = document.getElementById("arrowLeftSecondCard");
 const arrowRightSecondCard = document.getElementById("arrowRightSecondCard");
 const arrowLeftThirdCard = document.getElementById("arrowLeftThirdCard");
-const leftArrowButtons = document.querySelectorAll(".arrow-left");
-const rightArrowButtons = document.querySelectorAll(".arrow-right");
 const form = document.getElementById("contactForm");
 const messageField = document.getElementById("messageField");
-// var termsCheckbox = document.getElementById("termsCheckbox");
+const termsCheckbox = document.getElementById("termsCheckbox");
+const termsContainer = document.getElementsByClassName(
+  "iAgreeToTermsAndConditionsContainer"
+);
+const termsAndConditionsErrorBorder = document.getElementById(
+  "termsAndConditionsErrorBorder"
+);
+
 const emailField = document.getElementById("email");
 const phoneField = document.getElementById("phone");
 const contactPhone = document.getElementById("contactPhone");
@@ -43,9 +47,6 @@ const infoContainer = document.getElementById("employeeInfoContainer");
 const employeeCards = document.getElementsByClassName("employeeCard");
 const employeeInfoContainer = document.getElementById("employeeInfoContainer");
 const backdrop = document.getElementById("employeeInfoContainerModalBackdrop");
-// const infoModalCloseButton = document.getElementById(
-//   "employeeInfoContainerModalCloseButton"
-// );
 const employeeInfoBoxCloseButton = document.getElementById(
   "employeeInfoContainerModalCloseButton"
 );
@@ -62,10 +63,10 @@ const thanksForContactingUsContainer = document.getElementsByClassName(
 );
 const emailLabel = document.getElementById("emailLabel");
 const phoneLabel = document.getElementById("phoneLabel");
+const listItemLinkText = document.getElementsByClassName("listItemLinkText");
 
 // global variables
 let isButtonPressed = false;
-let timeout;
 let isDragging = false;
 let mouseDown = false;
 let startX, scrollLeft;
@@ -75,6 +76,8 @@ let wasBelow900 = window.innerWidth <= 900;
 window.onload = function () {
   // render first person to the employeeInfoContainer
   updateInfo("pauli");
+
+  navbarScrollResponsive(); // calling here so that if window is on the middle of the page when reloading it will update the navbar to its scrolled state
 
   employeeInfoBoxCloseButton.addEventListener("click", employeeInfoBoxClose);
   backdrop.addEventListener("click", employeeInfoBoxClose);
@@ -109,7 +112,6 @@ window.onload = function () {
 
   contactPhone.addEventListener("change", ContactMethodRequirements);
   contactEmail.addEventListener("change", ContactMethodRequirements);
-
   emailField.addEventListener("input", requiredFieldChange);
   phoneField.addEventListener("input", requiredFieldChange);
   emailField.addEventListener("input", () => {
@@ -122,42 +124,11 @@ window.onload = function () {
       ? phoneField.classList.remove("error")
       : null;
   });
-
   messageField.addEventListener("input", (e) => {
     e.target.classList.contains("error")
       ? e.target.classList.remove("error")
       : null;
   });
-
-  function requiredFieldChange() {
-    const emailValue = emailField.value.trim();
-    const phoneValue = phoneField.value.trim();
-
-    if (phoneValue !== "" && !contactEmail.checked && emailValue == "") {
-      phoneLabel.textContent = "Phone Number*";
-      phoneField.classList.remove("error");
-      emailLabel.textContent = "Email";
-      removeContactFormPlaceholder();
-      resetErrorStyles();
-    } else if (emailValue !== "" && !contactPhone.checked && phoneValue == "") {
-      emailLabel.textContent = "Email*";
-      emailField.classList.remove("error");
-      phoneLabel.textContent = "Phone Number";
-      removeContactFormPlaceholder();
-      resetErrorStyles();
-    } else if (
-      emailValue == "" &&
-      phoneValue == "" &&
-      !contactPhone.checked &&
-      !contactEmail.checked
-    ) {
-      // Both fields are empty, set * to both labels only if neither radio button is checked
-      emailLabel.textContent = "Email*";
-      phoneLabel.textContent = "Phone Number*";
-      addContactFormPlaceholder();
-      resetErrorStyles();
-    }
-  }
 
   Array.from(employeeCards).forEach(function (card) {
     card.addEventListener("click", function () {
@@ -165,52 +136,6 @@ window.onload = function () {
       updateInfo(employeeId);
       employeeInfoBoxOpen();
     });
-  });
-
-  // adds event listeners to arrow buttons on load
-  arrowRightFirstCard.addEventListener("click", () => {
-    scrollToTechCard(1);
-    setActiveTechButton(1);
-  });
-
-  arrowLeftSecondCard.addEventListener("click", () => {
-    scrollToTechCard(0);
-    setActiveTechButton(0);
-  });
-
-  arrowRightSecondCard.addEventListener("click", () => {
-    scrollToTechCard(2);
-    setActiveTechButton(2);
-  });
-
-  arrowLeftThirdCard.addEventListener("click", () => {
-    scrollToTechCard(1);
-    setActiveTechButton(1);
-  });
-
-  // For mobile we use touchend instead of click
-  arrowRightFirstCard.addEventListener("touchend", (e) => {
-    e.preventDefault();
-    scrollToTechCard(1);
-    setActiveTechButton(1);
-  });
-
-  arrowLeftSecondCard.addEventListener("touchend", (e) => {
-    e.preventDefault();
-    scrollToTechCard(0);
-    setActiveTechButton(0);
-  });
-
-  arrowRightSecondCard.addEventListener("touchend", (e) => {
-    e.preventDefault();
-    scrollToTechCard(2);
-    setActiveTechButton(2);
-  });
-
-  arrowLeftThirdCard.addEventListener("touchend", (e) => {
-    e.preventDefault();
-    scrollToTechCard(1);
-    setActiveTechButton(1);
   });
 
   // adds event listeners to tech navigation buttons on load, use the button index to scroll to the card with the same index
@@ -240,9 +165,6 @@ window.onload = function () {
 
   for (let index = 0; index < mainMenuListLinks.length; index++) {
     const element = mainMenuListLinks[index];
-    // element.addEventListener("click", (e) => {
-    //   menuButton.style.display = "none";
-    // });
     element.addEventListener("click", menuOpenClose);
   }
 
@@ -255,19 +177,28 @@ window.onload = function () {
   // Set the first card as the active card on load
   setActiveTechButton(0);
 
-  // Calculate the position for scrollContainer to scroll to the first card
-  const firstCard = techCardContainer.children[0];
-  const firstCardPosition =
-    firstCard.offsetLeft -
-    (scrollContainer.offsetWidth / 2 - firstCard.offsetWidth / 2);
-  scrollContainer.scrollLeft = firstCardPosition;
+  addArrowButtonEventListener(arrowRightFirstCard, 1);
+  addArrowButtonEventListener(arrowLeftSecondCard, 0);
+  addArrowButtonEventListener(arrowRightSecondCard, 2);
+  addArrowButtonEventListener(arrowLeftThirdCard, 1);
 
   submitButton.addEventListener("click", submitForm);
 };
 
-function updateInfo(employeeName) {
-  employeeInfoContainer.scrollTop = 0;
+function addArrowButtonEventListener(button, cardIndex) {
+  button.addEventListener("click", () => handleArrowButtonClick(cardIndex));
+  button.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    handleArrowButtonClick(cardIndex);
+  });
+}
 
+function handleArrowButtonClick(cardIndex) {
+  scrollToTechCard(cardIndex);
+  setActiveTechButton(cardIndex);
+}
+
+function updateInfo(employeeName) {
   const employee = employees[employeeName];
 
   // Render image, name and title
@@ -357,6 +288,8 @@ function employeeInfoBoxOpen() {
   document.body.style.overflow = "hidden";
 }
 function employeeInfoBoxClose() {
+  employeeInfoContainer.scrollTop = 0;
+
   if (window.innerWidth < 900) {
     resetInfo();
   }
@@ -389,6 +322,37 @@ const throttle = (fn, wait) => {
     }
   };
 };
+
+function requiredFieldChange() {
+  const emailValue = emailField.value.trim();
+  const phoneValue = phoneField.value.trim();
+
+  if (phoneValue !== "" && !contactEmail.checked && emailValue == "") {
+    phoneLabel.textContent = "Phone Number*";
+    phoneField.classList.remove("error");
+    emailLabel.textContent = "Email";
+    removeContactFormPlaceholder();
+    resetErrorStyles();
+  } else if (emailValue !== "" && !contactPhone.checked && phoneValue == "") {
+    emailLabel.textContent = "Email*";
+    emailField.classList.remove("error");
+    phoneLabel.textContent = "Phone Number";
+    removeContactFormPlaceholder();
+    resetErrorStyles();
+  } else if (
+    emailValue == "" &&
+    phoneValue == "" &&
+    !contactPhone.checked &&
+    !contactEmail.checked
+  ) {
+    // Both fields are empty, set * to both labels only if neither radio button is checked
+    emailLabel.textContent = "Email*";
+    phoneLabel.textContent = "Phone Number*";
+    addContactFormPlaceholder();
+    resetErrorStyles();
+  }
+}
+
 function ContactMethodRequirements() {
   if (contactPhone.checked) {
     emailLabel.textContent = "Email";
@@ -575,6 +539,11 @@ function navbarScrollResponsive() {
       const element = listItems[index];
       element.classList.add("listItemScrolled");
     }
+
+    for (let index = 0; index < listItemLinkText.length; index++) {
+      const element = listItemLinkText[index];
+      element.classList.add("listItemLinkTextScrolled");
+    }
   }
   // when scroll is under 150 change these classes to their default state
   else {
@@ -587,6 +556,10 @@ function navbarScrollResponsive() {
     for (let index = 0; index < listItems.length; index++) {
       const element = listItems[index];
       element.classList.remove("listItemScrolled");
+    }
+    for (let index = 0; index < listItemLinkText.length; index++) {
+      const element = listItemLinkText[index];
+      element.classList.remove("listItemLinkTextScrolled");
     }
   }
 }
@@ -711,18 +684,19 @@ function submitForm() {
     setErrorStyle(contactFormRadioInputContainer);
     return;
   }
+  if (!termsCheckbox.checked) {
+    setErrorStyle(termsAndConditionsErrorBorder);
+    return;
+  }
 
-  // Show snackbar and submit the form
-  // showSnackbar();
   // form.submit();
   console.log("form submitted!");
-  // disableSubmitButton();
   form.reset();
   form.style.display = "none";
   thanksForContactingUsContainer[0].style.display = "flex";
 }
 
-// scroll event listener to call navbarScrollReponsive function which changes the navbar on scroll
+// scroll event listener to call navbarScrollResponsive function which changes the navbar on scroll
 window.addEventListener("scroll", navbarScrollResponsive);
 // adds event listener to mouse move that calls throttle function with dogEyeMove function and a timeout that limits the amount of times the function is called
 window.addEventListener("mousemove", throttle(dogEyeMove, 25));

@@ -13,6 +13,10 @@
   --dsb-light-grey: #bdbdbd;
   --dsb-grey: #87a2ab;
 
+  --dsb-navbarColor: #150e19;
+  --dsb-navbarText: #000000;
+  --dsb-navbarTextScrolled: #ffffff;
+
   --dsb-green: #00b756;
   --dsb-light-green: #13f07b;
 
@@ -24,13 +28,13 @@
 
   /* heights */
 
-  --minHeight-content: 185rem;
   /*
   Set a minimum height for Content div to prevent a large layout shift.
   The Content div is initially empty before JavaScript renders the markdown.
   Without this adjustment, the footer would load at the top of the page before the markdown is rendered,
   causing it to be pushed down and resulting in an undesirable layout shift.
 */
+  --minHeight-content: 185rem;
 
   /* margins */
   --margin-xs: 1.25rem;
@@ -42,13 +46,14 @@
   --margin-listBig: 3rem;
 
   /* paddings  */
-  --padding-contentTop: 15rem;
+  --padding-contentTop: 10rem;
   --padding-contentOrderedListItemBottom: 0.625rem;
   /* transition */
   --transition-time: 0.25s;
 
   /* font sizes */
   --text-body: 1.1875rem;
+  --text-middle: 1.5rem;
   ---text-h3: 1.5rem;
   --text-h2: 2rem;
   --text-h1: 2.5rem;
@@ -76,7 +81,6 @@ button {
 
 html {
   font-family: roboto;
-  background-color: var(--background-Color);
 }
 
 @media only screen and (max-width: 500px) {
@@ -90,12 +94,15 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--background-Color);
 }
 
 #content {
   max-width: var(--width-content);
 
   /*
+  min-height: var(--minHeight-content);
+
   Set a minimum height to prevent a large layout shift.
   The Content div is initially empty before JavaScript renders the markdown.
   Without this adjustment, the footer would load at the top of the page before the markdown is rendered,
@@ -179,28 +186,37 @@ html {
 }
 
 /*----------Navbar----------*/
-
 #navbar {
-  width: 80%;
-  max-width: 100rem;
-  height: var(--navbar-height-full);
+  width: 100%;
+  height: var(--navbar-height-fullScrolled);
   z-index: 10;
   position: fixed;
   top: 0;
-  background-color: var(--dsb-dark);
-  transition: width var(--transition-time), height var(--transition-time),
-    max-width var(--transition-time);
+  background-color: rgba(0, 0, 0, 0);
+  /* transition: width var(--transition-time), height var(--transition-time),
+        max-width var(--transition-time); */
+  transition: height var(--transition-time),
+    background-color var(--transition-time);
 }
 
 #navbar.navbarScrolled {
   width: 100%;
   max-width: 100vw;
   height: var(--navbar-height-fullScrolled);
+  background-color: var(--dsb-navbarColor);
+}
+
+#navbarListRightSide {
+  margin-right: var(--margin-xs);
+}
+
+#navbarListLeftSide {
+  margin-left: var(--margin-xs);
 }
 
 #navbarList {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
   transition: var(--transition-time);
@@ -210,16 +226,9 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--dsb-red);
   color: var(--dsb-fullWhite);
-  height: 5rem;
-  width: 5rem;
-  margin-right: var(--margin-small);
-  box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
-  -webkit-box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
-  -moz-box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
-  transition: box-shadow var(--transition-time), width var(--transition-time),
-    height var(--transition-time);
+  text-decoration: none;
+  margin: 1rem;
 }
 .listItem:hover #listItemAbout {
   transform: scale(1.25);
@@ -227,9 +236,24 @@ html {
 }
 
 .listItemScrolled {
-  height: 4.5rem;
-  width: 4.5rem;
   box-shadow: none;
+}
+
+.listItemLink {
+  color: var(--dsb-fullWhite);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.listItemLinkText {
+  transition: var(--transition-time);
+  font-size: var(--text-middle);
+  color: var(--dsb-navbarText);
+}
+
+.listItemLinkTextScrolled {
+  transition: var(--transition-time);
+  color: var(--dsb-navbarTextScrolled);
 }
 
 #logoContainer {
@@ -238,13 +262,13 @@ html {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 4rem;
-  border: 1rem solid var(--dsb-fullWhite);
-  width: 12.5rem;
-  height: 12.5rem;
-  margin-left: var(--margin-medium);
-  margin-right: var(--margin-small);
+  border: 0.25rem solid var(--dsb-fullWhite);
+  width: 4.25rem;
+  height: 4.25rem;
+  top: 0;
   transition: var(--transition-time);
+  margin-left: 4rem;
+  opacity: 0;
 }
 
 #logoContainer.logoContainerScrolled {
@@ -252,41 +276,19 @@ html {
   height: 4.25rem;
   top: 0;
   border-width: 0.25rem;
+  opacity: 1;
 }
-
 #logoSvg {
   transition: var(--transition-time);
   width: 80%;
   height: 140%;
   /* position: relative;
-    top: 0rem; */
+      top: 0rem; */
 }
 
 #logoSvg.logoSvgScrolled {
   height: 125%;
   width: 125%;
-}
-
-.listItemLink {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  color: var(--dsb-fullWhite);
-}
-
-#listItemAbout {
-  transition: var(--transition-time);
-}
-
-.listItemLinkImage {
-  width: 56px;
-  height: 56px;
-  transition: var(--transition-time);
-}
-.listItem:hover .listItemLinkImage {
-  transform: scale(1.25);
 }
 
 .navbarListContainer {
@@ -356,6 +358,7 @@ html {
 
 #mainMenu {
   display: none;
+  overflow-y: auto;
 }
 
 .mainMenuListItem {
@@ -369,66 +372,51 @@ html {
   display: none;
 }
 
-#menuHeader {
+#menuHeaderContainer {
   display: none;
-  width: 90%;
 }
 
-#footer {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-  background-color: #003a46;
-  height: 20rem;
-  width: 100%;
-  align-items: center;
-  color: var(--dsb-grey);
-  font-size: 0.8rem;
-}
-
-#codekatuLink {
-  color: var(--dsb-grey);
-  text-decoration: underline;
-}
-
-/* --------------1200PX-------------- */
-@media only screen and (max-width: 1200px) {
-  /* NAVBAR */
-
+@media only screen and (max-width: 1230px) {
   #navbar {
     width: 100%;
   }
 }
 
-/* --------------900PX-------------- */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   /* NAVBAR */
 
+  #navbar {
+    height: var(--navbar-height-fullScrolled);
+  }
+
+  #logoContainer {
+  }
+
   #navbarList {
-    justify-content: center;
+    justify-content: space-between;
   }
   #logoContainer {
     margin-left: var(--margin-small);
     margin-right: var(--margin-xs);
-    margin-left: 0;
-    width: 7rem;
-    height: 7rem;
+    /* margin-left: 0; */
+    width: 4.25rem;
+    height: 4.25rem;
     top: 0;
-    border: 0.5rem solid var(--dsb-fullWhite);
+    border-width: 0.25rem;
+  }
+  #navbarListRightSide {
+    margin-right: var(--margin-xs);
   }
 
   .listItem {
-    margin-right: var(--margin-xs);
+    margin: 1rem 0.8em;
   }
 }
 
-/* --------------600px-------------- */
-@media only screen and (max-width: 600px) {
-  /* navbar */
-
+@media only screen and (max-width: 778px) {
   #navbar {
     height: var(--navbar-height-600px);
+    background-color: var(--dsb-dark);
   }
 
   #navbar.navbarScrolled {
@@ -453,6 +441,7 @@ html {
     height: 3rem;
     border: none;
     margin: 0.5rem;
+    opacity: 1;
   }
 
   #logoContainer.logoContainerScrolled {
@@ -476,9 +465,11 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    background-color: var(--dsb-fullWhite);
-    position: absolute;
+    min-height: 100vh;
+    overflow-y: auto;
+    max-height: 100%;
+    background-color: var(--dsb-dark);
+    position: fixed;
     right: 0;
     min-width: 15rem;
     width: 75%;
@@ -520,17 +511,29 @@ html {
   }
   .mainMenuListLink {
     display: flex;
-    color: var(--dsb-dark);
+    color: var(--dsb-fullWhite);
     text-decoration: none;
-    font-size: var(---text-h3);
+    font-size: var(--text-middle);
   }
 
-  #menuHeader {
+  #menuHeaderContainer {
     display: block;
+    background-color: var(--dsb-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 0.25rem solid var(--dsb-fullWhite);
+    width: 8.25rem;
+    height: 8.25rem;
+    margin: var(--margin-small) 0;
+  }
+
+  #menuHeaderLogo {
+    width: 80%;
+    height: 140%;
   }
 }
-
-/* --------------450px-------------- */
 
 @media only screen and (max-width: 450px) {
   #navbar {
@@ -541,11 +544,38 @@ html {
     height: var(--navbar-height-450px);
   }
 }
-
-/* --------------400px-------------- */
 @media only screen and (max-width: 400px) {
   /* navbar */
   #logoContainer {
     margin-left: 1%;
+  }
+}
+
+/*
+  -----------------FOOTER-----------------
+   */
+
+#footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  background-color: #003a46;
+  height: 20rem;
+  width: 100%;
+  align-items: center;
+  color: var(--dsb-grey);
+  font-size: 0.8rem;
+}
+
+#codekatuLink {
+  color: var(--dsb-grey);
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion) {
+  * {
+    transition: none;
+    scroll-behavior: none;
   }
 }

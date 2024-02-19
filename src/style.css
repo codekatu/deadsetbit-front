@@ -7,6 +7,10 @@
   --dsb-ebWhite: #e6e6e6;
   --dsb-cardWhite: #f5f1f1;
 
+  --dsb-navbarColor: #150e19;
+  --dsb-navbarText: #ffffff;
+  --dsb-navbarTextScrolled: #ffffff;
+
   --dsb-grey: #87a2ab;
   --dsb-tech-grey: #424242;
   --dsb-tech-grey2: #616161;
@@ -26,14 +30,18 @@
   --transition-time: 0.25s;
 
   /* font sizes */
-  --text-small: 1.175rem;
+  /* --text-small: 1.175rem; */
+  --text-formPlaceholder: 0.9375rem;
+  --text-small: 1.1875rem;
   --text-middle: 1.5rem;
   --text-big: 2rem;
   --text-veryBig: 2.5rem;
   --text-aboutUsSection: 1.375rem;
 
   /* scroll padding */
-  --scroll-padding: 0;
+  --scroll-padding-full: 6rem;
+  --scroll-padding-778px: 2.5rem;
+  --scroll-padding-300px: 1.5rem;
 
   /* border radius */
   --border-radius: 10px;
@@ -59,8 +67,23 @@
 
 html {
   font-family: "Roboto", sans-serif;
+  /* 
+   Note: In Chromium browsers (e.g., Chrome, Edge), be cautious about potential interference between smooth vertical scrolling and programmatic scrolling on scrollable elements.
+
+   If you have programmatic scrolling happening at the same time as smooth vertical scrolling, it will cause the smooth vertical scrolling to stop abruptly.
+
+   E.g. There was a bug that prevented from linking to a specific section from outside the page. 
+        Meaning that if you clicked on a link to a specific section (deadsetbit.com/#employees), the page would stay at the top and not scroll to the section.
+        This was caused by the programmatic scrolling(element.scrollTop, element.scrollLeft) that was executed at the page load inside a window.onload function.
+
+        The fix was to remove the programmatic scrolling from the window.onload.
+        (could have removed scroll-behavior: smooth; also but this is a feature that is wanted.)
+
+  Here is a chromium issue ticket about the bug: 
+  https://issues.chromium.org/issues/41496198
+*/
   scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
+  scroll-padding-top: var(--scroll-padding-full);
 }
 
 #pageWrapper {
@@ -68,6 +91,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  scroll-behavior: smooth;
 }
 
 .sectionContainer {
@@ -82,30 +106,39 @@ button {
 }
 
 /*
------------------NAVBAR-----------------
- */
+  -----------------NAVBAR-----------------
+  All navbar related css is below including the media queries, so if you come to copy the navbar you can copy everything until the hero section comment
+   */
 
 #navbar {
-  width: 80%;
-  max-width: 100rem;
-  height: var(--navbar-height-full);
+  width: 100%;
+  height: var(--navbar-height-fullScrolled);
   z-index: 10;
   position: fixed;
   top: 0;
-  background-color: var(--dsb-dark);
-  transition: width var(--transition-time), height var(--transition-time),
-    max-width var(--transition-time);
+  background-color: rgba(0, 0, 0, 0);
+  transition: height var(--transition-time),
+    background-color var(--transition-time);
 }
 
 #navbar.navbarScrolled {
   width: 100%;
   max-width: 100vw;
   height: var(--navbar-height-fullScrolled);
+  background-color: var(--dsb-navbarColor);
+}
+
+#navbarListRightSide {
+  margin-right: var(--margin-xs);
+}
+
+#navbarListLeftSide {
+  margin-left: var(--margin-xs);
 }
 
 #navbarList {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
   transition: var(--transition-time);
@@ -115,16 +148,9 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--dsb-red);
   color: var(--dsb-fullWhite);
-  height: 5rem;
-  width: 5rem;
-  margin-right: var(--margin-small);
-  box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
-  -webkit-box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
-  -moz-box-shadow: 15px 15px 2px 0px rgba(132, 39, 49, 0.75);
-  transition: box-shadow var(--transition-time), width var(--transition-time),
-    height var(--transition-time);
+  text-decoration: none;
+  margin: 1rem;
 }
 .listItem:hover #listItemAbout {
   transform: scale(1.25);
@@ -132,9 +158,24 @@ button {
 }
 
 .listItemScrolled {
-  height: 4.5rem;
-  width: 4.5rem;
   box-shadow: none;
+}
+
+.listItemLink {
+  color: var(--dsb-fullWhite);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.listItemLinkText {
+  transition: var(--transition-time);
+  font-size: var(--text-middle);
+  color: var(--dsb-navbarText);
+}
+
+.listItemLinkTextScrolled {
+  transition: var(--transition-time);
+  color: var(--dsb-navbarTextScrolled);
 }
 
 #logoContainer {
@@ -143,13 +184,13 @@ button {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 4rem;
-  border: 1rem solid var(--dsb-fullWhite);
-  width: 12.5rem;
-  height: 12.5rem;
-  margin-left: var(--margin-medium);
-  margin-right: var(--margin-small);
+  border: 0.25rem solid var(--dsb-fullWhite);
+  width: 4.25rem;
+  height: 4.25rem;
+  top: 0;
   transition: var(--transition-time);
+  margin-left: 4rem;
+  opacity: 0;
 }
 
 #logoContainer.logoContainerScrolled {
@@ -157,41 +198,17 @@ button {
   height: 4.25rem;
   top: 0;
   border-width: 0.25rem;
+  opacity: 1;
 }
-
 #logoSvg {
   transition: var(--transition-time);
   width: 80%;
   height: 140%;
-  /* position: relative;
-  top: 0rem; */
 }
 
 #logoSvg.logoSvgScrolled {
   height: 125%;
   width: 125%;
-}
-
-.listItemLink {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  color: var(--dsb-fullWhite);
-}
-
-#listItemAbout {
-  transition: var(--transition-time);
-}
-
-.listItemLinkImage {
-  width: 56px;
-  height: 56px;
-  transition: var(--transition-time);
-}
-.listItem:hover .listItemLinkImage {
-  transform: scale(1.25);
 }
 
 .navbarListContainer {
@@ -274,16 +291,185 @@ button {
   display: none;
 }
 
-#menuHeader {
+#menuHeaderContainer {
   display: none;
-  width: 90%;
+}
+
+@media only screen and (max-width: 1230px) {
+  #navbar {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #navbar {
+    height: var(--navbar-height-fullScrolled);
+  }
+
+  #logoContainer {
+  }
+
+  #navbarList {
+    justify-content: space-between;
+  }
+  #logoContainer {
+    margin-left: var(--margin-small);
+    margin-right: var(--margin-xs);
+    width: 4.25rem;
+    height: 4.25rem;
+    top: 0;
+    border-width: 0.25rem;
+  }
+  #navbarListRightSide {
+    margin-right: var(--margin-xs);
+  }
+
+  .listItem {
+    margin: 1rem 0.8em;
+  }
+}
+
+@media only screen and (max-width: 778px) {
+  #navbar {
+    height: var(--navbar-height-600px);
+    background-color: var(--dsb-dark);
+  }
+
+  #navbar.navbarScrolled {
+    height: var(--navbar-height-600px);
+  }
+
+  #navbarListRightSide {
+    display: none;
+  }
+
+  #navbarButton {
+    display: block;
+  }
+
+  #navbarList {
+    justify-content: space-between;
+  }
+
+  #logoContainer {
+    top: 0;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    margin: 0.5rem;
+    opacity: 1;
+  }
+
+  #logoContainer.logoContainerScrolled {
+    top: 0;
+    height: 3rem;
+    width: 3rem;
+    border: none;
+  }
+  #logoSvg {
+    width: 75%;
+    height: 75%;
+    padding-top: 2px;
+  }
+  #logoSvg.logoSvgScrolled {
+    width: 75%;
+    height: 75%;
+  }
+
+  #mainMenu {
+    animation: menu-slide-in 0.25s both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-y: auto;
+    background-color: var(--dsb-dark);
+    position: fixed;
+    right: 0;
+    min-width: 15rem;
+    width: 75%;
+    z-index: 10;
+  }
+
+  @keyframes menu-slide-in {
+    0% {
+      transform: translateX(1000px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  #mainMenuOpacityLayer {
+    display: flex;
+    width: 25%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: menuOpacity-slide-in 0.5s both;
+  }
+
+  @keyframes menuOpacity-slide-in {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+
+  .mainMenuListItem {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    width: 100%;
+  }
+  .mainMenuListLink {
+    display: flex;
+    color: var(--dsb-fullWhite);
+    text-decoration: none;
+    font-size: var(--text-middle);
+  }
+
+  #menuHeaderContainer {
+    display: block;
+    background-color: var(--dsb-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 0.25rem solid var(--dsb-fullWhite);
+    width: 8.25rem;
+    height: 8.25rem;
+    margin: var(--margin-small) 0;
+  }
+
+  #menuHeaderLogo {
+    width: 80%;
+    height: 140%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #navbar {
+    height: var(--navbar-height-450px);
+  }
+
+  #navbar.navbarScrolled {
+    height: var(--navbar-height-450px);
+  }
+}
+@media only screen and (max-width: 400px) {
+  #logoContainer {
+    margin-left: 1%;
+  }
 }
 
 /*
-
-
------------------HERO SECTION-----------------
- */
+  
+  
+  -----------------HERO SECTION-----------------
+   */
 
 #about {
   display: flex;
@@ -294,6 +480,7 @@ button {
   width: 100%;
   background-size: cover;
   background-position: center center;
+  box-shadow: inset 0 0 0 5000px rgba(0, 0, 0, 0.4);
 }
 
 #heroSectionContent {
@@ -349,7 +536,6 @@ button {
 }
 
 #aboutUsTextContainer {
-  /* height: auto; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -403,10 +589,10 @@ button {
 }
 
 /*
------------------Technology Section-----------------
- */
+  -----------------Technology Section-----------------
+   */
 
-#aboutOurTechnology {
+#services {
   width: 100%;
   background-image: linear-gradient(180deg, #f5f1f1 0%, #e6e6e6 100%);
   position: relative;
@@ -535,7 +721,7 @@ button {
   pointer-events: none; /* Disable interactions */
   opacity: 0; /* Initially set to invisible so our transition smoothly animates it in */
   transition: opacity var(--transition-time) ease-in-out,
-    pointer-events var(--transition-time) ease-in-out; /* Add transition */
+    pointer-events var(--transition-time) ease-in-out;
 }
 
 .techNavigationButton {
@@ -561,8 +747,8 @@ button {
 
   #techNavigationButtonContainer {
     visibility: visible;
-    opacity: 1; /* Make it visible */
-    pointer-events: auto; /* Enable interactions */
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .techCardArrowContainer {
@@ -697,16 +883,17 @@ button {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
-/*
-.blur {
-  filter: blur(1px);
-} */
 
 /*
+  -----------------Projects-----------------
+   */
+#projects {
+  width: 100%;
+}
 
-
------------------EB SECTION-----------------
- */
+/*
+  -----------------EB SECTION-----------------
+   */
 
 #empathic-building {
   background-color: var(--dsb-ebWhite);
@@ -800,8 +987,8 @@ button {
 }
 
 /*
------------------BANZAIMAN SECTION-----------------
- */
+  -----------------BANZAIMAN SECTION-----------------
+   */
 
 #banzaiman {
   display: flex;
@@ -931,8 +1118,8 @@ button {
   width: 200px;
 }
 /*
------------------EMPLOYEES SECTION-----------------
- */
+  -----------------EMPLOYEES SECTION-----------------
+   */
 
 #employeesSection {
   background-image: linear-gradient(
@@ -1086,11 +1273,9 @@ button {
 
 .socialInfoContainer {
   width: 85%;
-  /* margin-bottom: var(--margin-medium); */
+
   display: flex;
   flex-direction: column;
-  /* margin-left: var(--margin-small);
-  margin-bottom: var(--margin-xs); */
 }
 .socialInfo {
   display: flex;
@@ -1177,9 +1362,6 @@ button {
   font-weight: 300;
 }
 .clickToReadMore {
-  /* margin-right: 2rem;
-  margin-left: 2rem;
-  margin-top: var(--margin-xs); */
   text-decoration: underline;
   position: absolute;
   font-size: var(--text-xs);
@@ -1197,11 +1379,6 @@ button {
 }
 
 @media only screen and (max-width: 1300px) {
-  /* #employeeInfoContainer {
-    margin-left: 3rem;
-    border: 20px solid white;
-  } */
-
   #employeeContainer {
     grid-template-columns: 1fr;
   }
@@ -1233,7 +1410,6 @@ button {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    /* top: 10rem; */
     max-height: calc(100vh - var(--navbar-height-600px) - 10rem);
   }
 }
@@ -1245,8 +1421,8 @@ button {
 }
 
 /*
------------------CONTACT SECTION-----------------
- */
+  -----------------CONTACT SECTION-----------------
+   */
 
 .sectionContainer {
   display: flex;
@@ -1254,7 +1430,7 @@ button {
   align-items: center;
 }
 
-#contact {
+#contact-us {
   background-color: #fbc667;
 
   width: 100%;
@@ -1265,12 +1441,13 @@ button {
 
 #contactSectionHeader {
   font-size: var(--text-veryBig);
-  margin: 2rem 3rem;
+  margin: 3rem 3rem;
 }
 
 #contactSectionSubHeader {
   font-size: var(--text-middle);
-  margin: 2rem 3rem;
+  margin: 0 3rem;
+  margin-bottom: 3rem;
 }
 
 .contactSectionContent {
@@ -1330,8 +1507,9 @@ button {
 
 .formLabel {
   display: block;
-  font-size: 20px;
-  margin-bottom: 5px;
+  font-size: var(--text-small);
+  margin: 1px;
+  margin-bottom: 4px;
 }
 
 .contactFormInput,
@@ -1346,17 +1524,24 @@ button {
   font-size: var(--text-small);
 }
 
+@media screen and (max-width: 600px) {
+  .contactFormInput,
+  .messageField {
+    height: 50px;
+  }
+  .contactFormInput::placeholder {
+    font-size: var(--text-formPlaceholder);
+  }
+}
+
 .messageField {
   resize: vertical;
   height: 300px;
 }
-.formRadioLabel {
-  font-size: var(--text-middle);
-  margin-bottom: 15px;
-}
 
 #contactFormRadioInputContainer {
   font-size: var(--text-middle);
+  margin-bottom: 15px;
 }
 .contactFormRadioInput {
   width: 15px;
@@ -1368,7 +1553,7 @@ button {
   margin-bottom: 15px;
 }
 .radioLabel {
-  font-size: var(--text-middle);
+  font-size: var(--text-small);
 }
 #submitButtonContainer {
   margin-top: 15px;
@@ -1376,21 +1561,28 @@ button {
   justify-content: flex-end;
 }
 
-.iAgreeToTermsAndConditionsContainer {
+#iAgreeToTermsAndConditionsContainer {
   display: flex;
+  border-radius: var(--border-radius);
 }
 
 #termsCheckbox {
+  margin-right: 8px;
   width: 15px;
   height: 15px;
 }
 
+#termsAndConditionsErrorBorder {
+  border-radius: var(--border-radius);
+}
+
 .iAgreeToTermsAndConditionsTextContainer {
   font-size: var(--text-small);
-  margin-bottom: 15px;
 }
 #privacyPolicyLink {
+  font-size: var(--text-small);
   text-decoration: none;
+  margin-left: 27px;
 }
 #submitButton {
   width: 200px;
@@ -1476,7 +1668,6 @@ button {
 }
 
 #contactFormRadioInputContainer {
-  padding-top: 5px;
   border-radius: 10px;
 }
 
@@ -1490,8 +1681,8 @@ button {
 }
 
 /*
------------------FOOTER-----------------
- */
+  -----------------FOOTER-----------------
+   */
 
 #footer {
   display: flex;
@@ -1545,14 +1736,8 @@ button {
     top: 10rem;
   }
 }
-
 /* --------------1200PX-------------- */
 @media only screen and (max-width: 1200px) {
-  /* NAVBAR */
-
-  #navbar {
-    width: 100%;
-  }
   /* hero section */
 
   #about {
@@ -1623,38 +1808,9 @@ button {
   #gameSectionTextContainer {
     margin: 0rem;
   }
-
-  /*
-  Employees Section
- */
-
-  /* #employeeContainer {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  } */
 }
-
 /* --------------900PX-------------- */
 @media only screen and (max-width: 900px) {
-  /* NAVBAR */
-
-  #navbarList {
-    justify-content: center;
-  }
-  #logoContainer {
-    margin-left: var(--margin-small);
-    margin-right: var(--margin-xs);
-    margin-left: 0;
-    width: 7rem;
-    height: 7rem;
-    top: 0;
-    border: 0.5rem solid var(--dsb-fullWhite);
-  }
-
-  .listItem {
-    margin-right: var(--margin-xs);
-  }
-
   /* hero section */
 
   #about {
@@ -1668,7 +1824,6 @@ button {
     height: 30rem;
     width: 100%;
     box-shadow: none;
-    /* here gradient */
     background: rgb(251, 198, 103);
     background: linear-gradient(
       180deg,
@@ -1751,6 +1906,16 @@ button {
     grid-template-rows: auto;
   }
 }
+
+/* --------------778px-------------- */
+
+@media only screen and (max-width: 778px) {
+  /* same time as the navbar changes size */
+  html {
+    scroll-padding-top: var(--scroll-padding-778px);
+    font-size: 90%;
+  }
+}
 /* --------------700px-------------- */
 
 @media only screen and (max-width: 700px) {
@@ -1769,115 +1934,6 @@ button {
 
 /* --------------600px-------------- */
 @media only screen and (max-width: 600px) {
-  /* navbar */
-
-  html {
-    scroll-padding-top: 3rem;
-    font-size: 90%;
-  }
-
-  #navbar {
-    height: var(--navbar-height-600px);
-  }
-
-  #navbar.navbarScrolled {
-    height: var(--navbar-height-600px);
-  }
-
-  #navbarListRightSide {
-    display: none;
-  }
-
-  #navbarButton {
-    display: block;
-  }
-
-  #navbarList {
-    justify-content: space-between;
-  }
-
-  #logoContainer {
-    top: 0;
-    width: 3rem;
-    height: 3rem;
-    border: none;
-    margin: 0.5rem;
-  }
-
-  #logoContainer.logoContainerScrolled {
-    top: 0;
-    height: 3rem;
-    width: 3rem;
-    border: none;
-  }
-  #logoSvg {
-    width: 75%;
-    height: 75%;
-    padding-top: 2px;
-  }
-  #logoSvg.logoSvgScrolled {
-    width: 75%;
-    height: 75%;
-  }
-
-  #mainMenu {
-    animation: menu-slide-in 0.25s both;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    background-color: var(--dsb-fullWhite);
-    position: absolute;
-    right: 0;
-    min-width: 15rem;
-    width: 75%;
-    z-index: 10;
-  }
-
-  @keyframes menu-slide-in {
-    0% {
-      transform: translateX(1000px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  #mainMenuOpacityLayer {
-    display: flex;
-    width: 25%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    animation: menuOpacity-slide-in 0.5s both;
-  }
-
-  @keyframes menuOpacity-slide-in {
-    0% {
-      opacity: 0%;
-    }
-    100% {
-      opacity: 100%;
-    }
-  }
-
-  .mainMenuListItem {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    width: 100%;
-  }
-  .mainMenuListLink {
-    display: flex;
-    color: var(--dsb-dark);
-    text-decoration: none;
-    font-size: var(--text-middle);
-  }
-
-  #menuHeader {
-    display: block;
-  }
-
   /* hero section  */
 
   #about {
@@ -2025,14 +2081,6 @@ button {
     font-size: 70%;
   }
 
-  #navbar {
-    height: var(--navbar-height-450px);
-  }
-
-  #navbar.navbarScrolled {
-    height: var(--navbar-height-450px);
-  }
-
   .card {
     width: 25rem;
     box-shadow: var(--box-shadow);
@@ -2054,11 +2102,6 @@ button {
 
   #aboutUsTextLightContainer {
     min-height: auto;
-  }
-
-  /* navbar */
-  #logoContainer {
-    margin-left: 1%;
   }
 
   /* eb section */
@@ -2101,7 +2144,9 @@ button {
 @media only screen and (max-width: 300px) {
   html {
     font-size: 60%;
+    scroll-padding-top: var(--scroll-padding-300px);
   }
+
   #aboutUsNormalTextContainer {
     margin-bottom: var(--margin-xs);
     margin-top: var(--margin-xs);

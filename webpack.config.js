@@ -28,15 +28,15 @@ module.exports = {
       filename: "index.html",
       chunks: ["index"],
     }),
+    // new HtmlWebpackPlugin({
+    //   hash: true,
+    //   template: "./src/pages/empathic-building/template.html",
+    //   filename: "empathic-building/index.html",
+    //   chunks: ["empathicBuilding"],
+    // }),
     new HtmlWebpackPlugin({
       hash: true,
-      template: "./public/empathic-building/template.html",
-      filename: "empathic-building/index.html",
-      chunks: ["empathicBuilding"],
-    }),
-    new HtmlWebpackPlugin({
-      hash: true,
-      template: "./public/privacy-policy/template.html",
+      template: "./src/pages/privacy-policy/template.html",
       filename: "privacy-policy/index.html",
       chunks: ["privacyPolicy"],
     }),
@@ -49,8 +49,8 @@ module.exports = {
   mode: "none",
   entry: {
     index: "./src/index.js",
-    empathicBuilding: "./public/empathic-building/index.js",
-    privacyPolicy: "./public/privacy-policy/index.js",
+    // empathicBuilding: "./src/pages/empathic-building/index.js",
+    privacyPolicy: "./src/pages/privacy-policy/index.js",
   },
   output: {
     path: __dirname + "/dist",
