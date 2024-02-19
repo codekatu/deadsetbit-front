@@ -3,8 +3,11 @@ import "./reset.css";
 import "./fonts.css";
 import "./style.css";
 import employees from "./employees";
+// import functions
 import { navbarScrollResponsive } from "./features/responsiveNavbar";
 import { menuOpenClose } from "./features/navbarMenuOpenClose";
+import { addFormEventListeners } from "./features/contactFormLogic";
+
 // getting dom elements
 const navbar = document.getElementById("navbar");
 const leftEye = document.getElementById("leftEye");
@@ -22,21 +25,6 @@ const arrowRightFirstCard = document.getElementById("arrowRightFirstCard");
 const arrowLeftSecondCard = document.getElementById("arrowLeftSecondCard");
 const arrowRightSecondCard = document.getElementById("arrowRightSecondCard");
 const arrowLeftThirdCard = document.getElementById("arrowLeftThirdCard");
-const form = document.getElementById("contactForm");
-const messageField = document.getElementById("messageField");
-const termsCheckbox = document.getElementById("termsCheckbox");
-const termsAndConditionsErrorBorder = document.getElementById(
-  "termsAndConditionsErrorBorder"
-);
-
-const emailField = document.getElementById("email");
-const phoneField = document.getElementById("phone");
-const contactPhone = document.getElementById("contactPhone");
-const contactEmail = document.getElementById("contactEmail");
-const contactFormRadioInputContainer = document.getElementById(
-  "contactFormRadioInputContainer"
-);
-const submitButton = document.getElementById("submitButton");
 const infoContainer = document.getElementById("employeeInfoContainer");
 const employeeCards = document.getElementsByClassName("employeeCard");
 const employeeInfoContainer = document.getElementById("employeeInfoContainer");
@@ -44,7 +32,6 @@ const backdrop = document.getElementById("employeeInfoContainerModalBackdrop");
 const employeeInfoBoxCloseButton = document.getElementById(
   "employeeInfoContainerModalCloseButton"
 );
-
 const socialInfoContainer = document.querySelector(".socialInfoContainer");
 const paragraphsContainer = infoContainer.querySelector(
   ".employeeInfoTextContainer"
@@ -52,11 +39,6 @@ const paragraphsContainer = infoContainer.querySelector(
 const employeeInfoImage = infoContainer.querySelector(".employeeInfoImage");
 const employeeInfoName = infoContainer.querySelector(".employeeInfoName");
 const employeeInfoTitle = infoContainer.querySelector(".employeeInfoTitle");
-const thanksForContactingUsContainer = document.getElementsByClassName(
-  "thanksForContactingUsContainer"
-);
-const emailLabel = document.getElementById("emailLabel");
-const phoneLabel = document.getElementById("phoneLabel");
 
 // global variables
 let isButtonPressed = false;
@@ -101,26 +83,6 @@ window.onload = function () {
         card.classList.remove("employeeCardActive");
       });
     }
-  });
-
-  contactPhone.addEventListener("change", ContactMethodRequirements);
-  contactEmail.addEventListener("change", ContactMethodRequirements);
-  emailField.addEventListener("input", requiredFieldChange);
-  phoneField.addEventListener("input", requiredFieldChange);
-  emailField.addEventListener("input", () => {
-    emailField.classList.contains("error")
-      ? emailField.classList.remove("error")
-      : null;
-  });
-  phoneField.addEventListener("input", () => {
-    phoneField.classList.contains("error")
-      ? phoneField.classList.remove("error")
-      : null;
-  });
-  messageField.addEventListener("input", (e) => {
-    e.target.classList.contains("error")
-      ? e.target.classList.remove("error")
-      : null;
   });
 
   Array.from(employeeCards).forEach(function (card) {
@@ -175,7 +137,7 @@ window.onload = function () {
   addArrowButtonEventListener(arrowRightSecondCard, 2);
   addArrowButtonEventListener(arrowLeftThirdCard, 1);
 
-  submitButton.addEventListener("click", submitForm);
+  addFormEventListeners();
 };
 
 function addArrowButtonEventListener(button, cardIndex) {
@@ -315,59 +277,6 @@ const throttle = (fn, wait) => {
     }
   };
 };
-
-function requiredFieldChange() {
-  const emailValue = emailField.value.trim();
-  const phoneValue = phoneField.value.trim();
-
-  if (phoneValue !== "" && !contactEmail.checked && emailValue == "") {
-    phoneLabel.textContent = "Phone Number*";
-    phoneField.classList.remove("error");
-    emailLabel.textContent = "Email";
-    removeContactFormPlaceholder();
-    resetErrorStyles();
-  } else if (emailValue !== "" && !contactPhone.checked && phoneValue == "") {
-    emailLabel.textContent = "Email*";
-    emailField.classList.remove("error");
-    phoneLabel.textContent = "Phone Number";
-    removeContactFormPlaceholder();
-    resetErrorStyles();
-  } else if (
-    emailValue == "" &&
-    phoneValue == "" &&
-    !contactPhone.checked &&
-    !contactEmail.checked
-  ) {
-    // Both fields are empty, set * to both labels only if neither radio button is checked
-    emailLabel.textContent = "Email*";
-    phoneLabel.textContent = "Phone Number*";
-    addContactFormPlaceholder();
-    resetErrorStyles();
-  }
-}
-
-function ContactMethodRequirements() {
-  if (contactPhone.checked) {
-    emailLabel.textContent = "Email";
-    phoneLabel.textContent = "Phone Number*";
-    emailField.classList.contains("error")
-      ? emailField.classList.remove("error")
-      : null;
-    phoneField.placeholder = "Please enter your phone number";
-    emailField.placeholder = "";
-  } else if (contactEmail.checked) {
-    emailLabel.textContent = "Email*";
-    phoneLabel.textContent = "Phone Number";
-    phoneField.classList.contains("error")
-      ? phoneField.classList.remove("error")
-      : null;
-    emailField.placeholder = "Please enter your email";
-    phoneField.placeholder = "";
-  }
-  contactFormRadioInputContainer.classList.contains("error")
-    ? contactFormRadioInputContainer.classList.remove("error")
-    : null;
-}
 
 function scrollToTechCard(index) {
   if (isDragging) return;
@@ -577,66 +486,6 @@ const move = (e) => {
   const scroll = x - startX;
   scrollContainer.scrollLeft = scrollLeft - scroll;
 };
-function resetErrorStyles() {
-  messageField.classList.remove("error");
-  emailField.classList.remove("error");
-  phoneField.classList.remove("error");
-  contactFormRadioInputContainer.classList.remove("error");
-}
-function setErrorStyle(element) {
-  element.classList.add("error");
-}
-function removeContactFormPlaceholder() {
-  emailField.placeholder = "";
-  phoneField.placeholder = "";
-}
-function addContactFormPlaceholder() {
-  emailField.placeholder = "Please fill at least one: Email or Phone Number";
-  phoneField.placeholder = "Please fill at least one: Email or Phone Number";
-}
-
-function submitForm() {
-  resetErrorStyles();
-
-  var emailValue = emailField.value.trim();
-  var phoneValue = phoneField.value.trim();
-
-  if (contactPhone.checked && phoneValue === "") {
-    setErrorStyle(phoneField);
-    return;
-  }
-
-  if (contactEmail.checked && emailValue === "") {
-    setErrorStyle(emailField);
-    return;
-  }
-
-  if (emailValue === "" && phoneValue === "") {
-    setErrorStyle(emailField);
-    setErrorStyle(phoneField);
-    return;
-  }
-
-  if (messageField.value.trim() === "") {
-    setErrorStyle(messageField);
-    return;
-  }
-
-  // Check if the user has selected either phone or email
-  if (!contactPhone.checked && !contactEmail.checked) {
-    setErrorStyle(contactFormRadioInputContainer);
-    return;
-  }
-  if (!termsCheckbox.checked) {
-    setErrorStyle(termsAndConditionsErrorBorder);
-    return;
-  }
-
-  form.submit();
-  form.reset();
-  form.style.display = "none";
-  thanksForContactingUsContainer[0].style.display = "flex";
-}
 
 // scroll event listener to call navbarScrollResponsive function which changes the navbar on scroll
 window.addEventListener("scroll", navbarScrollResponsive);
