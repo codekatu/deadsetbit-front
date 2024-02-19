@@ -689,8 +689,7 @@ function submitForm() {
     return;
   }
 
-  // form.submit();
-  console.log("form submitted!");
+  form.submit();
   form.reset();
   form.style.display = "none";
   thanksForContactingUsContainer[0].style.display = "flex";
