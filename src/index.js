@@ -3,12 +3,10 @@ import "./reset.css";
 import "./fonts.css";
 import "./style.css";
 import employees from "./employees";
-
+import { navbarScrollResponsive } from "./features/responsiveNavbar";
+import { menuOpenClose } from "./features/navbarMenuOpenClose";
 // getting dom elements
 const navbar = document.getElementById("navbar");
-const listItems = document.getElementsByClassName("listItem");
-const logoContainer = document.getElementById("logoContainer");
-const logo = document.getElementById("logoSvg");
 const leftEye = document.getElementById("leftEye");
 const rightEye = document.getElementById("rightEye");
 const tabImage = document.getElementById("banzaimanGameImage");
@@ -17,7 +15,6 @@ const tabButtons = document.getElementsByClassName("tabSelectorButton");
 const buttonImages = document.getElementsByClassName("buttonImage");
 const mainMenuListLinks = document.getElementsByClassName("mainMenuListLink");
 const mainMenuOpacityLayer = document.getElementById("mainMenuOpacityLayer");
-const mainMenuContainer = document.getElementById("mainMenuContainer");
 const techNavButtons = document.querySelectorAll(".techNavigationButton");
 const techCardContainer = document.getElementById("technologyCardContainer");
 const scrollContainer = document.getElementById("scrollContainer");
@@ -28,9 +25,6 @@ const arrowLeftThirdCard = document.getElementById("arrowLeftThirdCard");
 const form = document.getElementById("contactForm");
 const messageField = document.getElementById("messageField");
 const termsCheckbox = document.getElementById("termsCheckbox");
-const termsContainer = document.getElementsByClassName(
-  "iAgreeToTermsAndConditionsContainer"
-);
 const termsAndConditionsErrorBorder = document.getElementById(
   "termsAndConditionsErrorBorder"
 );
@@ -63,7 +57,6 @@ const thanksForContactingUsContainer = document.getElementsByClassName(
 );
 const emailLabel = document.getElementById("emailLabel");
 const phoneLabel = document.getElementById("phoneLabel");
-const listItemLinkText = document.getElementsByClassName("listItemLinkText");
 
 // global variables
 let isButtonPressed = false;
@@ -523,56 +516,6 @@ function angle(cx, cy, ex, ey) {
   const rad = Math.atan2(dy, dx); // gives us the angle in radian
   const deg = (rad * 180) / Math.PI; // converts the radian into degrees
   return deg;
-}
-
-// function that changes the navbar on depending on scrollY position
-function navbarScrollResponsive() {
-  // when scroll goes over 150 add scrolled class to these elements
-  if (window.scrollY > 100) {
-    navbar.classList.add("navbarScrolled");
-    logoContainer.classList.add("logoContainerScrolled");
-    logo.classList.add("logoSvgScrolled");
-
-    // loop trough the listItems HTMLcollection and add scrolled class
-
-    for (let index = 0; index < listItems.length; index++) {
-      const element = listItems[index];
-      element.classList.add("listItemScrolled");
-    }
-
-    for (let index = 0; index < listItemLinkText.length; index++) {
-      const element = listItemLinkText[index];
-      element.classList.add("listItemLinkTextScrolled");
-    }
-  }
-  // when scroll is under 150 change these classes to their default state
-  else {
-    navbar.classList.remove("navbarScrolled");
-
-    logoContainer.classList.remove("logoContainerScrolled");
-    logo.classList.remove("logoSvgScrolled");
-
-    // loop trough the listItemsScrolled HTMLcollection and remove scrolled class
-    for (let index = 0; index < listItems.length; index++) {
-      const element = listItems[index];
-      element.classList.remove("listItemScrolled");
-    }
-    for (let index = 0; index < listItemLinkText.length; index++) {
-      const element = listItemLinkText[index];
-      element.classList.remove("listItemLinkTextScrolled");
-    }
-  }
-}
-
-// function that opens and closes the menu
-function menuOpenClose() {
-  if (mainMenuContainer.style.display === "flex") {
-    mainMenuContainer.style.display = "none";
-    navbarButton.classList.toggle("clicked");
-  } else {
-    mainMenuContainer.style.display = "flex";
-    navbarButton.classList.toggle("clicked");
-  }
 }
 
 // updates the active button based on the scroll position on scrollContainer
