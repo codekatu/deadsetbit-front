@@ -4,14 +4,28 @@
   --dsb-fullWhite: #ffffff;
   --dsb-submit-button-hover-color: #150e19;
   --dsb-submit-button-hover-text-color: #ffffff;
-  --dsb-contact-section-background: #ededed;
+  --dsb-contact-section-background: linear-gradient(
+    to right,
+    #82b467,
+    #94bb56,
+    #acc042,
+    #c7c32a,
+    #e6c401
+  );
   --dsb-grey: #87a2ab;
   --dsb-navbarColor: #150e19;
   --dsb-navbarText: #ffffff;
   --dsb-navbarTextScrolled: #ffffff;
   --submit-button-backgroundColor: none;
   --submit-button-text-color: #000000;
-  --background-Color: #f0eded;
+  --background-Color: linear-gradient(
+    to right,
+    #82b467,
+    #94bb56,
+    #acc042,
+    #c7c32a,
+    #e6c401
+  );
 
   /* box shadow used to have dark overlay */
   --hero-section-overlay: inset 0 0 0 5000px rgba(0, 0, 0, 0.5);
@@ -91,7 +105,7 @@ html {
 }
 
 body {
-  background-color: var(--background-Color);
+  background-image: var(--background-Color);
 }
 
 @media only screen and (max-width: 500px) {
@@ -480,7 +494,7 @@ body {
 
 #heroSection {
   min-height: 40rem;
-  background-image: url("../../../public/assets/ebSection/eb-header.png");
+  background-image: url("../../../public/assets/banzaimanSection/tabSelector/banzai_1.webp");
   box-shadow: var(--hero-section-overlay);
   background-size: cover;
   background-position: center;
@@ -489,14 +503,20 @@ body {
 #productLink {
   width: fit-content;
   position: relative;
-  left: 35rem;
+  left: 30rem;
   top: 2.5rem;
   display: flex;
   align-items: center;
 }
-@media screen and (max-width: 1770px) {
+@media screen and (max-width: 1780px) {
   #productLink {
     left: 25rem;
+  }
+}
+
+@media screen and (max-width: 16590px) {
+  #productLink {
+    left: 20rem;
   }
 }
 
@@ -506,13 +526,13 @@ body {
   }
 }
 
-@media screen and (max-width: 825px) {
+@media screen and (max-width: 900px) {
   #productLink {
     left: 27rem;
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 760px) {
   #productLink {
     left: -0rem;
     top: -1rem;
@@ -520,12 +540,12 @@ body {
 }
 
 #productLogo {
-  height: 40px;
+  height: 100px;
 }
 
 @media screen and (max-width: 500px) {
   #productLogo {
-    height: 30px;
+    height: 79px;
   }
 }
 
@@ -561,12 +581,12 @@ body {
 
 #firstImageContainer {
   margin-left: var(--info-section-container-side-margin);
-  background-image: url("../../../public/assets/ebSection/laptopBig.webp");
+  background-image: url("../../../public/assets/banzaimanSection/tabSelector/banzai_2.webp");
 }
 
 #secondImageContainer {
   margin-right: var(--info-section-container-side-margin);
-  background-image: url("../../../public/assets/ebSection/bigTablet.webp");
+  background-image: url("../../../public/assets/banzaimanSection/tabSelector/banzai_3.webp");
 }
 
 .infoSectionTextbox {
