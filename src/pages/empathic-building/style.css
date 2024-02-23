@@ -312,8 +312,8 @@ body {
     height: var(--navbar-height-fullScrolled);
   }
 
-  #logoContainer {
-  }
+  /* #logoContainer {
+  } */
 
   #navbarList {
     justify-content: space-between;
@@ -475,8 +475,8 @@ body {
 
 /* Content */
 
-#content {
-}
+/* #content {
+} */
 
 #heroSection {
   min-height: 40rem;
