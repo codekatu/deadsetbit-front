@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body id="">
+    <div id="pageWrapper">
+      <nav id="navbar">
+        <div id="navbarList">
+          <ul id="navbarListLeftSide" class="navbarListContainer">
+            <li id="logoContainer">
+              <img
+                alt="Dead Set Bit logo"
+                id="logoSvg"
+                src="../assets/navbar/logo.svg"
+              />
+            </li>
+          </ul>
+          <ul id="navbarListRightSide" class="navbarListContainer">
+            <li class="listItem">
+              <a class="listItemLink" href="/#about"
+                ><p class="listItemLinkText">About</p></a
+              >
+            </li>
+            <li class="listItem">
+              <a class="listItemLink" href="/#services"
+                ><p class="listItemLinkText">Services</p></a
+              >
+            </li>
+            <li class="listItem">
+              <a class="listItemLink" href="/#projects"
+                ><p class="listItemLinkText">Projects</p></a
+              >
+            </li>
+            <li class="listItem">
+              <a class="listItemLink" href="/#employees"
+                ><p class="listItemLinkText">Employees</p></a
+              >
+            </li>
+            <li class="listItem">
+              <a class="listItemLink" href="/#contact-us"
+                ><p class="listItemLinkText">Contact us</p></a
+              >
+            </li>
+          </ul>
+          <button aria-label="navbar menu button" id="navbarButton">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <div id="mainMenuContainer">
+          <div id="mainMenuOpacityLayer"></div>
+          <ul id="mainMenu">
+            <li id="menuHeaderContainer">
+              <img
+                alt="Dead Set Bit logo"
+                id="menuHeaderLogo"
+                src="../assets/navbar/logo.svg"
+              />
+            </li>
+
+            <li class="mainMenuListItem">
+              <a class="mainMenuListLink" href="/#about">About</a>
+            </li>
+            <li class="mainMenuListItem">
+              <a class="mainMenuListLink" href="/#services">Services</a>
+            </li>
+            <li class="mainMenuListItem">
+              <a class="mainMenuListLink" href="/#projects">Projects</a>
+            </li>
+            <li class="mainMenuListItem">
+              <a class="mainMenuListLink" href="/#employees">Employees</a>
+            </li>
+            <li class="mainMenuListItem">
+              <a class="mainMenuListLink" href="/#contact-us">Contact us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div id="content">
+        <div id="heroSection"></div>
+        <div id="infoSectionWrapper">
+          <div
+            class="infoSectionContentContainer"
+            id="firstInfoSectionContentContainer"
+          >
+            <div class="infoSectionTextbox" id="firstTextBox">
+              <a
+                id="productLink"
+                href="https://haltian.com/solutions/empathic-building-for-offices/"
+              >
+                <img
+                  id="productLogo"
+                  alt="Haltian logo"
+                  src="assets/ebSection/haltianLogoBlack.svg"
+                />
+              </a>
+
+              <h2 class="infoSectionTextHeader">Empathic Building</h2>
+              <h3 class="infoSectionTextSubHeader">Summary</h3>
+              <p class="infoSectionTextBody">
+                We helped TietoEVRY and later Haltian to develop the technical
+                side of their Empathic Building product line as well as design
+                the overall product concept. From initial concept MVP launched
+                at Slush 2017 to current day slew of product lines targeting
+                offices, hospitals, warehouses and more, we have continued our
+                strong subcontracting relationship and offered our senior
+                expertise over a number of different technical domains starting
+                from designing the overall architecture of the IoT platform to
+                implementation of individual end-user web applications and
+                graphic design for over 8 years already.
+              </p>
+            </div>
+            <div class="infoSectionImageContainer" id="firstImageContainer">
+              <div id="laptopContainer">
+                <!-- the img below is the same image as the laptopContainers
+                background image. the img tag is used to set the correct width
+                for the laptopContainer so it gets the same width as its own
+                background image. We want this since we want to position the
+                video below on the screen of the laptop. and to use background
+                image to prevent lighthouse alerting about image being displayed
+                in the wrong dimensions. Therefore the laptop needs to be in its
+                own container that is the size of its own background image. The img tag is set to be invisible in css -->
+                <img
+                  id="laptopInvisible"
+                  src="/assets/ebSection/laptopTransparent.png"
+                />
+                <div class="laptopFrame">
+                  <video width="100%" height="100%" autoplay loop>
+                    <!-- <source
+                      src="/assets/ebSection/eb-video.webm"
+                      type="video/webm"
+                    /> -->
+                    <source
+                      src="/assets/ebSection/output3.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="infoSectionContentContainer"
+            id="secondInfoSectionContentContainer"
+          >
+            <div
+              class="infoSectionImageContainer"
+              id="secondImageContainer"
+            ></div>
+            <div class="infoSectionTextbox" id="secondTextBox">
+              <h3 class="infoSectionTextSubHeader">Highlights</h3>
+              <div id="infoSectionTextboxHighlightContainer">
+                <div class="highlight">
+                  <h4 class="highlightSubHeader">
+                    Highly performant interfaces
+                  </h4>
+                  <p class="infoSectionTextBody">
+                    From a REST API capable of handling +300 000 000 requests
+                    each month to enabling real-time communications efficiently
+                    between the server and clients through web socket and MQTT
+                    technology.
+                  </p>
+                </div>
+                <div class="highlight">
+                  <h4 class="highlightSubHeader">World-class visualizations</h4>
+                  <p class="infoSectionTextBody">
+                    From visualizing individual buildings to entire surrounding
+                    areas, our in-house developed WebGL based DSB Web
+                    Application Engine ensures unparalled 2D & 3D visualization
+                    capabilities within the browser environment.
+                  </p>
+                </div>
+
+                <div class="highlight">
+                  <h4 class="highlightSubHeader">
+                    Architecture for the whole stack
+                  </h4>
+                  <p class="infoSectionTextBody">
+                    Designing and implementing both backend and frontend
+                    architectures from zero to hero while making sure both are
+                    kept adaptable enough for the usual pivots of a startup
+                    company.
+                  </p>
+                </div>
+                <div class="highlight">
+                  <h4 class="highlightSubHeader">
+                    Connectivity to third party systems
+                  </h4>
+                  <p class="infoSectionTextBody">
+                    Implementing +20 integrations to third party platforms, from
+                    Office 365 to real-time location systems (RTLS) and
+                    everything in between. Connectivity is key.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="infoSectionContentContainer"
+            id="thirdInfoSectionContentContainer"
+          >
+            <div class="infoSectionTextbox" id="thirdTextBox">
+              <h3 class="infoSectionTextSubHeader">
+                First of Its Kind, An End-User Interface For Buildings
+              </h3>
+              <p class="infoSectionTextBody">
+                The futuristic idea of visualizing invisible building data for
+                the actual end-users of the building was not common place in
+                2016. Together with TietoEVRY’s startup incubator, we
+                implemented a fully-functioning MVP in 6 months time, after
+                which the product was offficially launched at the international
+                tech and startup event Slush in 2017 with glowing fanfare and
+                interest generated.
+              </p>
+              <p class="infoSectionTextBody">
+                Given the novelty of the concept and absence of any comparable
+                implementations, we had to come up with new and innovative
+                approaches for implementing the required features. This included
+                using our proprietary game engine to render buildings within the
+                end-user's browser environment quickly with extremely low memory
+                overhead and load times. Throughout, end-user experience
+                remained the cornerstone of our technical and product design
+                efforts.
+              </p>
+            </div>
+            <div class="infoSectionImageContainer" id="thirdImageContainer">
+              <!-- set as a backgorund image -->
+            </div>
+          </div>
+
+          <!-- <div id="quoteBoxContainer">
+            <div id="quoteBox">
+              <div id="quoteContentContainer">
+                <h3 id="quoteHeader">Greetings From a Happy Customer</h3>
+                <div id="quoteBodyAndImageContainer">
+                  <div id="quoteAuthorImage"></div>
+                  <p class="quoteText">
+                    Without Dead Set Bit, I could not have realized my – back
+                    then – futuristic idea of Empathic Building. From a startup
+                    accelerator participant to a multi-million business, Dead
+                    Set Bit has been there every step of the way offering
+                    excellent technical expertise on various matters. Even when
+                    the requirements have been unclear or the ideas high-flying,
+                    you’ve managed to deliver exactly what has been wanted. I’ve
+                    been in the IT industry for over 30 years and can
+                    confidently say that you guys are the best at what you do!
+                    <br />
+                    <br />
+                    <span id="quoteAuthor"
+                      >Tomi Teikko, Founder of Empathic Building and CEO of
+                      Haltian Inc.
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div id="quoteBoxContainer">
+            <div id="quoteBox">
+              <h3 id="quoteHeader">Greetings From a Happy Customer.</h3>
+              <div id="quoteBodyContainer">
+                <p id="quoteText">
+                  Without Dead Set Bit, I could not have realized my – back then
+                  – futuristic idea of Empathic Building. From a startup
+                  accelerator participant to a multi-million business, Dead Set
+                  Bit has been there every step of the way offering excellent
+                  technical expertise on various matters. Even when the
+                  requirements have been unclear or the ideas high-flying,
+                  you’ve managed to deliver exactly what has been wanted. I’ve
+                  been in the IT industry for over 30 years and can confidently
+                  say that you guys are the best at what you do!
+                </p>
+                <div id="quoteAuthorContainer">
+                  <div id="authorImage"></div>
+                  <p id="quoteAuthor">
+                    Tomi Teikko, Founder of Empathic Building and CEO of Haltian
+                    Inc.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="sectionContainer" id="contact-us">
+        <h3 id="contactSectionHeader">Contact us</h3>
+        <h4 id="contactSectionSubHeader">
+          Fill the form or reach out via email, and we'll get back to you as
+          soon as possible.
+        </h4>
+        <div class="contactSectionContent">
+          <div class="contactSectionPeople">
+            <div class="contactPersonContainer">
+              <div class="contactPersonImageContainer">
+                <img
+                  class="contactPersonImage"
+                  src="assets/employeesSection/pauli.webp"
+                  alt="Hand drawn image of Pauli Ervi"
+                />
+              </div>
+              <div class="contactPersonTextContainer">
+                <h5 class="contactPersonName">Pauli Ervi</h5>
+                <p class="contactReason">Sales</p>
+                <p class="contactPersonEmail">pauli@deadsetbit.com</p>
+                <!-- <p class="contactPersonPhone"></p> -->
+              </div>
+            </div>
+            <div class="contactPersonContainer">
+              <div class="contactPersonImageContainer">
+                <img
+                  class="contactPersonImage"
+                  src="assets/employeesSection/jasu.webp"
+                  alt="Hand drawn image of Yacine Ouarab"
+                />
+              </div>
+              <div class="contactPersonTextContainer">
+                <h5 class="contactPersonName">Yacine Ouarab</h5>
+                <p class="contactReason">Sales</p>
+                <p class="contactPersonEmail">jasu@deadsetbit.com</p>
+                <!-- <p class="contactPersonPhone"></p> -->
+              </div>
+            </div>
+            <div class="contactPersonContainer">
+              <div class="contactPersonImageContainer">
+                <img
+                  class="contactPersonImage"
+                  src="assets/employeesSection/anne.webp"
+                  alt="Hand drawn image of Anne Kotiranta"
+                />
+              </div>
+              <div class="contactPersonTextContainer">
+                <h5 class="contactPersonName">Anne Kotiranta</h5>
+                <p class="contactReason">General Inquiries</p>
+                <p class="contactPersonEmail">anne@deadsetbit.com</p>
+                <!-- <p class="contactPersonPhone">+358 04 193 3949</p> -->
+              </div>
+            </div>
+          </div>
+          <div class="contactFormContainer">
+            <!-- Using a hidden iFrame here to prevent redirection to the Google Forms webpage upon form submission.
+   Ensure input names match those on the Google Form; inspect the form or create a prefilled one on the Google Forms website to find the correct names ("entry.") in the DOM.
+   Note: The use of preventDefault() did not prevent the redirection, so a hidden iFrame as a target is added to achieve the desired behavior. -->
+
+            <iframe
+              id="hiddenFrame"
+              name="hiddenFrame"
+              style="display: none"
+            ></iframe>
+
+            <!-- DEAD SET BIT CONTACT INFORMATION -->
+            <form
+              id="contactForm"
+              action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSffYthP4BF-W_rq70unI76NTexpIOVQSVFGgQM-y-jy96140g/formResponse"
+              target="hiddenFrame"
+            >
+              <label class="formLabel" for="company">Company</label>
+              <input
+                name="entry.1797800906"
+                class="contactFormInput"
+                type="text"
+                id="company"
+                name="company"
+              />
+
+              <label class="formLabel" for="name">Name</label>
+              <input
+                name="entry.1081120326"
+                class="contactFormInput"
+                type="text"
+                id="name"
+                name="name"
+              />
+              <label class="formLabel" id="emailLabel" for="email"
+                >Email*</label
+              >
+              <input
+                name="entry.532987373"
+                class="contactFormInput"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Please fill at least one: Email or Phone Number"
+              />
+
+              <label class="formLabel" id="phoneLabel" for="phone"
+                >Phone Number*</label
+              >
+              <input
+                name="entry.1785509439"
+                class="contactFormInput"
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Please fill at least one: Email or Phone Number"
+              />
+              <label class="formLabel" for="messageField">Message*</label>
+              <textarea
+                class="messageField"
+                name="entry.111193857"
+                id="messageField"
+                name="message"
+                rows="10"
+              ></textarea>
+              <div id="contactFormRadioInputContainer">
+                <label
+                  id="contactPreferenceLabe"
+                  class="formLabel"
+                  for="contactPreference"
+                  >How do you want us to contact you?*</label
+                >
+
+                <input
+                  class="contactFormRadioInput"
+                  type="radio"
+                  id="contactPhone"
+                  name="entry.647368231"
+                  value="Phone"
+                />
+                <label class="radioLabel" for="contactPhone">Phone</label>
+
+                <input
+                  class="contactFormRadioInput"
+                  type="radio"
+                  id="contactEmail"
+                  name="entry.647368231"
+                  value="Email"
+                />
+                <label class="radioLabel" for="contactEmail">Email</label>
+              </div>
+              <div id="termsAndConditionsErrorBorder">
+                <div id="iAgreeToTermsAndConditionsContainer">
+                  <input
+                    class="contactTermsCheckbox"
+                    type="checkbox"
+                    id="termsCheckbox"
+                    name="termsCheckbox"
+                  />
+                  <label
+                    id="iAgreeToTermsAndConditionsText"
+                    class="formLabel"
+                    for="termsCheckbox"
+                  >
+                    I Agree to Terms & Conditions*
+                  </label>
+                </div>
+
+                <p class="iAgreeToTermsAndConditionsText">
+                  <a
+                    id="privacyPolicyLink"
+                    href="/privacy-policy"
+                    target="_blank"
+                    >Dead Set Bit Privacy Policy</a
+                  >
+                </p>
+              </div>
+              <div id="submitButtonContainer">
+                <button id="submitButton" type="button">Submit</button>
+              </div>
+            </form>
+
+            <div class="thanksForContactingUsContainer">
+              <p class="thanksForContactingUsText">
+                Thanks for contacting us, we'll get back to you as soon as
+                possible!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="sectionContainer" id="footer">
+        <p>
+          <br />
+          info[at]deadsetbit[dot]com<br />
+
+          Dead Set Bit Ltd.<br />
+          Helsinki, Finland.
+          <br />
+          <br />
+          <br />
+          <br />
+          © 2023 - Dead Set Bit Ltd
+          <br />
+          <br />
+        </p>
+
+        <p>
+          this website was designed by Jonna and implemented by our
+          subcontractors at
+          <a id="codekatuLink" href="https://www.codekatu.com/">Codekatu Oy</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
