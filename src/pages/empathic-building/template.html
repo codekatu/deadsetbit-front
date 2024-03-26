@@ -14,7 +14,51 @@
     />
     <!-- ABOVE IS MONTSERRAT FONT, DELETE THIS IF THE FONT IS ADDED LOCALLY -->
   </head>
-  <!-- <script defer src="https://www.youtube.com/iframe_api"></script> -->
+  <script defer src="https://www.youtube.com/iframe_api"></script>
+  <script defer>
+    var section = {
+      start: 10,
+      end: 33,
+    };
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player("heroVideo", {
+        height: "100%",
+        width: "100%",
+        videoId: "LZjBOApY54k",
+        playerVars: {
+          mute: 1,
+          autoplay: 1,
+          controls: 0,
+          disablekb: 1,
+        },
+        events: {
+          onReady: onPlayerReady,
+          onStateChange: onPlayerStateChange,
+        },
+      });
+    }
+
+    function onPlayerReady(event) {
+      player.seekTo(section.start);
+      player.playVideo();
+    }
+
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PLAYING) {
+        var duration = section.end - section.start;
+        setTimeout(restartVideoSection, duration * 1000);
+      }
+    }
+
+    function restartVideoSection() {
+      player.seekTo(section.start);
+    }
+  </script>
+
   <body>
     <div id="pageWrapper">
       <nav id="navbar">
@@ -95,17 +139,19 @@
       <section id="heroSection">
         <div id="heroSectionContent" class="sectionContainer">
           <div class="videoContainer">
-            <video autoplay loop>
+            <video autoplay loop muted>
               <source src="/assets/ebSection/output3.mp4" type="video/mp4" />
             </video>
+            <!-- <div id="heroVideo"></div> -->
+            <!-- YouTube video will be embedded here -->
             <div class="videoOverlay"></div>
-            <div class="textContainer">
-              <h1>
+            <div class="heroTextContainer">
+              <h1 id="heroHeader">
                 Creating an IoT-Platform and a Digital Twin Visualization
                 Solution With the Help of Senior Dead Set Bit Developers and
                 Architects.
               </h1>
-              <h2>
+              <h2 id="heroSubHeader">
                 From MVP to multi-million dollar success with Empathic Building,
                 Dead Set Bit delivers unwavering technical expertise every step
                 of the way.
@@ -116,23 +162,68 @@
       </section>
       <section class="section" id="summarySection">
         <div id="summarySectionContent">
-          <div id="servicesAndTechnologyContainer">
+          <!-- <div id="servicesAndTechnologyContainer">
             <div class="servicesAndTechnologyBox" id="services">
               <h3 class="servicesAndTechnologyHeader">Services provided</h3>
-              <p class="bodyText">
+              <h3 class="bodyText servicesAndTechnologyText">
                 Product Conception Services | Architecture | Advisory Consulting
                 | Python Development | Web Development | Programming Workshop
-              </p>
+              </h3>
             </div>
             <div class="servicesAndTechnologyBox" id="tecnologies">
-              <h3 class="servicesAndTechnologyHeader">Tecnologies used</h3>
-              <p class="bodyText">
+              <h3 class="servicesAndTechnologyHeader">Technologies used</h3>
+              <h3 class="bodyText servicesAndTechnologyText">
                 Python | JavaScript | TypeScript | WebGL |React | Azure |
                 PostgreSQL | TimescaleDB | Internet of things (IoT)
-              </p>
+              </h3>
+            </div>
+          </div> -->
+          <div id="servicesAndTechnologyContainer">
+            <div class="servicesAndTechnologyBox" id="services">
+              <p class="servicesAndTechnologyHeader">Services provided</p>
+              <div class="serviceAndTechList">
+                <h3 class="servicesAndTechnologyText">
+                  Product Conception Services
+                </h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">Architecture</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">Advisory Consulting</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">Python Development</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">Web Development</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">Programming Workshop</h3>
+              </div>
+            </div>
+            <div class="servicesAndTechnologyBox" id="tecnologies">
+              <p class="servicesAndTechnologyHeader">Technologies used</p>
+              <div class="serviceAndTechList">
+                <h3 class="servicesAndTechnologyText">Python</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">JavaScript</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">TypeScript</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">WebGL</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">React</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">Azure</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">PostgreSQL</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">TimescaleDB</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">
+                  Internet of things (IoT)
+                </h3>
+              </div>
             </div>
           </div>
-          <div id="summarySectionCOntentContainer">
+
+          <div id="summarySectionContentContainer">
             <div class="summarySectionContentBox" id="summaryBox">
               <h4 class="summarySectionContentBoxHeader">Summary</h4>
               <p class="bodyText">
@@ -171,7 +262,9 @@
       <section class="section" id="highlightsSection">
         <div id="highlightsSectionContent">
           <div id="highlightsBox">
-            <h4 id="highLightsBoxHeader">Highlights</h4>
+            <div class="headerWrapper">
+              <h4 id="highLightsBoxHeader">Highlights</h4>
+            </div>
             <div id="highlightsContainer">
               <div class="highlight">
                 <h5 class="highlightTitle">World-class visualizations</h5>
@@ -255,8 +348,9 @@
               Together with TietoEVRY’s startup incubator, we implemented a
               fully-functioning MVP in 6 months time, after which the product
               was officially launched at the international tech and startup
-              event Slush in 2017. <br />
-              <br />
+              event Slush in 2017.
+            </p>
+            <p class="bodyText">
               Given the novelty of the concept and absence of any comparable
               implementations, we had to come up with new and innovative
               approaches for implementing the required features. This included
@@ -265,8 +359,10 @@
               overhead and load times. To support our end-goals, we created
               versatile and extendable formats for storing information about the
               buildings themselves, down to individual IoT-sensor measurement
-              formats. <br />
-              <br />
+              formats.
+            </p>
+
+            <p class="bodyText">
               Throughout, end-user experience remained the cornerstone of our
               technical and product design efforts. 
             </p>
@@ -283,9 +379,9 @@
         </video>
       </div>
       <section class="section" id="quoteSection">
-        <h3 id="quoteHeader">Greetings From a Happy Customer.</h3>
-        <div id="quoteBox">
-          <div id="quoteBodyContainer">
+        <div id="quoteSectionContentContainer">
+          <h3 id="quoteHeader">Greetings From a Happy Customer.</h3>
+          <div id="quoteBox">
             <p class="bodyText" id="quoteText">
               Without Dead Set Bit, I could not have realized my – back then –
               futuristic idea of Empathic Building. From a startup accelerator
@@ -315,7 +411,7 @@
         </h4>
         <div class="contactSectionContent">
           <div class="contactSectionPeople">
-            <div class="contactPersonContainer">
+            <!-- <div class="contactPersonContainer">
               <div class="contactPersonImageContainer">
                 <img
                   class="contactPersonImage"
@@ -327,9 +423,8 @@
                 <h5 class="contactPersonName">Pauli Ervi</h5>
                 <p class="contactReason">Sales</p>
                 <p class="contactPersonEmail">pauli@deadsetbit.com</p>
-                <!-- <p class="contactPersonPhone"></p> -->
               </div>
-            </div>
+            </div> -->
             <div class="contactPersonContainer">
               <div class="contactPersonImageContainer">
                 <img
@@ -340,9 +435,9 @@
               </div>
               <div class="contactPersonTextContainer">
                 <h5 class="contactPersonName">Yacine Ouarab</h5>
-                <p class="contactReason">Sales</p>
-                <p class="contactPersonEmail">jasu@deadsetbit.com</p>
-                <!-- <p class="contactPersonPhone"></p> -->
+                <p class="bodyTextContact">Sales</p>
+                <p class="bodyTextContact">jasu@deadsetbit.com</p>
+                <p class="bodyTextContact">+358 1234 56 7890</p>
               </div>
             </div>
             <div class="contactPersonContainer">
@@ -355,9 +450,24 @@
               </div>
               <div class="contactPersonTextContainer">
                 <h5 class="contactPersonName">Anne Kotiranta</h5>
-                <p class="contactReason">General Inquiries</p>
-                <p class="contactPersonEmail">anne@deadsetbit.com</p>
-                <!-- <p class="contactPersonPhone">+358 04 193 3949</p> -->
+                <p class="bodyTextContact">General Inquiries</p>
+                <p class="bodyTextContact">anne@deadsetbit.com</p>
+                <p class="bodyTextContact">+358 1234 56 7890</p>
+              </div>
+            </div>
+            <div class="contactPersonContainer">
+              <div class="contactPersonImageContainer">
+                <img
+                  class="contactPersonImage"
+                  src="assets/navbar/logo.svg"
+                  alt="DSB logo"
+                  id="deadsetBitLogoContact"
+                />
+              </div>
+              <div class="contactPersonTextContainer">
+                <p class="bodyTextContact">Ruoholahdenkatu 21</p>
+                <p class="bodyTextContact">00180 Helsinki</p>
+                <p class="bodyTextContact">sales@deadsetbit.com</p>
               </div>
             </div>
           </div>

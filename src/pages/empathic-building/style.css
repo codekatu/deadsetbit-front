@@ -1,40 +1,48 @@
 :root {
   /* colors */
   --dsb-navbar-black: #150e19;
-  --dsb-navbarText: #000000;
+  --dsb-navbarText: #ffffff;
   --dsb-navbarTextScrolled: #ffffff;
   --dsb-full-white-navbar: #ffffff;
   --dsb-grey: #87a2ab;
-
-  --background-Color: grey;
-
+  --background-Color: #fff5f3;
   --text-hero-header-1-color: #fff;
   --text-hero-header-2-color: #fbfbfb;
-  --text-body-header: ;
-  --text-body-sub-header: ;
-
+  --text-body-header-color: #000;
+  --text-body-highlight-header-color: #fff;
+  --text-body-highlight-sub-header-color: #fafafa;
+  --text-body-highlight-color: #cccccc;
+  --services-and-technology-border-color: #000000;
+  --services-and-technology-body-color: #303030;
+  --submit-button-background-color: #a6a6a6;
+  --footer-background-color: #000;
   /* margins */
   --margin-xs-navbar: 1.25rem;
   --margin-small-navbar: 2.5rem;
-
+  --margin-section: 10rem;
+  /* --margin-body-text: 1.25rem; */
+  --margin-body-text: 2rem;
+  --margin-tech-and-service-header: 1rem;
+  /* --margin-summary-section-sides: 5vw; */
+  --margin-summary-section-sides: 7rem;
+  --margin-summary-section-sides-1800px: 3rem;
   /* transition */
   --transition-time: 0.25s;
-
   /* font sizes */
   --text-navbar: 1.5rem;
   --text-footer: 0.8rem;
   --text-hero-header-1: 3.5rem;
   --text-hero-header-2: 2.5rem;
   --text-tech-and-service-header: 2.5rem;
+  --text-tech-and-service-body: 1.875rem;
   --text-body-header: 4rem;
   --text-body-sub-header: 3.125rem;
   --text-body: 1.5rem;
-
-  --text-contact-medium: 2rem;
-
+  --text-highlight-body: 1.875rem;
+  --text-contact-medium: 1.875rem;
+  --text-highlight-title: 2.5rem;
   --font-weight-body-header: bold;
   --font-weight-body: medium;
-
   /* navbar heights */
   --navbar-height-full: 10rem;
   --navbar-height-fullScrolled: 6rem;
@@ -49,14 +57,44 @@ button {
 
 html {
   font-family: "Montserrat", sans-serif;
-  /* font-optical-sizing: auto; */
+}
+
+@media only screen and (max-width: 2048px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+@media only screen and (max-width: 1920px) {
+  html {
+    font-size: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 60%;
+  }
 }
 
 .bodyText {
   font-size: var(--text-body);
   font-weight: var(--font-weight-body);
-  line-height: 40px;
+  line-height: 2.813rem;
+  margin-bottom: var(--margin-body-text);
 }
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /*----------Navbar----------*/
 #navbar {
   width: 100%;
@@ -65,8 +103,6 @@ html {
   position: fixed;
   top: 0;
   background-color: rgba(0, 0, 0, 0);
-  /* transition: width var(--transition-time), height var(--transition-time),
-          max-width var(--transition-time); */
   transition: height var(--transition-time),
     background-color var(--transition-time);
 }
@@ -154,8 +190,6 @@ html {
   transition: var(--transition-time);
   width: 80%;
   height: 140%;
-  /* position: relative;
-        top: 0rem; */
 }
 
 #logoSvg.logoSvgScrolled {
@@ -255,8 +289,6 @@ html {
 }
 
 @media only screen and (max-width: 1000px) {
-  /* NAVBAR */
-
   #navbar {
     height: var(--navbar-height-fullScrolled);
   }
@@ -416,7 +448,6 @@ html {
   }
 }
 @media only screen and (max-width: 400px) {
-  /* navbar */
   #logoContainer {
     margin-left: 1%;
   }
@@ -441,9 +472,9 @@ html {
  */
 
 #heroSection {
-  height: 70rem;
-  min-height: 85vh;
-  max-height: 85vh;
+  height: 65rem;
+  min-height: 55rem;
+  max-height: 75vh;
   width: 100vw;
   /* below max-width prevents horizontal scroll from happening on devices that don't have scrollbar on the right  */
   max-width: 100%;
@@ -457,15 +488,23 @@ html {
 .videoContainer {
   position: relative;
   width: 100%;
-  height: 70rem;
-  min-height: 85vh;
-  max-height: 85vh;
+  height: 65rem;
+  min-height: 65rem;
+  max-height: 75vh;
 }
 
 .videoContainer video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+#heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   position: relative;
   z-index: 1;
 }
@@ -480,7 +519,7 @@ html {
   z-index: 2;
 }
 
-.textContainer {
+.heroTextContainer {
   position: absolute;
   top: 25%;
   z-index: 3;
@@ -489,24 +528,55 @@ html {
   margin-left: 10rem;
 }
 
-.textContainer h1 {
+#heroHeader {
   font-size: var(--text-hero-header-1);
   padding-bottom: 2rem;
   color: var(--text-hero-header-1);
 }
 
-.textContainer h2 {
+#heroSubHeader {
   font-size: var(--text-hero-header-2);
   color: var(--text-hero-header-2);
+}
+
+@media only screen and (max-width: 1350px) {
+  .heroTextContainer {
+    width: 90%;
+    margin-left: 5rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .heroTextContainer {
+    margin: 0;
+    left: 5%;
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #heroHeader {
+    font-size: 28px;
+  }
+
+  #heroSubHeader {
+    font-size: 24px;
+  }
+  .heroTextContainer {
+    top: 15%;
+  }
 }
 
 /*
 -------Summary Section-------
  */
 
+#summarySection {
+  /* margin: var(--margin-section) 0; */
+  padding: var(--margin-section) 0;
+}
 #summarySectionContent {
   width: 100%;
-  background-color: pink;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -515,27 +585,12 @@ html {
 .summarySectionContentBox {
 }
 
-.servicesAndTechnologyHeader {
-  font-size: var(--text-tech-and-service-header);
-}
-
 #summaryBox {
-  margin-left: 7rem;
-  background-color: yellow;
-  width: 50rem;
+  width: 65%;
+  margin-left: var(--margin-summary-section-sides);
 }
 
-#servicesAndTechnologyContainer {
-}
-
-.servicesAndTechnologyBox {
-  margin-right: 7rem;
-  width: 45rem;
-  border-left: 1px solid black;
-  padding: 1.5rem;
-  background-color: teal;
-}
-#summarySectionCOntentContainer {
+#summarySectionContentContainer {
   display: flex;
   flex-direction: column;
 }
@@ -543,7 +598,91 @@ html {
 .summarySectionContentBoxHeader {
   font-size: var(--text-body-header);
   font-weight: var(--font-weight-body-header);
-  color: red;
+  margin-bottom: var(--margin-body-text);
+  color: var(--text-body-header-color);
+}
+
+#servicesAndTechnologyContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.servicesAndTechnologyBox {
+  width: 45rem;
+  border-left: 1px solid var(--services-and-technology-border-color);
+  padding-bottom: 1rem;
+  padding-left: 3rem;
+  max-width: 650px;
+  margin-left: 1rem;
+  margin-right: var(--margin-summary-section-sides);
+}
+
+.servicesAndTechnologyHeader {
+  font-weight: 500;
+  font-size: var(--text-tech-and-service-header);
+  margin-bottom: var(--margin-tech-and-service-header);
+}
+
+.serviceAndTechList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.servicesAndTechnologyText {
+  font-size: var(--text-tech-and-service-body);
+  line-height: 3.125rem;
+  color: var(--services-and-technology-body-color);
+}
+
+/* delimiter is | mark between service and tech headers*/
+.delimiter {
+  margin: 0 0.5rem;
+}
+@media only screen and (max-width: 350px) {
+  .serviceAndTechList {
+    flex-direction: column;
+  }
+  .delimiter {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1800px) {
+  #summaryBox {
+    width: 75%;
+    margin-left: var(--margin-summary-section-sides-1800px);
+  }
+
+  .servicesAndTechnologyBox {
+    margin-right: var(--margin-summary-section-sides-1800px);
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  #summaryBox {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  #summarySectionContent {
+    flex-direction: column;
+  }
+  #summaryBox {
+    margin: 0 2.5%;
+    margin-top: var(--margin-body-text);
+  }
+
+  .servicesAndTechnologyBox {
+    border: none;
+    padding-left: 0;
+    width: 85%;
+    max-width: 100%;
+    margin: 0 2.5%;
+  }
+
+  .servicesAndTechnologyText {
+  }
 }
 
 /*
@@ -551,7 +690,7 @@ html {
  */
 
 #highlightsSection {
-  background-color: lightcoral;
+  margin-bottom: var(--margin-section);
 }
 
 #highlightsSectionContent {
@@ -573,37 +712,51 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #fff;
 }
 #highLightsBoxHeader {
-  margin-top: 5rem;
+  color: var(--text-body-highlight-header-color);
+  margin-top: 8rem;
+  margin-right: 5rem;
   font-size: var(--text-body-header);
   font-weight: bold;
 }
 #highlightsContainer {
-  width: 90%;
+  width: 95%;
   margin-top: 8rem;
   margin-bottom: 8rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  justify-content: space-between;
+
   gap: 5rem;
 }
 
 .highlight {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   width: 100%;
+  max-width: 900px;
+  color: var(--text-highlight-color);
+}
+
+.headerWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .highlightTitle {
-  font-size: 40px;
+  font-size: var(--text-highlight-title);
   font-weight: 600;
   margin-bottom: 2rem;
+  color: var(--text-body-highlight-sub-header-color);
 }
 
 .highlightText {
-  color: var(--text-highlight-color);
+  color: var(--text-body-highlight-color);
+  font-size: var(--text-highlight-body);
 }
 
 .fullWidthVideoContainer {
@@ -620,24 +773,70 @@ html {
   object-position: top top;
 }
 
+@media only screen and (max-width: 1800px) {
+  #highlightsBox {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 1370px) {
+  #highlightsBox {
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  #highlightsContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    width: 95%;
+  }
+
+  .headerWrapper {
+    width: 95%;
+    justify-content: flex-start;
+  }
+
+  .highlight {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  #highlightsContainer {
+    /* width: 95%; */
+  }
+}
+
 /*
 -------How We Did It-------
  */
 
 #howWeDidItContent {
-  background-color: rgb(220, 184, 112);
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: var(--margin-section) 0;
 }
 
 .contentSectionHeader {
   font-size: var(--text-body-header);
+  font-weight: 600;
+  margin-bottom: var(--margin-body-text);
 }
 
 .contentContainer {
-  background-color: red;
-  width: 50%;
+  width: 70%;
+}
+
+@media only screen and (max-width: 1300px) {
+  .contentContainer {
+    width: 95%;
+  }
 }
 
 /*
@@ -645,7 +844,13 @@ html {
  */
 
 #quoteSection {
-  background-color: greenyellow;
+  margin: var(--margin-section) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#quoteSectionContentContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -653,22 +858,19 @@ html {
 
 #quoteHeader {
   font-size: var(--text-body-header);
-}
-
-#quoteBoxContainer {
+  margin-bottom: var(--margin-body-text);
+  font-weight: 600;
 }
 
 #quoteBox {
+  margin-top: var(--margin-body-text);
   width: 60rem;
-  padding: 4rem;
-  background-color: rgba(129, 82, 82, 0.2);
+  padding: 3rem;
   border-left: 1px solid black;
 }
 
-#quoteBodyContainer {
-}
-
 #quoteText {
+  font-style: italic;
 }
 
 #quoteAuthorContainer {
@@ -682,20 +884,48 @@ html {
   background-size: cover;
   background-position: center;
   border-radius: 50%;
+  margin-right: 10px;
 }
 
 #quoteAuthor {
 }
 
+@media only screen and (max-width: 1300px) {
+  #quoteSectionContentContainer {
+    width: 85%;
+  }
+  #quoteBox {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #quoteBox {
+    padding: 0;
+    border: none;
+  }
+}
+@media only screen and (max-width: 500px) {
+  #authorImage {
+    height: 70px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #authorImage {
+    height: 60px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  #authorImage {
+    height: 55px;
+  }
+}
+
 /*
   -----------------CONTACT SECTION-----------------
    */
-
-.sectionContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 #contact-us {
   background-color: #1b1a1a;
@@ -708,13 +938,20 @@ html {
 
 #contactSectionHeader {
   font-size: var(--text-body-header);
+
+  margin-top: var(--margin-section);
+  margin-bottom: var(--margin-body-text);
 }
 
 #contactSectionSubHeader {
   font-size: var(--text-contact-medium);
+  margin-bottom: var(--margin-body-text);
+  text-align: center;
+  width: 95%;
 }
 
 .contactSectionContent {
+  margin-top: var(--margin-body-text);
   display: flex;
   justify-content: center;
 }
@@ -722,6 +959,7 @@ html {
 .contactPersonContainer {
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 2rem;
 }
 .contactPersonImageContainer {
   width: 195px;
@@ -733,28 +971,27 @@ html {
   max-width: 170px;
 }
 
+#deadsetBitLogoContact {
+  height: 200px;
+}
+
 .contactPersonTextContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .contactPersonName {
+  font-size: var(--text-contact-medium);
+  color: var();
+  margin-bottom: 1rem;
+}
+
+.bodyTextContact {
   font-size: var(--text-body);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #ccc;
 }
-
-.contactReason {
-  font-size: var(--text-body);
-  font-style: italic;
-  margin: 4px 0;
-}
-
-.contactPersonEmail {
-  font-size: var(--text-middle);
-}
-.contactPersonPhone {
-  font-size: var(--text-middle);
-}
-
 .contactFormContainer {
   display: flex;
   justify-content: center;
@@ -768,7 +1005,7 @@ html {
 
 .formLabel {
   display: block;
-  font-size: var(--text-small);
+  font-size: var(--text-body);
   margin: 1px;
   margin-bottom: 4px;
 }
@@ -841,20 +1078,21 @@ html {
   font-size: var(--text-small);
 }
 #privacyPolicyLink {
-  font-size: var(--text-small);
+  font-size: var(--text-body);
   text-decoration: none;
   margin-left: 27px;
+  color: #a6a6a6;
 }
 #submitButton {
   width: 200px;
   height: 50px;
-  background-color: var(--submit-button-backgroundColor);
+  background-color: var(--submit-button-background-color);
   border: 2px solid black;
-  color: var(--submit-button-text-color);
+  color: black;
   padding: 10px 15px;
   border-radius: 10px;
   cursor: pointer;
-  font-size: var(--text-middle);
+  font-size: var(--text-body);
 }
 
 #submitButton:hover {
@@ -873,7 +1111,7 @@ html {
 }
 
 .thanksForContactingUsText {
-  font-size: var(--text-middle);
+  font-size: var(--text-contact-medium);
 }
 .socialIcon {
   width: 24px;
@@ -906,6 +1144,11 @@ html {
 
     padding-left: 3px;
   }
+
+  #deadsetBitLogoContact {
+    height: 150px;
+  }
+
   .contactFormContainer {
     width: 100%;
   }
@@ -932,8 +1175,18 @@ html {
   .contactPersonImageContainer {
     width: 115px;
   }
+  #deadsetBitLogoContact {
+    height: 125px;
+  }
+
   .contactPersonImage {
     height: 100px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .bodyTextContact {
+    font-size: 1.4rem;
   }
 }
 
@@ -945,7 +1198,7 @@ html {
   justify-content: center;
   text-align: center;
   flex-direction: column;
-  background-color: #003a46;
+  background-color: var(--footer-background-color);
   height: 20rem;
   width: 100%;
   align-items: center;
