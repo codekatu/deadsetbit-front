@@ -3,62 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Empathic Building Description" />
+
     <title>Document</title>
 
     <!-- BELOW IS MONTSERRAT FONT, DELETE THIS IF THE FONT IS ADDED LOCALLY -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
+    /> -->
+    <link
+      rel="preload"
+      as="video"
+      href="https://haltian.com/wp-content/uploads/2021/01/Haltian-smart-office-short-3.mp4"
     />
+
     <!-- ABOVE IS MONTSERRAT FONT, DELETE THIS IF THE FONT IS ADDED LOCALLY -->
   </head>
-  <script defer src="https://www.youtube.com/iframe_api"></script>
-  <script defer>
-    var section = {
-      start: 10,
-      end: 33,
-    };
-
-    // 3. This function creates an <iframe> (and YouTube player)
-    //    after the API code downloads.
-    var player;
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player("heroVideo", {
-        height: "100%",
-        width: "100%",
-        videoId: "LZjBOApY54k",
-        playerVars: {
-          mute: 1,
-          autoplay: 1,
-          controls: 0,
-          disablekb: 1,
-        },
-        events: {
-          onReady: onPlayerReady,
-          onStateChange: onPlayerStateChange,
-        },
-      });
-    }
-
-    function onPlayerReady(event) {
-      player.seekTo(section.start);
-      player.playVideo();
-    }
-
-    function onPlayerStateChange(event) {
-      if (event.data == YT.PlayerState.PLAYING) {
-        var duration = section.end - section.start;
-        setTimeout(restartVideoSection, duration * 1000);
-      }
-    }
-
-    function restartVideoSection() {
-      player.seekTo(section.start);
-    }
-  </script>
-
   <body>
     <div id="pageWrapper">
       <nav id="navbar">
@@ -134,50 +97,37 @@
           </ul>
         </div>
       </nav>
-      <!-- Hero Section -->
-
       <section id="heroSection">
-        <div id="heroSectionContent" class="sectionContainer">
-          <div class="videoContainer">
-            <video autoplay loop muted>
-              <source src="/assets/ebSection/output3.mp4" type="video/mp4" />
-            </video>
-            <!-- <div id="heroVideo"></div> -->
-            <!-- YouTube video will be embedded here -->
-            <div class="videoOverlay"></div>
-            <div class="heroTextContainer">
-              <h1 id="heroHeader">
-                Creating an IoT-Platform and a Digital Twin Visualization
-                Solution With the Help of Senior Dead Set Bit Developers and
-                Architects.
-              </h1>
-              <h2 id="heroSubHeader">
-                From MVP to multi-million dollar success with Empathic Building,
-                Dead Set Bit delivers unwavering technical expertise every step
-                of the way.
-              </h2>
-            </div>
+        <div id="heroSectionContent">
+          <video
+            poster="assets/ebSection/heroPlaceholder.webp"
+            id="bannerVideo"
+            autoplay
+            loop
+            muted
+          >
+            <source
+              src="/assets/ebSection/haltian-video-hd.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div id="bannerVideoOverlay"></div>
+          <div id="bannerVideoTextContainer">
+            <h1 id="heroHeader">
+              Creating an IoT-Platform and a Digital Twin Visualization Solution
+              With the Help of Senior Dead Set Bit Developers and Architects.
+            </h1>
+            <h2 id="heroSubHeader">
+              From MVP to multi-million dollar success with Empathic Building,
+              Dead Set Bit delivers unwavering technical expertise every step of
+              the way.
+            </h2>
           </div>
         </div>
       </section>
+
       <section class="section" id="summarySection">
         <div id="summarySectionContent">
-          <!-- <div id="servicesAndTechnologyContainer">
-            <div class="servicesAndTechnologyBox" id="services">
-              <h3 class="servicesAndTechnologyHeader">Services provided</h3>
-              <h3 class="bodyText servicesAndTechnologyText">
-                Product Conception Services | Architecture | Advisory Consulting
-                | Python Development | Web Development | Programming Workshop
-              </h3>
-            </div>
-            <div class="servicesAndTechnologyBox" id="tecnologies">
-              <h3 class="servicesAndTechnologyHeader">Technologies used</h3>
-              <h3 class="bodyText servicesAndTechnologyText">
-                Python | JavaScript | TypeScript | WebGL |React | Azure |
-                PostgreSQL | TimescaleDB | Internet of things (IoT)
-              </h3>
-            </div>
-          </div> -->
           <div id="servicesAndTechnologyContainer">
             <div class="servicesAndTechnologyBox" id="services">
               <p class="servicesAndTechnologyHeader">Services provided</p>
@@ -310,7 +260,7 @@
         <video autoplay muted loop id="video">
           <!-- <source src="/assets/ebSection/output3.mp4" type="video/mp4" /> -->
           <source
-            src="https://haltian.com/wp-content/uploads/2021/01/Haltian-smart-office-short-3.mp4"
+            src="/assets/ebSection/haltian-video-hd.mp4"
             type="video/mp4"
           />
         </video>
@@ -373,7 +323,7 @@
         <video autoplay muted loop id="video">
           <!-- <source src="/assets/ebSection/output3.mp4" type="video/mp4" /> -->
           <source
-            src="https://haltian.com/wp-content/uploads/2021/01/Haltian-smart-office-short-3.mp4"
+            src="/assets/ebSection/haltian-video-hd.mp4"
             type="video/mp4"
           />
         </video>
@@ -411,30 +361,17 @@
         </h4>
         <div class="contactSectionContent">
           <div class="contactSectionPeople">
-            <!-- <div class="contactPersonContainer">
-              <div class="contactPersonImageContainer">
-                <img
-                  class="contactPersonImage"
-                  src="assets/employeesSection/pauli.webp"
-                  alt="Hand drawn image of Pauli Ervi"
-                />
-              </div>
-              <div class="contactPersonTextContainer">
-                <h5 class="contactPersonName">Pauli Ervi</h5>
-                <p class="contactReason">Sales</p>
-                <p class="contactPersonEmail">pauli@deadsetbit.com</p>
-              </div>
-            </div> -->
             <div class="contactPersonContainer">
               <div class="contactPersonImageContainer">
                 <img
                   class="contactPersonImage"
+                  loading="lazy"
                   src="assets/employeesSection/jasu.webp"
                   alt="Hand drawn image of Yacine Ouarab"
                 />
               </div>
               <div class="contactPersonTextContainer">
-                <h5 class="contactPersonName">Yacine Ouarab</h5>
+                <h5 class="bodyTextContact contactPersonName">Yacine Ouarab</h5>
                 <p class="bodyTextContact">Sales</p>
                 <p class="bodyTextContact">jasu@deadsetbit.com</p>
                 <p class="bodyTextContact">+358 1234 56 7890</p>
@@ -443,13 +380,16 @@
             <div class="contactPersonContainer">
               <div class="contactPersonImageContainer">
                 <img
+                  loading="lazy"
                   class="contactPersonImage"
                   src="assets/employeesSection/anne.webp"
                   alt="Hand drawn image of Anne Kotiranta"
                 />
               </div>
               <div class="contactPersonTextContainer">
-                <h5 class="contactPersonName">Anne Kotiranta</h5>
+                <h5 class="bodyTextContact contactPersonName">
+                  Anne Kotiranta
+                </h5>
                 <p class="bodyTextContact">General Inquiries</p>
                 <p class="bodyTextContact">anne@deadsetbit.com</p>
                 <p class="bodyTextContact">+358 1234 56 7890</p>
@@ -458,6 +398,7 @@
             <div class="contactPersonContainer">
               <div class="contactPersonImageContainer">
                 <img
+                  loading="lazy"
                   class="contactPersonImage"
                   src="assets/navbar/logo.svg"
                   alt="DSB logo"
@@ -468,6 +409,20 @@
                 <p class="bodyTextContact">Ruoholahdenkatu 21</p>
                 <p class="bodyTextContact">00180 Helsinki</p>
                 <p class="bodyTextContact">sales@deadsetbit.com</p>
+                <div id="followUsContainer">
+                  <p class="bodyTextContact">Follow us in:</p>
+                  <a
+                    aria-label="Dead Set Bit linkedIn"
+                    href="https://www.linkedin.com/company/dead-set-bit/"
+                  >
+                    <img
+                      width="30px"
+                      height="30px"
+                      src="assets/ebSection/linkedin-logo-black-font.svg"
+                      alt="LinkedIn logo"
+                    />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

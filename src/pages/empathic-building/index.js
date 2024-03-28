@@ -2,8 +2,6 @@ import "../../reset.css";
 import "../../fonts.css";
 import "./style.css";
 
-import "../../features/youtubeVideoPlayer.js";
-
 import { navbarScrollResponsive } from "../../features/responsiveNavbar";
 import { menuOpenClose } from "../../features/navbarMenuOpenClose";
 import { addFormEventListeners } from "../../features/contactFormLogic";

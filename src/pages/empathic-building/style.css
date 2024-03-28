@@ -12,14 +12,19 @@
   --text-body-highlight-header-color: #fff;
   --text-body-highlight-sub-header-color: #fafafa;
   --text-body-highlight-color: #cccccc;
+
+  --text-color-hero-header-1: #fff;
+  --text-color-hero-header-2: #fafafa;
   --services-and-technology-border-color: #000000;
   --services-and-technology-body-color: #303030;
   --submit-button-background-color: #a6a6a6;
   --footer-background-color: #000;
-  /* margins */
+  /* margins / paddings */
   --margin-xs-navbar: 1.25rem;
   --margin-small-navbar: 2.5rem;
   --margin-section: 10rem;
+
+  --text-padding-hero-header: 2rem;
   /* --margin-body-text: 1.25rem; */
   --margin-body-text: 2rem;
   --margin-tech-and-service-header: 1rem;
@@ -56,7 +61,7 @@ button {
 }
 
 html {
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
 }
 
 @media only screen and (max-width: 2048px) {
@@ -470,46 +475,28 @@ html {
 /*
 -------Hero-------
  */
+/* below max-width prevents horizontal scroll from happening on devices that don't have scrollbar on the right  */
 
 #heroSection {
-  height: 65rem;
-  min-height: 55rem;
-  max-height: 75vh;
   width: 100vw;
-  /* below max-width prevents horizontal scroll from happening on devices that don't have scrollbar on the right  */
   max-width: 100%;
+  height: 80vh;
+  min-height: 60rem;
 }
 
 #heroSectionContent {
   width: 100%;
+  height: 100%;
   position: relative;
 }
 
-.videoContainer {
-  position: relative;
-  width: 100%;
-  height: 65rem;
-  min-height: 65rem;
-  max-height: 75vh;
-}
-
-.videoContainer video {
+#bannerVideo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: relative;
   z-index: 1;
 }
-
-#heroVideo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  position: relative;
-  z-index: 1;
-}
-
-.videoOverlay {
+#bannerVideoOverlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -519,38 +506,43 @@ html {
   z-index: 2;
 }
 
-.heroTextContainer {
+#bannerVideoTextContainer {
   position: absolute;
   top: 25%;
-  z-index: 3;
-  color: #ffffff;
   width: 60rem;
   margin-left: 10rem;
+  z-index: 3;
 }
 
 #heroHeader {
   font-size: var(--text-hero-header-1);
-  padding-bottom: 2rem;
-  color: var(--text-hero-header-1);
+  padding-bottom: var(--text-padding-hero-header);
+  color: var(--text-color-hero-header-1);
 }
 
 #heroSubHeader {
   font-size: var(--text-hero-header-2);
-  color: var(--text-hero-header-2);
+  color: var(--text-color-hero-header-2);
 }
 
 @media only screen and (max-width: 1350px) {
-  .heroTextContainer {
-    width: 90%;
+  #bannerVideoTextContainer {
+    width: 80%;
     margin-left: 5rem;
   }
 }
 
 @media only screen and (max-width: 1000px) {
-  .heroTextContainer {
+  #bannerVideoTextContainer {
     margin: 0;
     left: 5%;
     text-align: left;
+  }
+
+  #heroSection {
+    width: 100vw;
+    height: 80vh;
+    min-height: 70rem;
   }
 }
 
@@ -562,7 +554,7 @@ html {
   #heroSubHeader {
     font-size: 24px;
   }
-  .heroTextContainer {
+  #bannerVideoTextContainer {
     top: 15%;
   }
 }
@@ -573,7 +565,7 @@ html {
 
 #summarySection {
   /* margin: var(--margin-section) 0; */
-  padding: var(--margin-section) 0;
+  margin: var(--margin-section) 0;
 }
 #summarySectionContent {
   width: 100%;
@@ -880,7 +872,7 @@ html {
 #authorImage {
   width: 90px;
   height: 90px;
-  background-image: url("../../../public/assets/ebSection/tomiTeikko.png");
+  background-image: url("../../../public/assets/ebSection/tomiTeikko.webp");
   background-size: cover;
   background-position: center;
   border-radius: 50%;
@@ -980,17 +972,16 @@ html {
   flex-direction: column;
   justify-content: center;
 }
-.contactPersonName {
-  font-size: var(--text-contact-medium);
-  color: var();
-  margin-bottom: 1rem;
-}
-
 .bodyTextContact {
   font-size: var(--text-body);
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   color: #ccc;
+}
+
+.contactPersonName {
+  font-size: var(--text-contact-medium);
+  color: #fff;
 }
 .contactFormContainer {
   display: flex;
@@ -1038,7 +1029,7 @@ html {
 }
 
 #contactFormRadioInputContainer {
-  font-size: var(--text-middle);
+  font-size: var(--text-body);
   margin-bottom: 15px;
 }
 .contactFormRadioInput {
@@ -1116,6 +1107,10 @@ html {
 .socialIcon {
   width: 24px;
   height: 24px;
+}
+
+#followUsContainer {
+  margin-top: 1rem;
 }
 
 @media only screen and (max-width: 1200px) {
