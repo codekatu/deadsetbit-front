@@ -18,6 +18,7 @@
   --services-and-technology-border-color: #000000;
   --services-and-technology-body-color: #303030;
   --submit-button-background-color: #a6a6a6;
+  --submit-button-background-color: #c53838;
   --footer-background-color: #000;
   /* margins / paddings */
   --margin-xs-navbar: 1.25rem;
@@ -508,7 +509,8 @@ html {
 
 #bannerVideoTextContainer {
   position: absolute;
-  top: 25%;
+  top: 37%;
+
   width: 60rem;
   margin-left: 10rem;
   z-index: 3;
@@ -602,7 +604,8 @@ html {
 .servicesAndTechnologyBox {
   width: 45rem;
   border-left: 1px solid var(--services-and-technology-border-color);
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
+
   padding-left: 3rem;
   max-width: 650px;
   margin-left: 1rem;
@@ -612,7 +615,8 @@ html {
 .servicesAndTechnologyHeader {
   font-weight: 500;
   font-size: var(--text-tech-and-service-header);
-  margin-bottom: var(--margin-tech-and-service-header);
+  /* margin-bottom: var(--margin-tech-and-service-header); */
+  margin-bottom: var(--margin-body-text);
 }
 
 .serviceAndTechList {
@@ -677,6 +681,16 @@ html {
   }
 }
 
+@media only screen and (max-width: 400px) {
+  #servicesAndTechnologyContainer {
+    align-items: center;
+  }
+
+  #summarySectionContentContainer {
+    align-items: center;
+  }
+}
+
 /*
 -------highlights-------
  */
@@ -691,6 +705,13 @@ html {
   align-items: center;
   justify-content: center;
   width: 100%;
+  text-align: center;
+}
+
+@media only screen and (max-width: 1300px) {
+  #highlightsSectionContent {
+    text-align: left;
+  }
 }
 
 #content {
@@ -708,7 +729,7 @@ html {
 #highLightsBoxHeader {
   color: var(--text-body-highlight-header-color);
   margin-top: 8rem;
-  margin-right: 5rem;
+  /* margin-right: 5rem; */
   font-size: var(--text-body-header);
   font-weight: bold;
 }
@@ -752,17 +773,26 @@ html {
 }
 
 .fullWidthVideoContainer {
-  background-color: pink;
   width: 100%;
   height: 60rem;
   overflow: hidden;
+  position: relative;
 }
 
 #video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top top;
+  object-fit: fill;
+}
+
+.fullWidthVideoContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 @media only screen and (max-width: 1800px) {
@@ -795,6 +825,12 @@ html {
   .highlight {
     max-width: 100%;
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  #video {
+    object-fit: cover;
   }
 }
 
@@ -1064,9 +1100,8 @@ html {
 #termsAndConditionsErrorBorder {
   border-radius: var(--border-radius);
 }
-
-.iAgreeToTermsAndConditionsTextContainer {
-  font-size: var(--text-small);
+#iAgreeToTermsAndConditionsText {
+  font-size: var(--text-body);
 }
 #privacyPolicyLink {
   font-size: var(--text-body);
