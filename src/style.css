@@ -1014,34 +1014,20 @@ button {
 }
 
 #readMoreButton {
-  border: 1px solid black;
-
-  background: linear-gradient(
-    to top right,
-    rgba(8, 115, 199, 1) 30%,
-    rgba(56, 221, 207, 1) 100%
-  );
-  transition: 0.3s;
+  background-color: rgba(8, 115, 199, 1);
+  transition: 0.1s;
   width: 200px;
   height: 50px;
   padding: 10px 15px;
   border-radius: 10px;
   cursor: pointer;
   font-size: var(--text-middle);
-
-  color: black;
+  color: white;
 }
 
 #readMoreButton:hover {
-  border: 1px solid white;
-
-  background: linear-gradient(
-    to top right,
-    rgba(56, 221, 207, 1) 30%,
-    rgba(8, 115, 199, 1) 100%
-  );
-
-  color: white;
+  background-color: rgb(8, 140, 240);
+  color: black;
 }
 
 /*
@@ -1235,8 +1221,8 @@ button {
   overflow-x: none;
   z-index: 5;
   /* Scrollbar Styles */
-  scrollbar-width: thin;
-  scrollbar-color: #555;
+  /* scrollbar-width: thin;
+  scrollbar-color: #555; */
 
   /* WebKit (Chrome, Safari, Edge) Styles */
   scrollbar-track-color: transparent;
@@ -1470,11 +1456,22 @@ button {
     transform: translate(-50%, -50%);
     max-height: calc(100vh - var(--navbar-height-600px) - 10rem);
   }
+  @supports (height: 100dvh) {
+    #employeeInfoContainer {
+      max-height: calc(100dvh - var(--navbar-height-600px) - 10rem);
+    }
+  }
 }
 
 @media only screen and (max-width: 450px) {
   #employeeInfoContainer {
     max-height: calc(100vh - var(--navbar-height-450px) - 9rem);
+  }
+
+  @supports (height: 100dvh) {
+    #employeeInfoContainer {
+      max-height: calc(100dvh - var(--navbar-height-600px) - 10rem);
+    }
   }
 }
 
@@ -1539,7 +1536,7 @@ button {
 
 @media only screen and (max-width: 400px) {
   #deadsetBitLogoContact {
-    height: 125px;
+    height: 100px;
   }
 }
 
@@ -1620,8 +1617,8 @@ button {
   margin-bottom: 15px;
 }
 .contactFormRadioInput {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
 }
 .helpText {
   font-size: var(--text-small);
@@ -1644,8 +1641,8 @@ button {
 
 #termsCheckbox {
   margin-right: 8px;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
 }
 
 #termsAndConditionsErrorBorder {
@@ -1658,7 +1655,7 @@ button {
 #privacyPolicyLink {
   font-size: var(--text-small);
   text-decoration: none;
-  margin-left: 27px;
+  margin-left: 33px;
 }
 #submitButton {
   width: 200px;
@@ -1753,6 +1750,10 @@ button {
   }
   .contactPersonImage {
     height: 100px;
+  }
+
+  .contactPersonTextContainer {
+    margin-right: 0;
   }
 }
 

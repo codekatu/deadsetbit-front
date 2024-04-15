@@ -12,19 +12,17 @@
   --text-body-highlight-header-color: #fff;
   --text-body-highlight-sub-header-color: #fafafa;
   --text-body-highlight-color: #cccccc;
-
   --text-color-hero-header-1: #fff;
   --text-color-hero-header-2: #fafafa;
   --services-and-technology-border-color: #000000;
   --services-and-technology-body-color: #303030;
-  --submit-button-background-color: #a6a6a6;
-  --submit-button-background-color: #c53838;
+  --submit-button-background-color: #f13c3c;
+  --dsb-submit-button-hover-color: #ea6363;
   --footer-background-color: #000;
   /* margins / paddings */
   --margin-xs-navbar: 1.25rem;
   --margin-small-navbar: 2.5rem;
   --margin-section: 10rem;
-
   --text-padding-hero-header: 2rem;
   /* --margin-body-text: 1.25rem; */
   --margin-body-text: 2rem;
@@ -63,6 +61,7 @@ button {
 
 html {
   font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
 }
 
 @media only screen and (max-width: 2048px) {
@@ -772,20 +771,40 @@ html {
   font-size: var(--text-highlight-body);
 }
 
-.fullWidthVideoContainer {
+/* .sectionDividerVideoContainer {
   width: 100%;
-  height: 60rem;
+  height: 80rem;
+  max-height: 70vh;
   overflow: hidden;
   position: relative;
 }
 
-#video {
+#sectionDividerVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+} */
+.sectionDividerVideoContainer {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  height: 80vh;
+  min-height: 60rem;
+}
+
+#sectionDividerVideo {
   width: 100%;
   height: 100%;
   object-fit: fill;
 }
 
-.fullWidthVideoContainer::before {
+@media only screen and (max-width: 1400px) {
+  #sectionDividerVideo {
+    object-fit: cover;
+  }
+}
+
+.sectionDividerVideoContainer::before {
   content: "";
   position: absolute;
   top: 0;
@@ -824,12 +843,15 @@ html {
 
   .highlight {
     max-width: 100%;
-    width: 100%;
+    width: 95%;
+  }
+  .headerWrapper {
+    width: 90%;
   }
 }
 
 @media only screen and (max-width: 1200px) {
-  #video {
+  #sectionDividerVideo {
     object-fit: cover;
   }
 }
@@ -863,7 +885,7 @@ html {
 
 @media only screen and (max-width: 1300px) {
   .contentContainer {
-    width: 95%;
+    width: 90%;
   }
 }
 
@@ -1069,8 +1091,8 @@ html {
   margin-bottom: 15px;
 }
 .contactFormRadioInput {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
 }
 .helpText {
   font-size: var(--text-small);
@@ -1093,8 +1115,8 @@ html {
 
 #termsCheckbox {
   margin-right: 8px;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
 }
 
 #termsAndConditionsErrorBorder {
@@ -1106,7 +1128,7 @@ html {
 #privacyPolicyLink {
   font-size: var(--text-body);
   text-decoration: none;
-  margin-left: 27px;
+  margin-left: 33px;
   color: #a6a6a6;
 }
 #submitButton {

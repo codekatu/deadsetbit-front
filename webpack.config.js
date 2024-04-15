@@ -36,13 +36,6 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       hash: true,
-      template: "./src/pages/banzaiman/template.html",
-      filename: "banzaiman/index.html",
-      chunks: ["banzaiman"],
-    }),
-
-    new HtmlWebpackPlugin({
-      hash: true,
       template: "./src/pages/privacy-policy/template.html",
       filename: "privacy-policy/index.html",
       chunks: ["privacyPolicy"],
@@ -57,7 +50,6 @@ module.exports = {
   entry: {
     index: "./src/index.js",
     empathicBuilding: "./src/pages/empathic-building/index.js",
-    banzaiman: "./src/pages/banzaiman/index.js",
     privacyPolicy: "./src/pages/privacy-policy/index.js",
   },
   output: {
