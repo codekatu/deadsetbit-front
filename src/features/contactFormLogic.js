@@ -127,7 +127,7 @@ export function submitForm() {
     return;
   }
 
-  // form.submit();
+  form.submit();
   form.reset();
   form.style.display = "none";
   thanksForContactingUsContainer[0].style.display = "flex";
