@@ -27,20 +27,6 @@
 
     <!-- Always -->
     <link rel="preload" as="image" href="assets/navbar/logo.svg" />
-    <link rel="preload" as="image" href="assets/employeesSection/phone.svg" />
-    <link rel="preload" as="image" href="assets/employeesSection/email.svg" />
-    <link
-      rel="preload"
-      as="image"
-      href="assets/employeesSection/linkedin.svg"
-    />
-    <link rel="preload" as="image" href="assets/employeesSection/github.svg" />
-    <link rel="preload" as="image" href="assets/employeesSection/gitlab.svg" />
-    <link
-      rel="preload"
-      as="image"
-      href="assets/employeesSection/defaultIcon.svg"
-    />
 
     <!--   600px and upwards -->
     <link
@@ -368,7 +354,6 @@
         </div>
       </section>
 
-      <!-- eb Section -->
       <section class="sectionContainer" id="projects">
         <section class="sectionContainer" id="empathic-building">
           <div id="ebHeaderContainer">
@@ -447,6 +432,13 @@
                 </a>
               </div>
             </div>
+          </div>
+          <div id="readMoreButtonContainer">
+            <a id="readMoreLink" href="/empathic-building">
+              <button id="readMoreButton" type="button">
+                Read more<span class="screenReaderText">Details</span>
+              </button>
+            </a>
           </div>
         </section>
         <!-- banzaiman Section -->
@@ -781,21 +773,6 @@
               <div class="contactPersonImageContainer">
                 <img
                   class="contactPersonImage"
-                  src="assets/employeesSection/pauli.webp"
-                  alt="Hand drawn image of Pauli Ervi"
-                />
-              </div>
-              <div class="contactPersonTextContainer">
-                <h5 class="contactPersonName">Pauli Ervi</h5>
-                <p class="contactReason">Sales</p>
-                <p class="contactPersonEmail">pauli@deadsetbit.com</p>
-                <!-- <p class="contactPersonPhone"></p> -->
-              </div>
-            </div>
-            <div class="contactPersonContainer">
-              <div class="contactPersonImageContainer">
-                <img
-                  class="contactPersonImage"
                   src="assets/employeesSection/jasu.webp"
                   alt="Hand drawn image of Yacine Ouarab"
                 />
@@ -820,6 +797,37 @@
                 <p class="contactReason">General Inquiries</p>
                 <p class="contactPersonEmail">anne@deadsetbit.com</p>
                 <!-- <p class="contactPersonPhone">+358 04 193 3949</p> -->
+              </div>
+            </div>
+
+            <div class="contactPersonContainer">
+              <div class="contactPersonImageContainer">
+                <img
+                  loading="lazy"
+                  class="contactPersonImage"
+                  src="assets/navbar/logo.svg"
+                  alt="DSB logo"
+                  id="deadsetBitLogoContact"
+                />
+              </div>
+              <div class="contactPersonTextContainer">
+                <p class="contactReason">Ruoholahdenkatu 21</p>
+                <p class="contactReason">00180 Helsinki</p>
+                <p class="contactPersonEmail">sales@deadsetbit.com</p>
+                <div id="followUsContainer">
+                  <p class="contactReason">Follow us in:</p>
+                  <a
+                    aria-label="Dead Set Bit linkedIn"
+                    href="https://www.linkedin.com/company/dead-set-bit/"
+                  >
+                    <img
+                      width="30px"
+                      height="30px"
+                      src="assets/ebSection/linkedin-logo-black-font.svg"
+                      alt="LinkedIn logo"
+                    />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

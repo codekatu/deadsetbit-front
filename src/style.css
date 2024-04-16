@@ -19,6 +19,7 @@
 
   --dsb-green: #00b756;
   --dsb-light-green: #13f07b;
+  --footer-background-color: #003a46;
 
   /* margins */
   --margin-xs: 1.25rem;
@@ -67,19 +68,19 @@
 
 html {
   font-family: "Roboto", sans-serif;
-  /* 
+  /*
    Note: In Chromium browsers (e.g., Chrome, Edge), be cautious about potential interference between smooth vertical scrolling and programmatic scrolling on scrollable elements.
 
    If you have programmatic scrolling happening at the same time as smooth vertical scrolling, it will cause the smooth vertical scrolling to stop abruptly.
 
-   E.g. There was a bug that prevented from linking to a specific section from outside the page. 
+   E.g. There was a bug that prevented from linking to a specific section from outside the page.
         Meaning that if you clicked on a link to a specific section (deadsetbit.com/#employees), the page would stay at the top and not scroll to the section.
         This was caused by the programmatic scrolling(element.scrollTop, element.scrollLeft) that was executed at the page load inside a window.onload function.
 
         The fix was to remove the programmatic scrolling from the window.onload.
         (could have removed scroll-behavior: smooth; also but this is a feature that is wanted.)
 
-  Here is a chromium issue ticket about the bug: 
+  Here is a chromium issue ticket about the bug:
   https://issues.chromium.org/issues/41496198
 */
   scroll-behavior: smooth;
@@ -306,8 +307,8 @@ button {
     height: var(--navbar-height-fullScrolled);
   }
 
-  #logoContainer {
-  }
+  /* #logoContainer {
+  } */
 
   #navbarList {
     justify-content: space-between;
@@ -466,8 +467,8 @@ button {
 }
 
 /*
-  
-  
+
+
   -----------------HERO SECTION-----------------
    */
 
@@ -597,6 +598,7 @@ button {
   background-image: linear-gradient(180deg, #f5f1f1 0%, #e6e6e6 100%);
   position: relative;
   overflow: hidden;
+  padding-bottom: var(--margin-medium);
 }
 
 #scrollContainer {
@@ -651,7 +653,6 @@ button {
 
 .technologyCardBodyText {
   margin: 2rem 3rem;
-  font-size: var(--text-xs);
   font-weight: 400;
   font-size: var(--text-small);
   color: var(--dsb-tech-grey);
@@ -790,8 +791,8 @@ button {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #f5f1f1;
-  background: linear-gradient(180deg, #f5f1f1 0%, #e6e6e6 100%);
+  /* background: #f5f1f1;
+  background: linear-gradient(180deg, #f5f1f1 0%, #e6e6e6 100%); */
   z-index: 1;
 }
 
@@ -887,8 +888,30 @@ button {
 /*
   -----------------Projects-----------------
    */
+
 #projects {
   width: 100%;
+}
+
+/* This class is used to hide the text meant only for screen readers.
+   Lighthouse flags "Read more" link as not descriptive enough for screen readers and takes away SEO points because of it.
+   We add invisible Details text meant only for screen readers and Lighthouse to see
+
+   !! Adding aria-label does not fix this
+*/
+.screenReaderText {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  word-break: normal;
 }
 
 /*
@@ -984,6 +1007,27 @@ button {
 #haltianLogo {
   width: 180px;
   height: 43.91px;
+}
+
+#readMoreButtonContainer {
+  padding-bottom: 5rem;
+}
+
+#readMoreButton {
+  background-color: rgba(8, 115, 199, 1);
+  transition: 0.1s;
+  width: 200px;
+  height: 50px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: var(--text-middle);
+  color: white;
+}
+
+#readMoreButton:hover {
+  background-color: rgb(8, 140, 240);
+  color: black;
 }
 
 /*
@@ -1177,8 +1221,8 @@ button {
   overflow-x: none;
   z-index: 5;
   /* Scrollbar Styles */
-  scrollbar-width: thin;
-  scrollbar-color: #555;
+  /* scrollbar-width: thin;
+  scrollbar-color: #555; */
 
   /* WebKit (Chrome, Safari, Edge) Styles */
   scrollbar-track-color: transparent;
@@ -1412,11 +1456,22 @@ button {
     transform: translate(-50%, -50%);
     max-height: calc(100vh - var(--navbar-height-600px) - 10rem);
   }
+  @supports (height: 100dvh) {
+    #employeeInfoContainer {
+      max-height: calc(100dvh - var(--navbar-height-600px) - 10rem);
+    }
+  }
 }
 
 @media only screen and (max-width: 450px) {
   #employeeInfoContainer {
     max-height: calc(100vh - var(--navbar-height-450px) - 9rem);
+  }
+
+  @supports (height: 100dvh) {
+    #employeeInfoContainer {
+      max-height: calc(100dvh - var(--navbar-height-600px) - 10rem);
+    }
   }
 }
 
@@ -1470,6 +1525,24 @@ button {
   max-width: 170px;
 }
 
+#deadsetBitLogoContact {
+  height: 200px;
+}
+@media only screen and (max-width: 600px) {
+  #deadsetBitLogoContact {
+    height: 150px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #deadsetBitLogoContact {
+    height: 100px;
+  }
+}
+
+#followUsContainer {
+  margin-top: 1rem;
+}
 .contactPersonTextContainer {
   display: flex;
   flex-direction: column;
@@ -1544,8 +1617,8 @@ button {
   margin-bottom: 15px;
 }
 .contactFormRadioInput {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
 }
 .helpText {
   font-size: var(--text-small);
@@ -1568,8 +1641,8 @@ button {
 
 #termsCheckbox {
   margin-right: 8px;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
 }
 
 #termsAndConditionsErrorBorder {
@@ -1582,7 +1655,7 @@ button {
 #privacyPolicyLink {
   font-size: var(--text-small);
   text-decoration: none;
-  margin-left: 27px;
+  margin-left: 33px;
 }
 #submitButton {
   width: 200px;
@@ -1678,6 +1751,10 @@ button {
   .contactPersonImage {
     height: 100px;
   }
+
+  .contactPersonTextContainer {
+    margin-right: 0;
+  }
 }
 
 /*
@@ -1689,7 +1766,7 @@ button {
   justify-content: center;
   text-align: center;
   flex-direction: column;
-  background-color: #003a46;
+  background-color: var(--footer-background-color);
   height: 20rem;
   width: 100%;
   align-items: center;

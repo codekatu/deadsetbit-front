@@ -3,9 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="description" content="Empathic Building Description" />
+
+    <title>Empathic Building</title>
+
+    <!--MONTSERRAT FONT-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body id="">
+  <body>
     <div id="pageWrapper">
       <nav id="navbar">
         <div id="navbarList">
@@ -80,118 +90,249 @@
           </ul>
         </div>
       </nav>
-      <div id="content">
-        <div id="heroSection"></div>
-        <div id="infoSectionWrapper">
-          <div
-            class="infoSectionContentContainer"
-            id="firstInfoSectionContentContainer"
+      <section id="heroSection">
+        <div id="heroSectionContent">
+          <video
+            poster="/../assets/ebSection/eb-hero-poster.webp"
+            id="bannerVideo"
+            autoplay
+            loop
+            muted
           >
-            <div class="infoSectionTextbox" id="firstTextBox">
-              <h2 class="infoSectionTextHeader">Empathic Building</h2>
-              <p class="InfoSectionTextHeaderSubtext">
-                Empathic Building is an innovative solution revolutionizing
-                office spaces with advanced desk sharing, effortless room
-                booking, and comprehensive utilization analytics, creating a
-                modern and flexible working environment
-              </p>
-              <h3 class="infoSectionTextSubHeader">Ut Vitae imperdiet.</h3>
-              <p class="infoSectionTextBody">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                vitae urna imperdiet, ornare arcu ut, venenatis turpis. Nulla
-                turpis mi, pulvinar faucibus nulla ut, volutpat sollicitudin
-                sem. Sed a volutpat nibh. Morbi tempus a nisi at dapibus. Donec
-                sed fringilla risus. Mauris volutpat mauris in libero faucibus
-                congue. Morbi eu elit fermentum, molestie neque vitae, placerat
-                lacus. Fusce vel mi est. Donec vulputate eros eget convallis
-                facilisis. Nulla ut eros eget lacus egestas consectetur. Sed
-                vestibulum odio eu finibus vehicula.
-              </p>
-              <p class="infoSectionTextBody">
-                Donec ut facilisis nunc. Vivamus porta risus non eleifend
-                vulputate. Aliquam sollicitudin consectetur egestas. In nec
-                magna in nunc faucibus ullamcorper. Aenean in nisl a purus
-                fringilla semper. Ut egestas, nunc non consequat aliquet, velit
-                erat viverra orci, sit amet placerat quam diam ut tellus.
-                Aliquam felis ipsum, facilisis a posuere in, ultricies eget ex.
-                Maecenas maximus elementum finibus. Aliquam id neque ac arcu
-                vestibulum ultricies ac eu tellus. Pellentesque blandit tortor
-                vitae libero gravida pulvinar. Donec volutpat tempus sem dapibus
-                facilisis.
-              </p>
+            <source src="/../assets/ebSection/eb-hero.mp4" type="video/mp4" />
+          </video>
+          <div id="bannerVideoOverlay"></div>
+          <div id="bannerVideoTextContainer">
+            <h1 id="heroHeader">
+              Creating an IoT-Platform and a Digital Twin Visualization Solution
+            </h1>
+            <h2 id="heroSubHeader">
+              From MVP to multi-million dollar success with the help of Dead Set
+              Bit developers
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="summarySection">
+        <div id="summarySectionContent">
+          <div id="servicesAndTechnologyContainer">
+            <div class="servicesAndTechnologyBox" id="services">
+              <p class="servicesAndTechnologyHeader">Services provided</p>
+              <div class="serviceAndTechList">
+                <h3 class="servicesAndTechnologyText">
+                  Product Conception Services
+                </h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">Architecture</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">Advisory Consulting</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">Python Development</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">Web Development</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">Programming Workshop</h3>
+              </div>
             </div>
-            <div class="infoSectionImageContainer" id="firstImageContainer">
-              <!-- set as a backgorund image -->
+            <div class="servicesAndTechnologyBox" id="tecnologies">
+              <p class="servicesAndTechnologyHeader">Technologies used</p>
+              <div class="serviceAndTechList">
+                <h3 class="servicesAndTechnologyText">Python</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">JavaScript</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">TypeScript</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">WebGL</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">React</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">Azure</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">PostgreSQL</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">TimescaleDB</h3>
+                <p class="servicesAndTechnologyText delimiter">|</p>
+                <h3 class="servicesAndTechnologyText">
+                  Internet of things (IoT)
+                </h3>
+              </div>
             </div>
           </div>
-          <div
-            class="infoSectionContentContainer"
-            id="secondInfoSectionContentContainer"
-          >
-            <div
-              class="infoSectionImageContainer"
-              id="secondImageContainer"
-            ></div>
-            <div class="infoSectionTextbox" id="secondTextBox">
-              <h3 class="infoSectionTextSubHeader">Ut Vitae imperdiet.</h3>
-              <p class="infoSectionTextBody">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                vitae urna imperdiet, ornare arcu ut, venenatis turpis. Nulla
-                turpis mi, pulvinar faucibus nulla ut, volutpat sollicitudin
-                sem. Sed a volutpat nibh. Morbi tempus a nisi at dapibus. Donec
-                sed fringilla risus. Mauris volutpat mauris in libero faucibus
-                congue. Morbi eu elit fermentum, molestie neque vitae, placerat
-                lacus. Fusce vel mi est. Donec vulputate eros eget convallis
-                facilisis. Nulla ut eros eget lacus egestas consectetur. Sed
-                vestibulum odio eu finibus vehicula.
-              </p>
-              <p class="infoSectionTextBody">
-                Donec ut facilisis nunc. Maecenas maximus elementum finibus.
-                Aliquam id neque ac arcu vestibulum ultricies ac eu tellus.
-                Pellentesque blandit tortor vitae libero gravida pulvinar. Donec
-                volutpat tempus sem dapibus facilisis.
-              </p>
-              <p class="infoSectionTextBody">
-                • onec ut facilisis nunc. Vivamus porta risus non eleifend
-                vulputate. Aliquam sollicitudin consectetur egestas. In nec
-                magna in nunc faucibus ullamcorper. Aenean in nisl a purus
-                fringilla semper
-              </p>
-              <p class="infoSectionTextBody">
-                • Aliquam felis ipsum, facilisis a posuere in, ultricies eget
-                ex. Maecenas maximus elementum finibus.
-              </p>
-              <p class="infoSectionTextBody">
-                • Morbi eu elit fermentum, molestie neque vitae, placerat lacus.
-                Fusce vel mi est. Donec vulputate eros eget convallis facilisis
-              </p>
-              <p class="infoSectionTextBody">
-                • Fusce vel mi est. Donec vulputate eros eget convallis
-                facilisis. Nulla ut eros eget lacus egestas consectetur
+
+          <div id="summarySectionContentContainer">
+            <div class="summarySectionContentBox" id="summaryBox">
+              <h4 class="summarySectionContentBoxHeader">Summary</h4>
+              <p class="bodyText">
+                We helped TietoEVRY and later Haltian to develop the technical
+                side of their Empathic Building product line as well as design
+                the overall product concept. Dead Set Bit delivered a turn-key
+                solution which included architecture design, implementation of a
+                scalable IoT-backend using Python as well as multiple
+                React-based progressive web applications. With the help of Dead
+                Set Bit and the Empathic Building solution, Haltian has raised
+                over 40meur from prestigious VC-funds from Finland and abroad. 
+                Our tight-knitted co-operation has lasted for over 8 years
+                already and still continues to this day covering a wide array of
+                technical domains.
               </p>
             </div>
-          </div>
-          <div id="quoteBoxContainer">
-            <div id="quoteBox">
-              <h3 id="quoteHeader">Ut Vitae imperdiet.</h3>
-              <p id="quoteText">
-                " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                vitae urna imperdiet, ornare arcu ut, venenatis turpis. Nulla
-                turpis mi, pulvinar faucibus nulla ut, volutpat sollicitudin
-                sem. Sed a volutpat nibh. Morbi tempus a nisi at dapibus. Donec
-                sed fringilla risus. Mauris volutpat mauris in libero faucibus
-                congue. Morbi eu elit fermentum, molestie neque vitae, placerat
-                lacus. Fusce vel mi est. Donec vulputate eros eget convallis
-                facilisis. Nulla ut eros eget lacus egestas consectetur. Sed
-                vestibulum odio eu finibus vehicula. "
-                <br />
-                <br />
-                <span id="quoteAuthor">John Doe, --- of Empathic Building</span>
+            <div class="summarySectionContentBox" id="summaryBox">
+              <h4 class="summarySectionContentBoxHeader">About the client</h4>
+              <p class="bodyText">
+                Haltian is a Finnish IoT-company that specializes in making
+                simple and effective IoT technology to streamline everyday
+                working life. Haltian’s Empathic Building solution is the
+                cornerstone of their SaaS offering, covering different use-cases
+                in office, hospital and warehouse environments, where
+                visualization of IoT data is of paramount interest to the
+                end-users of the building. To date, Haltian has raised over 40
+                million euros in funding. The Empathic Building solution is
+                trusted by companies globally. Customers include companies such
+                as Uniper (DE), Telefonica (ES), Shimizu Corporation (JP), Telia
+                (SE) & National Health Service (UK).
               </p>
             </div>
           </div>
         </div>
+      </section>
+      <section class="section" id="highlightsSection">
+        <div id="highlightsSectionContent">
+          <div id="highlightsBox">
+            <div class="headerWrapper">
+              <h4 id="highLightsBoxHeader">Highlights</h4>
+            </div>
+            <div id="highlightsContainer">
+              <div class="highlight">
+                <h5 class="highlightTitle">World-class visualizations</h5>
+                <p class="bodyText highlightText">
+                  From visualizing individual buildings to entire surrounding
+                  areas, our in-house developed WebGL based DSB Web Application
+                  Engine ensures unparalleled 2D & 3D visualization capabilities
+                  within the browser environment.
+                </p>
+              </div>
+              <div class="highlight">
+                <h5 class="highlightTitle">Architecture for the whole stack</h5>
+                <p class="bodyText highlightText">
+                  Designing and implementing both backend and frontend
+                  architectures from zero to hero while making sure both are
+                  kept adaptable enough for the usual pivots of a startup
+                  company.
+                </p>
+              </div>
+              <div class="highlight">
+                <h5 class="highlightTitle">Highly performant interfaces</h5>
+                <p class="bodyText highlightText">
+                  From a REST API capable of handling +300 000 000 requests each
+                  month to enabling real-time communications efficiently between
+                  the server and clients through web socket and MQTT technology.
+                </p>
+              </div>
+              <div class="highlight">
+                <h5 class="bodyText highlightTitle">
+                  Connectivity to third party systems
+                </h5>
+                <p class="bodyText highlightText">
+                  Implementing +20 integrations to third party platforms, from
+                  Office 365 to real-time location systems (RTLS) and everything
+                  in between. Connectivity is key.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="sectionDividerVideoContainer">
+        <video autoplay muted loop id="sectionDividerVideo">
+          <source src="/../assets/ebSection/eb-video1.mp4" type="video/mp4" />
+        </video>
       </div>
+      <section class="section" id="howWeDidItSection">
+        <div id="howWeDidItContent">
+          <div class="contentContainer">
+            <h4 class="contentSectionHeader">
+              First of Its Kind, An End-User Interface For Buildings
+            </h4>
+            <p class="bodyText">
+              Empathic Building makes building data visible for the end-users of
+              the building, helping them more effectively navigate around the
+              taken, which are reserved in the future and where colleagues are
+              workplace. Users can see which rooms and desks are currently at
+              the moment. It achieves this by combining data from different
+              IoT-sensors, cloud services such as Microsoft’s Office365 and
+              dedicated real-time location services (RTLS). Users are able to
+              interact with the building and improve it by leaving service
+              tickets and feedback in specific locations, thereby also making
+              management of the building easier. For facility management the
+              solution enables the ability to generate reports on the usage of
+              floors even down to individual tables, rooms and areas to better
+              improve the working place and different areas of it. Whether an
+              office building, a hospital or a warehouse, the versatile solution
+              is able to cater to many different use-cases and sectors of
+              business.
+            </p>
+          </div>
+          <div class="contentContainer">
+            <h4 class="contentSectionHeader">How we did it</h4>
+            <p class="bodyText">
+              The futuristic idea of visualizing invisible building data for the
+              actual end-users of the building was not commonplace in 2016.
+              Together with TietoEVRY’s startup incubator, we implemented a
+              fully-functioning MVP in 6 months time, after which the product
+              was officially launched at the international tech and startup
+              event Slush in 2017.
+            </p>
+            <p class="bodyText">
+              Given the novelty of the concept and absence of any comparable
+              implementations, we had to come up with new and innovative
+              approaches for implementing the required features. This included
+              using our proprietary game engine to render buildings within the
+              end-user's browser environment quickly with extremely low memory
+              overhead and load times. To support our end-goals, we created
+              versatile and extendable formats for storing information about the
+              buildings themselves, down to individual IoT-sensor measurement
+              formats.
+            </p>
+
+            <p class="bodyText">
+              Throughout, end-user experience remained the cornerstone of our
+              technical and product design efforts. 
+            </p>
+          </div>
+        </div>
+      </section>
+      <div class="sectionDividerVideoContainer">
+        <video autoplay muted loop id="sectionDividerVideo">
+          <source src="/../assets/ebSection/eb-video2.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <section class="section" id="quoteSection">
+        <div id="quoteSectionContentContainer">
+          <h3 id="quoteHeader">Greetings From a Happy Customer</h3>
+          <div id="quoteBox">
+            <p class="bodyText" id="quoteText">
+              Without Dead Set Bit, I could not have realized my – back then –
+              futuristic idea of Empathic Building. From a startup accelerator
+              participant to a multi-million business, Dead Set Bit has been
+              there every step of the way offering excellent technical expertise
+              on various matters. Even when the requirements have been unclear
+              or the ideas high-flying, you’ve managed to deliver exactly what
+              has been wanted. I’ve been in the IT industry for over 30 years
+              and can confidently say that you guys are the best at what you do!
+            </p>
+            <div id="quoteAuthorContainer">
+              <div id="authorImage"></div>
+              <p class="bodyText" id="quoteAuthor">
+                Tomi Teikko, Founder of Empathic Building and CEO of Haltian
+                Inc.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="sectionContainer" id="contact-us">
         <h3 id="contactSectionHeader">Contact us</h3>
         <h4 id="contactSectionSubHeader">
@@ -204,45 +345,64 @@
               <div class="contactPersonImageContainer">
                 <img
                   class="contactPersonImage"
-                  src="assets/employeesSection/pauli.webp"
-                  alt="Hand drawn image of Pauli Ervi"
-                />
-              </div>
-              <div class="contactPersonTextContainer">
-                <h5 class="contactPersonName">Pauli Ervi</h5>
-                <p class="contactReason">Sales</p>
-                <p class="contactPersonEmail">pauli@deadsetbit.com</p>
-                <!-- <p class="contactPersonPhone"></p> -->
-              </div>
-            </div>
-            <div class="contactPersonContainer">
-              <div class="contactPersonImageContainer">
-                <img
-                  class="contactPersonImage"
-                  src="assets/employeesSection/jasu.webp"
+                  loading="lazy"
+                  src="/../assets/employeesSection/jasu.webp"
                   alt="Hand drawn image of Yacine Ouarab"
                 />
               </div>
               <div class="contactPersonTextContainer">
-                <h5 class="contactPersonName">Yacine Ouarab</h5>
-                <p class="contactReason">Sales</p>
-                <p class="contactPersonEmail">jasu@deadsetbit.com</p>
-                <!-- <p class="contactPersonPhone"></p> -->
+                <h5 class="bodyTextContact contactPersonName">Yacine Ouarab</h5>
+                <p class="bodyTextContact">Sales</p>
+                <p class="bodyTextContact">jasu@deadsetbit.com</p>
+                <!-- <p class="bodyTextContact">+358 1234 56 7890</p> -->
               </div>
             </div>
             <div class="contactPersonContainer">
               <div class="contactPersonImageContainer">
                 <img
+                  loading="lazy"
                   class="contactPersonImage"
-                  src="assets/employeesSection/anne.webp"
+                  src="/../assets/employeesSection/anne.webp"
                   alt="Hand drawn image of Anne Kotiranta"
                 />
               </div>
               <div class="contactPersonTextContainer">
-                <h5 class="contactPersonName">Anne Kotiranta</h5>
-                <p class="contactReason">General Inquiries</p>
-                <p class="contactPersonEmail">anne@deadsetbit.com</p>
-                <!-- <p class="contactPersonPhone">+358 04 193 3949</p> -->
+                <h5 class="bodyTextContact contactPersonName">
+                  Anne Kotiranta
+                </h5>
+                <p class="bodyTextContact">General Inquiries</p>
+                <p class="bodyTextContact">anne@deadsetbit.com</p>
+                <!-- <p class="bodyTextContact">+358 1234 56 7890</p> -->
+              </div>
+            </div>
+            <div class="contactPersonContainer">
+              <div class="contactPersonImageContainer">
+                <img
+                  loading="lazy"
+                  class="contactPersonImage"
+                  src="/../assets/navbar/logo.svg"
+                  alt="DSB logo"
+                  id="deadsetBitLogoContact"
+                />
+              </div>
+              <div class="contactPersonTextContainer">
+                <p class="bodyTextContact">Ruoholahdenkatu 21</p>
+                <p class="bodyTextContact">00180 Helsinki</p>
+                <p class="bodyTextContact">sales@deadsetbit.com</p>
+                <div id="followUsContainer">
+                  <p class="bodyTextContact">Follow us in:</p>
+                  <a
+                    aria-label="Dead Set Bit linkedIn"
+                    href="https://www.linkedin.com/company/dead-set-bit/"
+                  >
+                    <img
+                      width="30px"
+                      height="30px"
+                      src="/../assets/ebSection/linkedin-logo-black-font.svg"
+                      alt="LinkedIn logo"
+                    />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -378,6 +538,7 @@
         </div>
       </section>
 
+      <!-- Footer -->
       <footer class="sectionContainer" id="footer">
         <p>
           <br />

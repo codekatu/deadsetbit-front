@@ -1,5 +1,4 @@
 import "../../reset.css";
-import "../../fonts.css";
 import "./style.css";
 
 import { navbarScrollResponsive } from "../../features/responsiveNavbar";

@@ -28,12 +28,12 @@ module.exports = {
       filename: "index.html",
       chunks: ["index"],
     }),
-    // new HtmlWebpackPlugin({
-    //   hash: true,
-    //   template: "./src/pages/empathic-building/template.html",
-    //   filename: "empathic-building/index.html",
-    //   chunks: ["empathicBuilding"],
-    // }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      template: "./src/pages/empathic-building/template.html",
+      filename: "empathic-building/index.html",
+      chunks: ["empathicBuilding"],
+    }),
     new HtmlWebpackPlugin({
       hash: true,
       template: "./src/pages/privacy-policy/template.html",
@@ -49,7 +49,7 @@ module.exports = {
   mode: "none",
   entry: {
     index: "./src/index.js",
-    // empathicBuilding: "./src/pages/empathic-building/index.js",
+    empathicBuilding: "./src/pages/empathic-building/index.js",
     privacyPolicy: "./src/pages/privacy-policy/index.js",
   },
   output: {

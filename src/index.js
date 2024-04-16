@@ -491,6 +491,7 @@ const move = (e) => {
 window.addEventListener("scroll", navbarScrollResponsive);
 // adds event listener to mouse move that calls throttle function with dogEyeMove function and a timeout that limits the amount of times the function is called
 window.addEventListener("mousemove", throttle(dogEyeMove, 25));
+
 // event listener to the scrollContainer so that the navigation buttons color changes when user scrolls manually. Also add throttle function to limit the amount of times the function is called
 scrollContainer.addEventListener(
   "scroll",

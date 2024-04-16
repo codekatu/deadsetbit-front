@@ -398,7 +398,6 @@ html {
   #logoContainer {
     margin-left: var(--margin-small);
     margin-right: var(--margin-xs);
-    /* margin-left: 0; */
     width: 4.25rem;
     height: 4.25rem;
     top: 0;
@@ -413,7 +412,7 @@ html {
   }
 }
 
-@media only screen and (max-width: 778px) {
+@media only screen and (max-width: 795px) {
   #navbar {
     height: var(--navbar-height-600px);
     background-color: var(--dsb-dark);
